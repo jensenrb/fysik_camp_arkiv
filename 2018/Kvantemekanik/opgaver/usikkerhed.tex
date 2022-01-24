@@ -1,0 +1,62 @@
+\section*{Usikkerheder/Usikkerhedsrelationer}
+\begin{opgave}{Parabelformet bølgefunktion igen}{1}
+Denne opgave bygger videre på opgave \ref{kvant:opg:parabel}, så det er en fordel at have lavet denne opgave først. Vi ser igen på en parabelformet bølgefunktion i en uendelig brønd:
+$$
+\psi=Nx(L-x)
+$$
+\opg Hvad er $\sigma_x^2 = \expect{x^2}-\expect{x}^2$?
+\opg Hvad er $\sigma_p^2 = \expect{p^2}-\expect{p}^2$?
+\opg Passer det med Heisenbergs usikkerhedsprincip?
+\end{opgave}
+%
+\begin{opgave}{Den frie partikel}{2}
+En fri partikel er en partikel, der ikke påvirkes af noget potentiale, så $V(x)=0$ for alle $x$.
+\opg Hvad er $\op H$?
+\opg Hvad er $[\op p,\op H]$?
+\opg Hvilke bølgefunktioner opfylder: 
+$$
+\op p \psi_p = -i\hbar\pdif{x}{\psi_p} = p\psi_p
+$$
+OBS: $\op p$ er en operator, og $p$ er et tal.
+\opg Hvad sker der, hvis man sætter $\psi_p$ ind i Schrödingerligningen?
+\opg Hvad er sammenhængen imellem $E$og $p$?
+\opg Hvad er $\sigma_p$ og $\sigma_E$?
+\end{opgave}
+%
+\begin{opgave}{En anden usikkerhedsrelation}{3}
+Da vi så på usikkerhedsrelationen, så vi primært på:
+$$
+\sigma_x\sigma_p \geq \frac{\hbar}{2}
+$$
+Så længe vi har to operatorer, kan vi opstille tilsvarende relationer.
+Der er en ofte anvendt tilsvarende relation for energi og tid:
+$$
+\sigma_E\sigma_t \geq \frac{\hbar}{2}
+$$
+På trods af at de to relationer er næsten identiske, er det ikke muligt at udlede den sidste, på samme måde som vi gjorde med den første.\footnote{I den specielle relativitetsteori er position og tid to sider af samme sag. Tilsvarende for impuls og energi. Det er muligt at kombinere speciel relativitet med kvantemekanikken, men så må vi finde en erstatning til Schrödingerligningen, der bestemt ikke ligestiller $x$ og $t$.}\\
+Lad $\op Q$ være en operator, der eksplicit afhænger af $x$, $p$ og $t$.
+\opg Vis at:
+$$
+\dif{t}{\expect Q} = \braket{\pdif{t}{\Psi}}{\op Q\Psi}+\braket{\Psi}{\pdif{t}{\op Q}\Psi}+\braket{\Psi}{\op Q\pdif{t}{\Psi}}
+$$
+\opg Udnyt Schrödingerligningen:
+$$
+i\hbar\pdif{t}{\Psi} = \op H\Psi
+$$
+til at vise:
+$$
+\dif{t}{\expect Q} = \frac{1}{\hbar}\expect{[\op H,\op Q]}+\expect{\pdif{t}{{\op Q}}}
+$$
+Operatorer der eksplicit afhænger af $t$ er ret sjældne, så fremover vil vi antage, at $\op Q$ er uafhængig af $t$.
+\opg Hvordan ændrer denne antagelse resultatet af de to foregående delopgaver?
+\opg Brug den generelle usikkerhedsrelation til at vise:
+$$
+\sigma_H\sigma_Q \geq \frac{\hbar}{2}\abs{\dif{t}{\expect{\op Q}}}
+$$
+$\sigma_t$ kan defineres som den tid der går, før forventningsværdien af en vilkårlig observable ændrer sig med en standardafvigelse. Skrevet som  en formel er det:
+$$
+\sigma_t = \frac{\sigma_Q}{\abs{\d \expect{Q}/\d t}}
+$$
+\opg Brug den nyligt fundne ulidelighed til at finde energi- tid usikkerhedsrelationen.\\
+Hint: $\op H=\op H^*$ og $\braket{\op H\Psi}{\op Q\Psi}=\braket{\Psi}{\op H\op Q \Psi}$.
+\end{opgave}

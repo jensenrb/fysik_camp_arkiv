@@ -1,0 +1,92 @@
+\subsection{Operatorer}
+I kvantemekaniken er operatorer meget vigtige, men hvad er de egentligt. På mange måder minder operatorer om en funktion, men istedet for at tage et tal som input og give et nyt tal vil en operator virke på en funktion og give en ny funktion. Operatorerne virker på alle funktioner til højre for dem, og efterlader alle til vestre for dem urørt.
+En type operator de fleste nok er bekendt med er differetnialoperatoren: $\dif{x}{}$ Derudover er ting som at gange med en funktion eller et lat også operatorer. I kvantemekaniken er alle observable representeret af operatorer. Vi har allerede stiftet bekendskab med en observabel, $x$.
+
+Forventingsværdien er den gennemsnitlige værdi vores observable vil have når man måler. Det er normalt også den værd man ville forvente ud fra klassisk mekanik. Hvis vi ønsker at finde en operator for hastigheden må vi stille det krav at forventningsværdien svarer til den klassiske hastighed:
+$$
+\expect v = \pdif{t}{\expect x}
+$$
+Siden $\op x$ blot er operatoren der ganger med funktionen $f(x)=x$ vil vi kunne ombytte funktionerne i udtrykket for $\expect x$ frit. Udtrykket er på samme form som i ligning \eqref{kvant:eq:forvent}. Da de er 
+$$
+\expect v = 
+\pdif{t}{} \integral{\Psi^*\op x\Psi}{x}{-\infty}{\infty} = 
+\integral{x\pdif{t}{}\abs{\Psi}^2}{x}{-\infty}{\infty}
+$$
+For at finde $\pdif{t}{}\abs{\Psi}^2$ bruges kæderegelen:
+$$
+\pdif{t}{}\abs{\Psi}^2 = \Psi^*\pdif{t}{\Psi}+\Psi\pdif{t}{\Psi^*}
+$$
+Ved at isolere $\pdif{t}{\Psi}$ i schrödingerligningen \eqref{kvant:eq:sch} og ved at kompleks konjugere er det muligt at erstatte tids differentieringen med $x$ differentialer:
+\begin{align*}
+\pdif{t}{\Psi} &= \frac{i\hbar}{2m}\pdif[2]{x}{\Psi}-\frac{i}{\hbar}V\Psi\\
+\pdif{t}{\Psi^*} &= \frac{-i\hbar}{2m}\pdif[2]{x}{\Psi^*}+\frac{i}{\hbar}V\Psi^*
+\end{align*}
+Det giver forventingsværdien for hastigheden som:
+$$
+\expect v = \frac{i\hbar}{2m}\integral{x
+\left( 
+\Psi^*\pdif[2]{x}{\Psi}-\frac{2m}{\hbar^2}\abs{\Psi}^2V
+-\Psi\pdif[2]{x}{\Psi^*}+\frac{2m}{\hbar^2}\abs{\Psi}^2V
+\right)}{x}{-\infty}{\infty} 
+=
+\frac{i\hbar}{2m}\integral{x\left(\Psi^*\pdif[2]{x}{\Psi}-\Psi\pdif[2]{x}{\Psi^*}\right)}{x}{-\infty}{\infty}
+$$
+Ofte kan udregninger gøres lettere ved at lægge nul til på en smart måde. I dette tilfælde $\pdif{x}{\Psi}\pdif{x}{\Psi^*}-\pdif{x}{\Psi}\pdif{x}{\Psi^*}$. Vi kan herefter anvende kæderegelen baglæns.
+$$
+\expect v = \frac{i\hbar}{2m}\integral{x\left(\Psi^*\pdif[2]{x}{\Psi}+\pdif{x}{\Psi}\pdif{x}{\Psi^*}-\Psi\pdif[2]{x}{\Psi^*}-\pdif{x}{\Psi}\pdif{x}{\Psi^*}\right)}{x}{-\infty}{\infty} = 
+\frac{i\hbar}{2m}\integral{x\pdif{x}{}\left(\Psi^*\pdif{x}\Psi-\Psi\pdif{x}\Psi\right)}{x}{-\infty}{\infty}
+$$
+Når man finde differentialet af et produkt af funktioner bruger man kæderegelen. Tilsvarende findes der er regel for integralet kaldet delvis integral. Desværre er udtrykket ikke lige så pænt.
+$$
+\integral{f\dif{x}{g}}{x}{a}{b} = -\integral{\dif{x}{f}g}{x}{a}{b}+[fg]_a^b
+$$
+Hvis vores bølgefunktion er normaliserbar må den gå imod 0 i det uendeligt fjærne i begge retninger. Andet led vil derfor være nul når vi arbejder med bølgefunktioner, og kan smides væk. 
+Delvis integration giver forventningsværdien:
+$$
+\expect v = \frac{-i\hbar}{2m}\integral{\pdif{x}{x}
+\left(\Psi^*\pdif{x}{\Psi}-\Psi\pdif{x}{\Psi^*}\right)
+}{x}{-\infty}{\infty}=
+\frac{-i\hbar}{2m}\integral{
+\Psi^*\pdif{x}{\Psi}-\Psi\pdif{x}{\Psi^*}
+}{x}{-\infty}{\infty}
+$$
+Anvendes delvis integration en gang til på andet led ender vi med et resultat på samme form som ligning \eqref{kvant:eq:forvent}.
+$$
+\expect v = \frac{-i\hbar}{2m}\integral{\Psi^*\pdif{x}\Psi}{x}{-\infty}{\infty}+\frac{i\hbar}{2m}\integral{Psi\pdif{x}\Psi^*}{x}{-\infty}{\infty} = \frac{-i\hbar}{m}\integral{\Psi^*\pdif{x}{}\Psi}{x}{-\infty}{\infty}
+$$
+Herfra er det unligt at slutte at hastighedsoperatoren er:
+\begin{equation}
+\op v = \frac{-i\hbar}{m}\pdif{x}{}
+\end{equation}
+Nu hvor vi har operatorer for position og hastighed er det muligt at konstruere operatorer for andre observable herudfra.
+\begin{table}[h]
+\center
+\begin{tabular}{c|c|c}
+Observabel & Klassisk udtryk & Operator \\\hline
+Position & $x=x$ & $\op x = x$\\
+Hastighed & $v = \pdif{t}{x}$ & $\op v = \frac{-i\hbar}{m}\pdif{x}{}$\\
+Impuls & $p = mv$ & $\op p = -i\hbar\pdif{x}{}$\\
+Energi & $E=\frac{1}{2}mv^2+V$ & $\op H = -\frac{\hbar^2}{2m}\pdif[2]{x}{}+V$
+\end{tabular}
+\caption{Et par af de mest almindelige observable og deres operatorer.}
+\end{table}
+Når man regner med tal eller funktioner er vi vandt til at rækkefølgen vi ganger eller lægger sammen ikke har nogen betydning for resultatet.
+\begin{align*}
+a+b&=b+a\\
+ab &= ba
+\end{align*}
+Denne egenskab kaldes kommutativitet, og det er ikke garanteret at operatorer. For at undersøge om to operatorer kommuterer udregner man den såkaldte kommutator:
+\begin{equation}
+[\op A,\op B] = \op A \op B-\op B \op A
+\end{equation}
+Hvis kommutatorern er nul vil de to operatorer kommutere (tjek efter at det gælder for tal). Det kan ofte være en udfordring at regne med operatorer så det kan være et fordel at finde kommutatoren gange en hjælpe funktion. Lad os for at demonstrere se på $[\op x,\op p]$
+$$
+[\op x,\op p] f(x) = -i\hbar\left(\op x\pdif{x}{}-\pdif{x}{}\op x\right) = -i \hbar \left(x\pdif{x}{f}-\pdif{x}{}xf(x)\right)=-i\hbar \left(x\pdif{x}{f}-\pdif{x}{x}-x\pdif{x}{f}\right) = i\hbar f(x)
+$$
+Nu har hjælpe funktionen spillet sin rolle, og kan roligt fjærnes. Det giver at kommutatoren er:
+\begin{equation}
+[\op x,\op p] = i\hbar
+\label{kvant:eq:kankom}
+\end{equation}
+Det skal senere vis sig at dette resultat har stor betydning for kvante mekaninkken, og det muligt at bruge værdien af kommutatoren som en af forudsætningerne til at udlede kavantemekanikken.
+Det kalden den knoniske kommutator relation.

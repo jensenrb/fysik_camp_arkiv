@@ -1,0 +1,49 @@
+\begin{opgave}{Hyperfinstruktur for 21 cm linjen}{1}
+Vi vil i denne opgave arbejde med den hyperfinestruktur for en elektron i grundtilstanden af et brin-tatom.
+\opg Kernen er en proton med spin $\frac{1}{2}$, find alle værdier af F. Hvorfor er det ikke nødvendigt at kende $l$ for elektronen?\\
+Da vi arbejder med grundtilstanden er $l=0$, altid!.\\
+$J,I=\frac{1}{2}$, dvs:
+$$F=|J+I|,|J+I-1|,..,|J-I|$$
+Hvilket giver F=1,0.
+\opg Udregn konstanten A for grundtilstanden.
+ Bemærk at $g_I = 5,58569468$
+$$A=\frac{2}{3}\mu_0g_s\mu_Bg_I\mu_N\frac{Z^3}{\pi a_o^3}=\SI{9,428e-25}{J} =$$
+\opg Find energiopsplitningen mellem tilstandende.\\
+Da energien er givet ved $E=A\left<\hat{J}\cdot\hat{I}\right>$, får vi energien for de to forskellige tilstande af F til:\\
+For F=1
+$$\left<\hat{J}\cdot\hat{I}\right>=\frac{1}{2}(1(1+1)-\frac{1}{2}(\frac{1}{2}+1)-\frac{1}{2}(\frac{1}{2}+1))=\frac{1}{2}(\frac{1}{2})=\frac{1}{4}$$
+så $E_{F=1}=\frac{A}{4}$\\
+For F=0
+$$\left<\hat{J}\cdot\hat{I}\right>=\frac{1}{2}(0(0+1)-\frac{1}{2}(\frac{1}{2}+1)-\frac{1}{2}(\frac{1}{2}+1))=\frac{1}{2}(\frac{-6}{4})=\frac{-3}{4}$$
+$E_{F=0}=\frac{-3}{4}A$
+Energiforskellen mellem de to tilstande bliver derfor:
+$$\Delta E=E_{F=1}-E_{F=0}=\frac{1}{4}A-\frac{-3}{4}A=A$$
+\opg Udregn bølgelængden af det lys som har en energi svarende til energiforskellen mellem de to tilstande.
+$$E_{lys}=h\cdot f$$
+$$c=\lambda\cdot f$$
+så:
+$$E_{lys}=\frac{h\cdot c}{\lambda}=A$$
+Hvilket giver:
+$$\lambda=\frac{h\cdot c}{A} = \SI{21,07}{cm}$$
+\end{opgave}
+\begin{opgave}{Hyperfinstruktur for atomure}{2}
+Vi vil i denne opgave arbejde med et cæsium atom, som det er beskrevet i teksten.
+Spinnet for et cæsium kerne er I=$\frac{7}{2}$ og vi vil i denne opgave arbejde med n=6 tilstanden.
+\opg Find alle F tilstande for l=0.\\
+$$F=|J+I|,|J+I-1|,..,|J-I|$$
+Hvilket giver F=4,3.
+\opg Udregn energiopsplitningen for tilstandende.\\
+For F=4
+$$\left<\hat{J}\cdot\hat{I}\right>=\frac{1}{2}(4(4+1)-\frac{7}{2}(\frac{7}{2}+1)-\frac{1}{2}(\frac{1}{2}+1))=\frac{7}{4}$$
+For F=3
+$$\left<\hat{J}\cdot\hat{I}\right>=\frac{1}{2}(3(3+1)-\frac{7}{2}(\frac{7}{2}+1)-\frac{1}{2}(\frac{1}{2}+1))=\frac{-9}{4}$$
+Dvs. at energiforskellen mellem tilstandene er:
+$$\Delta E=E_{F=4}-E_{F=3}=\frac{7}{4}A_n-\frac{-9}{4}A_n=4A_n$$
+Da $A_n=A_1\frac{1}{n^3}$ så da n=6 får vi den samlede energiforskel til at være:
+$$\Delta E=\frac{4}{6^3}A_1$$
+Hvor $A_1$ er værdien af A vi fandt i opgaven om hyperfin opsplitningen for grundtilstandsenergien.
+\opg Udregn frekvensen af det lys der bliver udsendt fra denne overgang.
+$$E_{lys}=h\cdot f=\Delta E$$
+$$\frac{4}{6^3}A_1=h\cdot f$$
+$$f=\frac{4}{6^3}\frac{A_1}{h}$$
+\end{opgave}

@@ -1,0 +1,76 @@
+\section{Matricer og lineære transformationer}
+
+En lineær transformation er en funktion, der opfylder to krav. At summen af to vektorer transformeret, er lig summen af de to vektorer transformerets sum.
+Lineære transformationer tager en vektor som indput, og giver en ny vektor som output. Tænk på tranformationen som $f$ i $f(x)$ og vektoren som $x$.
+\begin{equation}
+T(\v v+\v u) = T(\v v) + T(\v u)
+\end{equation}
+Det andet krav er at det samme gælder når man ganger med et tal.
+\begin{equation}
+T(a\v v) = aT(\v v)
+\end{equation}
+I en dimension er funktioner af formen $f(x) = ax$ den eneste type hvor det gælder, derfor navnet lineær.
+
+Siden en vektor altid kan beskrives som en sum af vores enhedsvektorer, er det kun nødvendigt at vide hvordan de transformerer for at vide hvordan alle vektorer transformerer. En simpel lineær transformation i $xy$-planen er spejling i $x$ aksen. Her er $\xhat$ uændret og $\yhat$ skrifter fortegn.
+\begin{align}
+S_x(\xhat) &= \xhat\\
+S_x(\yhat) &= -\yhat
+\end{align}
+Med denne viden er det muligt at spejle en hver vektor i $x$-aksen:
+\begin{equation}
+S(\v v) = S(v_x\xhat+v_y\yhat) = v_xS(\xhat)+v_yS(\yhat) = v_x\xhat-v_y\yhat = \xy{v_x}{-v_y}
+\end{equation}
+Dette er en mulig måde at gøre det på, men det bliver hurtigt grimt for bare lidt mere komplicerede udregninger. Istedet beskrives lineære transformationer oftest med matricer. Lige som en vektor kan skrives som en søjle af tal kan en matrix skrives som et rektangulært skema. Matricer kan have vilkårlig størelse, men vi vil primært beskæftige os med $2\times 2$ matricer.
+Ser man transformationen som $f$ i $f(x)$ vil matricen svare til ligningen der beskriver funktionen.
+
+\begin{equation}
+\v A= \begin{bmatrix}
+a & b\\c&d
+\end{bmatrix}
+\end{equation}
+
+Matricer lægges sammen og ganges med tal indgangsvist, lige som vektorer.
+\begin{align}
+\v A_1+\v A_2 &= \begin{bmatrix}
+a_1+a_2&b_1+b_2\\c_1+c_2&d_1+d_2
+\end{bmatrix}\\
+\alpha \v A &= \begin{bmatrix}
+\alpha a & \alpha b\\
+\alpha c & \alpha d
+\end{bmatrix}
+\end{align} 
+
+Man kan gange en matrix på en vektor hvilket giver en ny vektor, så længe matricen er lige så bred som vektoren er høj. Man finder den resulterende vektor ved at lægge alle indgangene i den oprindelige vektor ganget med en indgang i den tilsvarende række(vandret) af matricen. 
+\begin{equation}
+\begin{bmatrix}
+a&b\\c&d
+\end{bmatrix}
+\xy{v_x}{v_y} = \xy{av_x+bv_y}{cv_x+dv_y}
+\end{equation}
+Bemærk at hvis man ganger an matrix på vektorer som $\begin{bsmallmatrix}1\\0\end{bsmallmatrix}$ og $\begin{bsmallmatrix}0\\1\end{bsmallmatrix}$ vil den resulterende vektor være henholdvis første eller anden søjle(lodret) af matricen. Inspireret af dette kan spejlingen fra før beskrives men en matrix, og transformationen udregnes med et matrixprodukt.
+\begin{equation}
+S(\v v)=\v S \v v = \begin{bmatrix}
+1 & 0\\
+0 & -1
+\end{bmatrix}
+\xy{v_x}{-v_y} = \xy{v_x}{-v_y}
+\end{equation}
+
+Matrixer kan også ganges med hinanden, dette gøres ved at gange den venstre matrix på hver søjle af den højre matrix som var de enkelte vektorer.
+\begin{equation}
+\v A_1 \v A_2 = 
+\begin{bmatrix}
+a_1&b_1\\c_1&d_1
+\end{bmatrix}
+\begin{bmatrix}
+a_2&b_2\\c_2&d_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_1a_2+b_1c_2&a_1b_2+b_1d_2\\
+c_1a_2+d_1c_2&c_1b_2+d_1d_2
+\end{bmatrix}
+\end{equation}
+
+Bemærk at hvis man byttede om på $a$'erne og $b$'erne ville resultatet ikke blive det samme. Det betyder at rækkefølgen af matricerne er afgørende for resultatet. Matricer ganges på fra venstre, så matricen længst til højre svarer til den transformation der udføres først.
+En vigtig matrix er identitetsmatricen $\v I= \begin{bsmallmatrix}1 & 0\\0& 1\end{bsmallmatrix}$. Den svarer til tallet 1, på den måde at ganger man noget med $\v{I}$ vil det være uændret. 

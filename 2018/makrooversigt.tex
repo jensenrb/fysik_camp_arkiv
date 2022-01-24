@@ -1,0 +1,395 @@
+\documentclass[a4paper,hidelinks,11pt]{memoir}
+\usepackage[utf8]{inputenc} % Do not change or remove!
+\usepackage[T1]{fontenc} % Do not change or remove
+\usepackage[danish]{babel} % Sproget, vi skriver på
+\renewcommand\danishhyphenmins{22} % Kun hvis vi skriver på dansk
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Niels Jakob Søe Loft                              %
+% nsl@phys.au.dk                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Denne skabelon er baseret på Rasmus Villemoes' veldokumenterede
+% phd-afhandling i matematik, som jeg har ændret på, så den passer til
+% et bachelorprojekt i fysik. Som hovedregel er ting kommenteret på
+% engelsk fra Rasmus' skabelon, mens jeg har skrevet på dansk. De
+% væsentligste ændringer er, at skabelonen er gjort mere egnet til et
+% mindre projekt som et bachelorprojekt er i forhold til en
+% phd-afhandling, hvorfor nogle ting er skåret væk, og jeg har
+% inkluderet en liste fysik-relaterede makroer. Desuden er
+% bibliografien konverteret fra BibTeX til BibLateX pr. marts 2014.
+
+% Pr. 29. marts 2014 har jeg ændret skabelonen, så den kan bruges til
+% kompendiet til UNFs Fysik Camp 2014.
+
+%%%%%%%%%%%%%%
+%% Generelt %%
+%%%%%%%%%%%%%%
+\input{old/UNF_ScienceCamp_latexLayout} % load UNF-layout
+\usepackage{graphicx} % Billeder
+\usepackage{epstopdf} % Så vi kan indsætte eps-filer
+\usepackage{lipsum} % Dummytekst
+\usepackage{pdfpages} % Indsættelse af pdf-sider
+\usepackage{url} % Håndtering af URL'er
+\usepackage{xspace} % Smarte mellemrum i egne makroer
+\usepackage[final]{fixme} % Indsæt kommentarer i margin
+%\usepackage{xstring} % Til sværhedsgrad-makro (se old/macros)
+\usepackage[misc]{ifsym} % Til sværhedsgrad, skriv \Cube{n} hvor n=1,2,3
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{subcaption} %sub-figurer
+\usepackage{framed} % tekst-bokse
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{microtype} % Mellemrumsjustering
+\usepackage{xcolor} % flere farver
+\usepackage{tikz} % tegninger i latex
+\usepackage{empheq}
+\usetikzlibrary{decorations.pathmorphing,patterns} % til tikz
+\usetikzlibrary{calc}
+
+%% Bibliografi og referencer
+
+%\usepackage{natbib} % Til biblografi, hvis man IKKE bruger BibLaTeX
+
+%\usepackage[style=alphabetic,  % alternativt: style=numeric
+%            backend=biber]{biblatex} % BibLaTeX, kræver installering
+                                % af biber-pakken
+%\addbibresource{kompendie.bib} % BibLaTeX tager referencer fra bach.bib
+
+%\usepackage{cleveref} % Smarte referencer: skriv \cref{...}
+\usepackage[colorlinks=true, hidelinks]{hyperref} % Farvede links
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Tekst og formler %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[osf]{mathpazo} % Skrift
+
+\usepackage{wasysym} % Font til smileys \smiley og \frownie
+
+%\usepackage[sf]{libertine} % Til slanted skrift NJ's emacs er pigesur
+\usepackage{libertine}
+
+\linespread{1.06} % Større linjeafstand pga. font
+\usepackage{fourier-orns} % Sjove symboler NJ's emacs er pigesur igen
+\usepackage{textcomp} % Tilføjer flere tegn
+\renewcommand\ttdefault{txtt} % Pænere teletype-skrift
+
+\usepackage{mathtools} % Matematiktricks
+\usepackage{cancel} % Ting der går ud med hinanden
+\usepackage{siunitx} %SI-enheder
+\sisetup{separate-uncertainty=true % gør at siunitx skriver +/- i
+  % stedet for at bruge parentes til
+  % at angive usikkerheder.
+  ,output-decimal-marker={,}, % gør at der bruges komma til komma og
+  % ikke punktum som i USA.
+  ,load=abbr, % så vi kan bruge \keV
+  ,exponent-product = \cdot, output-product = \cdot, % skift gangetegn fra \times til \cdot
+}
+\input{old/macros} % En masse matematik- og fysikmakroer
+
+%%%%%%%%%%%%
+%% Layout %%
+%%%%%%%%%%%%
+
+\newcommand{\anonbreak}{\fancybreak{$* * *$}} % Break med stjerner
+\let\bar\overline % Gør at en bar over et symbol kan skalere efter symbolet
+
+%% Sidehoved- og fod
+
+\makepagestyle{tket}
+\makeevenfoot{tket}{\thepage}{}{}
+\makeoddfoot{tket}{}{}{\thepage}
+\makeevenfoot{plain}{\thepage}{}{}
+\makeoddfoot{plain}{}{}{\thepage}
+\pagestyle{tket}
+
+%% Margin
+
+% Man kan sætte margins ved enten at specificere marginstørrelsen
+% eller ved at specificere tekstblokken. Man skal vælge én og kun én
+% af mulighederne.
+
+% Specificer marginstørrelsen
+%\setulmarginsandblock{2.7cm}{*}{1}
+%\setlrmarginsandblock{1.6cm}{1.6cm}{*} 
+%\setlength{\oddsidemargin}{-1cm} % Giver mere plads på siden
+%\setlength{\topmargin}{-1.2cm} % Gør topmargin behagelig at se på
+%\setlength{\columnsep}{1.5\columnsep}  % Afstand mellem søjlerne
+
+
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+
+\usepackage[font={small,it}]{caption}	% Italic captions
+
+% Tekstblok: Følgende er fra Rasmus Villemoes' thesis-layout.tex
+%\setlxvchars[\normalfont] % standardbredden af tekstblok er ca. 65 tegn
+%\settypeblocksize{*}{1.2\lxvchars}{1.61803} % højde, bredde, forhold
+%\setulmargins{*}{*}{1.3} % lav bundmargin lidt større end topmargin
+\checkandfixthelayout % memoir tjekker, at alt er ok og konsistent
+
+%%%%%%%%%%%%%%%%%%
+%% Definitioner %%
+%%%%%%%%%%%%%%%%%%
+
+% Definer titlen på projektet
+ \newcommand{\thesistitle}{Kompendie til UNF Fysik Camp 2017}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Slut på preamble %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%% 
+%%  BEGIN DOCUMENT  %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\mainmatter
+
+\texttt{$\backslash$subv\{\}\{\} }Giver pæn subscript text til vektorer.
+$$
+\mathtt{\backslash subv\{F\}\{normal\}}~~~~\subv{F}{normal}
+$$
+
+
+\texttt{$\backslash$subv\{\}\{\} }Giver pæn subscript text.
+$$
+\mathtt{\backslash sub\{E\}\{kin\}}~~~~\sub{E}{kin}
+$$
+
+
+
+\texttt{$\backslash$e }Skrevet E
+$$
+\mathtt{\backslash e}~~~~\e
+$$
+
+\texttt{$\backslash$abs }Absolut værdi klammer
+$$
+\mathtt{\backslash abs\{r\}}~~~~\abs{r}
+$$
+
+\texttt{$\backslash$N }Naturlige tal
+$$
+\mathtt{\backslash N}~~~~\N
+$$
+
+\texttt{$\backslash$Z }Hele tal
+$$
+\mathtt{\backslash Z}~~~~\Z
+$$
+
+\texttt{$\backslash$Q }Rationelle tal
+$$
+\mathtt{\backslash Q}~~~~\Q
+$$
+
+\texttt{$\backslash$A }Algebraiske tal
+$$
+\mathtt{\backslash A}~~~~\A
+$$
+
+\texttt{$\backslash$R }Reele tal
+$$
+\mathtt{\backslash R}~~~~\R
+$$
+
+\texttt{$\backslash$C }Komplekse tal
+$$
+\mathtt{\backslash R}~~~~\R
+$$
+
+\texttt{$\backslash$F }Legemer
+$$
+\mathtt{\backslash F}~~~~\F
+$$
+
+
+Hårdt d differentiering
+
+
+\texttt{$\backslash$dif[n]\{x\}\{f\}}
+$$
+\dif[n]{x}{f}
+$$
+
+\texttt{$\backslash$dif\{x\}f}
+$$
+\dif[2]{x} f
+$$
+
+\texttt{$\backslash$dif\{x\}\{\}}
+$$
+\dif{x}{}
+$$
+
+\texttt{$\backslash$dif[n]\{x\}\{\}}
+$$
+\dif[n]{x}{}
+$$
+
+Partiel differentiering
+
+\texttt{$\backslash$pdif[n]\{x\}\{f\}}
+$$
+\pdif[n]{x}{f}
+$$
+
+\texttt{$\backslash$pdif\{x\}f}
+$$
+\pdif[2]{x} f
+$$
+
+\texttt{$\backslash$pdif\{x\}\{\}}
+$$
+\pdif{x}{}
+$$
+
+\texttt{$\backslash$pdif[n]\{x\}\{\}}
+$$
+\pdif[n]{x}{}
+$$
+
+\texttt{$\backslash$dt\{\}} Første afledt, prik notation
+$$
+\mathtt{\backslash dt \{ x\} }~~~~\dt{x}
+$$ 
+
+\texttt{$\backslash$ddt\{\} }Anden afledt, prik notation
+$$
+\mathtt{\backslash ddt \{ x\} }~~~~\ddt{x}
+$$ 
+
+\texttt{$\backslash$integral\{\}\{\}\{\}\{\} }Integral med eller uden grænser.
+\begin{align*}
+\mathtt{\backslash integral\{ f(x)\}\{ x\}\{a\}\{ b\}}~~~~&\integral{f(x)}{x}{a}{b}\\
+\mathtt{\backslash integral\{ f(x)\}\{ x\}\{ \}\{ \}}~~~~&\integral{f(x)}{x}{}{}
+\end{align*}
+
+
+\texttt{$\backslash$xyz\{\}\{\}\{\} }3D vektor
+$$
+\mathrm{\backslash\{ a\}\{ b\}\{ c\}}~~~~\xyz{a}{b}{c}
+$$
+
+\texttt{$\backslash$xy\{\}\{\} }2D vektor
+$$
+\mathrm{\backslash\{ a\}\{ b\}}~~~~\xy{a}{b}
+$$
+
+\texttt{$\backslash$v }Vektor
+$$
+\mathtt{\backslash v\{ a\}}~~~~\v a
+$$
+
+\texttt{$\backslash$gv }Mere robust vektor komando der blandt andet skal bruges til græske bogstaver.
+$$
+\mathtt{\backslash gv\{ \alpha\}}~~~~\gv{\alpha}
+$$
+
+\texttt{$\backslash$hatvec\{\} } Valgfri enhedsvektor
+$$
+\mathtt{\backslash hatvec\{ a\}}~~~~\hatvec{a}
+$$
+
+\texttt{$\backslash$xhat\{\} }$x$-enhedsvektor
+$$
+\mathtt{\backslash xhat}~~~~\xhat
+$$
+
+\texttt{$\backslash$yhat\{\} }$y$-enhedsvektor
+$$
+\mathtt{\backslash yhat}~~~~\yhat
+$$
+
+\texttt{$\backslash$zhat\{\} }$z$-enhedsvektor
+$$
+\mathtt{\backslash zhat}~~~~\zhat
+$$
+
+\texttt{$\backslash$ihat\{\} }$x$-enhedsvektor
+$$
+\mathtt{\backslash ihat}~~~~\ihat
+$$
+
+\texttt{$\backslash$jhat\{\} }$y$-enhedsvektor
+$$
+\mathtt{\backslash jhat}~~~~\jhat
+$$
+
+\texttt{$\backslash$khat\{\} }$z$-enhedsvektor
+$$
+\mathtt{\backslash khat}~~~~\khat
+$$
+
+\texttt{$\backslash$grad\{\} }Gradient
+$$
+\mathtt{\backslash grad\{ f\} }~~~~\grad{f}
+$$
+
+\texttt{$\backslash$div\{\} }Divergens
+$$
+\mathtt{\backslash div\{ F\} }~~~~\div{F}
+$$
+
+\texttt{$\backslash$curl\{\} }Rotation
+$$
+\mathtt{\backslash curl\{ F\} }~~~~\curl{F}
+$$
+
+\texttt{$\backslash$op\{\} }Operator
+$$
+\mathtt{\backslash op\{ O\} }~~~~\op{O}
+$$
+
+\texttt{$\backslash$expect\{\} } Forventningsværdi
+$$
+\mathtt{\backslash expect\{ O\} }~~~~\expect{O}
+$$
+
+\texttt{$\backslash$tr\{\} }Spor
+$$
+\mathtt{\backslash tr\{ O\} }~~~~\tr{O}
+$$
+
+\texttt{$\backslash$ptr\{\} }Partielt spor
+$$
+\mathtt{\backslash ptr\{ A\}\{ \backslash rho\} }~~~~\ptr{A}{\rho}
+$$
+
+\texttt{$\backslash$Hilbert }Hilbertrum?
+$$
+\mathtt{\backslash Hilbert}~~~~\Hilbert
+$$
+
+\texttt{$\backslash$lag} Lagrange
+$$
+\mathtt{\backslash lag}~~~~\lag
+$$
+
+\texttt{$\backslash$bra\{\} }Dirac notation bra
+$$
+\mathtt{\backslash bra\{ a\}}~~~~\bra{a}
+$$
+
+\texttt{$\backslash$ket\{\} }Dirac notation ket
+$$
+\mathtt{\backslash ket\{ a\}}~~~~\ket{a}
+$$
+
+\texttt{$\backslash$braket\{\}\{\} }Dirac notation braket
+$$
+\mathtt{\backslash braket\{ a\}\{ b\}}~~~~\braket{a}{b}
+$$
+
+\texttt{$\backslash$matrixel\{\}\{\}\{\} }Dirac notation matrix element
+$$
+\mathtt{\backslash matrixel\{ a\}\{ O\}\{ b\}}~~~~\matrixel{a}{O}{b}
+$$
+
+\end{document}
+

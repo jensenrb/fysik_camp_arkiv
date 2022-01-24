@@ -1,0 +1,64 @@
+\documentclass[crop=false, class=memoir]{standalone}
+
+\input{../setup/preamble.tex}
+\input{infoboks_pakker.tex}
+
+\begin{document}
+
+\chapter{Laserfysik}
+
+\textbf{HVORFOR ER DET HER SÅ DÅRLIGT????} \textit{Det er fordi Simon bare har skrevet nogle ting løst ned for at få en ide om hvordan han skal forklare emnet i tekst. Intet du ser herunder vil komme med i kompendiet uden en kraftig grad af revidering og genskrivning.}\\
+
+Laseren er et fantastisk værktøj i eksperimentel fysik af mange grunde. Til vores formål bruger vi den som en lyskilde der lyser en i tynd lysstråle.  Derudover er det vigtigt at hele laserstrålen har den samme \textit{fase}, men det kommer vi tilbage til hvad betyder senere.
+
+For at forstå de forsøg 
+
+
+\section{Hvad er lys?}
+
+Gennem mange århundreder har fysikere verden over været uenige om, hvad lys egentlig er: Er det en partikel, som Newton i sin tid beskrev det -- hvilket Einstein i ''nyere'' tid (1905) kaldte fotoner under sin beskrivelse af den fotoelektriske effekt -- eller en bølge, som Maxwell beskrev det som i sin teori om elektromagnetismen. Først efter udarbejdelsen af teorien om kvantemekanik kom fysikerne frem til, at begge beskrivelser er nødvendige, hvis opførslen af objekter på kvanteskala skal kunne beskrives: Altså, lys er \textit{både} en partikel og en bølge. I de eksperimenter, som I kommer til at lave her på campen, da vil vi gøre brug af lysets beskrivelse som bølger -- vi vil beskrive lys som elektromagnetiske felter.\\
+
+Når vi siger at lys er "bølger", hvad er det så der svinger? Det der svinger er styrken og retningen af elektriske og magnetiske felter. De to svingninger holder hinanden i gang. Ligesom det ser ud på figuren er det elektriske og magnetiske felt altid vinkelrette på hinanden, og de har også en fast relation i størrelse. Så selvom vi nøjes 
+
+Ligesom en vandbølger svinger EM(Elektromagnetiske)-bølger i rummet. Men de svinger også i tid. De svinger som cosinusfuntioner, som f.eks:
+\begin{align*}
+    E_0\cos(\va{k}\cdot\va{r}-\omega t)
+\end{align*}
+Men hvem bestemmer at svingingen lige starter hvor den gør? Det er der ikke nogen der gør, men hvor meget startpunktet at bølgen er forskudt beskriver vi med bølgens fase, $\phi$:
+\begin{align}
+    E_0\cos(\va{k}\cdot\va{r}-\omega t + \phi)
+\end{align}
+Denne cosinusfunktion beskriver "hvor meget" det elektriske felt peger i en bestemt retning i rummet. Den retning er bølgens polarisering, $\va*{\epsilon}$. Dermed kan det elektriske felt i et bestemt punkt i rummet, $\va{r}$, og til et bestemt tidspunkt $t$.
+\begin{align*}
+    \va{E}(\va{r}, t) = E_0 \va*{\epsilon} \cos(\va{k}\cdot\va{r} - \omega t + \phi)
+\end{align*}
+
+
+\begin{info}[frametitle={Kort om elektromagnetiske felter}]
+    Den elektromagnetiske kraft er en af de fire fundamentale kræfter. Betragter man for eksempel to objekter med henholdsvis positiv og negativ ladning, da vil de to tiltrække hinanden gennem den elektromagnetiske kraft
+    \begin{align*}
+        \va{F} &= \frac{1}{4\pi\epsilon_0} \frac{q_1 q_2}{r^2} \hat{r} \: .
+    \end{align*}
+    Dette kan også betragtes som at et af objekterne danner et elektrisk felt, $\va{E}_1$, som det andet objekt vekselvirker med grundet objektets ladning, $q_2$, hvorved det elektromagnetiske felt skrives som
+    \begin{align*}
+        \va{F} &= q_2 \va{E}_1 \: .
+    \end{align*}
+    
+    På næsten samme bliver ladninger også  påvirket af en kraft, når de vekselvirker med et magnetfelt.\footnote{Permanente magneter, som dem der sidder på dit køleskab, er desværre en del sværere at beskrive.} Altså kan retningen og størrelsen af en elektromagnetisk kraft beskrives ud fra retningen og størrelsen af det elektriske og magnetiske felt.
+\end{info}
+
+
+
+
+\section{Michelson interferometer}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=.6\textwidth]{billeder/MichelsonInterferometerGenerelt.eps}
+    \caption{\ldots}
+    \label{laser:fig:MichelsonInterferometerGenerelt}
+\end{figure}
+
+Michelson interferometeret er en af de mest brugte opstillinger til optisk interferometri. Det er blandt andet benyttet i Michelson-Morley eksperimentet, hvor \ldots, og i LIGO\footnote{Laser Interferometer Gravitational-Wave Observatory}, hvor man kan måle forskelle i lysets tilbagelagte vej i de to interferometerarme på ned til $\nicefrac{1}{\num{10000}}$ af bredden af en proton -- hvilken i forvejen er meget lille -- hvilket er grunden til, at LIGO har kunnet måle gravitationsbølger, som er forstyrrelser i rumtiden.
+
+\end{document}

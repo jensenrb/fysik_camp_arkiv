@@ -1,0 +1,23 @@
+\documentclass[crop=false, class=memoir]{standalone}
+\input{../setup/preamble.tex}
+\usepackage{import}
+\begin{document}
+
+\chapter{Mekanik \& Matematik} \label{sec:matematik}
+\subimport{./}{intro.tex}
+\subimport{./}{logartimer.tex}
+\subimport{./}{trigonometri.tex}
+\subimport{./}{komplekse_tal.tex}
+\subimport{./}{differentialregning.tex}
+\subimport{./}{integral.tex}
+\subimport{./}{diffligninger.tex}
+\subimport{./}{raekker.tex}
+\newpage
+\subimport{./}{Fysiske_Konstanter.tex}
+
+\nocite{stewartCalculusConceptsContexts2006}
+\nocite{youngSearsZemanskyUniversity2016}
+\nocite{arfkenMathematicalMethodsPhysicists2013}
+\nocite{taylorClassicalMechanics2005}
+
+\end{document}

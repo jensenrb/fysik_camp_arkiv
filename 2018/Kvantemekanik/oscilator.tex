@@ -1,0 +1,105 @@
+\section{Den kvantemekaniske harmoniske oscilator}
+Både i klassisk mekanik og i kvantemekanikken er harmoniske oscilatorer et meget almindeligt fenomen.
+Et oplagt eksempel er en fjeder, der vil modvirke både stræk og klæm med en kraft der er proportional med længdeændringen.
+$$
+F = -kx
+$$
+Dette vil svare til et potentiale på formen:
+$$
+V=\frac{1}{2}kx^2
+$$
+I klassisk mekanik finder man at det giver en harmonisk svingning\footnote{Beskrevet af sinus og cosinus funktioner} med en vinkelfrekvens på $\omega = \sqrt{\frac{k}{m}}$. Det viser sig at frekvenser er meget lette at måle, så man kan med fordel skrive potentialet med $\omega$ istedet for $k$. Derudover vil de følgende udregninger blive pænere hvis man erstatter $v$ med $\frac{p}{m}$. Det giver en hamilton operator på formen:
+\begin{equation}
+\op H = \frac{1}{2m}\op p^2+\frac{1}{2} m\omega^2\op x^2
+=
+\frac{1}{2m}\left(\op p^2 + m^2\omega^2\op x^2\right)
+\end{equation}
+Da vi regnede på den uendelige brønd fandt vi løsningen ved at løse en anden ordens differentialligning. Det kunne vi også gøre her, men selv for dette relativt pæne potentiale er det ikke helt trivielt. Istedet vil vi bruge en metode der er baseret på operatorer. Formalismen er mere avanceret, men vil gøre udregningerne simplere.
+Havde $\op p$ og $\op x$ været tal ville man have kunnet faktorisere hamilton operatoren som to tals sum gange de samme to tals differens.
+$$
+(u^2+v^2) = (u+iv)(u-iv)
+$$
+Problemet er at denne regneregel ikke virker for ting der ikke komuterer.
+Alligevel er de operatorer vi ville have fået meget nyttige. Let modificeret for at få enhedsløse operatorer er de:
+\begin{align}
+\op a_+ &= \frac{1}{\sqrt{2\hbar \omega m}}(-i\op p+m\omega \op x)\\
+\op a_- &= \frac{1}{\sqrt{2\hbar \omega m}}(+i\op p+m\omega \op x)\label{kvant:eq:alower}
+\end{align}
+Indecierne kan virke bagvændte, men vi vil senere se at der er en god grund til dette.
+Produktet af de to operatorer er:
+$$
+\op a_+ \op a_- = \frac{1}{2\hbar \omega m}(\op p^2+m^2\omega^2\op x^2+im\omega (\op x\op p -  \op p \op x))
+$$
+Her er det muligt at identificeres hamilton operatoren og den kanoniske kommutator relation: $[\op x , \op p] = i\hbar$ \eqref{kvant:eq:kankom}.
+\begin{align*}
+\op a_+\op a_- &= \frac{1}{\hbar \omega}\left( \frac{1}{2m}\op p^2+\frac{1}{2}m\omega^2 \op x^2\right)+\frac{i}{2\hbar}(\op x\op p-\op p\op x)\\
+&= \frac{1}{\hbar \omega}\op H+\frac{i}{2 \hbar}[\op x,\op p]\\
+&= \frac{1}{\hbar \omega}\op H-\frac{1}{2}
+\end{align*}
+Nu er det muligt at skrive hamilton operatoren ud fra de nye operatorer:
+$$
+\op H = \hbar \omega\left(\op a_+\op a_-+\frac{1}{2}\right)
+$$
+Den samme udregning kan udføres for $\op a_- \op a_+$. Denner udregning overlades til læseren (opgave \ref{kvant:opg:amap})
+%Det er fandme fedt at kunne skrive det seriøst!
+\begin{equation}
+\op H = \hbar \omega\left(\op a_-\op a_+ -\frac{1}{2}\right)
+\label{kvant:eq:Hamap}
+\end{equation}
+Nu når vi endelig til den tidsuafhængige schrödingerligning. Med operatorer er den:
+$$
+E\psi = \op H \psi = \hbar\omega \left(\op a_+\op a_-\psi+\frac{1}{2}\psi\right)
+$$
+Indtil videre har vi kun flyttet rundt på operatorer og er ikke tættere på en løsning. Det ændrer sig nu. Vi starter med at antage at vi allerede har en løsning $\psi_n$ med energi $E_n$. Det er nu muligt at generere nye løsninger på formen:$\op a_+\psi_n$. Det gøres ved at vise at $\op a_+\psi_n$ også er en løsning under vores antagelse.
+\begin{align*}
+\op H \op a_+ \psi_n &= \hbar\omega\left(\op a_+\op a_-\op a_++\frac{1}{2}\op a_+\right)\psi_n\\
+&= \hbar\omega\op a_+\left(\op a_-\op a_+ +\frac{1}{2}\right)\psi_n\\
+&=\op a_+(\op H\psi_n + \hbar\omega\psi_n)\\
+&= (E_n+\hbar\omega)\op a_+ \psi_n
+\end{align*}
+Tilsvarende kan man vise at $\op a_-\psi_n$ også er en løsning med energi $E_n-1$. Det er således muligt at generere løsninger med stigende eller faldende energi  i skrit af $\hbar \omega$. Der er dog et lille problem: grundtilstanden må ikke være mindre end potentialets minimum værdi. Der må altså være en løsning $\psi_0$ hvor $\op a_-\psi_0$ ikke svarer til en fysisk løsning, men stadig er en matematisk løsning til schrödingerligningen. Dette vil være opfyldt hvis:
+$$
+\op a_-\psi_0  = 0
+$$
+Går vi tilbage og sætter in hvad $\op a_-$ står for (ligning \eqref{kvant:eq:alower}) ender vi med en førstegrads differentialligning:
+\begin{align*}
+\frac{1}{\sqrt{2\hbar\omega m}}(i\op p+m\omega \op x)\psi_0&=0\\
+\frac{i}{\hbar}\op p\psi_0 &= \frac{-m\omega}{\hbar}\op x\psi_0\\
+\dif{x}{\psi_0}&=\frac{-m\omega}{\hbar}x\psi_0
+\end{align*}
+For at løse differentialligningen betragtes infitesimalerne i differentialkvotienten som seperate variable. Det gør det muligt at finde en løsning ved at integrere.
+\begin{align*}
+\frac{1}{\psi_0}\d \psi_0 &=\frac{-m\omega x}{\hbar}\d x\\
+\integral{\frac{1}{\psi_0}}{\psi_0}{}{} &= \frac{-m\omega}{\hbar}\integral{x}{x}{}{}\\
+\ln(\psi_0) &= \frac{-m\omega}{2\hbar}x^2+k\\
+\psi_0 &= N\exp\left({\frac{-m\omega x^2}{2\hbar}}\right)
+\end{align*}
+Logartmens fjernes ved at tage eksponentialet af begge sider. Dette ændrer integrationskonstanten $k$ til normeringskonstanten $N=e^k$. Normeringen springes over her, og vi vil blot påstå at $N=\sqrt{\frac{m\omega}{\pi\hbar}}$. Det giver en bølgefunktion:
+\begin{equation}\label{kvant:osc0}
+\psi_0 = \sqrt[4]{\frac{m\omega}{\hbar\pi}}\exp\left(\frac{-m\omega x^2}{2\hbar}\right)
+\end{equation}
+Når man husker at $\op a_-\psi_0 =0$ giver hæve/sænke operatorerne en meget let måde at finde energien for grundstilstanden:
+$$
+\op H \psi_0 = \hbar\omega\left(\op a_+\op a_- +\frac{1}{2}\right)\psi_0 = \hbar\omega\left(\op a_+(\op a_- \psi_0)+\frac{1}{2}\psi_0\right) = \frac{\hbar\omega}{2}\psi_0
+$$
+Så energien af grundtilstanden er $\frac{\hbar\omega}{2}$.
+Dog bevarer hæve/sænke operatorerne ikke normalisering. Det viser sig at for at generere normaliserede bølgefunktioner er udtrykket:
+\begin{align*}
+\op a_+\psi_n &= \sqrt{n+1}\psi_{n+1}\\
+\op a_- \psi_n &= \sqrt{n}\psi_{n-1}
+\end{align*}
+ Nu har vi en grundtilstand og kan bruge hæve/sænke operatorerne til at generere resten af af tilstandene.
+\begin{equation}
+\psi_n(x) = \frac{1}{\sqrt{n!}}\op a_+^n\psi_0(x)~~~~~~~~E_n = \left(n+\frac{1}{2}\right)\hbar\omega~~~~~~~~\forall n\in\N
+\end{equation}
+\begin{table}[h]
+\center
+\begin{tabular}{|c c c|}
+$n$&$E_n$&$\psi_n$\\\hline
+$0$ & $E_0 = \dfrac{\hbar\omega}{2}$ & $\psi_0 = \sqrt[4]{\dfrac{\alpha}{\pi}}e^{\frac{-\xi^2}{2}}$\\
+$1$ & $E_1 = \dfrac{3\hbar\omega}{2}$ & $\psi_1 = \sqrt[4]{\dfrac{\alpha}{\pi}}\sqrt{2}\xi e^{\frac{-\xi^2}{2}}$\\
+$2$ & $E_2 = \dfrac{5\hbar\omega}{2}$ & $\psi_2 = \sqrt[4]{\dfrac{\alpha}{\pi}}\frac{1}{\sqrt{2}} (2\xi^2-1) e^{\frac{-\xi^2}{2}}$\\
+$3$ & $E_3 = \dfrac{7\hbar\omega}{2}$ & $\psi_3 = \sqrt[4]{\dfrac{\alpha}{\pi}}\frac{1}{\sqrt{3}} (2\xi^3-3\xi) e^{\frac{-\xi^2}{2}}$\\\hline
+\end{tabular}
+\caption{De første fire stationære tilstande for den harmoniske oscillator. Her er $\alpha = \frac{m\omega}{\hbar}$ og $\xi = \sqrt{\frac{m\omega}{\hbar}}x = \sqrt{\alpha}x$.}
+\end{table}

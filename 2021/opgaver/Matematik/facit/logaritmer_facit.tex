@@ -1,0 +1,127 @@
+\begin{opgave}[1]{Logaritmer og tal}
+    Find værdien af de følgende udtryk
+    \opg $\log_4(8) = \log_4(4\cdot 2) = \log_4(4)+\log_4(2) = \log_4(4)+\log_4(4^{1/2}) = 1+\dfrac{1}{2} = \dfrac{3}{2}$
+    \opg $\log_{1/9} \left(\sqrt{27}\right) = \frac{1}{2}\log_{1/9}\left(27\right) = \dfrac{1}{2}\log_{1/9}\left(3^3\right) = \dfrac{3}{2}\log_{1/9}\left(3\right) = \dfrac{3}{2}\log_{1/9}\left(9^{1/2}\right) = \dfrac{3}{4}\log_{1/9}\left(\left(\dfrac{1}{9}\right)^{-1}\right) = \dfrac{-3}{4}\log_{1/9}\left(\dfrac{1}{9}\right) = -\dfrac{3}{4}$
+    \opg $\ln(e^{2/3}) = \dfrac{2}{3}\ln(e) = \dfrac{2}{3}$
+    \opg $\ln(\dfrac{e^5}{e^3}) = \ln(e^2) = 2\ln(e) = 2$
+    %\opg $2^{\log_2(5 \cdot x)}=5x$
+\end{opgave}
+
+\begin{opgave}[2]{Ligningsløsning med logaritmer}
+Find talværdien for den ukendte variabel, således at ligningen er sand
+    \opg $\log_b(16) = 4/3 \iff b^{4/3}=16 \iff b=16^{3/4}=4^{3/2}=2^3=8$
+    \opg $\ln(x) = -1 \iff x=e^{-1}=0,36787944117$
+    \opg $\log[2](1/x) = \dfrac{1}{5}\iff 2^{1/5} = \dfrac{1}{x} \iff x = 2^{-1/5} = \dfrac{1}{32}$
+\end{opgave}
+
+%\begin{opgave}{Logaritmeapproximationer}
+%Brug approximationerne $log_10(2) = 0,3010$ og $log_10(3)= 0,4771$ til at udregne værdien af %de følgende udtryk
+%    \opg $\log[10](24)=\log_{10}(2^3\cdot 4)=3\log_{10}(2)+\log_{10}(3)=3\cdot 0,301+0,4771=1,3801$
+%    \opg $\log[10](5)=\log_{10}\left(\frac{10}{2}\right)=\log_{10}(10)-\log_{10}(2)=1-0,301=0,699$
+%    \opg $\log[10](4^{\frac{1}{3}})=\log_{10}(3^{-4})=-4\log_{10}(3)=-4\cdot 0,4771=1,9084$
+%\end{opgave}
+
+\begin{opgave}[3]{En ekstra logaritmeregneregel}
+Ud fra de tre logaritme regneregler, \cref{k-mat:eq:log} i kompendiet, vis;
+%
+\begin{align*}
+    -b\log(a)=\log(a^{-1}).
+\end{align*}
+%
+Det følger direkte af \cref{k-mat:log:gange} i kompendiet at
+%
+\begin{align*}
+    \log(a^{-b})=\log({a^b}^{-1})=-\log(a^b)=-b\log(a).
+\end{align*}
+\end{opgave}
+%%
+%%
+\begin{opgave}[4]{Eksponentregneregler}
+Da $1/a^c = a^{-c}$ er
+%
+\begin{align*}
+    \frac{a^b}{a^c} = a^b \cdot a^{-c},
+\end{align*}
+%
+hvorfra \cref{k-mat:eq:exp_regel1} i kompendiet giver, at
+%
+\begin{align*}
+    \frac{a^b}{a^c} = a^{b-c}.
+\end{align*}
+%
+Hermed er beviset slut.
+% \end{opgave}
+
+% \begin{opgave}[4]{Logaritmeregneregler}
+Af definitionen potensen betyder notationen $(a^b)^c$ at $a^b$ skal ganges med sig selv $c$ gange. Skrevet som ligning betyder det
+%
+\begin{align*}
+    (a^b)^c = a^b\cdot a^b\cdot \dots{} \cdot a^b~~\text{($c$ gange)}.
+\end{align*}
+%
+Herfra bruges \cref{k-mat:eq:exp_regel1} i kompendiet gentagne gange:
+%
+\begin{align*}
+    (a^b)^c &= a^b\cdot a^b\cdot \dots{} \cdot a^b~~\text{($c$ gange)} = a^{b+1}\cdot \left[ a^b\cdot \dots{} \cdot a^b~~\text{($c-2$ gange)} \right] \\
+    &= a^{b+2} \cdot \left[ a^b\cdot \dots{} \cdot a^b~~\text{($c-3$ gange)} \right].
+\end{align*}
+%
+Forsættes dette mønster fås at
+%
+\begin{align*}
+    (a^b)^c = a^{bc}.
+\end{align*}
+
+En lidt mere elegangt måde, at bevise det på, er ved et såkaldt induktionsbevis. Udsagnet er $(a^b)^c = a^{bc}$ er oblagt sandt for $c=1$, hvilket er induktionsstarten. Til induktionsskridtet antages udsagnet at være sandt for en bestemt værdi af $c$ kaldet $c_0$, og det skal så vises, at det medfører at udsagnet er sandt for $c_0 + 1$. Dette gøres som
+%
+\begin{align*}
+    (a^b)^{c_0+1} = (a^b)^{c_0} \cdot a^b = a^{bc_0} \cdot a^b = a^{b(c_0+1)}.
+\end{align*}
+%
+Her er \cref{k-mat:eq:exp_regel1} i kompendiet og induktionsantagelses brugt, og det ses induktionsskridtet er sandt. Dette konkluderer beviset. At sådan et induktionsbevis virker bygger på, at $(a^b)^c = a^{bc}$ er sandt for $c=1$, mens induktionsskridtet viser, at det medfører, at udsagnet også er sandt for $c=2$. På denne måde kan man forsætte til et vilkårligt heltal, hvorfor udsagnet er bevist.
+\end{opgave}
+
+\begin{opgave}[4]{Logaritmeregneregler}
+Af definitionen på logaritmen, \cref{k-mat:eq:log_def} i kompendiet, kan \cref{k-mat:log:plus} i kompendiet skrives som
+%
+\begin{align*}
+    \log_a(b) + \log_a(c) &= \log_a(bc) \\
+    \iff a^{\log_a(b) + \log_a(c)} &= a^{\log_a(bc)} = bc.
+\end{align*}
+%
+Bruges eksponentregnereglen \cref{k-mat:eq:exp_regel1} fås
+%
+\begin{align*}
+    a^{\log_a(b) + \log_a(c)} &=  bc \\
+    \iff a^{\log_a(b)} a^{\log_a(c)} &= bc \\
+    \iff b \cdot c &= bc.
+\end{align*}
+%
+Da dette er en sand ligning, så er \cref{k-mat:log:plus} i kompendiet bevist.
+
+Nu gøres det samme for \cref{k-mat:log:minus} i kompendiet ved brug af \cref{k-mat:eq:log_def,k-mat:eq:exp_regel2} begge i kompendiet
+%
+\begin{align*}
+    \log_a(b) - \log_a(c) &= \log_a\left(\frac{b}{c}\right) \\
+    \iff a^{\log_a(b) - \log_a(c)} &= a^{\log_a(b/c)} \\
+    \iff a^{\log_a(b) - \log_a(c)} &=  \frac{b}{c} \\
+    \iff \frac{a^{\log_a(b)}}{a^{\log_a(c)}} &= \frac{b}{c} \\
+    \iff \frac{b}{c} &= \frac{b}{c}.
+\end{align*}
+%
+Dette er også en sand ligning hvorfor \cref{k-mat:log:minus} i kompendiet bevist.
+
+For at bevise \cref{k-mat:log:gange} i kompendiet bruges samme fremgangsmåde endnu engang. Denne gang ved brug af \cref{k-mat:eq:exp_regel3,k-mat:eq:log_def} i kompendiet.
+%
+\begin{align*}
+    c\log_a(b) &= \log_a(b^c) \\
+    \iff a^{c\log_a(b)} &= a^{\log_a(b^c)} \\
+    \iff a^{\log_a(b) \cdot c} &= b^c \\
+    \iff \left( a^{\log_a(b)} \right)^c &= b^c \\
+    \iff b^c &= b^c.
+\end{align*}
+%
+Dette er endnu engang en sand ligning hvorfor \cref{k-mat:log:gange} i kompendiet bevist.
+
+Skal man være helt matematisk stringent er det nødvendigt for beviset, at der gælder biimplikation hele vejen igennem alle udregninger, og ikke kun enkeltimplikation, hvorfor man skal overveje at biimplikationerne hele vejen igennem er sande. At dette er tilfældet her skyldes at beviset kun bygger på udsagn om ligheder. Det at fysikere engang imellem er skyldige i lidt lemfældig omgang med biimplikationer, er en af grundende til at nogle matematikere har den fordom, at det de kalder ``fysikermatematik'' er matematik, hvor man sjusker med argumentationen eller bruger en sætning, man ikke har bevist.
+\end{opgave}

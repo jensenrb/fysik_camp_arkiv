@@ -1,0 +1,292 @@
+\section{Hastighed}\label{mat:sec:vel}
+Indenfor fysik er mekanik læren om, hvordan og hvorfor objekter bevæger sig. Disse to spørgsmål kan angribes hver for sig, og derfor deler man typisk mekanik op i to dele:
+\begin{itemize}
+\item Kinematik: studiet af hvordan ting bevæger sig.
+\item Dynamik: studiet af hvorfor ting bevæger sig.
+\end{itemize}
+Derudover laver man også hyppigt en yderligere inddeling, alt efter hvilken slags objekter man beskæftiger sig med. Her vil vi nøjes med at kigge på den simpleste form for objekter, som kaldes \emph{punktpartikler}. Med punktpartikler menes objekter, der opfører sig som om alt deres masse er samlet i et enkelt punkt. For meget små objekter, som f.eks. et atom eller en elektron, virker det ret naturligt at beskrive dem som punkter, mens det for større objekter er lidt mindre intuitivt. Trods dette kan en model med punktpartikler alligevel give en god beskrivelse af store objekters bevægelse\footnote{Newton viste f.eks., at tyngdekraften fra en planet på et andet objekt over planetens overflade er den samme, om man behandler planeten som et udstrakt objekt eller som et enkelt punkt i midten, såfremt planetens masse er fordelt sfærisk symmetrisk. Altså er en model med punktpartikeler en ret god beskrivelse af vores solsystem.}. Med denne definition på plads, er vi nu klar til at kigge på kinematik for punktpartikler. \\
+
+
+Som det første indfører vi en funktion, kaldet en \emph{stedfunktion} (tit også \emph{position} i fysik), der til enhver tid $t$ beskriver, hvor vores punktpartikel befinder sig. Det betyder altså, at man har en funktion, som man giver en tid, der så giver en position tilbage. I det simpleste eksempel, hvor man kun kigger på bevægelse i en dimension, kunne stedfunktionen angive, hvor langt en løber er nået i et $\SI{100}{m}$-løb, eller hvor stort udsvinget fra ligevægtspunktet er for et pendul. Almindeligvis bruger man $x$ for stedfunktionen i én dimension (tænk at objektet bevæger sig langs $x$--aksen) og skriver $x(t)$, hvor det er indikeret at stedfunktionen afhænger af tiden. Det er her vigtigt at påpege, at hvis man kender et objekts stedfunktion, så ved man alt, der er at vide om objektets bevægelse.
+%Læg vægt på at stedfunktionen giver fuld beskrivelse af bevægelsen, og giv blød overgang til hastighed.
+
+Det næste vigtige begreb er \emph{gennemsnitshastighed}, som vi skriver $v_\text{gns}$, der beskriver hvor langt et objekt bevæger sig i et givet tidsinterval. En vigtig pointe i forhold til $v_\text{gns}$ er, at den kan være både positiv (når objektet bevæger sig i den positive $x$--retning) og negativ (når objektet bevæger sig i den negative $x$--retning). Forestiller vi os nu, at et objekt bevæger sig afstanden $\Delta x = x_2 - x_1$ i tidsintervallet $\Delta t = t_2-t_1$, finder vi gennemsnitligehastigheden som
+%
+\begin{align}
+    v_\text{gns} &= \frac{x_2-x_1}{t_2-t_1} = \frac{\Delta x}{\Delta t}.
+    \label{mat:eq:gnshast}
+    %
+    \intertext{For eksempel løb Usain Bolt \SI{100}{m} på \SI{9,58}{s}, da han satte verdensrekorden i 2009. Han løb derfor med en gennemsnitshastighed på}
+    %
+    v_\text{gns} = \frac{\SI{100}{m}}{\SI{9.58}{s}} &= \SI[per-mode=fraction]{10.4}{\m\per\s} = \SI{37,6}{\km\per\hour}. \nonumber
+\end{align}
+
+Man kan også visualisere gennemsnitshastigheden ved at indtegne de to punkter $(t_1,x_1)$ og $(t_2,x_2)$ på en graf for stedfunktionen, og lægge en ret linje imellem dem, som det er vist på grafen længst til venstre i \cref{mat:fig:diff1}. Gøres det er linjens hældning gennemsnitshastigheden. Selvom gennemsnitshastigheder er dejligt intuitive størrelser, og således nemme at arbejde med, er de ikke synderligt nyttige i fysik. Vi vil derfor kigge på et alternativ til gennemsnitshastigheder, som er langt mere brugbart og interessant. 
+%
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.3\textwidth]{matfig/gnshast.eps}
+    \includegraphics[width=0.3\textwidth]{matfig/gnshast2.eps}
+    \includegraphics[width=0.3\textwidth]{matfig/hast.eps}
+    \caption{Som $\Delta t$ gøres mindre vil $v_\textup{gns}$ nærme sig hastigheden i punktet.}
+    \label{mat:fig:diff1}
+\end{figure}
+
+Når man er ude at køre, er man normalt ikke så interesseret i, hvor hurtigt bilen har kørt over eksempelvis de sidste \SI{2}{\km}. I stedet vil vi gerne vide, hvor hurtigt den kører i øjeblikket. I stedet for gennemsnitshastigheden over de sidste \SI{2}{\km}, kan vi kigge på den over en mindre og mindre strækning, da gennemsnitshastigheden så vil komme tættere og tættere på den øjeblikkelige hastighed. Hvis vi lader den blå funktion på \cref{mat:fig:diff1} betegne bilens stedfunktion, så kan man se, at gennemsnitshastigheden (hældningen af den sorte linje) kommer tættere og tættere på hældningen af tangentlinjen i punktet $(t,x)$, der angiver den øjeblikkelige hastighed.  
+Hvis vi bare kunne vælge det samme punkt to gange, og så være færdige, ville det være let, men så ender man med at dividere med nul i \cref{mat:eq:gnshast}. \emph{Man må aldrig dividere med nul}!\footnote{Hvis man også ganger med 0, så kan det godt lade sig gøre at dividere med 0, hvis man ved hvad man har gang i.} Vi bliver altså nødt til at finde en anden måde til at bestemme hældningen af en funktion på. 
+
+Vi må ikke dele med nul, men vi kan gøre noget, der er næsten lige så godt: vi kan dividere med et tal, der er så lille, at det er næsten er nul. Typisk siger man, at man dividere med noget, der er uendeligt småt, eller infinitesimalt. Dette er studiet af infinitesimalregning, som omhandler meget små ændringer, der normalt deles op i \emph{differentialregning} og \emph{integralregning} -- to ting der har enorm betydning i fysik.
+
+\section{Differentialregning} \label{mat:sec:diff}
+Lad os se på en funktion $f(t)$. Her er hældningen af linjen imellem to punkter, $\left(t_1,f(t_1)\right)$ og $\left(t_2,f(t_2)\right)$, hvor $t_2 = t_1 + \Delta t$, givet ved
+%
+\begin{align} \label{mat:eq:differenskvotient}
+    \frac{\Delta f}{\Delta t}=\frac{f(t_2)-f(t_1)}{t_2-t_1}=\frac{f(t_1+\Delta t)-f(t_1)}{\Delta t}.
+\end{align}
+%
+Når vi lader $\Delta t$ nærme sig nul, vil $\Delta f/\Delta t$ nærme sig hældningen af grafen for $f(t)$ ved tiden $t_1$. Det er det, der kaldes en \emph{grænseværdi}. Grænseværdien skrives\footnote{Normalt skriver vi $\Delta$, når vi mener forskelle, der ikke er infinitesimale, og $\dd{}$ når vi mener de uendeligt små forskelle.}
+%
+\begin{align} \label{mat:eq:diffkvotient}
+    \lim_{\Delta t\rightarrow 0} \frac{\Delta f}{\Delta t} = \dv{f}{t} = f'(t).
+\end{align}
+%
+Her står $\lim$ for ``limes'', der er latin for grænse, men for de fleste er det lettere at huske det, hvis man tænker på det engelske ord ``limit''. Størrelsen $\dv*{f}{t}$ kaldes den \emph{differentierede} funktion, \emph{afledte} funktion, eller \textit{differentialkvotienten}, og det er en ny funktion, der er forbundet med $f(t)$. Mere præcist giver $\dv*{f}{t}$ os hældningen af grafen $f(t)$ til alle tider $t$. Notationen $\displaystyle\lim_{\Delta t\rightarrow 0} g(t)$ læses ``grænseværdien for $g(t)$ når $t$ går mod $0$''.
+%
+Dette tillader os nu at se på øjeblikkelige hastigheder, det vi er vant til blot at kalde hastigheder, der er givet som
+%
+\begin{align} \label{mat:eq:hast}
+    v = \lim_{\Delta t\rightarrow 0}v_\text{gns} = \lim_{\Delta t\rightarrow 0} \frac{\Delta x}{\Delta t} = \dv{x}{t}.
+\end{align}
+%
+Ligesom hastighed er ændring i position over tid, så har vi også acceleration, der er ændring i hastighed over tid. Accelerationen er da
+%
+\begin{align} \label{mat:eq:acceleration}
+    a=\dv{v}{t}=\dv[2]{x}{t},
+\end{align}
+%
+hvor 2-tallene angiver, at $x$ skal differentieres to gange.
+
+En god ting at bemærke her er, at ligesom den første afledte af en funktion giver tangenthældningen af funktionens graf, så giver den anden afledte krumningen af funktionens graf.
+En god huskeregel til at finde fortegnet på krumningen er, at se på et lille stykke af grafen som munden af en smiley. På \cref{mat:fig:krumning} er smileyen glad, når krumningen er positiv, mens smileyen er sur, hvis krumningen er negativ\footnote{Vi ved godt, at dette er en lidt fjollet huskeregel, men ofte er de bedste huskeregler de dummeste.}.
+%
+\begin{figure}[]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{matfig/smiley.pdf}
+    \caption{Illustration af krumning med smileyer. Er smileyen glad, er krumningen positiv, mens smileyen er sur, hvis krumningen er negativ.}
+    \label{mat:fig:krumning}
+\end{figure}
+
+\subsection{Om notation}
+Der er to måder at angive, at man har afledte funktioner, hvilket vi kan takke Isaac  Newton og Gottfried Wilhelm Leibniz for. De opdagede nemlig infinitesimalregningen næsten samtidig. Newton var dygtig til både matematik og fysik, men han var knap så god til at fortælle andre, hvad han havde fundet ud af.
+%
+I 1666, da han var 23 år gammel, havde Newton allerede udledt det matematiske grundlag for differentialregning. Måden Newton skrev den afledte funktion var ved at sætte en prik ovenover, altså
+%
+\begin{align*}
+    \dot{f}(t).
+\end{align*}
+%
+Det er en modifikation af denne notation, der har ført til mærkenotationen $f'(t)$, som typisk bruges i gymnasiet.
+
+I løbet af 1670'erne arbejdede tyske Leibniz på at finde arealet under kurver, hvilket viste sig, at være meget tæt forbundet med differentialregning. Leibniz offentliggjorde sit arbejde i 1684, hele to årtier før Newton offentliggjorte sit eget. 
+Med undtagelse af nogle få breve, havde Leibniz ingen adgang til Newtons arbejde med differentialregning, så han udviklede sin egen notation, hvor den afledte funktion skrives
+%
+\begin{align*}
+    \dv{f}{t}.
+\end{align*}
+%
+Der endte med at opstå en strid om, hvem der skulle have æren for differentialregning, og det blev afgjort af det britiske ``Royal Society'' i 1713 til fordel for Newton. At Newton var præsident for ``The Royal Society'' på det tidspunkt, har sandsynligvis haft en markant effekt på denne konklusion.
+
+Den moderne konsensus er, at Newton og Liebniz kom frem til deres resultater uafhængigt af hinanden, og derfor begge fortjener æren. Uafhængigt af hvem der var først, har Leibniznotationen mange styrker, som hverken prik- eller mærkenotationen har. De har blandt andet:
+%
+\begin{itemize}
+    \item En tydelig forbindelse til hældningen.
+    \item En bedre mulighed for at håndtere forskellige/flere variable.
+    \item En lettere måde at differentiere flere gange.
+\end{itemize}
+%
+Vi bemærker her en vigtig notation, der bruges, når man differentierer flere gange. Siden $\dv*{f}{t}$ også er en funktion, er det muligt at differentiere den igen. Det skrives
+%
+\begin{align}
+    \dv{}{t} \left(\dv{f}{t}(t)\right) = \dv[2]{f}{t}=f''(t) = \ddot{f}(t)
+\end{align}
+%
+Den eneste praktiske anvendelse af Newtons notation findes inden for fysikken, hvor vi nogle gange skriver $\dot{f}(t)$, men \emph{kun} når vi differentierer i forhold til tid. Dette skal vise sig at være meget praktisk i \cref{chap:mek}.
+
+\subsection{Differentialregning i praksis}
+Vi vil ikke gå i dybden med, hvordan man udregner afledte funktioner ud fra definitionen i \cref{mat:eq:diffkvotient}. I stedet vil vi udnytte, at langt de fleste funktioner er opbygget af nogle få simple funktioner, som er givet i \cref{mat:tab:diff} sammen med deres første afledte. Bemærk at kvadratrødder og brøker kan skrives som potensfunktioner\footnote{F.eks. er $\sqrt{x} = x^{1/2}$ og $1/x = x^{-1}$.}, så disse er også indeholdt i tabellen. En vigtig bemærkning er, at Eulers tal, $e$, defineres til at have den egenskab at $\dv*{e^x}{x} = e^x$. En notation, der ofte kan være praktisk, er at skrive eksponentialfunktionen som $\exp(t) = e^t$. Dette er smart, hvis argumentet\footnote{Argumentet til en funktion er det som indsættes på den uafhængige variabels plads. Dvs. at for funktionen $f(x)$ er $x$ argumentet til funktionen $f$ og for $\exp(t)$ er $t$ argumentet til eksponentialfunktionen. Argumentet kan også være mere kompliceret: for $g(2\sqrt{x}+x^2)$ er $2\sqrt{x}+x^2$ argumentet til funktionen $g$.} til eksponentialfunktionen er langt eller indeholder en brøk. Ud fra tabellen og de følgende regneregler for differentialregning, er det muligt af differentiere en stor mængde af funktioner.
+%
+\setlength{\tabcolsep}{1.2 em}
+\def\arraystretch{1.3}
+\begin{table}[]
+    \centering
+    \begin{tabular}{ccc}
+    \toprule
+    Funktionsnavn & $f(t)$ & $\dv*{f}{t}$ \\%\specialrule{.125em}{.1em}{.1em}
+    \midrule
+    Konstant & $k$ & $0$ \\%\hline
+    Lineær funktion & $t$ & $1$ \\%\hline
+    Andengradspolynomium & $t^2$ & $2t$ \\%\hline
+    Tredjegradspolynomium & $t^3$ & $3t^2$ \\%\hline
+    Potensfunktion & $t^a$ & $at^{a-1}$ \\%\hline
+    Sinus & $\sin(t)$ & $\cos(t)$ \\%\hline
+    Cosinus & $\cos(t)$ & $-\sin(t)$ \\%\hline
+    Tangens & $\tan(t)$ & $1/\cos^2(t)$ \\%\hline
+    Eksponentialfunktionen & $e^t = \exp(t)$ & $e^t = \exp(t)$ \\%\hline
+    Den naturlige logaritme & $\ln(t)$ & $1/t$, hvor $t > 0$ \\
+    \bottomrule
+    % \specialrule{.125em}{.1em}{.1em}
+    \end{tabular}
+    \caption{Afledte funktioner for nogle af de mest almindelige funktioner.}
+    \label{mat:tab:diff}
+\end{table}
+%
+%Overvej at skrive eksplicit den afledede af x x^2 x^3.
+\paragraph*{Konstantreglen:} Den afledte af en funktion gange en konstant, er det samme som konstanten ganget med den afledte af funktionen:
+%
+\begin{align}
+    \dv{}{t} \Big( k\cdot f(t) \Big) &= k\cdot\dv{f}{t} = k\cdot f'(t).
+    %
+    \intertext{\paragraph*{Sumreglen:} Den afledte af summen af to funktioner, $f$ og $g$, er summen af deres afledte:}
+    %
+    \dv{}{t} \Big( f(t)+g(t) \Big) &= \dv{f}{t}+\dv{g}{t} = f'(t)+g'(t).
+    %
+    \intertext{\paragraph*{Differensreglen:} Kombinerer vi sumreglen med konstantreglen, får vi, at det samme gælder for differensen af to funktioner:}
+    %
+    \dv{}{t} \Big( f(t)-g(t) \Big) &= \dv{f}{t}-\dv{g}{t} = f'(t)-g'(t).
+\end{align}
+%
+\paragraph*{Produktreglen:} Denne regel siger, at den afledte af produktet af to funktioner er den ene funktion differentieret gange den anden udifferentieret, plus den første udifferentieret gange den anden differentieret:
+%
+\begin{align}
+    %
+    \dv{}{t} \Big( f(t) \cdot g(t) \Big) = f(t)\dv{g}{t} + \dv{f}{t}g(t) = f(t)g'(t) + f'(t)g(t).
+\end{align}
+    %
+\paragraph*{Kædereglen:} Man støder ofte på funktioner inde i andre funktioner, såkaldte sammensatte funktioner. Regnereglen for disse funktioner er:
+    %
+\begin{align}
+    \dv{}{t} f\big(g(t)\big) = \dv{g}{t} \cdot \dv{f}{g} = g'(t) f'\big(g(t)\big).
+\end{align}
+%
+\paragraph*{Kvotientreglen:} Der er også en regneregel for en funktion divideret med en anden:
+%
+\begin{align}
+    \dv{}{t} \left( \frac{f(t)}{g(t)} \right) = \frac{\dv*{f}{t} \cdot g(t)-f(t) \cdot \dv*{g}{t}}{g^2(t)}=\frac{f'(t)g(t)-f(t)g'(t)}{g^2(t)}.
+\end{align}
+%
+I praksis er det dog ofte nemmere at bruge produktreglen og kædereglen til at undgå kvotientreglen.
+
+\begin{example}
+Vi vil differentiere funktionen\footnote{Her ses et eksempel på hvor notationen $\exp$ er smart, da $\exp(-t^2)$ ikke bliver ligeså småt som $e^{-t^2}$, og derfor kan være lettere at læse.} $f(t) = (3 - t^2) e^{-t^2} = (3 - t^2) \exp(-t^2)$
+mht. $t$. Vi starter med at betragte $f(t)$ som et produkt af to
+funktioner, $3-t^2$ og $\exp(-t^2)$, og bruger derfor produktreglen. Det giver at
+%
+\begin{align*}
+    \dv{f}{t} = \left( \dv{}{t} \left(3-t^2\right) \right) \cdot e^{-t^2} + (3-t^2) \cdot \left(\dv{}{t} e^{-t^2}\right).
+\end{align*}
+%
+Bruges differensreglen ser vi at
+%
+\begin{align*}
+    \dv{}{t} \left( 3-t^2 \right) &= \dv{}{t}3 - \dv{t^2}{t}.
+    %
+    \intertext{I \cref{mat:tab:diff} kan vi se, at}
+    %
+    \dv{}{t}3 - \dv{t^2}{t} &= 0 - 2t = -2t.
+\end{align*}
+%
+Dernæst vil vi differentiere $\exp(-t^2)$, som vi betragter som en
+sammensat funktion. Kædereglen med $g(t) = -t^2$ og $f\big(g(t)\big) = \exp\big(g(t)\big)$
+giver at
+%
+\begin{align*}
+    \dv{}{t} \left( e^{-t^2} \right)
+    = \left( \dv{}{t} \left( -t^2 \right) \right) \cdot \dv{}{g} e^g
+    = -2t \cdot e^g
+    = -2t e^{-t^2}.
+\end{align*}
+%
+Vi kan nu samle resultaterne og beregne differentialkvotienten for $f(t)$:
+%
+\begin{align*}
+    \dv{f}{t} = (-2t) \cdot e^{-t^2} + (3-t^2) \cdot (-2t e^{-t^2}) = -2t(4 - t^2) e^{-t^2}.
+\end{align*}
+\end{example}
+
+\subsection{Funktioner af flere variable}
+Det næste vi nu skal kigge på, er tilfældet hvor man har en funktion, der afhænger af mere end en variabel, altså $f(x,y,z,\dots{})$. Her taler man om to forskellige måder at differentiere på, der kaldes for hhv. \emph{total differentiering} og \emph{partiel differentiering}, og som skrives på to forskellige måder
+%
+\begin{align*}
+    \text{total differentiering}&: \enspace \dv{f}{x} \\
+    \text{partiel differentiering}&: \enspace \pdv{f}{x}
+\end{align*}
+%
+Den grundlæggende forskel på de to er, at man ved en total differentiering antager, at de andre variable kan afhænge af den variabel man differentierer i forhold til, mens man ved en partiel differentiering antager, at de andre variable er konstante, og altså ikke afhænger af den variabel man differentierer i forhold til. Det betyder specielt, at partiel differentiering fungerer på samme måde, som differentiering af funktioner af en variable, som det er introduceret ovenfor, og vi kan derfor genbruge de regneregler, som allerede er blevet gennemgået. Med kædereglen er der nogle eksempler, som er lidt mere vanskelige, og hvor man skal passe på. Disse tilfælde bliver dog ikke relevant på campen, hvorfor kædereglen trykt kan benyttes til partiel integration i opgaverne på campen. %og vi vil derfor ikke kigge nærmere på den. % Vi vil i stedet henvise til \cref{mat:ex:part_diff} i slutningen af dette afsnit, hvor det er illustreret, hvordan man regner med partiel differentiation.
+
+\begin{example} \label{mat:ex:part_diff}%\noindent% Af en eller anden grund dukker der et uønsket mellemrum op, hvis der ikke står "\noindent". Det er et forfærdeligt hack, men jeg har ikke kunne løse det ordenligt :(
+% Opdatering: det ser ud til at virke nu uden at jeg har gjort noget. Det er lidt noget magi, men måske virker det :)
+% Det som får det til at virke er denne kommentar, og det er noget skrammel at fikse robust, så kommentaren skal bare blive her
+Vi vil nu partielt differentiere funktionen $g(x,y) = x^2 \sin y$ mht. $x$ og mht. $y$. Vi starter med at beregne $\pdv*{g}{x}$, og derfor betragter vi $y$ som en konstant.
+%
+\begin{align*}
+    \pdv{g}{x} &= \pdv{}{x} x^2 \sin y = \left(\pdv{}{x} x^2 \right) \sin y = 2 x \sin y.
+    %
+    \intertext{Nu partielt differentierer vi $g$ mht. $y$, og betragter derfor $x$ som en konstant.}
+    %
+    \pdv{g}{y} &= \pdv{}{x} x^2 \sin y = x^2 \left(\pdv{}{y} \sin y \right) = x^2 \cos y.
+\end{align*}
+\end{example}
+
+Går vi nu til total differentiering, er det fordelagtigt at kigge lidt nærmere på, hvad en differentialkvotient egentligt er. Kigger vi tilbage på eksemplet med bilen, vil hastigheden $v(t)$ være lig med differentialkvotienten $\dv*{x}{t}$, hvor $x(t)$ er bilens position. Da bilens hastighed jo er ændringen i dens position pr. tid, kan vi se, at man generelt kan tænke på en differentialkvotient, som noget der angiver en ændring. Mere præcist angiver en differentialkvotient $\dv*{f}{x}$, hvor meget en funktion $f(x)$ ændrer sig pr. ændringen i $x$, når man ændrer $x$ meget lidt. Differentialkvotienten giver os derfor muligheden for at beskrive, hvor meget en funktion $f(x)$ ændrer sig, hvis vi ændrer $x$ en lille smule\footnote{Dette er ikke en helt matematisk stringent måde at tænke på, med det giver en bedre intuition, og er derfor meget anvendt i fysik.}. Specielt kan vi finde ændringen i $f(x)$, $\dd{f}$, hvis vi ændrer $x$ med den lille størrelse $\dd{x}$:
+%
+\begin{align} \label{mat:eq:infinitesimal_forskydning}
+    \dd{f} = \dv{f}{x} \dd{x}.
+\end{align}
+%
+Sagt med ord siger \cref{mat:eq:infinitesimal_forskydning}, at ændringen i $f$, når man ændrer $x$ med $\dd{x}$, er lig med ændringen i $f$ pr. ændring i $x$, ganget med ændringen i $x$. På samme måde kan man finde ændringen i en funktion af flere variable $f(x,y,z,\dots{})$, hvis man ændre hver af disse med en lille smule $\dd{x},\dd{y},\dd{z},...$
+%
+\begin{align} \label{df_func}
+    \dd{f} = \pdv{f}{x} \dd{x} + \pdv{f}{y} \dd{y} + \pdv{f}{z} \dd{z} + \dots{}
+\end{align}
+%
+For at forstå denne formel, er det vigtigt at nævne, at den partielle differentialkvotient, f.eks. $\pdv*{f}{x}$, af en funktion af flere variable, angiver ændringen i $f$ pr. ændringen i $x$, når man holder alle de andre variable konstante. \Cref{df_func} siger altså, at ændringen i $f$, når man ændre hver af variablene, er lig med summen af ændringerne, der kommer fra hver variabel. Ud fra denne formel kan vi nu, ved at dividere med en af ændringerne $\dd{x}, \dd{y}, \dd{z}, \dots{}$ på begge sider, finde den total differentierede af $f$ ift. hver af variablene
+%
+\begin{align} \label{mat:eq:total_dif}
+    \dv{f}{x} = \pdv{f}{x} + \pdv{f}{y} \dv{y}{x} + \pdv{f}{z} \dv{z}{x} + \dots{} \, , \qquad \dv{f}{y} = \pdv{f}{y} + \pdv{f}{x} \dv{x}{y} + \pdv{f}{z} \dv{z}{y} + \dots{} \, , \qquad \text{osv.}
+\end{align}
+%
+Vi vil ikke gå mere i dybden med total differentiering, men blot lade det være ved, at totale differentialkvotienter kan beregnes vha. \cref{mat:eq:total_dif}. 
+
+\begin{example} \label{mat:ex:part_tot_diff}%\noindent% Af en eller anden grund dukker der et uønsket mellemrum op, hvis der ikke står "\noindent". Det er et forfærdeligt hack, men jeg har ikke kunne løse det ordenligt :(
+% Opdatering: det ser ud til at virke nu uden at jeg har gjort noget. Det er lidt noget magi, men måske virker det :)
+I \cref{chap:mek} kommer vi gentagne gange til at bestemme totalt afledte og partielt afledte af funktioner, så det er værd at kigge på et eksempel for hvordan det foregår. Vi vil derfor differentierer funktionen $f(t,x,\dot{x}) = x^2 + \dot{x}$ partielt mht. $x$ og $\dot{x}$ samt totalt ift. $t$. Her er $t$ tiden, mens $x$ er et stedkoordinat og $\dot{x}$ er den totalt differentierede af $x$ mht. tiden, $\dot{x} = \dv*{x}{t}$.
+
+Vi starter med $\pdv*{f}{x}$ og husker at ved partielt afledte, der holdes alle andre variable, end den der differentieres mht. konstant, som her er $x$. Det betyder at
+%
+\begin{align} \label{mat:eq:tot_diff_ex1}
+    \pdv{f(t,x,\dot{x})}{x} = \pdv{}{x} \left( x^2 + \dot{x} \right) = \pdv{x^2}{x} + \pdv{\dot{x}}{x} = 2x + 0 = 2x.
+\end{align}
+%
+I \cref{mat:eq:tot_diff_ex1} er det vigtigt, at $x$ og $\dot{x}$ er to forskellige variable, hvorfor $\pdv*{\dot{x}}{x} = 0$.
+Da $x$ og $\dot{x}$ er forskellige variable, er $\pdv*{x}{\dot{x}} = 0$. Det betyder at
+%
+\begin{align} \label{mat:eq:tot_diff_ex2}
+    \pdv{f(t,x,\dot{x})}{\dot{x}} &= \pdv{}{\dot{x}} \left( 2x + \dot{x} \right) = 2\pdv{x}{\dot{x}} + \pdv{\dot{x}}{\dot{x}} = 0 + 1 = 1.
+\end{align}
+
+Det sidste, vi vil kigge på i dette eksempel, er $\dv*{f}{t}$, hvilket er total differentiation. Her er det meget vigtigt, at holde styr på hvilke variable, der afhænger af hinanden. Det er derfor en god idé, først at opskrive hvad hver variabel afhænger af. Tiden $t$ afhænger kun af sig selv, mens stedfunktioner og deres tidsafledte afhænger af tid, det vil sige at $x = x(t)$ og $\dot{x} = \dot{x}(t)$. For at huske det, kan det være en god idé, at skrive dette helt eksplicit i sine udregninger:
+%
+\begin{align}
+    \dv{}{t} f\Big(t, x(t), \dot{x}(t) \Big) &= \dv{}{t} \left( \Big( x(t) \Big)^2 + \dot{x}(t) \right) = \dv{\big( x(t) \big)^2}{t} + \dv{\dot{x}(t)}{t}. \label{mat:eq:tot_diff_ex3}
+\end{align}
+%
+Bruges \cref{mat:eq:total_dif} får man at
+%
+\begin{align}
+    \dv{\big( x(t) \big)^2}{t} &= \pdv{x^2}{x} \cdot \dv{x(t)}{t} = 2x \cdot \dot{x}. \label{mat:eq:tot_diff_ex4}
+    %
+    \intertext{Kombineres \cref{mat:eq:tot_diff_ex3,mat:eq:tot_diff_ex4} fås det endelige resultat}
+    %
+    \dv{}{t} f\Big(t, x(t), \dot{x}(t) \Big) &= \dv{\big( x(t) \big)^2}{t} + \dv{\dot{x}(t)}{t} = 2x \dot{x} + \ddot{x}(t).
+\end{align}
+\end{example}

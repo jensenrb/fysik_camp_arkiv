@@ -1,0 +1,158 @@
+\subsection*{Differentialligninger}
+\begin{opgave}[1]{Differentialligninger i ord}
+\opg En ligning, der indeholder differnetialkvotienter, eksempelvis $\dv*{f}{x}$, hvis løsning er en funktion.
+\opg Funktioner.
+\opg Man indsætter tallet på den ubekendte variabels plads. Hvis gættet er en løsning, vil man få et sandt udtryk.
+\opg Man indsætter funktionen på den ubekendte funktions plads. Hvis gættet er en løsning, vil man få et sandt udtryk.
+\end{opgave}
+
+\begin{opgave}[2]{Hvornår er det en løsning?}
+	I denne opgave skal I finde ud af, hvornår nogle forskellige funktioner er løsninger til de givne differentialligninger. Sagt med andre ord skal I finde de specifikke værdier for nogle af de konstanter, der indgår i funktionerne, som gør at funktionerne løser differentialligningerne.
+	\opg For hvilke værdier af $k$ løser funktionen
+	\begin{align*}
+	f(x) = \cos (kx)
+	\end{align*}
+	differentialligningen
+	\begin{align*}
+	4 \dv[2]{f(x)}{x} = - 25f(x).
+	\end{align*}
+	Først findes $\dv:[2]{f}{x}$:
+	\begin{align*}
+	\dv{f}{x}&=-k\cos(kx)\\
+	\dv[2]{f}{x}&=-k^2\cos(kx)
+	\end{align*}
+	Dette kan sættes ind i differentialligningen
+	\begin{align*}
+	    4\dv[2]{f}{x}&=-25f(x)\iff\\
+	    -4k^2\cos(kx)&=-25\cos(kx)\iff\\
+	    k^2&=\frac{25}{4}\iff\\
+	    k&=\pm \frac{5}{2}
+	\end{align*}
+	Så $f(x)$ er en løsning til differentialligningen hvis og kun hvis $k=\pm5/2$.
+		Så $g(x)$ er også en løsning til differentialligningen.
+	\opg Tjek for de værdier af $k$ I fandt i 1), at funktionen $g(x) = A \sin (kx) + B \cos (kx)$ også løser differentialligningen
+	\begin{align*}
+	4 \dv[2]{g(x)}{x} = -25 g(x).
+	\end{align*}
+	Først findes $\dv*[2]{g}{x}$
+	\begin{gather*}
+	    \dv{g}{x}=Ak\cos(kx)-Bk\sin(kx)\\
+	    \dv[2]{g}{x}=-Ak^2\sin(kx)-Bk^2\cos(kx)=k^2g(x)
+	\end{gather*}
+	\opg For hvilke værdier af $r$ løser funktionen
+	\begin{align*}
+	h(x) = e^{rx}
+	\end{align*}
+	differentialligningen
+	\begin{align*}
+	2 \dv[2]{h(x)}{x} + \dv{h(x)}{x} - h(x) = 0.
+	\end{align*}
+	
+	Først findes den første afledte
+$$
+\dv{h}{x}=re^{rx}.
+$$
+Der efter den anden afledte
+$$
+\dv[2]{h}{x}=r^2e^{rx}.
+$$
+Nu sættes dette ind i differentialligningen, hvilket bliver
+$$
+2r^2e^{rx}+re^{rx}-e^{rx}=0.
+$$
+Vi kan dele med $e^{rx}$ på begge sidder af lighedstegnet, hvilket efterlader en andengradsligningen
+$$
+2r^2+r-1=0,
+$$
+med løsningerne
+$$
+r=\frac{-1\pm\sqrt{1-4\cdot 2\cdot (-1)}}{4}=\frac{\pm 3-1}{4}.
+$$
+Det giver os to værdier for $r$:
+$$r_1=-1~~~~\text{og}~~~~r_2=\frac{1}{2}$$
+	\opg Lad $r_1$ og $r_2$ være de konstanter du fandt i 3). Tjek at funktionen $k (x) = ae^{r_1x} + be^{r_2x} $ også løser differentialligningen
+	\begin{align*}
+	2 \dv[2]{k(x)}{x} + \dv{k(x)}{x} - k(x) = 0.
+	\end{align*}
+Igen finde den første afledte først
+$$
+\dv{k}{x}=ar_1e^{r_1x}+br_2e^{r_2x},
+$$
+og så den anden
+$$
+\dv[2]{k}{x}ar_1^2e^{r_1x}+br_2^2e^{r_2x}.
+$$
+Dette kan sættes ind i differentialligningen, så
+\begin{align*}
+2\dv[2]{k}{x}+\dv{k}{x}-k(x)&=2ar_1^2e^{r_1x}+2br_2^2e^{r_2x}+ar_1e^{r_1x}+br_2e^{r_2x}-ae^{r_1x}-be^{r_2x}\\
+&=a\left(2r_1^2-r_1-1\right)e^{r_1x}+b\left(2r_2^2-r_2-1\right)e^{r_2x}\\
+&=0
+\end{align*}
+Dette er en løsning fordi begge paranteser indeholder andengradsligningen fi fandt i den forrige opgave, hvor både $r_1$ og $r_2$ er løsninger. Derfor er $k(x)$ også en løsning.
+
+Differentialligninger hvor man kan danne nye løsninger ved at tage kendte løsninger, multiplicere dem med et tal og lægge dem sammen kaldes lineære. Lineære differentialligninger er markant lettere at løse end ikke lineære differentialligninger.
+\end{opgave}
+
+\begin{opgave}[3]{Generelle 1. ordens differentialligninger}
+I denne opgave skal I også vise, at nogle forskellige funktioner er løsninger til de givne differentialligninger. Denne gang er funktionerne og differentialligningerne dog skrevet op på en mere generel form, dvs. at de kan indeholde arbitrære konstanter.
+\opg Vis at alle funktioner på formen
+\begin{align*}
+	h(x) = \frac{1}{x + A} 
+\end{align*}
+løser differentialligningen
+\begin{align*}
+	\dv{h}{x} = - h(x)^2 \; .
+\end{align*}
+Først finde den afledte, her med brug af kædereglen
+$$
+\dv{h}{x}=\frac{-1}{(x+A)^2}=-h(x)^2,
+$$
+hvilket løser differentialligningen.
+\opg Vis at alle funktioner på formen
+\begin{align*}
+	k(x) = \left( c - x^2 \right)^{-1/2}
+\end{align*}
+løser differentialligningen
+\begin{align*}
+	\dv{k}{x} = x k(x)^3 \; .
+\end{align*}
+Kædereglen giver den afledte
+$$
+\dv{k}{x}=-2x\cdot \frac{-1}{2}\left(c-x^2\right)^{-3/2}=x\left(\left(c-x^2\right)^{-1/2}\right)^3=xk(x)^3.
+$$
+Igen har vi en løsning til differentialligningen.
+\opg Vis at alle funktioner på formen
+\begin{align*}
+	g(x) = \frac{\ln (x) + C}{x}
+\end{align*}
+løser differentialligningen
+\begin{align*}
+	x^2 \dv{g}{x} + xg(x) = 1 \; .
+\end{align*} 
+Her giver kvotientreglen
+$$
+\dv{g}{x}=\dfrac{\dfrac{x}{x}-\ln(x)-C}{x^2}=\frac{1-\ln(x)-C}{x^2}=\frac{1}{x^2}-\frac{g(x)}{x},
+$$
+hvilket kan omarrangeres til
+$$
+x^2\dv{g}{x}+xg(x)=1,
+$$
+hvilket betyder at vi har en løsning.
+\opg Vis at alle funktioner på formen
+\begin{align*}
+	f(x) = \frac{1 + ce^x}{1-ce^x}
+\end{align*}
+løser differentialligningen
+\begin{align*}
+	\dv{f}{x} = \frac{1}{2} \left( f(x)^2 - 1 \right) \; .
+\end{align*} 
+Igen bruges kvotientreglen.
+$$
+\dv{f}{x}=\frac{ce^x(1-ce^x)-(1+ce^x)(-ce^x)}{(1-ce^x)^2}=\frac{ce^x-c^2e^{2x}+ce^x+c^2e^{2x}}{(1-ce^x)^2}=\frac{2ce^x}{(1-ce^x)^2}.
+$$
+Lad os også se på differentialligningen
+$$
+\frac{1}{2}\left(f(x)^2-1\right)=\frac{1}{2}\left(\frac{(1+ce^2)^2}{(1-ce^x)^2}-1\right)=\frac{(1+ce^x)^2-(1-ce^x)^2}{2(1-ce^x)^2}=\frac{2ce^x}{(1-ce^x)^2}
+$$
+Det er en løsning
+\end{opgave}

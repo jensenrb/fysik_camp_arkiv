@@ -1,0 +1,109 @@
+\documentclass[crop=false, class=memoir]{standalone}
+\input{../setup/preamble.tex}
+\usepackage{import}
+\begin{document}
+\section{Akustik}
+%%
+\begin{opgave}[1]{Lydens hastighed}
+\opg Snorspændingen eller snorkraftens størrelse $F_s$
+\opg $v_\mathrm{lyd}=\sqrt{\nicefrac{F_s}{\mu}}$ altså bliver lydhastigheden større, når snoren strammes.
+\opg $v_\mathrm{lyd}=\sqrt{\nicefrac{F_s}{\mu}}$ altså bliver lydhastigheden mindre, hvis snoren gøres tungere.
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Grundtonen og stemning af strenginstrumenter}
+Grundtonens frekvens er givet i \cref{aku:eq:frekvens}.
+\opg Grundtonens frekvens stiger.
+\opg Grundtonens frekvens falder.
+\opg Grundtonens frekvens falder.
+\opg Dette kan besvares ved at beregne forholdet mellem de to grundtonefrekvenser
+%
+\begin{align*}
+    \frac{\tilde \nu_0}{\nu_0} = \frac{\nicefrac{\pi}{2L}\cdot\sqrt{\nicefrac{2F_s}{\mu}}}{\nicefrac{\pi}{L}\cdot\sqrt{\nicefrac{F_s}{\mu}}} = \frac{1}{\sqrt{2}}.
+\end{align*}
+%
+Grundtonenfrekvensen bliver altså mindre med en factor $\nicefrac{1}{\sqrt{2}}$, hvilket svarer til en ligesvævende kvint.
+\opg Er instrumentet for højt, skal $\nu_0$ gøres mindre, hvorfor strengen skal slækkes.
+\opg Er instrumentet for lavt, skal $\nu_0$ gøres større, hvorfor strengen skal strammes.
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Temperering}
+At strengene stemmes i kvinter, betyder at
+%
+\begin{align*}
+    \nu_{d0} = \frac{3}{2}\nu_{g0}, \;\; \nu_{a0} = \frac{3}{2}\nu_{d0} \;\; \mathrm{og} \; \nu_{e0} = \frac{3}{2}\nu_{a0}.
+\end{align*}
+Derfor er
+\opg $\dfrac{\nu_{d0}}{\nu_{g0}} = \dfrac{3}{2}$
+\opg $\dfrac{\nu_{a0}}{\nu_{g0}} = \dfrac{\nu_{a0}}{\nu_{d0}}\cdot\dfrac{\nu_{d0}}{\nu_{g0}} = \dfrac{3}{2}\cdot\dfrac{3}{2} = \dfrac{9}{4}$
+\opg Man vil høre to toner, med næsten samme grundtonefrekvens, hvilket giver stødtoner mellem hver partialtone i de to toners overtonerække.
+\opg Stemmer violinisten i frekvensforholdet $2^{\nicefrac{7}{12}}$ ville
+%
+\begin{align*}
+    \dfrac{\nu_{a0}}{\nu_{g0}} = \dfrac{\nu_{a0}}{\nu_{d0}}\cdot\dfrac{\nu_{d0}}{\nu_{g0}} = 2^{\nicefrac{7}{12}}\cdot2^{\nicefrac{7}{12}} = 2^{\nicefrac{14}{12}},
+\end{align*}
+%
+hvilket er det samme som klaveret.
+\opg $x_\mathrm{ulv} = \dfrac{2^7}{\left(\nicefrac{3}{2}\right)^{11}} = \dfrac{2^{18}}{3^{11}} = \num{1.47981}$ 
+\opg $\mathrm{E}_\mathrm{ren} = \SI{660,000}{\hertz}$ og $\mathrm{E}_\mathrm{ulv} = \SI{651,117}{\hertz}$. Der er altså næsten \SI{9}{hertz} til forskel mellem de to kvinter, hvilket let kan høres, hvorfor ulvekvinten er tydeligt falsk for selv utrænede ører.
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{Vibrato}
+\opg Ved at trykke strengen ned på fingerbrættet, kan længden af strengen ændres. Ved at bevæge fingeren frem og tilbage ændres længden af strengen tilsvarende. Af \cref{aku:eq:frekvens} får dette grundtonefrekvensen til at svinge i tid.
+\opg Når hånden holdes over den ringende tast i en afstand $L$, så vil svingninger med bølgelængderne $\lambda = \nicefrac{L}{n}$, hvor $n=1,2,...$, danne stående bølger mellem hånden og tasten. Dette vil dæmpe bølger med andre bølgelængder mere end de stående bølger, hvorfor vi hører de stående bølger tydeligere. Når hånden bevæges, så ændres bølgelængderne, der giver stående bølger, hvilket giver en vibratoeffekt.
+\end{opgave}
+%%
+\begin{opgave}[2]{Bølger og ubestemthed}
+\opg Afstanden mellem to knudepunkter eller to bølgetoppe/bølgedale er $\pi$, hvorfor $\lambda = \pi$.
+\opg Der er en bølgetop ved $x=0$ og en bølgedal halvanden bølgelængde derfra ved $x=\pm\pi$. Et bud på bølgelængden er derfor $\lambda=\nicefrac{2\pi}{3}$.
+\opg Bølgen har toppunkt og dermed centrum i $x=0$.
+\opg Nej. Sinus og cosinus er translationssymmetriske funktioner i hele multipla af $\pi$ -- dvs. eksempelvis $\sin(x) = \sin(x \pm n\pi)$ for $n=1,2,...$
+\opg De funktioner, der har velbestemte bølgelængder, er sinus og cosinus, alle andre bølgers ``bølgelængde'' findes, ved at finde den sum af sinus- og cosinusfunktioner, der giver samme bølge. Grundet sinus' og cosinus' translationssymmetri har de intet centrum -- de er ikke lokaliseret i rummet noget sted. Det betyder, at hvis bølgen har en velbestemt bølgelængde, så er den ikke noget bestemt sted i rummet, men hvis den er et bestemt sted i rummet, så har den ikke en velbestemt bølgelængde. Kort sagt kan man ikke kende bølgens position og bølgelængde på samme tid med arbitrær præcision.
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{Løsninger på forskellige former}
+k
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{oktaver}
+k
+\end{opgave}
+%%
+%%
+\begin{opgave}[3]{Sammenhæng mellem hastighed og tryk for en lydbølge}
+k
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Grundfrekvenser af forskellige instrumenter}
+k
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{streng og fløjte}
+k
+\end{opgave}
+%%
+%%
+\begin{opgave}[3]{overtoner på klarinet}
+k
+\end{opgave}
+%%
+%%
+\begin{opgave}{Stående bølger i en fløjte}
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Stødtoner (pløg-ind-opgave)}
+    k
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{Stødtoner}
+    k
+\end{opgave}
+\end{document}

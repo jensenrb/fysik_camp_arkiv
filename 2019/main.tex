@@ -1,0 +1,84 @@
+
+\input{preamble/preamble.tex}
+
+%%%%%%%%%%%%%%%%%%%%%% 
+%%  BEGIN DOCUMENT  %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\usetikzlibrary{matrix}
+\begin{document}
+\input{preamble/forside.tex}
+
+%herunder sættes emner ind.
+
+
+\input{Mat/matematik.tex}
+% \newpage
+% \input{facit/mat.tex}
+
+\input{Kosmo/kosmo.tex}
+% \newpage
+% \input{opg/kosmoopgaver.tex}
+% \newpage
+% \input{facit/kosmofacit.tex}
+
+
+\input{Elektro/elektro.tex}
+% \newpage
+% \input{opg/elektro_opgaver.tex}
+% \newpage
+% \input{facit/elektro_facit.tex}
+
+
+\input{Statfys/statfys.tex}
+% \newpage
+% \input{opg/statfys_opgaver.tex}
+% \newpage
+% \input{facit/statfys_facit.tex}
+
+
+\input{SR/SR.tex}
+% \newpage
+% \input{opg/SR.tex}
+% \newpage
+% \input{facit/SR.tex}
+
+
+\input{Partikel/partikel.tex}
+% \newpage
+% \input{opg/partikelopgaver.tex}
+% \newpage
+% \input{facit/partikelfacit.tex}
+
+\input{Geo/geo.tex}
+
+\appendix
+
+% Medtag ikke-i-teksten citerede referencer i bibliografien
+\input{nociteCiteringer.tex}
+
+%\bibliographystyle{plain} % BibTex citerings stil
+%\bibliographystyle{unsrt} % BibTex citerings stil
+%\bibliography{litteratur.bib} % Bibliografi; udkommenter hvis BibTex bruges
+
+\backmatter
+
+%printbibliography[title = Litteraturliste] % Printer hele BibLaTeX bibliografien
+% \bibliographystyle{apsrev4-1} % BibTex/BibLaTex? style
+
+\printbibheading[title = Litteraturliste] % Sætter og printer titlen på litteraturlisten
+
+% BibLaTex print bibliografi tilhørende specifikke keywords (dem som står herunder ud for 'keyword'. Disse skal i hver bibliografi entry skrives som 'keywords = {<keyword1>, <keyword2>, ..., <keywordN>},' for mængden af N keywords)
+\printbibliography[keyword = mat, heading = subbibliography, title = {Mekanik \& Matematik}]
+\printbibliography[keyword = kosmo, heading = subbibliography, title = {Kosmologi}]
+\printbibliography[keyword = elektro, heading = subbibliography, title = {Elektromagnetisme}]
+\printbibliography[keyword = statfys, heading = subbibliography, title = {Statistisk fysik}]
+\printbibliography[keyword = sr, heading = subbibliography, title = {Speciel relativitetsteori}]
+\printbibliography[keyword = partikel, heading = subbibliography, title = {Partikelfysik}]
+\printbibliography[keyword = geo, heading = subbibliography, title = {Geofysik}]
+
+%\bibliography{bach}{} % ikke BibLaTeX
+%\bibliographystyle{alpha} % ikke BibLaTeX
+
+\end{document}
+

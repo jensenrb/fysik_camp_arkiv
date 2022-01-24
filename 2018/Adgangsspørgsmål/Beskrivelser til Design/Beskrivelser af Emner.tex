@@ -1,0 +1,102 @@
+% Dokumentklassen sættes til memoir.
+% Manual: http://ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf
+\documentclass[a4paper,oneside,article]{memoir}
+
+% Danske udtryk (fx figur og tabel) samt dansk orddeling og fonte med
+% danske tegn. Hvis LaTeX brokker sig over æ, ø og å skal du udskifte
+% "utf8" med "latin1" eller "applemac". 
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{kpfonts}
+\usepackage{float}
+
+% Matematisk udtryk, fede symboler, theoremer og fancy ting (fx kædebrøker)
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{gensymb}
+
+\usepackage{hyperref}
+
+% Kodelisting. Husk at læse manualen hvis du vil lave fancy ting.
+% Manual: http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf
+\usepackage{listings}
+
+% Fancy ting med enheder og datatabeller. Læs manualen til pakken
+% Manual: http://www.ctan.org/tex-archive/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage{siunitx}
+
+% Indsættelse af grafik.
+\usepackage{graphicx}
+
+\usepackage{braket}
+\usepackage{caption}
+
+
+
+% Reaktionsskemaer. Læs manualen for at se eksempler.
+% Manual: http://www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf
+\usepackage[margin=0.9in]{geometry}
+
+\usepackage[version=3]{mhchem}
+
+\usepackage{units}
+
+\newcommand{\dif}[1]{\frac{d}{d {#1}}}
+
+\newcommand{\mylim}[2]{\lim\limits_{#1 \rightarrow #2}}
+
+\newcommand{\myset}[2]{\left\{ #1 \mid #2 \right\} }
+
+\newcommand{\funkt}[3]{#1 : #2 \rightarrow #3}
+
+\newcommand{\funktt}[3]{#1 : #2 \rightarrow \mathbb{#3}}
+
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Geo}{Geo}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\parindent=0pt
+
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+\begin{document}
+
+\title{Beskrivelser af de Faglige Emner}
+
+\author{Fagligt Team}
+
+\maketitle
+
+\textbf{Analytisk Mekanik}\\
+Analytisk mekanik er et af de to hovedemner på Fysik Camp 2018. Vi skal stifte bekendtskab med forskellige løsningsmetoder til fysiske problemer, samt fordelene og ulemperne ved disse. Specielt vil vi lære om Lagrangemekanik og bruge det til at analysere specifikke mekaniske systemer, hvor det er stærkt i forhold til newtonsk mekanik. Til dette vil vi også undersøge forskellige koordinatsystemer, samt hvordan man ved at vælge de rigtige koordinater til et problem kan løse det simplest muligt.\\
+
+\textbf{Kvantemekanik}\\
+Hvad er kvantemekanik egentlig, og hvorfor bruger man så meget tid på det? I dette forløb vil vi prøve at afmystificere kvantemekanik og give deltagerne en indsigt i en af de allermest anvendelige og succesfulde teorier i fysikkens historie. I forløbet vil vi beskæftige os med Schödingerligningen, som er fundamentet for kvantemekanik. Vi vil løse den i forskellige tilfælde og se på hvilke konsekvenser, de løsninger indebærer, såsom Heisenbergs usikkerhedsprincip. Derudover vil det undervejs i forløbet blive klart for deltagerne hvorfor, matematik er en så essentiel del af fysikken.\\
+
+\textbf{Exoplaneter}\\
+I Exoplanter beskæftiger vi os med planeter uden for solsystemet. Vi vil undersøge hvordan man detekterer dem, og hvad de forskellige metoder egner sig bedst til. Desuden beregner vi nogle planeters egenskaber ud fra data, og diskuterer hvilke krav liv sætter til en planet.\\
+
+\textbf{Atom- og Molekylefysik}\\
+En af grundene til at man indførte kvantemekanik var at klassisk fysik var helt utilstrækkeligt til at beskrive atomer og molekyler, da den gamle fysik f.eks. ikke kunne beskrive ting som spektrallinjer.
+I dette forløb vil vi ved at bruge kvantemekanik beskrive hvordan atomer og molekyler egentlig er bygget op. Vi vil se på udregningen af spektrallinjer, bindingsenergier mellem elektroner og atomkerner, og bindingsenergier mellem atomer i molekyler. Derudover vil vi beregne relativistiske korrektioner til disse, samt hvordan de opfører sig når man tilføjer et eksternt magnetfelt.\\
+
+\textbf{Planetbevægelse}\\
+I dette valgfag kommer vi til at arbejde med det teoretiske emne planetbevægelse, med udgangspunkt i Lagrange-mekanikken introduceret i Analytisk mekanik. Vi vil løbende stifte bekendtskab med to-legeme problemet, Keplers tre love samt metoder til at foretage skift mellem to baner.\\
+
+\textbf{Geometrisk Optik}\\
+I geometrisk optik vil vi kigge på de grundlæggende egenskaber ved lysets bevægelse, når det rejser imellem forskellige materialer. Her vil vi særligt gå i dybden med forskellige former for linser, og hvordan disse bliver brugt i både tele- og mikroskoper. Til sidst hopper vi en tur i laboratoriet, for at undersøge om de modeller og resultater vi er kommet frem til nu også passer med virkeligheden.\\
+
+
+
+\end{document}

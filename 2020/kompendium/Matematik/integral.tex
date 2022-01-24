@@ -1,0 +1,135 @@
+\section{Integralregning}
+Nu ved vi altså, hvordan man finder hastighed og acceleration ud fra positionen, men hvis man nu kender hastigheden eller accelerationen, og man gerne vil finde positionen, hvad gør man så?
+Vi har brug for det omvendte af differentialregning: integralregning. Det er dog lidt sværere, end når man differentierer. Det skyldes, at flere \emph{forskellige} funktioner, kan have den \emph{samme} afledte. Et eksempel på dette er
+\begin{equation*}
+    \dv{f}{t}=\dv{}{t} \big(f(t)+k\big) \, , \, \text{hvor $k$ er en konstant} \, .
+\end{equation*}
+Har vi en funktion med en bestemt afledt, kan vi altid finde en ny funktion med den samme afledte ved at lægge en konstant til funktionen.
+
+Hvis vi har en funktion, $f(t)$, er den afledte funktion af $f(t)$, den funktion man får, når man differentierer $f(t)$. Tilsvarende er en \emph{stamfunktion}, $F(t)$, for funktionen $f(t)$, en funktion, der har den egenskab, at dens afledte er lig med den oprindelige funktion $f(t)$.
+Man finder stamfunktioner med det \emph{ubestemte integral}, som skrives
+\begin{equation}
+    \int f(t)\dd{t}=F(t)+k \, , \, \text{hvor} \, \dv{F}{t}=f(t).
+\end{equation}
+Stamfunktionerne for de fleste simple funktioner kan lures fra \cref{mat:tab:diff}, og kan ses i \cref{mat:tab:integral}.
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c|c}
+    Funktionsnavn&$f(t)$&$\int f(t)\dd{t}$\\\specialrule{.125em}{.1em}{.1em}
+    Konstant&$k$&$kt$\\\hline
+    Potensfunktion&$t^n$&$\nicefrac{t^{n+1}}{(n+1)}$\\\hline
+    Reciprokfunktion&$\nicefrac{1}{t}$&$\ln|t|$\\\hline
+    Sinus&$\sin(t)$&$-\cos(t)$\\\hline
+    Cosinus&$\cos(t)$&$\sin(t)$\\\hline
+    Eksponentialfunktionen &$e^{kt}$&$\nicefrac{e^{kt}}{k}$\\\hline
+    Den naturlige logaritme & $\ln(t)$&$t\ln(t)-t$\\
+    \specialrule{.125em}{.1em}{.1em}
+    \end{tabular}
+    \caption{Stamfunktioner for nogle af de mest almindelige funktioner, hvor det er undladt at lægge en tilfældig konstant til stamfunktionen. Bemærk at reglen for potensfunktioner ikke gælder, når $n=-1$.}
+    \label{mat:tab:integral}
+\end{table}
+
+En af de simpleste fysiske situationer vi kan se på, er det frie fald.
+Her er accelerationen konstant og lig med gravitationskonstanten
+\begin{equation*}
+    a=g.
+\end{equation*}
+Da man som tidligere nævnt finder accelerationen ved at differentiere hastigheden, må det også gælde, at hastigheden er en stamfunktion for accelerationen. Vi finder da hastigheden ud fra \cref{mat:tab:integral} til at være
+\begin{equation*}
+    v=\int g\dd{t}=gt+v_0 \, ,
+\end{equation*}
+hvor $v_0$ er konstanten for det ubestemt integral, der her angiver starthastigheden i det frie fald, altså når $t=0$. Vi finder da, at hastigheden vokser lineært med tiden.
+
+Ligesom da vi differentierede, kan vi integrere mere komplicerede funktioner ved at tænke på dem som sammensætningere af simplere funktioner og benytte nogle regneregler for integralregning.
+Integralet af en sum af funktioner er summen af deres integraler
+\begin{equation}
+\int f(t)+g(t)\dd{t}=\int f(t)\dd{t}+\int g(t)\dd{t} \, .
+\end{equation}
+Tilsvarende kan vi sætte konstanter udenfor integraler
+\begin{equation} \label{mat:eq:konstant}
+\int kf(t)\dd{t}=k\int f(t)\dd{t} \, .
+\end{equation}
+Med disse basale integrationsregler\footnote{Det er også muligt at håndtere produktet af funktioner (delvis integration) og funktioner af funktioner (integration ved substitution), men det er mere kompliceret end for differentialregning.} kan vi også finde positionen i vores eksempel
+\begin{equation*}
+    x=\int v\dd{t}=\int gt+v_0\dd{t}=\frac{1}{2}gt^2+v_0t+x_0 \, ,
+\end{equation*}
+hvor $x_0$ her er positionen til tiden $t=0$.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{matfig/integral.eps}
+    \caption{Arealet under grafen $f(x)$ tilnærmet ved at dele det op i rektangler. Kilde: \cite{Integral}.}
+    \label{mat:fig:integralapprox}
+\end{figure}
+%
+\subsection{Integraler og arealet under en graf} \label{mat:subsec:int}
+Ligesom differentialkvotienter (afledte) giver hældningen af grafen for en funktion, er der også en grafisk fortolkning af integraler.
+Lad os sige, at vi har en funktion $A(x)$, der giver os arealet under en graf $f(x)$ (målt fra $x=0$), og lad os prøve at finde denne funktions afledte. Hvis vi nu kigger på arealet under grafen for $f(x)$ i et interval $[x,x+\Delta x]$ på $x$-aksen, vil det være givet ved $A(x+\Delta x) - A(x)$. Dette areal må også være næsten den samme som arealet af en firkant med højden $f(x)$ og bredten $\Delta x$, se \cref{mat:fig:integralapprox}. Vi har da at 
+\begin{equation*}
+    A(x+\Delta x) - A(x) \approx f(x)\Delta x \qquad \Rightarrow \qquad \frac{A(x+\Delta x) - A(x)}{\Delta x} \approx f(x) \, ,
+\end{equation*}
+hvor $\approx$ betyder, at siderne er næsten lig med hinanden. Jo mindre $\Delta x$ er, desto bedre holder denne relation, og hvis vi gør $\Delta x$ uendeligt lille bliver de faktisk lig med hinanden\footnote{I det helt stringente argument benytter man, at $f(x)\Delta x \leq A(x+\Delta x) - A(x) \leq f(x+\Delta x)\Delta x$. Når man dividerer med $\Delta x$ og tager grænseværdien for $\Delta x \rightarrow 0$ alle steder i uligheden fås at $f(x) \leq \nicefrac{\dd A}{\dd x} \leq f(x)$, hvilket kun kan være sandt, hvis $\nicefrac{\dd A}{\dd x} = f(x)$.}. Med dette får vi
+\begin{equation*}
+    \dv{A}{x}=\lim_{\Delta x\rightarrow 0}\frac{A(x+\Delta x) - A(x)}{\Delta x}=f(x).
+\end{equation*}
+Funktionen $A(x)$ må derfor være en stamfunktion til $f(x)$, og vi har vist sammenhængen mellem stamfunktioner og arealet under grafer. Siden den eneste forskel imellem forskellige stamfunktioner er en konstant, og da arealet under grafen for et bestemt interval på $x$-aksen udregnes som en forskel, vil konstanten forsvinde\footnote{Hvis det ikke er klart, hvorfor dette er sandt, så kan man se eksemplet nedenunder.}, og det er ligegyldigt, hvilken stamfunktion vi bruger.
+Notationsmæssigt skrives arealet imellem $x_1$ og $x_2$ under grafen for $f(x)$ som
+\begin{equation} \label{mat:eq:best_int}
+A(x_1,x_2)=\int_{x_1}^{x_2}f(x)\dd{x}=F(x_2)-F(x_1) \, , \, \text{hvor} \, \dv{F}{x}=f(x).
+\end{equation}
+Her skriver man ofte forskellen mellem stamfunktionen i grænserne som
+\begin{equation} \label{mat:eq:klammestamfunktion}
+    F(x_2)-F(x_1)=\Big[F(x)\Big]_{x_1}^{x_2} \, ,
+\end{equation}
+hvilket er smart i praksis, da man så kan håndtere det ubestemte integral først og så indsætte grænserne bagefter.
+\subsubsection{Eksempel}
+For at illustrere hvordan man løser et bestemt integral, vil vi nu finde det bestemte og ubestemte integral af funktionen $f(x) = 15x^2 + e^x$. For det ubestemte integral finder man at
+\begin{equation*}
+\int f(x) \dd{x} = \int 15x^2 + e^x \dd{x} = \int 15x^2 \dd{x} + \int e^x \dd{x} = 15 \int x^2 \dd{x} + \int e^x \dd{x},
+\end{equation*}
+hvor vi har benyttet, at vi må dele integralet op i to integraler og flytte en konstant udenfor. Vi mangler dog stadig en konstant, men vi får en konstant fra hver af de to integraler
+\begin{equation*}
+\int x^2 \dd{x} = \frac{1}{3} x^3 + C_1 \, , \qquad \text{og} \qquad \int e^x \dd{x} = e^x + C_2 \, ,
+\end{equation*}
+hvor det er antaget, at de to integrationskonstanter kan være forskellige. Samles det hele nu sammen finder man resultatet
+\begin{equation*}
+\int f(x) \dd{x} = 15\left( \frac{1}{3} x^3 + C_1 \right) + \left( e^x + C_2 \right) = 5x^3 + 15C_1 + e^x + C_2 = 5x^3 + e^x + C \; ,
+\end{equation*}
+hvor konstanterne i det sidste trin er samlet i den ene konstant $C=15C_1+C_2$, da både $C_1$ og $C_2$ bare er tilfældige konstanter. Nu ved vi, at enhver stamfunktion $F(x)$ for $f(x)$ har formen $5x^3 + e^x + C$, og vi kan derfor beregne det bestemte integral fra $x=a$ til $x=b$ som følger
+\begin{equation*}
+\int_a^b f(x) \dd{x} = \Big[F(x)\Big]_ a^b = \left[ 5x^3 + e^x + C \right]_a^b.
+\end{equation*}
+Her ses det smarte ved notationen i \cref{mat:eq:klammestamfunktion}, idet det viser, at vi kan dele et bestemt integral op i først at løse et ubestemt integral vha. \cref{mat:tab:integral}, og derefter indsætte grænserne -- vi kan altså gøre en ting ad gangen. Nu kan vi så indsætte grænserne og få at
+\begin{equation*}
+    \int_a^b f(x) \dd{x} = \left( 5b^3 + e^b + C \right) - \left( 5a^3 + e^a + C \right) = 5 \left( b^3 - a^3 \right) + \left( e^b - e^a \right).
+\end{equation*}
+Som det ses her, har værdien af konstanten $C$ ikke nogen betydning for det bestemte integral og undlades derfor ofte ved beregninger. For god ordens skyld kan vi vælge nogle tal som vores grænser, for at se at et bestemt integral faktisk giver et tal og ikke en ny funktion, hvilket er nødvendigt for at det kan være et areal under kurven. For at gøre det let for os selv vælges grænserne $a=0$ og $b=1$, og vi får således at
+\begin{equation*}
+    \int_0^1 f(x) \dd{x} = 5 \left( 1^3 - 0^3 \right) + \left( e^1 - e^0 \right) = 5 + e - 1 = 4 + e.
+\end{equation*}
+Arealet under grafen for funktionen $f(x)$ i intervallet fra $0$ til $1$ er derfor $4+e$. Dette illustrerer også en vigtig forskel på det bestemte og det ubestemte integral -- det bestemte giver et tal, mens det ubestemte giver en funktion. \\
+
+Notationen til integraler kommer netop fra idéen om at beskrive arealet under en graf.
+Siden vi ved, hvordan man udregner arealet på et rektangel, kan arealet under funktionen estimeres ved at dele det op i rektangler, som er illustreret på \cref{mat:fig:integralapprox}.
+Gør man det, og lægger alle arealerne sammen, får man at
+\begin{equation} \label{mat:eq:finitesum}
+    A\approx \sum_{i=1}^mf(x_i)\Delta x \, ,
+\end{equation}
+hvor det store sigma, $\Sigma$, er et sumtegn. Her er $i$ et indeks, der bliver fastsat i bunden, og som så går op i skridt af 1 indtil $i$ bliver lig $m$, der står over sumtegnet. Altså har man f.eks. at
+\begin{equation}
+\sum_{i=1}^m i = 1+2+3+\cdots+m \,  ,    
+\end{equation}
+og
+\begin{equation}
+\sum_{i=1}^m f(x_i) = f(x_1)+f(x_2)+\cdots+f(x_m) \, .
+\end{equation}
+Gøres $\Delta x$ nu mindre og mindre i \cref{mat:eq:finitesum}, bliver tilnærmelsen bedre og bedre, så som i differentialregning lader vi $\Delta x$ gå imod nul og får
+\begin{equation}
+    A=\lim_{\Delta x\rightarrow 0}\sum_{i=1}^m f(x_i)\Delta x=\int_{x_1}^{x_m}f(x)\dd{x} \, ,
+\end{equation}
+hvilket er den typiske måde at definere et integral\footnote{Dette kaldes for et Riemannintegral efter den tyske matematiker Bernhard Riemann.}. Det slyngede S man bruger til integralet, er da en måde at angive, at der er tale om en "sum".
+
+
+
+
+

@@ -1,0 +1,57 @@
+\documentclass[a4paper]{memoir}
+\usepackage{standalone}
+\usepackage{import}
+
+\subimport{setup/}{preamble.tex}
+
+\title{Fysik Camp 2021}
+
+\begin{document}
+
+\input{setup/front_matter.tex}
+
+\newpage
+\begin{KeepFromToc}
+    \tableofcontents
+\end{KeepFromToc}
+\newpage
+\mainmatter
+
+\part{Opgaver}
+
+\subimport{Matematik/}{mat_opg.tex}
+
+\subimport{Kosmo/}{Kosmo_opg.tex}
+\newpage
+\printbibliography[keyword=kosmo, heading=subbibliography, title={Litteraturliste for Kosmologi}]
+
+\subimport{Mekanik/}{Mekanik_opg.tex}
+
+\subimport{Laserfysik/}{Laser_opg.tex}
+
+\subimport{Elektro/}{Elektro_opg.tex}
+\newpage
+\printbibliography[keyword=elektro, heading=subbibliography, title={Litteraturliste for Elektromagnetisme}]
+\subimport{NumFys/}{NumFys_opg.tex}
+
+\subimport{Rel/}{Rel_opg.tex}
+
+\setcounter{chapter}{0} % Resets chapter numbers
+% \setcounter{chapter}{2} % Resets chapter numbers
+
+\part{Facit}
+\subimport{Matematik/}{mat_facit.tex}
+
+\subimport{Kosmo/}{Kosmo_facit.tex}
+
+\subimport{Mekanik/}{Mekanik_facit.tex}
+
+\subimport{Laserfysik/}{Laser_facit.tex}
+
+\subimport{Elektro/}{Elektro_facit.tex}
+
+\subimport{NumFys/}{NumFys_facit.tex}
+
+ \subimport{Rel/}{Rel_opg.tex}
+
+\end{document}

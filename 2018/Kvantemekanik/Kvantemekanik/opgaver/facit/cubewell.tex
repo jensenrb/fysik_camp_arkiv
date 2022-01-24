@@ -1,0 +1,254 @@
+\begin{opgave}{Parabelformet bølgefunktion}{1}\label{kvant:opg:parabel}
+Vi ser her på en partikel i en uendelig brønd i intervallet fra $0$ til $L$. Lad bølgefunktionen være:
+$$
+\psi = Nx(L-x)
+$$
+\opg Find $N$ så bølgefunktionen er normeret?
+
+En normeret bølgefunktion opfylder kravet:
+$$
+\integral{\abs{\psi}^2}{x}{}{}=\braket{\psi}{\psi}=1
+$$
+Siden bølgefunktionen er nul uden for brønden skal vi kun integrere inde i brønden.
+\begin{align*}
+    1 &= \integral{\abs \psi^2}{x}{0}{L}\\
+    &= \integral{\abs N^2 x^2(L-x)^2}{x}{0}{L}\\
+    &= \abs N^2\integral{x^4-2Lx^3+x^2L^2}{x}{0}{L}\\
+    &= \abs N^2\left[\frac{x^5}{5}-\frac{x^4L}{2}+\frac{x^3L^2}{3}\right]_0^L\\
+    &= \abs N^2L^5\left(\frac{6}{30}-\frac{15}{30}+\frac{10}{30}\right)\\
+    &=\frac{\abs N^2L^5}{30}
+\end{align*}
+Herefter kan $\abs N^2$ isoleres.
+$$
+\abs N^2 = \frac{30}{L^5}
+$$
+Denne ligning har mere end en løsning. Selv hvis vi begrenser os til reele tal vil der være både en positiv og en negativ løsning, men $N$ er et komplekst tal. Der er derfor en hel cirkel i det komplekse plan med samme normkvadrat. For en vilkårlig fase $\theta$vil den gennerelle løsning være:
+$$
+N=\sqrt{\frac{30}{L^5}}e^{i\theta}
+$$
+Heldigvis har fasen ikke nogen fysisk betydning, så vi vælger blot den positive løsning:
+$$
+N=\sqrt{\frac{30}{L^5}}
+$$
+\opg Hvad er forventningsværdien for positionen: $\expect x$?
+
+For at finde forventingsverdien bruges ligning \eqref{kvant:eq:forvent}.
+\begin{align*}
+    \expect x &= \integral{\psi^* x \psi}{x}{0}{L}\\
+    &= \abs N^2 \integral{x^3(L-x)^2}{x}{0}{L}\\
+    &= \abs N^2 \integral{x^5-2x^4L+x^3L^2}{x}{0}{L}\\
+    &= \abs N^2 \left[\frac{x^6}{6}-\frac{2x^5L}{5}+\frac{x^4L^2}{4}\right]_0^L\\
+    &= \abs N^2 L^6 \left(\frac{10}{60}-\frac{24}{60}+\frac{15}{60}\right)\\
+    &= \abs N^2 \frac{L^6}{60}
+    = \frac{30}{L^5}\frac{L^6}{60}
+    = \frac{L}{2}
+\end{align*}
+Det er altså mest sandsynligt at finde partiklen i midten af bønden. Dette er ikke overraskende siden brønden er symmetrisk, og der derfor ikke er nogen grund til at den skulle være i den ene side frem for den anden.
+\opg Find forventningsværdien for energien: $\expect E$ og sammenlign den fundne energi med grundtilstandsenergien: $\frac{\pi^2\hbar^2}{2mL^2}$.
+
+Forventingsværdien for energien er forventinigsværdien af hamiltonoperatoren.
+\begin{align*}
+    \expect E &= \integral{\psi^*\op H \psi}{x}{0}{L}\\
+    &= \frac{-\hbar^2\abs N^2}{2m}\integral{x(L-x)\pdif[2]{x}{}(xL-x^2)}{x}{0}{L}\\
+    &= \frac{\hbar^2\abs N^2}{m}\integral{xL-x^2}{x}{0}{L}\\
+    &= \frac{\hbar^2\abs N^2}{m}\left[\frac{x^2L}{2}-\frac{x^3}{3}\right]_0^L\\
+    &= \frac{\hbar^2\abs N^2L^3}{6m} = \frac{30}{L^5}\frac{\hbar^2L^3}{6m} = \frac{10\hbar^2}{2mL^2}
+\end{align*}
+Der hvor der er et $\pi^2$ i grundtilstands energien er der $10$ i $\expect E$. Da $\pi^2\approx 9,87$ er $\expect E$ en anelse større end $E_1$.
+\opg Er $\psi$ en stationær tilstand?
+
+Der er (mindst) to fremgangsmåder her. Den første er at sætte $\psi$ ind i den stationære schrödingerligning og se om det går op.
+\begin{align*}
+    \op H\psi &= \frac{-\hbar^2}{2m}\pdif[2]{x}\psi\\
+    &= \frac{-\hbar^2 N}{2m}\pdif[2]{x}{}(xL-x^2)\\
+    &= \frac{\hbar^2 N}{m}\neq E\psi
+\end{align*}
+Da $\psi$ ikke opfylder den stationære schrödingerligning er det ikke en stationær tilstand.
+
+Den anden metode bygger på at vi allerede kender de stationære tilstandes energier. De er på formen:
+$$
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$
+Alle stationære tilstande vil have deres energi som forventningsværdi for energien:
+$$
+\expect{E_n} = \integral{\psi_n^*\op H \psi_n}{x}{0}{L} = E_n\integral{\abs \psi^2}{x}{0}{L} = E_n
+$$
+Forventningsværdien for energien af $\psi$ er ikke på denne form så $\psi$ kan ikke være en stationær tilstand.
+\end{opgave}
+
+\begin{opgave}{Sammensatte bølgefunktioner}{1}
+Find normeringskonstanten $N$ og energien $E$ for de følgende bølgefunktioner, der er sammensat af stationære tilstande for den uendelige brønd:
+\opg $N(\psi_1+\psi_2)$
+Normeringskravet giver:
+\begin{align*}
+    1&= \abs N^2\integral{(\psi_1+\psi_2)^2}{x}{0}{L}\\
+    &= \abs N^2\integral{\psi_1^2+\psi_2^2+2\psi_1\psi_2}{x}{0}{L}\\
+    &= \abs{N}^2\left(\integral{\psi_1^2}{x}{0}{L}+\integral{\psi_2^2}{x}{0}{L}+2\integral{\psi_1\psi_2}{x}{0}{L}\right)\\
+    &\text{Siden $\psi_1$ og $\psi_2$ er ortonormale er de to første}\\
+    &\text{integraler lig en og det sidste nul.}\\
+    &= 2\abs N^2
+\end{align*}
+Vælges $N$ reelt og positivt er $N=\frac{1}{\sqrt{2}}$.
+\opg $N(\psi_1-\psi_3)$
+
+I de to andre delopgaver er fremgangsmåden den samme, men det ser dog lidt pænere ud i braket notation.
+\begin{align*}
+    1 &= \braket{N(\psi_1-\psi_3)}{N(\psi_1-\psi_3)}\\
+    &= \abs N^2 \braket{\psi_1-\psi_3}{\psi_1-\psi_3}\\
+    &= \abs N^2 (\braket{\psi_1-\psi_3}{\psi_1}-\braket{\psi_1-\psi_3}{\psi_3})\\
+    &= \abs{N}^2(\braket{\psi_1}{\psi_1}-\braket{\psi_3}{\psi_1}-\braket{\psi_1}{\psi_3}+\braket{\psi_3}{\psi_3})\\
+    &= 2\abs N^2
+\end{align*}
+Igen vælges den reelt positive løsning så $N=\frac{1}{\sqrt{2}}$
+\opg $N(\psi_1+\psi_2-2\psi_3)$
+
+Siden krydsledene altid giver nul kan de ingnoreres
+\begin{align*}
+    1 &= \braket{N(\psi_1+\psi_2-\psi_3)}{N(\psi_1+\psi_2-\psi_3)}\\
+    &= \abs N^2 \braket{\psi_1+\psi_2-\psi_3}{\psi_1+\psi_2-\psi_3}\\
+    &= \abs N^2(\braket{\psi_1}{\psi_1}+\braket{\psi_2}{\psi_2}+\braket{\psi_3}{\psi_3})\\
+    &= 3\abs N^2
+\end{align*}
+På samme måde som før for vi altså her $N=\frac{1}{\sqrt{3}}$.
+\end{opgave}
+
+\begin{opgave}{Den tidsafhængige bølgefunktion}{2}
+I en uendelig brønd er bølgefunktionen til tiden $t=0$:
+$$
+\Psi(x,0) = \frac{1}{\sqrt{5}}(2\psi_1+\psi_2)
+$$
+\opg Hvad er $\Psi(x,t)$? Du kan med fordel bruge $\omega = \frac{E_1}{\hbar} = \frac{\pi^2\hbar}{2mL^2}$
+Tidsudviklingen findes som summen af de stationære tilstande gange deres relevante tidsbølgefunktion $\phi(t) = e^{\frac{-iEt}{\hbar}}$. Udtrykt i $\omega$ har de stationæretilstande energierne: $\omega\hbar$ og $4\omega \hbar$. Det giver en tidsafhængig bølgefunktion:
+$$
+\Psi = \frac{1}{\sqrt{5}}(2\psi_1e^{-i\omega t}+\psi_2e^{-4i\omega t})
+$$
+\opg Hvad er $\Psi^*(x,t)$?
+De stationære tilstande reele, så det er kun tidsudvikligen der skal komplekskonjugeres. Det sker ved at erstatte alle $i$ med $-i$.
+$$
+Psi^* = \frac{1}{\sqrt{5}}(2\psi_1e^{i\omega t}+\psi_2e^{4i\omega t})
+$$
+\opg Skriv $\Psi^*x\Psi$ så simpelt som muligt.
+Først indsættes $\Psi$ og $\Psi^*$ som vi allerede har fundet:
+\begin{align*}
+    &\Psi^*x\Psi\\
+    &= \frac{1}{5}(2\psi_1e^{i\omega t}+\psi_2e^{4i\omega t}) x (2\psi_1e^{-i\omega t}+\psi_2e^{-4i\omega t})\\
+    &= \frac{x}{5}(2\psi_1e^{i\omega t}+\psi_2e^{4i\omega t})(2\psi_1e^{-i\omega t}+\psi_2e^{-4i\omega t})\\
+\end{align*}
+Husk at når man ganger eksponentialfunktioner lægger man eksponenterne sammen. Derudover får vi nu brug for vores første hint.
+\begin{align*}
+    &= \frac{x}{5}(4\psi_1^2+\psi_2^2+2\psi_1\psi_2(e^{3i\omega t}+e^{-3i\omega t}))\\
+    &=\frac{x}{5}(4\psi_1^2+\psi_2^2+4\psi_1\psi_2\cos(3\omega t))
+\end{align*}
+Det bliver ikke pænere end dette.
+\opg Hvad er $\expect{x(t)}$
+Vi har lige fundet indmaden til det integral vi skal løse, så det indsættes her:
+\begin{align*}
+    \expect x &= \integral{\Psi^*x\Psi}{x}{0}{L}\\
+    &= \frac{1}{5}\integral{4x\psi_1^2+x\psi_2^2+4x\psi_1\psi_2}{x}{0}{L}\\
+    &= \frac{4}{5}\integral{\psi_1^*x\psi_1}{x}{0}{L}+\frac{1}{5}\integral{\psi_2^*x\psi_2}{x}{0}{L}\\
+    &+\frac{4\cos(3\omega t)}{5}\integral{\psi_1^*x\psi_2}{x}{0}{L}\\
+    &=\frac{4}{5}\matrixel{\psi_1}{x}{\psi_1}+\frac{1}{5}\matrixel{\psi_2}{x}{\psi_2}+\frac{4}{5}\cos(3\omega t)\matrixel{\psi_1}{x}{\psi_2}
+\end{align*}
+Det er ikke ligefrem pæne integraler, så det er godt vi ikke skal løse dem.
+$$
+\expect x = \frac{4}{5}\cos(3\omega t)\frac{-16L}{9\pi^2}=\frac{-64L}{45\pi^2}\cos(3\omega t)
+$$
+Så forventningsværdien bevæger sig med en simpel harmonisk bevægelse og en vinkelfrekvens på $3\omega$. 
+\end{opgave}
+
+\begin{opgave}{En partikel i et kvadrat}{3}
+\label{kvant:opg:2dinf}
+I to dimensioner er den tidsuafhængige Schrödingerligning i kartesiske koordinater.
+$$
+E\psi(x,y) = \frac{-\hbar^2}{2m}\left(\pdif[2]{x}\psi +\pdif[2]{y}\psi\right) + V(x,y)
+$$
+Vi vil se på en kvadratisk brønd, i to dimensioner, med sidelængder på $L$. Her er potentialet nul når $0\leq x\leq L$ og $0\leq y\leq L$
+Antag at man kan skrive bølgefunktionen som: $\psi(x,y) = X(x)Y(y) = XY$.
+\opg Indsæt $\psi = XY$ i Schrödingerligningen med $V=0$ og isoler $E$.
+
+$Y$ kan betragtes som konstant for $x$ differentialet og omvendt, så schrödingerligningen bliver:
+\begin{align*}
+    E\psi &= \op HXY\\
+    &= \frac{-\hbar^2}{2m}\left(\pdif[2]{x}{XY}+\pdif[2]{y}{XY}\right)\\
+    &= \frac{-\hbar^2}{2m}\left(\pdif[2]{x}{X}Y+X\pdif[2]{y}{Y}\right)\\
+    &\text{Herefter deles med $XY$ på begge sider.}\\
+    E &= \frac{-\hbar^2}{2m}\left(\frac{1}{X}\pdif[2]{x}{X}+\frac{1}{Y}\pdif[2]{y}{Y}\right)
+\end{align*}
+\opg Energien vil bestå af en bidrag fra $X$ og $Y$. så $E=E_x+E_y$. Opstil differentialligninger i stil med ligning \eqref{kvant:eq:infb} for $X$ og $Y$.
+
+På den ene side af lighedstegnet er kun energien, så denne side er konstant. På den anden side er der en sum af to led der kun afhænger af en af vores variable. Den eneste mulige måde hvorpå dette kan gå op er hvis begge led er konstante. Disse konstanter kaldes $E_x$ og $E_y$. Det giver differentialligningerne:
+\begin{align*}
+    E_x X &= \frac{-\hbar^2}{2m}\pdif[2]{x}{X}\\
+    E_y Y &= \frac{-\hbar^2}{2m}\pdif[2]{y}{Y}
+\end{align*}
+\opg Find generelle løsninger til differentialligningerne, bølgefunktionen og de tilhørende energier. Bemærk at der vil være et kvantetal for hver af differentialligningerne.
+
+Ligningerne er de samme som dem vi løste for den uendelige brønd, og løsningerne er de samme.
+Givet kvantetallene $n_x$ og $n_y$ vil $X$ være:
+$$
+X(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n_x\pi x}{L}\right)~~~~E_x = \frac{n_x^2\pi^2\hbar^2}{2mL^2}
+$$
+Tilsvarende for $Y$.
+$$
+Y(y) = \sqrt{\frac{2}{L}}\sin\left(\frac{n_y\pi y}{L}\right)~~~~E_y = \frac{n_y^2\pi^2\hbar^2}{2mL^2}
+$$
+Det giver bølgefunktioner $\psi_{n_xn_y}$ på formen:
+\begin{align*}
+    \psi_{n_xn_y}(x,y) &= \frac{2}{L}\sin\left(\frac{n_x\pi x}{L}\right)\sin\left(\frac{n_y\pi y}{L}\right)\\
+    E_{n_xn_y} &= E_x+E_y = \frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2)
+\end{align*}
+\opg Hvad er de fem laveste energier, og skitser bølgefunktioner med disse energier.
+
+De laveste energier kan findes ved at starte med $n_x = n_y = 1$ og gradvist gøre dem større. Med $E_1 = \frac{\pi^2\hbar^2}{2mL^2}$ Er energierne:
+\begin{align*}
+    E_{11} &= 2E_1\\
+    E_{21} &= E_{12} = 5E_1\\
+    E_{22} &= 8E_1\\
+    E_{31} &= E_{13} = 10E_1\\
+    E_{32} &= E_{23} = 13E_1
+\end{align*}
+\end{opgave}
+
+
+\begin{opgave}{En partikel i en boks}{3}
+I tre dimensioner er den tidsuafhængige Schrödingerligning i kartesiske koordinater.
+$$
+E\psi(x,y,z) = \frac{-\hbar^2}{2m}\left(\pdif[2]{x}\psi +\pdif[2]{y}\psi+\pdif[2]{z}\psi\right) + V(x,y,z)
+$$
+Vi vil se på en kubisk boks med en sidelængde på $L$ vil potentialet være nul når $x$, $y$ og $z$ alle er imellem 0 og $L$.
+Antag at man kan skrive bølgefunktionen som: $\psi(x,y,z) = X(x)Y(y)Z(z) = XYZ$.
+
+Fremgangsmåden er nøjagtigt den samme som for opgave \ref{kvant:opg:2dinf}.
+\opg Indsæt $\psi = XYZ$ i Schrödingerligningen med $V=0$ og isoler $E$.
+\begin{align*}
+EXYZ &= \frac{-\hbar^2}{2m}\left(\pdif[2]{x}{}+\pdif[2]{y}{}+\pdif[2]{z}{}\right)XYZ\\
+&= \frac{-\hbar^2}{2m}\left(\pdif[2]{x}{X}YZ+X\pdif[2]{y}{Y}Z+XY\pdif[2]{z}{Z}\right)\\
+\iff E&= \frac{-\hbar^2}{2m}\left(\frac{1}{X}\pdif[2]{x}{X}+\frac{1}{Y}\pdif[2]{y}{Y}+\frac{1}{Z}\pdif[2]{z}{Z}\right)
+\end{align*}
+\opg Energien vil bestå af en bidrag fra $X$, $Y$ og $Z$. så $E=E_x+E_y+E_z$. Opstil differentialligninger i stil med ligning \eqref{kvant:eq:infb} for $X$, $Y$ og $Z$.
+
+Her er differentialligningerne:
+\begin{align*}
+    E_xX &= \frac{-\hbar^2}{2m}\pdif[2]{x}{X}\\
+    E_yY &= \frac{-\hbar^2}{2m}\pdif[2]{y}{Y}\\
+    E_zZ &= \frac{-\hbar^2}{2m}\pdif[2]{z}{Z}
+\end{align*}
+\opg Find generelle løsninger til differentialligningerne, bølgefunktionen og de tilhørende energier. Bemærk at der vil være et kvantetal for hver af differentialligningerne. 
+
+Løsningerne til de separerede differentialligninger har løsninger der svarer til dem for den uendelige brønd.
+\begin{align*}
+    X(x)&=\sqrt{\frac{2}{L}}\sin\left(\frac{n_x\pi x}{L}\right)\\
+    Y(y)&=\sqrt{\frac{2}{L}}\sin\left(\frac{n_y\pi y}{L}\right)\\
+    Z(z)&=\sqrt{\frac{2}{L}}\sin\left(\frac{n_z\pi z}{L}\right)
+\end{align*}
+\opg Find de laveste 5 mulige energier udtrykt i $E_1 = \frac{\pi^2\hbar^2}{2mL^2}$ energien for en  endimensionel uendelig brønd med samme brede som boksens sidelængde.
+
+De 5 laveste energier er:
+\begin{align*}
+    E_{111} &= 3E_1\\
+    E_{112} &= E_{121} = E_{211} = 6E_1\\
+    E_{122} &= E_{212} = E_{221} = 9E_1\\
+    E_{113} &= E_{131} = E_{311} = 11E_1\\
+    E_{222} &= 12E_1
+\end{align*}
+\end{opgave}

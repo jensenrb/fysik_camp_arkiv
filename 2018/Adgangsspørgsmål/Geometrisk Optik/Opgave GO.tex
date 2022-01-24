@@ -1,0 +1,125 @@
+% Dokumentklassen sættes til memoir.
+% Manual: http://ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf
+\documentclass[a4paper,oneside,article]{memoir}
+
+% Danske udtryk (fx figur og tabel) samt dansk orddeling og fonte med
+% danske tegn. Hvis LaTeX brokker sig over æ, ø og å skal du udskifte
+% "utf8" med "latin1" eller "applemac". 
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{kpfonts}
+\usepackage{float}
+
+% Matematisk udtryk, fede symboler, theoremer og fancy ting (fx kædebrøker)
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{gensymb}
+
+\usepackage{hyperref}
+
+% Kodelisting. Husk at læse manualen hvis du vil lave fancy ting.
+% Manual: http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf
+\usepackage{listings}
+
+% Fancy ting med enheder og datatabeller. Læs manualen til pakken
+% Manual: http://www.ctan.org/tex-archive/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage{siunitx}
+
+
+% Indsættelse af grafik.
+\usepackage{graphicx}
+
+\usepackage{braket}
+\usepackage{caption}
+
+
+
+% Reaktionsskemaer. Læs manualen for at se eksempler.
+% Manual: http://www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf
+\usepackage[margin=0.9in]{geometry}
+
+\usepackage[version=3]{mhchem}
+
+\usepackage{units}
+
+\newcommand{\dif}[1]{\frac{d}{d {#1}}}
+
+\newcommand{\mylim}[2]{\lim\limits_{#1 \rightarrow #2}}
+
+\newcommand{\myset}[2]{\left\{ #1 \mid #2 \right\} }
+
+\newcommand{\funkt}[3]{#1 : #2 \rightarrow #3}
+
+\newcommand{\funktt}[3]{#1 : #2 \rightarrow \mathbb{#3}}
+
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Geo}{Geo}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\parindent=0pt
+
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+\begin{document}
+
+\title{Leg med Lys}
+
+\author{Christoffer Hansen - 201506583}
+
+\maketitle
+
+\begin{center}
+	\textbf{Kort beskrivelse til Design}
+\end{center}
+
+I geometrisk optik vil vi kigge på de grundlæggende egenskaber ved lysets bevægelse, når det rejser imellem forskellige materialer. Her vil vi særligt gå i dybden med forskellige former for linser, og hvordan disse bliver brugt i både tele- og mikroskoper. Til sidst hopper vi en tur i laboratoriet, for at undersøge om de modeller og resultater vi er kommet frem til nu også passer med virkeligheden.
+
+\begin{center}
+	\textbf{Opgave}
+\end{center}
+
+I denne opgave skal du kigge på en lysstråle, der bevæger sig, som det er vist på figuren. For at løse opgaven skal du bruge to resultater, der forklarer, hvordan en lysstråle opfører sig ved refleksion og refraktion. Det første resultat siger, at ved refleksion er indgangsvinklen ift. refleksionsoverfladens normal den samme som udgangsvinkelen ift. normalen. Det andet resultat kaldes for Snells lov og siger, at ved refraktion er forholdet mellem indgangsvinklen og udgangsvinklen (stadig ift. normalen) givet ved formlen $n_1 \sin \theta_1 = n_2 \sin \theta_2$, hvor $n_1$ og $n_2$ er brydningsindekser. Endeligt skal der også bruges lidt trigonometri, og de nødvendige formler kan findes på følgende link: \url{http://www.webmatematik.dk/lektioner/matematik-c/trigonometri/cosinus-sinus-og-tangens-i-retvinklede-trekanter}.\\
+
+I opgaven sættes $n_a = 1$, $a=$\SI[mode=text]{10}{\centi\meter} og $b=$\SI[mode=text]{15}{\centi\meter}.\\
+
+a) Hvad skal $\theta_a$ være, så lyset rammer siden med længden $b$ præcist på midten?\\
+
+b) Find et udtryk for $\theta_d$ som funktion af $\theta_a$ (Hint: Start med at finde et udtryk for $\theta_b$ som funktion af $\theta_a$. Find så et udtryk for $\theta_c$ som funktion af $\theta_b$. Endeligt, find et udtryk for $\theta_d$ som funktion af $\theta_c$.). \\
+
+c) Hvad skal $n_b$ være, hvis $\theta_d = \theta_a / 2$, hvor $\theta_a$ er vinklen fundet i spørgsmål a)?
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.7]{figur.pdf}
+	\caption{Figur til opgave ting}
+\end{figure}
+
+\newpage
+
+\begin{center}
+	\textbf{Svar}
+\end{center}
+
+a) Fra figuren kan man se, at hvis lysstrålen skal ramme siden af længde $b$ på midten, skal det gælde, at 
+$$\tan \theta_a = \frac{a}{\left( \frac{b}{2} \right)} = \frac{2a}{b} \quad \Leftrightarrow \quad \theta_a = \arctan \left( \frac{2a}{b} \right) = \arctan \left( \frac{20}{15} \right) \approx 53,13\degree.$$
+\\
+
+b) Fra figuren kan man se, at $\theta_b = 90\degree - \theta_a$ og at $\theta_c = \theta_b$. For at finde $\theta_d$ bruges Snells lov:
+$$n_a \sin \theta_c = n_b \sin \theta_d \quad \Leftrightarrow \quad \theta_d = \arcsin \left( \frac{\sin \theta_c}{n_b} \right) = \arcsin \left( \frac{\sin \left( 90\degree - \theta_a \right)}{n_b} \right).$$
+\\
+
+c) Man bruger igen Snells lov:
+$$n_a \sin \theta_c = n_b \sin \theta_d \quad \Leftrightarrow \quad n_b = \frac{\sin \theta_c}{\sin \theta_d} = \frac{\sin \left( 90\degree - \theta_a \right)}{\sin \left( \frac{\theta_a}{2} \right)} \approx 1,34.$$
+
+\end{document}

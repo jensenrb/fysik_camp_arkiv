@@ -1,0 +1,61 @@
+﻿Titel her
+
+
+
+Spørgsmål 1
+
+
+Du har en klods på et skråplan. Klodsen er placeret i højden $h$ fra jordoverfladen.
+
+a) Hvilke kræfter kan virke på klodsen?
+
+Antag nu, at den mekaniske energi er bevaret, således at den er den samme under hele klodsens tur ned af skråplanet, 
+og er givet ved $E = \tfrac{1}{2} mv^2 + mgh$. Til at starte med er klodsen i hvile (dvs. $v=0$) på skråplanet i højden $h$ fra jordoverfladen.
+
+
+
+b) Hvad er farten $v$ af klodsen udtrykt ved de andre parametre fra energien $E$, når den når bunden af skråplanet?
+
+c) Antag, at $g = 10$ m/s, og $h = 5$ m. Hvad er $v$ så ved bunden af skråplanet?
+
+Figur her
+
+
+
+Spørgsmål 2
+
+Hvad er partikel-bølge dualiteten? Forklar det kort med dine egne ord.
+
+
+
+Spørgsmål 3
+
+
+Hvilke egenskaber ville du kigge efter, hvis du skulle vælge den næste planet, menneskeheden skulle bosætte sig på? Beskriv kort hvorfor.
+
+
+
+Spørgsmål 4
+
+
+En satellit kredser i en cirkulær bane omkring jorden. Den påvirkes udelukkende af en tiltrækkende tyngdekraft fra jorden, som er givet ved $F_g = GMm/r^2$,
+ hvor $M$ er jordens masse, $m$ er satellittens masse, $G$ er gravitationskonstanten og $r$ er afstanden fra jordens centrum til satellitten.
+
+
+
+a) Hvis satellitten er i en afstand $r = 8000$ km fra jordens centrum, og jordens masse er $M = 6 \times 10^{24}$ kg,
+ hvor stor en fart $v$ må den så have for at kunne bibeholde den cirkulære bevægelse omkring jorden?
+
+
+
+Hint: For at et objekt kan opretholde en cirkulære bevægelse, skal der være en kraft (her er det tyngdekraften),
+ som virker på objektet ind mod centrum af cirkelbevægelsen. Sådan en kraft kaldes en centripetalkraft,
+ og størrelsen af denne kan altid skrives som $F_c = mv^2/r$, hvor $m$ er objektets masse, $v$ dets fart
+ og $r$ er afstanden fra objektet til centrum af cirkelbevægelsen.
+
+
+
+Spørgsmål 5
+
+
+Hvad synes du, er det fedeste ved fysik? Skriv maximum 10 linjer.

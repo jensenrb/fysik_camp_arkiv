@@ -1,0 +1,203 @@
+\section{Lorentztransformationerne}
+Vi har snakket en del om forskellige observatører, men hvad menes der egentligt med en observatør.
+Den specielle relativitetsteori beskriver inertialsystemer, så alle observatører vil være i et inertialsystem.
+En observatør i inertialsystemet $S$ vil således se positionerne $x$ og tiden $t$.
+En observatør i inertialsystemet $S'$ vil derimod se positionerne $x'$ og tiden $t'$.
+Når man har et inertialsystem vil andre inertialsystemer være i bevægelse med konstant hastighed i forhold til hinanden.
+Så inertialsystemet $S'$ bevæger sig med hastigheden $v$ i forhold til inertialsystemet $S$.
+Vi leder efter en måde at oversætte imellem forskellige inertialsystemer, en såkaldt transformation.
+I den klassiske mekanik, hvor tiden er absolut, bruges Galileitransformationerne, ligning \eqref{SR:GalileiTransformationen}, %er det blot et spørgsmål om at korregere for inertialsystemernes bevægelse
+\begin{subequations}
+\label{eq:galilei}
+\begin{align}
+    x'&=x-vt \: ,\\
+    t'&=t \: ,
+\end{align}
+\end{subequations}
+% hvilket kaldes Galileitransformationen.
+Vi har dog vist at tid ikke er absolut, hvis man kræver at lysets hastighed er det.
+Vi bliver derfor nød til at finde et andet sæt transformationer; Lorentztransformationerne.
+
+
+\subsection{Krav til Lorentztransformationerne} \label{sec:krav}
+Før vi vil udlede den specifikke form af Lorentztransformationerne, vil vi først kigge på nogle krav, som transformationerne skal opfylde.
+Helt generelt søger vi to funktioner for $x'$ og $t'$ med $x$, $t$ og $v$ som variable:
+\begin{subequations}
+\begin{align}
+    x'&=\xi(v,x,t) \: ,\\
+    t'&=\Xi(v,x,t) \: ,
+\end{align}
+hvor $\xi$ og $\Xi$ er henholdsvis den lille og den store version af det græske bogstav \textit{ksi}, som er vilkårlige navne for de to transformationer.
+\end{subequations}
+\begin{enumerate}
+    \item Vi er kun interesserede i transformationer imellem inertialsystemer. Det betyder, at et legeme, der bevæger sig med konstant hastighed i $S$, også gør det i $S'$.
+    Det viser sig, at det betyder, at transformationerne kun kan afhænge af $x$ og $t$ i første (ingen begrænsninger på $v$ afhængigheden her).
+    Man siger da, at tranformationen er lineær i $x$ og $t$.
+    Lad os se på et modeksempel, for at demonstrere hvad der sker, hvis transformationerne ikke er lineær.
+    Vi ser på transformationerne
+    \begin{align*}
+        x'&=d(v)x^2+f(v)t^2 \: ,\\
+        t'&=g(v)x+h(v)t \: ,
+    \end{align*}
+    hvor $d(v)$, $f(v)$, $g(v)$ og $h(v)$ er arbitrære funktioner af $v$. Lad os se på en partikel der bevæger sig med jævn hastighed $u$ i $S$, dvs.
+    \begin{equation*}
+        x=ut \: .
+    \end{equation*}
+    Så giver vores ikke-lineære transformation
+    \begin{align*}
+        x' &= d(v)u^2t^2+f(v)t^2 = \left(d(v)u^2+f(v)\right)t^2 \: ,\\
+        t' &= g(v)ut+h(v)t = \Big(g(v)u+h(v)\Big)t \: .
+    \end{align*}
+    Her kan $t$ elimineres, hvilket efterlader $x'$ som en funktion af $t'$
+    $$
+        x'=\frac{d(v)u^2+f(v)}{\big(g(v)u+h(v)\big)^2}(t')^2\propto (t')^2 \: .
+    $$
+    Tegnet $\propto$ betyder proportionalt med og det vigtige er at $x'$ er en konstant ganget med $(t')^2$, hvilket betyder hastigheden ikke er jævn -- det er nu accelerationen som er konstant.
+    % I $S'$ bevæger partikelen ikke med jævn hastighed, så 
+    Denne transformation skifter derfor ikke imellem inertialsytemer.
+    Det kan derfor konkluderes at transformationerne må være på formen
+    \begin{subequations}
+    \begin{align}
+        x' &= d(v)x+f(v)t \: , \\
+        t' &= g(v)x+h(v)t \: ,
+    \end{align}
+    hvor $d(v)$, $f(v)$, $g(v)$ og $h(v)$ igen er arbitrære funktioner af $v$.
+    \end{subequations}
+    \item transformationerne skal være symmetriske.
+    Siden både $S$ og $S'$ er inertialsystemer, må vi også kunne transformere den anden vej, altså finde $x$ og $t$, som funktion af $x'$ og $t'$.
+    Ikke nok med det, når $S'$ bevæger sig med farten $v$ i forhold til $S$, så må $S$ bevæge sig med samme fart i den modsatte retning set fra $S'$.
+    Så den omvendte\footnote{Mere præcist kalder man den omvendte transformation for den \textit{inverse transformation}. To transformationer, $T$ og $T'$ kaldes hinandens inverse transformationer hvis $TT' = T'T = 1$. På samme måde er $1/2$  og $2$ hinandens inverse da $1/2\cdot 2 = 2\cdot 1/2 = 1$.} transformation må være
+    \begin{subequations}
+    \begin{align}
+        x&=d(-v)x'+f(-v)t' \:  ,\\
+        t&=g(-v)x'+h(-v)t' \: .
+    \end{align}
+    \end{subequations}
+    \item For små hastigheder skal Lorentztransformationerne nærme sig Galileitransformationerne. Dette er korrespondanceprincippet\footnote{Har man en fysisk teori, der virker til at beskrive nogle bestemte fænomener, så skal en ny teori forudsige det samme som den gamle på det område, hvor den gamle virker. Vi kan se at Newtonsk mekanik ikke virker for store hastigheder, men for små hastigheder virker den helt fint. Derfor må relativitetsteorien give samme resultater for små hastigheder som Newtonsk mekanik, da disse resultater passer med eksperimenter.} i aktion.
+    Vi ved, at Galileitransformationerne virker ved lave hastigheder, så hvis Lorentztransformationerne forudsiger noget andet dér, må det være Lorentztransformationerne, der er noget galt med.
+    \item Noget, der bevæger sig med lysets hastighed i ét inertialsystem, vil gøre det i alle inertialsystemer.
+    Dette krav garanterer, at lysets hastighed er den samme for alle observatører.
+    Siden vi har udledt tidsforlængelse og længdeforkortning ud fra postulatet om at lysets hastighed er absolut, kan vi bruge dem, når vi udleder Lorentztransformationerne.
+\end{enumerate}
+Det er værd at nævne at Galileitransformationerne allerede opfylder de tre første krav, og det er det sidste der fører os til Lorentztransformationerne.
+
+
+\subsection{Udledning af Lorentztransformationerne}
+Ud fra kravene i afsnit \ref{sec:krav} kan Lorentztransformationerne udledes. Det er vigtigt at vide hvilke fysiske krav man sætter til koordinattransformationerne, men det er simplere at udnytte den viden vi har om længdeforkortelse fra afsnit \ref{sec:Laengdeforkortelse}. Lad os se på afstanden fra origo ud til $x'$ i $S'$.
+Dette svarer til længden af en stang i hvile i $S'$, så vi kan skrive
+\begin{equation}
+    x'=L'=L_0 \: .
+\end{equation}
+$L_0$ er her stangens længde i sit eget hvilesystem og $L'$ er længden af stangen i $S'$. I dette tilfælde er $S'$ stangens inertialsystem, hvorfor $L_0 = L'$.
+I $S$ bevæger stangen sig med en fart $v$ og yderligere er den længdeforkortet, så
+\begin{equation}
+    x=vt+\frac{L_0}{\gamma} = vt+\frac{x'}{\gamma} \: .
+\end{equation}
+Nu kan vi isolere $x'$, der er
+\begin{equation}
+    x'=\gamma(x-vt) \: . \label{lorentzx}
+\end{equation}
+Man kan gøre præcis det samme med en stang i hvile i $S$, hvilket giver
+\begin{equation}
+    x=\gamma(x'+vt') \: .\label{lorentzxinv}
+\end{equation}
+Sætter vi $x'$ fra ligning \eqref{lorentzx} ind i ligning \eqref{lorentzxinv}, så får vi at
+\begin{equation}
+    x=\gamma\Big(\gamma(x-vt)+vt'\Big) = \gamma^2(x-vt) + \gamma vt' \: ,
+\end{equation}
+hvilket også kan skrives som
+\begin{equation}
+    \gamma vt' = x - \gamma^2(x-vt) \: .
+\end{equation}
+hvori vi kan isolere $t'$:
+\begin{equation}
+    t' = \frac{1}{\gamma v}\Big[x - \gamma^2(x-vt)\Big] = \frac{1}{v}\left(\frac{x}{\gamma}-\gamma x\right) + t = \gamma \left(\frac{x}{v}\left(\frac{1}{\gamma^2}-1\right)+t\right)=\gamma\left(t-\frac{vx}{c^2}\right) \: .
+\end{equation}
+Igen kan man gøre det samme for $t'$, hvilket giver
+\begin{equation}
+    t=\gamma\left(t'+\frac{vx'}{c^2}\right) \: ,
+\end{equation}
+så Lorentztransformationerne er
+\begin{subequations}
+\begin{align}
+    x'&=\gamma x-\gamma vt \: , \label{rel:LorentzXComposant} \\
+    t'&=\gamma t-\gamma\frac{vx}{c^2} \: . \label{rel:LorentzTComposant}
+\end{align}
+\end{subequations}
+Omskrives transformationerne en lille smule er det muligt at tydeliggøre sammenhængen mellem tid og rum, som findes i den specielle relativitetsteori.
+Det gøres ved at gange tiden med $c$, således at denne transformation også angives i enheder af længde.
+Det giver transformationerne
+\begin{subequations}
+\begin{align}
+    x'&=\gamma x-\gamma\beta ct \: , \label{rel:LorentzXComposantWithBeta}\\
+    ct'&=\gamma ct-\gamma\beta x \: , \label{rel:LorentzTComposantWithBeta}
+\end{align}
+\end{subequations}
+hvor vi har benyttet beta-faktoren $\beta = v/c$ for at gøre transformationerne pænere. \\
+
+Et smart trick ved Lorentztransformationerne er, at hvis man har transformationen af en variabel fra $S$ til $S'$, så fås transformationen fra $S'$ til $S$ ved at sætte mærker på de umærkede koordinater og fjerne mærkerne fra de tidligere mærkede koordinater, samt skifte fortegn på alle $v$'erne. Bemærk at $\gamma$ ikke skifter fortegn, da hastigheden optræder i anden. Vi kan tjekke at det passer på ligning \eqref{lorentzx}. For at få de omvendte transformationer skal $x \rightarrow x'$, $x' \rightarrow x$, $t \rightarrow t'$, $t' \rightarrow t$ og der skal skiftes fortegn på $v$:
+%
+% \begin{figure}[H!]
+% \centering
+\begin{center}
+\begin{tikzpicture}
+\matrix (m) [matrix of math nodes,
+             row sep=3mm]
+{
+    x' & = & \gamma & (x & - & vt)    \\
+    x  & = & \gamma & (x' & + & vt')    \\
+};
+\draw[thick, ->] (m-1-1) -- (m-2-1);
+\draw[thick, ->] (m-1-4) -- (m-2-4);
+\draw[thick, ->] (m-1-5) -- (m-2-5);
+\draw[thick, ->] (m-1-6) -- (m-2-6);
+\end{tikzpicture}
+\end{center}
+% \end{figure}
+
+\section{Rumtidsintervallet}
+I den specielle relativitetsteori er hverken tid eller rum det samme for forskellige observatører.
+Vi har derfor brug for en anden måde at relatere to begivenheder, som alle observatører kan blive enige om.
+Vi har brug for en størrelse, der antager samme værdi i alle inertialsystemer -- en såkaldt {\em invariant} størrelse.
+
+Lad os se på to begivenheder, en der sker i $x_1$ til tiden $t_1$ og en anden der sker i $x_2$ til tiden $t_2$ i inertialsystemet $S$.
+Vi ønsker nu at se på hvad der sker med de to begivenheder hvis vi skifter til inertialsystemet $S'$. I $S$ er afstanden og tidsforskellen imellem de to begivenheder givet ved:
+\begin{subequations}
+\begin{align}
+    \Delta x&=x_2-x_1 \: , \\
+    \Delta t&=t_2-t_1 \: .
+\end{align}
+\end{subequations}
+For at finde afstanden og tidsforskellen i $S'$ benytter vi Lorentztransformationerne.
+\begin{subequations}
+\begin{gather}
+    \Delta x' = x'_2-x'_1=\gamma x_2-\gamma vt_2-\gamma x_1+\gamma v t_1=\gamma \Big(\Delta x- v\Delta t\Big) \: , \\
+    \Delta t' = t'_2-t'_1=\gamma t_2-\gamma \frac{vx_2}{c^2}-\gamma t_1+\gamma \frac{vx_1}{c^2} = \frac{\gamma}{c} \left(c\Delta t - \frac{v\Delta x}{c} \right) \: .
+\end{gather}
+\end{subequations}
+Nu lader vi os inspirere af, at når vi normalt måler afstande, bruger vi $\Delta x^2$ led\footnote{I tre dimensioner er afstanden imellem to punkter $\Delta l=\sqrt{\Delta x^2+\Delta y^2+\Delta z^2}$.}.
+Det giver
+\begin{subequations}
+\begin{gather}
+    \Delta x'^2=\gamma^2\Big(\Delta x^2+v^2\Delta t^2-2v\Delta x\Delta t\Big) \label{sr:delta_x'}\\
+    \Delta t'^2 = \frac{\gamma^2}{c^2} \left(c^2\Delta t^2+\frac{v^2\Delta x^2}{c^2}-2v\Delta x\Delta t\right) \label{sr:delta_t'}
+\end{gather}
+\end{subequations}
+Det er nu smart at trække ligning \eqref{sr:delta_t'} fra ligning \eqref{sr:delta_x'} efter at have flyttet $c^2$ over på den anden side, så enhederne er ens i begge ligninger. Vi bemærker også at de to sidste led i begge parenteser er ens, %så vi lader dem gå ud med hinanden,
+hvorved vi får
+\begin{equation}
+\Delta x'^2-c^2\Delta t'^2=\gamma^2\left(\Delta x^2+v^2\Delta t^2-c^2\Delta t^2-\frac{v^2}{c^2}\Delta x^2\right) \: .
+\end{equation}
+Flytter vi en anelse rundt på ledene i parentesen får vi, at
+\begin{equation}
+    \Delta x'^2-c^2\Delta t'^2=\gamma^2\left(1-\frac{v^2}{c^2}\right)(\Delta x^2-c^2\Delta t^2)=\Delta x^2-c^2\Delta t^2 \: .
+\end{equation}
+Vi ser nu, at denne størrelse er ens for de to observatører -- den ændrer sig ikke under en Lorentztransformation.
+Det er faktisk ligegyldigt hvilket inertialsystem størrelsen $\Delta x^2-c^2\Delta t$ regnes i -- den er den samme i alle inertialsystemer.
+Vi har netop fundet en invariant størrelse og kalder denne størrelse rumtidsintervallet. Den skrives som
+\begin{equation}
+\Delta s^2=\Delta x^2-c^2\Delta t^2 \: .
+\end{equation}
+Det smarte ved en invariant størrelse er netop det, at den ikke ændrer sig, når vi skifter inertialsystem. Således er invariante størrelser noget, som alle observatører, \emph{uanset deres inertialsystem}, er enige om.  
+
+Det betyder, at vi kan vælge netop det system, der gør det så let som muligt at analysere en fysisk situation, hvilket ofte er en partikels hvilesystem, da dens hastighed her per definition er $0$. 

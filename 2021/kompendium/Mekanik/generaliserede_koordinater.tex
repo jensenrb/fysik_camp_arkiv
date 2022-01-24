@@ -1,0 +1,18 @@
+\section{Generaliserede koordinater}
+I eksemplet med pendulet fremgik det, at koordinaterne $r$ og $z$ var overflødige. De var konstante i tid ved valg af et smart koordinatsystem, og hele pendulet kunne beskrives ved ét koordinat, $\phi$. Dette er en generel tankegang i analytisk mekanik, da der ikke er nogen grund til at gøre det sværere at bestemme bevægelsesligninger, end det allerede er. Man kan prøve at regne penduleksemplet igennem, kun ved brug af de kartesiske koordinater ($x$ og $y$), og man opdager hurtigt, at det er meget besværligt. Derfor introduceres konceptet \emph{generaliserede koordinater}, der defineres som et sæt koordinater, der beskriver et fysisk system med det mindst mulige antal koordinater eller \emph{frihedsgrader}. Antallet af frihedsgrader er antallet af uafhængige parametre, som beskriver et system, hvilket for pendulet er 1, nemlig vinklen. Et arbitrært\footnote{Arbitrært er et meget almindeligt ord i universitetsverdenen, som betyder vilkårlig. At koordinatet er arbitrært betyder derfor, at udsagnet om det er sandt for et hvilket som helst generaliseret koordinat.} generaliseret koordinater har symbolet $q$, samt et indeks $i$, som fortæller hvilket koordinat, der er tale om. Grunden til dette er, at teorien gælder for systemer med vilkårligt mange frihedsgrader. Beskrives fire partikler, som bevæger sig i en dimension, kan partiklernes koordinat noteres som $(q_1,q_2,q_3,q_4)$ eller $(q_1,q_2,...,q_4)$. Den sidste notation er ikke så praktisk i dette eksempel, men da teorien skal kunne beskrive $n$ partikler, så bliver den pludselig smart, idet koordinaterne bliver
+%
+\begin{align}
+	(q_1,q_2,...,q_n).
+\end{align}
+%
+Ønsker man at beskrive noget som gælder for alle $n$ partikler, hvilket f.eks. kunne være at hastigheden for partiklen er givet som den tidsafledte skriver man
+%
+\begin{align}
+	v_i = \dot{q}_i, \quad \forall \, i=1,2,...,n.
+\end{align}
+%
+Symbolet $\forall$ betyder ``for alle'' og betyder her at ligningen gælder de indikerede værdier af $i$. Fremover benyttes notationen $q_i$ for det $i$'te generaliserede koordinat, idet der tages højde for, at der kan være vilkårligt mange af disse, og at det også kan være nødvendigt med flere generaliserede koordinater for at beskrive én partikel. Det sidste er tilfældet, hvis partiklen kan bevæge sig i mere end én dimension.
+
+Kunsten at bestemme de generaliserede koordinater bygger mange gange på at kunne genkende symmetrier. Symmetrier gør systemer lettere at håndtere, og det er derfor altid en god idé at overveje, om der er sådanne for et fysisk system. I penduleksemplet er der tale om cirkulær symmetri. Antagelserne at $r$ og $z$ er konstante i tid, gør at pendulets bevægelse bliver restringeret til en cirkel, hvilket kan kaldes cirkulær symmetri.
+
+Navnet generaliserede koordinater kommer af, at teorien faktisk også kan bruges til at beskrive noget, der ikke er koordinater, men matematisk opfører sig som om de var. Eksempelvis kan integralet af spændingsforskellen over en komponent af et elektrisk kredsløb behandles matematisk som et koordinat for kredsløbet.

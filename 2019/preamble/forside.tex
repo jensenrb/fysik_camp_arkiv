@@ -1,0 +1,24 @@
+
+\frontmatter
+% The titlingpage environment used in frontstuff resets the page
+% numbering to start at 1 at the end. But this means that several
+% pages will be known as i, ii, iii (since the \frontmatter sets
+% \pagenumbering{roman}). This is not a problem in print, since the
+% first few pages don't have folios. But hyperref will complain about
+% "destination with the same identifier (name{page.i})". To avoid
+% these, we pretend that the first few pages are numbered with
+% uppercase roman letters...
+\pagenumbering{Roman}
+
+\include{preamble/frontstuff} % forside og kolofon
+
+\clearpage
+% ... and remember to reactivate the lowercase numbering.
+\pagenumbering{roman}
+\renewcommand{\contentsname}{Indholdsfortegnelse}
+\tableofcontents*
+\setlength{\columnsep}{1cm}
+\printglossaries
+\include{introduktion}
+
+\mainmatter

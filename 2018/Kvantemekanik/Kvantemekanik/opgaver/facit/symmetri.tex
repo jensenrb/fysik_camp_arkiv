@@ -1,0 +1,111 @@
+\begin{opgave}{Lige og ulige funktioner}{1}
+En funktion så som $f(x) = x^2$ der opfylder kravet: $f(x) = f(-x)$ kaldes en lige funktion. Tilsvarende er funktioner som $f(x) = x$ der opfylder det ligende krav: $f(x)=-f(-x)$.
+Det vil sige at en lige funktion er uændret hvis man spejler den i $y$-aksen, mens en ulige funktion skifter fortegn.
+Bemærk at de fleste funktioner er hverken lige eller ulige, og unikt er funktionen $f(x) = 0$ både lige og ulige.
+Afgør om følgende funktioner er lige eller ulige:
+\opg $\sin x$ En af egenskaberne vid sinus er at $\sin(x) = -\sin(-x)$, så $\sin x$ er ulige.
+\opg $e^{x^2}$ $x^2 = (-x)^2$ ligegyldigt hvilken funktion der får en lige funktion som input ender med at være lige.
+\opg $\cos x$ Cosinus har egenskaben $\cos(x) = \cos(-x)$
+\end{opgave}
+
+\begin{opgave}{Mere om lige og ulige funktioner}{1}
+Lad $f_g(x)$ være en lige funktion og $f_u(x)$ være en ulige funktion\footnote{$g$ og $u$ står for gerate og ungerate, de tyske ord for lige og ulige.}.
+\opg Vis at produktet af lige og ulige funktioner fungerer på samme måde som produktet af lige og ulige tal.
+
+Produktet af to lige funktioner er:
+$$(f_gg_g(-x) = f_g(-x)g_g(-x) = f_g(x)g_g(x)$$
+Så $f_gg_g$ er lige.
+
+Produktet af en lige og en ulige funktion er:
+$$
+f_ug_g(-x) = f_u(-x)g_g(-x) = -f_u(x)g_g(x)
+$$
+Så $f_ug_g$ er ulige.
+
+Produktet af to ulige funktioner er:
+$$
+f_ug_u(-x) = f_u(-x)g_u(-x) = (-f_u(x))(-g_u(x)) = f_u(x)g_u(x)
+$$
+Så $f_ug_u$ er lige.
+\opg Er $\frac{1}{f_{g}(x)}$ lige eller ulige?
+
+$$
+\frac{1}{f_g(-x)}=\frac{1}{f_g(x)}
+$$
+En over ene lige funktion er også lige
+\opg Hvad med :$\frac{1}{f_{u}(x)}$?
+
+$$
+\frac{1}{f_u(-x)} = \frac{1}{-f_u(x)} = \frac{-1}{f_u(x)}
+$$
+En over en ulige funktion er også ulige.
+\opg Hvad er regnereglen med division?
+\end{opgave}
+\begin{opgave}{Sammensætning af lige og ulige funktioner}{2}
+Alle funktioner kan skrives som en unik sum af en lige og en ulige funktion: $f(x) = f_g(x)+f_u(x)$. 
+\opg Skriv $f(-x)$ ud fra $f_g(x)$ og $f_u(x)$.
+$$
+    f(-x) = f_g(-x)+f_u(-x)
+    = f_g(x)-f_u(x)
+$$
+\opg Skriv $f_g(x)$ og $f_u(x)$ ud fra $f(x)$ og $f(-x)$.
+\begin{align*}
+f_g(x) &= \frac{1}{2}(f_g(x)+f_u(x)+f_g(x)-f_u(x))\\
+&= \frac{1}{2}(f(x)-f(-x))\\
+f_u(x) &= \frac{1}{2}(f_g(x)+f_u(x)-f_g(x)+f_u(x))\\
+&= \frac{1}{2}(f(x)-f(-x))
+\end{align*}
+\opg Hvad er den lige og den ulige komposant af eksponentialfunktionen $e^x$?
+
+Vi kan her udnytte at vi allerede har den generelle løsning. Den type funktioner vi finder kaldes hyperbolske funktioner.
+\begin{align*}
+    \left(e^x\right)_g &= \frac{e^x+e^{-x}}{2}\\
+    &= \cosh x\\
+    \left(e^x\right)_u &= \frac{e^x-e^{-x}}{2}\\
+    &= \sinh x
+\end{align*}
+\end{opgave}
+
+\begin{opgave}{Integraler af lige og ulige funktioner.}{3}
+Vi vil her finde nogle meget praktiske regneregler for integraler af lige og ulige funktioner over et symmetrisk interval.
+Lad $f_g(x)$ være en lige funktion og $f_u(x)$ være en ulige funktion.
+Antag derudover at $\integral{f_g(x)}{x}{0}{a}$ og $\integral{f_u(x)}{x}{0}{a}$ er kendte.
+\opg Vis at $\integral{f_g(x)}{x}{-a}{a} = 2\integral{f_g(x)}{x}{0}{a}$
+
+Integralet kan spilttes op i to intervaller:
+$$
+\integral{f_g(x)}{x}{-a}{a} = \integral{f_g(x)}{x}{0}{a}+\integral{f_g(x)}{x}{-a}{0}
+$$
+Nu behandles andet integral med substitution, her vælges $u=-x$
+$$
+\integral{f_g(x)}{x}{-a}{0} = -\integral{f_g(-u)}{u}{a}{0}
+$$
+Nu ombyttes grenserne, hvilket skifter fortegn. Præcis hvad vi kalder integrationsvariablen er ikke relevant, så den kan kaldes $x$ igen.
+$$
+\integral{f_g(x)}{x}{0}{a} = \integral{f_g(x)}{x}{a}{0}
+$$
+Så hele integralet er:
+$$
+\integral{f_g(x)}{x}{-a}{a} = 2\integral{f_g(x)}{x}{0}{a}
+$$
+Hvilket vi ville vise.
+\opg Vis at $\integral{f_u(x)}{x}{-a}{a} = 0$
+
+Her er fremgangsmåden præcis den samme.
+\begin{align*}
+    \integral{f_u(x)}{x}{-a}{a} &= \integral{f_u(x)}{x}{0}{a}+\integral{f_u(x)}{x}{-a}{0}\\
+    \integral{f_u(x)}{x}{-a}{0} &= -\integral{f_u(-u)}{u}{a}{0}\\
+    &= (-1)^2\integral{f_u(x)}{x}{0}{a}\\
+    \integral{f_u(x)}{x}{-a}{a} &= \integral{f_u(x)}{x}{0}{a}-\integral{f_u(x)}{x}{0}{a}\\
+    &=0
+\end{align*}
+\opg Brug dette til at løse integralet: $$\integral{x\cos(x)\sin(x)+x^2-x\exp(x^2)}{x}{-1}{1}$$
+Enten ved at bruge regnereglerne for produkter af lige og ulige funktioner, eller ved at finde den lige og ulige komposant er det muligt at vise at $x\cos(x)\sin(x)-x\exp(x^2)$ er ulige og $x^2$ er lige. Så integralet er:
+\begin{align*}
+    \integral{x\cos(x)\sin(x)+x^2-x\exp(x^2)}{x}{-1}{1}&=\integral{x^2}{x}{-1}{1}\\
+    &=2\integral{x^2}{x}{0}{1}\\
+    &=2\left[\frac{x}{2}\right]_0^1\\
+    &=1
+\end{align*}
+\end{opgave}
+

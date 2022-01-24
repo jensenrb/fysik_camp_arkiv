@@ -1,0 +1,76 @@
+\documentclass[../Kvantemekanik.tex]{subfiles}
+ 
+\begin{document}
+
+\section{Den tidsuafhængige Schrödingerligning}
+Den generelle Schrödingerligning er ret kompliceret at regne på, da den både er i tre dimensioner og er tidsafhængig. Vi bliver derfor nød til at lave en række antagelser, så den bliver lidt nemmere at arbejde med.
+Den første antagelse vi vil benytte, er at vi kun vil se på tidsuafhængige potentialer. Denne approksimation benyttes, da matematikken for tidsafhængige potentialer bliver voldsomt kompliceret, og svær at regne på. Derudover har det også vist sig, at de fleste potentialer faktisk er relativt stabile over lang tid, og når de så endelig ændrer sig med tiden, så gør de det så tilpas langsomt, så man kan betragte hvert øjeblik som havende konstant potentiale, og så løse Schrödingerligningen med det tidsuafhængige potentiale, dvs. Schrödingerligningen nu ser således ud:
+\begin{equation}
+    i\hbar\pdif{t} \Psi =\frac{-\hbar^{2}}{2m}\nabla^{2}\Psi+V(\v r)\Psi
+\end{equation}
+Den næste antagelse vi skal gøre os, er at vi nu vil begrænse os til 1 dimension. Dette lyder måske underligt, for er verden ikke normalt opbygget i 3 dimensioner?
+\\
+Jo det er den egentlig, men hvis vi begrænser os til kun at arbejde i en dimension, så bliver matematikken en del nemmere, og mange af de resultater vi når frem til i en dimension kan faktisk generaliseres til 2 og 3 dimensioner, så det er ikke spildt arbejde. Vi har nu reduceret Schrödingerligningen til kun at være en funktion af $x$ og $t$:
+\begin{equation}
+    i\hbar\pdif{t} \Psi=\frac{-\hbar^{2}}{2m}\pdif[2]{x} \Psi+V(x)\Psi
+\end{equation}
+Den sidste antagelse vi skal gøre os, er at vi nu antager separation af variable. Dvs. at vi antager, at bølgefunktionen er en funktion af $x$ og $t$. $\Psi(x,t)$ kan skrives som: 
+\begin{equation}
+\Psi(x,t)=\psi(x)\phi(t)
+\label{kvant:eq:tsep}
+\end{equation}
+Dette kan måske virke lidt underligt, første gang man ser det, for smider vi ikke dermed nogle løsninger væk ved kun at se på løsninger af denne form?
+
+Svaret er, at det gør vi faktisk, ved at antage dette ser vi bort fra en masse løsninger, men som et senere skal vise sig, så gør dette ikke noget, da de løsninger vi ender ud med ved at benytte denne metode, faktisk er alt hvad vi har brug for, for at opnå alle tænkelige løsninger der giver fysisk mening. 
+Lige som det er meget almindeligt af bruge $\Psi$ for den tidsafhængige bølgefunktion, er det også meget almindeligt af bruge $\psi$ for den tidsuafhængige. Når vi skriver $\psi$ eller $\phi$ vil det være underforstået, at det er $\psi(x)$ eller $\phi(t)$.
+Hvis man sætter den separerede løsning \eqref{kvant:eq:tsep} ind i Schrödingerligningen og anvender kædereglen, bliver Scrödingerligningen:
+\begin{equation}
+i\hbar \psi \pdif{t}\phi = \frac{-\hbar^2}{2m}\phi\pdif[2]{x}\psi+V\phi\psi
+\end{equation}
+Det næste skridt er at dele med $\phi\psi$ på begge sider. Det giver ligningen:
+
+\begin{equation}
+\frac{i\hbar}{\phi} \pdif{t}\phi = \frac{-\hbar^2}{2m\psi}\pdif[2]{x}\psi+V(x)
+\end{equation}
+Det vi er nået frem til her, er faktisk ret fantastisk. For hvis man kigger på venstre side af ligningen, så ser man kun ting der er afhængige af tiden $t$, og kigger man på højre side, så ser man kun ting der er afhængige af position $x$. Det vi så her vil benytte er et af de ældste tricks i bogen, når det kommer til at løse partielle differentialligninger af flere variable. Når to sider af en ligning afhænger af hver deres uafhængige variabel, så må de nødvendigvis begge to være konstante. Hvis man f.eks. sætter $t$ til at være en konstant $t=t_0$, så er det lige meget hvilken værdi af $x$ man vælger, højresiden vil altid være lig med venstresiden.
+Vi vælger derfor en konstant, og kalder denne for $E$ (det kan allerede afsløres, at $E$ er energien af systemet, men vi skal nok komme nærmere ind på, hvorfor det er sådan), og Schrödingerligningen kan nu opskrives på følgende måde:
+\begin{equation}
+\frac{i\hbar}{\phi} \pdif{t}\phi = \frac{-\hbar^2}{2m\psi}\pdif[2]{x}\psi+V(x) = E
+\end{equation}
+Ud fra den rent tidsafhængige del kan man opstille en differentialligning, der kun afhænger af $t$:
+
+\begin{equation}
+i\hbar\pdif{t}\phi = E\phi
+\end{equation}
+Tilsvarende kan man opstille en differentialligning, der kun afhænger af $x$. Denne ligning er ret vigtig, og den kaldes for den tidsuafhængige Schrödingerligning.
+
+\begin{equation}
+\frac{-\hbar^2}{2m}\pdif[2]{x}\psi = E\psi
+\end{equation}
+Dette betyder, at vi for at løse Schrödingerligningen, nu skal løse to separate ligninger, og så bagefter gange dem sammen for at få den totale løsning!
+Den første af ligningerne indeholdende den tidsafhængige del er faktisk ret simpel, da dette jo bare er en differentialligning, hvor den afledte af en funktion er lig med en konstant gange funktionen selv. Denne type differentialligninger løses af en eksponentialfunktion.
+\begin{align}
+    i\hbar\pdif{t}\phi&=E\phi\nonumber\\
+    \pdif{t}\phi &=\frac{-iE}{\hbar}\phi\nonumber\\
+    \phi&=A\cdot e^{\frac{-iEt}{\hbar}}
+\end{align}
+For at sandsynlighedsfortolkningen af bølgefunktionen \eqref{kvant:eq:norm} holder må den være normeret. Det vil sige at $\braket{\Psi}{\Psi}=1$. Den letteste måde at opnå dette er at normere $\psi$ og $\phi$ enkeltvist. Det betyder, at $\abs{A}^2=1$, og det oplagte valg her er $A=1$.
+\begin{equation}
+    \phi=e^{\frac{-iEt}{\hbar}}
+\end{equation}
+Dette er faktisk ret utroligt, for det betyder at vi nu bare skal løse den tidsuafhængige Schrödingerligning, hvor den vil bestemme $\psi$ og $E$, og så for at få den tidsafhængige løsning, skal vi bare gange en faktor $e^{\frac{-iEt}{\hbar}}$ på.
+Dvs. at alt vi skal gøre nu, er at løse følgende den tidsuafhængige Schrödingerligning:
+\begin{equation}
+    \frac{-\hbar^{2}}{2m}\frac{\partial^2\psi}{\partial x^2}+V(x)\psi=E\psi
+\end{equation}
+Uheldigvis viser det sig, at dette i langt de fleste tilfælde vil være utrolig svært, da potentialet $V(x)$ kan antage alle former. Vi vælger derfor at kigge på nogle specielle potentialer, som optræder mange steder i naturen, og som giver en god indsigt i de underlige konsekvenser, som der er af kvantemekanik.
+Men først skal vi lige lave en lille omskrivning af Schrödingerligningen, så vi får:
+\begin{align}
+    \frac{-\hbar^{2}}{2m}\frac{\partial^2\psi}{\partial x^2}+V(x)\psi&=E\psi\nonumber\\
+    \left[\frac{-\hbar^{2}}{2m}\frac{\partial^2}{\partial x^2}+V(x)\right]\psi&=E\psi\nonumber\\
+    \hat{H}\psi&=E\psi
+\end{align}
+Hvor $\op{H}$ er den såkaldte Hamilton operator. Du har sikkert allerede regnet ud, at denne operator måler den totale energi i systemet, og ligesom i forløbet om analytisk mekanik, som i lige har haft, består den af summen af den kinetiske og den potentielle energi. Vil vil snakke meget mere om operatorer, hvordan de fungerer, samt hvad man kan bruge dem til, og hvordan de bliver udledt i afsnittet om operatorer. Det du skal vide nu er bare, at når man bruger Hamiltonoperatoren på $\psi$, så får man energien gange $\psi$.
+
+
+\end{document}

@@ -1,0 +1,354 @@
+\documentclass[crop=false, class=memoir]{standalone}
+
+\input{../setup/preamble.tex}
+
+\begin{document}
+
+\chapter{Speciel Relativitetsteori} \label{chap:rel}
+
+Efter mange års erfaringer her på Jorden, har vi alle sammen fået en intuitiv forståelse for, hvordan verden er skruet sammen: hvad der sker, hvis vi kaster med en bold eller spiser en isterning (det er koldt). Denne intuitive forståelse bliver dog pludseligt sat på prøve, når vi går systematisk til værks som videnskabsfolk og udfører forsøg! Hvis vi begiver os helt ud i ydelighederne i mikroskopiske skalaer eller gigantiske hastigheder, opdager vi fænomener, som virker fuldstændig ulogiske i lys af hverdagens forståelse af verden.
+
+Speciel relativitetsteori er et godt eksempel på netop dette: teorien bygger på det faktum, at tid og rum ændrer sig, når et legemes hastighed nærmer sig en øvre grænse: nemlig lysets hastighed. I dette kapitel vil vi komme nærmere ind på de formelle redskaber, til at begribe denne teori, og hvad det betyder for vores forståelse af fænomener. Velbekomme! 
+
+\section{Hvad er relativitet?} %Handwave + Firvektorer intro
+
+Når vi som fysikere snakker om, at en størrelse er \emph{relativ}, mener vi, at hvad vi måler størrelsen til at være, afhænger af hvorfra vi måler den. Lad os sige, at du sidder i en bil, som triller langs en motorvej. Din ven står ved siden af motorvejen, og måler din fart til at være $\SI{100}{\kilo \meter \per \hour}$. Du er derimod en smule dumdristig og lukker dine øjne imens du kører. Du har derfor ingen ide om, at du overhovedet bevæger dig, og måler din egen fart til $\SI{0}{\kilo \meter \per \hour}$. I har begge målt den samme bil, men fra forskellige synspunkter og I er kommet frem til forskellige resultater. Ingen af jer har målt forkert, men alligevel får I forskellige resultater, fordi verden simpelthen ser forskellig ud for jer. Dette er essensen af relativitet.
+
+Lad os først lægge grundlaget for, hvordan vi snakker om ting inden for relativitetsteori. Når noget sker i verdenen, kalder vi det for en \emph{begivenhed} (i normal tale er en begivenhed noget specielt, men i fysikken kan det være alt muligt -- hvis du f.eks. taber en blyant på gulvet, er det en begivenhed), og da der hele tiden sker \emph{noget}, så er verdenen omkring os spækket med begivenheder. For at kunne kende forskel på alle disse begivenheder, så giver vi dem nogle koordinater, men hvor mange? Hvis du taber din blyant på gulvet så sker det ét sted, og da vi lever i en verden med tre rumlige dimensioner (op og ned, side til side, frem og tilbage) kræver det altså tre koordinater at specificere det sted. Tre rummelige koordinater er dog ikke helt nok til at karakterisere en begivenhed, da den slags også sker på et tidspunkt. Du taber din blyant på et bestemt sted på gulvet, men der sket mange andre ting på lige præcis det sted. Vi skal derfor også vide, hvornår en begivenhed er sket, hvilket giver os et ekstra koordinat. Ergo, hvis vi har en begivenhed $p$, så skal vi bruge fire koordinater til at kendetegne den - ét til tid og tre til sted:
+%
+\begin{align}
+    p = (t_p, x_p, y_p, z_p)
+\end{align}
+%
+Hvis du tænker tilbage til matematikkapitlet, der lærte vi om vektorer, og det er faktisk lige præcis hvad $p$ er. Vi arbejdede godt nok med vektorer med tre komponenter, men begivenheder har fire, hvorfor vi også kalder dem for \emph{firvektorer}. Fremover vil vi bruge følgende notation:
+%
+\begin{align}
+    c\cdot t = x^0, \hspace{3mm} x = x^1, \hspace{3mm} y = x^2, \hspace{3mm} z = x^3, \label{rel:eq:four}
+\end{align}
+%
+hvor $c$ er lysets hastighed (vi skal nok forklare, hvorfor den lige pludselig dukker op, men lad være med at tænke så meget over det lige nu). At indekset står øverst, og ligner en potens, er noget som er nyt for mange, første gang de arbejder med relativitetsteori, og som man skal vænne sig til. Der er en god grund til dette, men det kræver matematik\footnote{Mere præcist kræver det differentialgeometri, der bl.a. beskriver hvordan vektorer ændrer sig, når man skrifter koordinatsystem. Der er flere måder, hvorpå dette kan ske, og indeksets placering hjælper med at holde styr på dette.\label{rel:fn:indeks}}, som er for avanceret til campen. Dette er smart, da vi ikke altid arbejder med kartesiske koordinater (som vi så \cref{chap:mek} om analytisk mekanik), så det hjælper at kunne snakke om dem på en mere generel måde. At skrive koordinater på denne måde hjælper også med at sætte tidskoordinatet på ``lige fod'' med stedkoordinaterne, hvilket vil blive vigtigt senere. Ofte vil vi bare referere til et arbitrært koordinat. I det tilfælde skriver vi
+%
+\begin{align}
+    x^{\mu} \hspace{2mm} (\mu = 0,1,2,3),
+\end{align}
+%
+hvor $\mu$ (det græske bogstav ``my'') kan være ethvert helt tal mellem 0 og 3 -- der kan altså være tale om alle en begivenheds koordinater. 
+
+Noget, som er meget vigtigt for relativitetsteorien, er dog at koordinater selvfølgelig afhænger af, hvorfra man måler. Stedkoordinaterne afhænger af hvor man lægger sit nulpunkt -- det samme gør tid. Begivenheder er fuldstændigt ligeglade med, om du begyndte at måle tid for 10 minutter siden eller 32 år siden, så nulpunktet for tid, er du også helt fri til at sætte. Der er dog visse begrænsninger på hvilke koordinatsystemer, vi kan tillade os at vælge, og det er dette som speciel relativitetsteori undersøger.
+
+%Anna skriver her - intro til begivenheder og firvektorer 
+
+\section{Inertialsystemer} %Gustav laver den her
+Som tidligere nævnt, kan du ikke mærke forskel på, om du kører ned ad motorvejen med \SI{100}{\km\per\hour}, eller sidder stille i din sofa. Altså i hvert fald, hvis din sofa har sikkerhedsseler, og din bil ikke ryster for meget. I relativitetsteori siger vi derfor, at det ikke giver mening at snakke om, at noget bevæger sig isoleret fra sine omgivelser, men kun at det bevæger sig \emph{i forhold til} noget andet. Dette giver måske mere mening, hvis vi tager en tur ud i rummet. Forestil dig, at du er en meget uansvarlig astronaut, der har glemt at spænde dig fast til dit rumskib. Du kommer måske til at sparke til rumskibet, hvilket gør, at du og dit rumskib lige så stille bevæger jer væk fra hinanden. Hvis du kan se det for dig, kan du måske godt se, at når der ikke er noget i nærheden at sammenligne med, så ser det for dig ud som om rumskibet langsomt svæver væk fra dig, men hvis dine venner i rumskibet kigger ud, vil de se dig langsomt svæve væk fra rumskibet. I ser hver den anden, som den der bevæger sig, men I er helt enige om, at I bevæger jer væk fra hinanden.
+
+Det giver altså her ikke nogen mening at snakke om, hvad der bevæger sig væk fra hvad, så det gør vi ikke. I stedet lægger vi et koordinatsystem på dig, og sørger for, at du altid står i origo, $(0,0,0)$, og dermed står stille i dit eget koordinatsystem. Dette koordinatsystem kalder vi et inertialsystem. Helt specifikt er et inertialsystem et koordinatsystem, der ikke roterer eller har en acceleration (begge disse ville du godt kunne føle, selvom du lukker øjnene).
+Vi siger, at:
+%
+\begin{center}
+\fbox{\begin{minipage}{\dimexpr\textwidth-2cm}
+\itshape
+\textbf{Et inertialsystem er et koordinatsystem, som ikke accelererer eller roterer, og ikke ligger i et tyngdefelt.}
+\end{minipage}}
+\end{center}
+%
+Læg mærke til, at vi egentlig kun kan bruge speciel relativitetsteori i rummet. Men vi plejer at lege, at tyngdekraften ikke er vigtig på Jorden, og laver tankeeksperimenter med tog, da det var det Einstein gjorde (han formulerede speciel relativitetsteori før rumskibe blev opfundet).
+
+I \cref{chap:matematik} blev Newtonsk mekanik introduceret på baggrund af tre postulater, nemlig Newtons love. Ligeledes bygger relativitetsteori og på nogle postulater. Der er to fundamentale postulater i speciel relativitetsteori:
+%
+\begin{enumerate}
+    \item Naturlovene er ens i alle inertialsystemer.
+    \item Lysets hastighed gennem det tomme rum er en absolut naturkonstant, og afhænger ikke af kildens bevægelse.
+\end{enumerate}
+%
+Disse to postulater er de eneste, der er brug for, for at udlede hele den specielle relativitetsteori. Den første betyder eksempelvis, at tyngdekraften ikke lige pludselig holder op med at trække ting mod Jordens overflade, bare fordi man skifter koordinatsystem, hvilket ikke ville give mening.
+
+Hvis du allerede har et inetialsystem $S$, kan den eneste forskel mellem $S$ og et andet system $S'$ være retning af akserne, placeringen af origo, hastighedsforskellen imellem $S$ og $S'$, eller en kombination af disse.
+
+I den specielle relativitetsteori viser det sig, at det kun er en forskel i fart, der giver anledning til noget nyt, der ikke kendes fra klassisk mekanik\footnote{Rotationer af koordinatsystemet i speciel relativitetsteori fungerer ligesom i klassisk mekanik, hvor det giver anledning til to kræfter, der kaldes ``centrifugalkraften''og ``Corioliskraften''. Centrifugalkraften er den, der trækker i os, når vi sidder i en bil, der drejer, mens Corioliskraften er den, der får eksempelvis tornadoer til at dreje i hver sin retning på henholdsvis den nordlige og den sydlige halvkugle af Jorden.}. Man plejer derfor at opstille inertialsystemer, så $x^1$-aksen ligger oveni $\left(x^1\right)'$, $x^2$ er parallel med $\left(x^2\right)'$, og $x^3$ er parallel med $\left(x^3\right)'$ (altså $x$-akserne ligger oveni hinanden, og $y$ og $z$ er hhv. parallelle med $y'$ og $z'$). Derudover starter vi inertialsystemerne, så origo for $S$ ligger samme sted som origo for $S'$ til $x^0=0$ (altså til starttidspunktet). Disse konventioner er ikke vigtige i forhold til definitionen af inertialsystemer, men den gør udregninger nemmere, så det er godt at kende dem.
+
+% Skal skrive om, hvordan man plejer at opstille dem. Måske også andet
+
+\section{Transformationer} \label{rel:sec:trans} %Victoria overtager weee  realm (haha lol get it trans????)
+
+
+\subsection{Galileitransformationer}
+
+Hvis man ville beskrive en begivenhed i et inertialsystem, set fra et andet inertialsystem, i tiden før Einstein, ville man bruge Galileitransformationerne:
+%
+\begin{subequations} \label{rel:eq:galilei}
+\begin{align}
+    \left(x^0\right)' &= x^0, \\
+    \left(x^1\right)' &= x^1 - \frac{v\cdot x^0}{c}, \\
+    \left(x^2\right)' &= x^2, \\
+    \left(x^3\right)' &= x^3. 
+\end{align}
+\end{subequations}
+%
+Hvis vi forestiller os et objekt på et tog, hvor vi står på perronen, kan vi beskrive objektet både i togets koordinatsystem, og i perronens koordinatsystem og forestiller os at objektet er et kosteskaft, der ligger langs med togets akse. Siden kosteskaftet ligger stille på toget, er koordinatet på den ene ende af kosteskaftet $x^1$ konstant, og vi lægger kosteskaftet således at $x^2 = x^3 = 0$. Set fra perronen er $\left(x^2\right)' = \left(x^3\right)' = 0$, men vi ser at i $\left(x^1\right)'$-retningen bliver tid og rum ``blandet sammen'', i og med at toget bevæger sig med konstant hastighed, og dermed stiger afstanden til objektet sig lineært i perronens koordinatsystem med tiden. Heldigvis løber tiden i begge koordinatsystemer lige hurtigt, som vi klassisk ville forvente. Kort sagt så siger Galileitransformationerne, at hvis vi vil beskrive kosten i perronens koordinatsystem, så skal vi lægge togets koordinat i perronsystemet sammen med kostens koordinat i perronsystemet.
+%
+Derudover kan vi se, at kosteskaftets længde er det samme i begge koordinatsystemer, dvs. at længden er bevaret under Galileitransformationer. Længden i togets koordinatsystem, givet at endepunkterne af kosten er $x^1_a$ og $x^1_b$, er 
+%
+\begin{align} \label{rel:eq:gal_laenge1}
+    \left| \Delta{x^1} \right| = \left| x^1_a - x^1_b \right|.
+\end{align}
+%
+I perronens koordinatsystem er længden af kosten, givet at vi måler endepunkternes position på samme tidspunkt ($x^0_a = x^0_b$),
+%
+\begin{align} \label{rel:eq:gal_laenge2}
+    \left| \Delta\left(x^1\right)' \right| = \left| \left(x^1_a\right)' - \left(x^1_b\right)' \right| = \left| \left( x^1_a - \frac{v\cdot x^0_a}{c} \right) - \left( x^1_b - \frac{v\cdot x^0_b}{c} \right) \right|  = \left| x^1_a - x^1_b \right|
+\end{align}
+%
+At \cref{rel:eq:gal_laenge1,rel:eq:gal_laenge2} giver det samme, viser at længder er bevaret under en Galileitransformation.
+
+\subsection{Lorentztransformationer} %Vis hvordan SpecRel hovedprincipperne leder til tidsforlængelse + længdeforkortelse
+I Galileitransformationerne antager man tre ting:
+%
+\begin{enumerate}
+    \item Tid er absolut. Hvis en observertør ser at to begivenheder sker på samme tidspunkt, vil alle andre observertørerer være enige.
+     \item Lysets hastighed er afhængig af observertørens bevægelser.
+     \item En observertør kan bevæge sig vilkårligt hurtigt.
+\end{enumerate}
+%
+Einsteins to postulater rydder alle tre antagelser af bordet.
+
+
+\input{Rel/RelLorent/Tidsforlaengelse}
+\input{Rel/RelLorent/Laengdeforkortelse}
+\input{Rel/RelLorent/Samtidighed}
+\input{Rel/RelLorent/UltimativHastighed}
+\input{Rel/RelLorent/LorentzTransformation}
+
+
+
+
+\begin{subequations}
+\begin{align}
+    \left(x^0\right)' &= \gamma \cdot \left(x^0 - \frac{v \cdot  x^1}{c}\right) \label{rel:eq:lorx0} \\
+    \left(x^1\right)' &= \gamma \cdot \left(x^1 - \frac{v\cdot x^0}{c}\right) \label{rel:eq:lorx1}\\
+    \left(x^2\right)' &= x^2 \\
+    \left(x^3\right)' &= x^3 
+\end{align}
+\label{rel:eq:lorentrans}
+\end{subequations}
+
+\section{Rumtidsdiagrammer} %Anna tager den lol
+%
+\begin{figure}[]
+    \centering
+    \includegraphics[trim = 100 110 100 80, clip, width = .8\textwidth]{Rel/Billeder/EmptyDiagram.pdf}
+    \caption{Et simpelt rumtidsdiagram. Du er måske vandt til at se position som en funktion af tid (såkaldte ``$x(t)$-diagrammer''), men her er det altså omvendt.}
+    \label{rel:fig:rumtid_empt}
+\end{figure}
+%
+Nu har vi brugt rigeligt tid på adskillige regnetekniske udfordringer indenfor speciel relativitetsteori, så lad os lige stoppe op, og gøre hvad fysikere gør bedst, når det kommer til komplicerede problemer: tegne.
+Indenfor speciel relativitetsteori hedder det visuelle metode, man ofte anvender, \emph{rumtidsdiagrammer} (eller \emph{Minkowski diagrammer} efter deres opfinder, Hermann Minkowski). I et rumtidsdiagram sætter man $x^0$ koordinatet, altså tiden, op af den lodrette akse, og $x^1$-koordinatet ud af den vandrette akse. Et eksempel på et rumtidsdiagram kan ses i \cref{rel:fig:rumtid_empt}.
+
+Vi kalder det et rumtidsdiagram, fordi man i relativitetsteori sætter koordinater, der beskriver tid, og koordinater, der beskriver sted, på samme fod. Dette er også hvorfor at lysets hastighed dukker op i \cref{rel:eq:four}, for hvis man ganger en tid med en hastighed, får man en længde\footnote{Nogen gange bliver fysikere endda så sløve at de ikke engang gider at skrive $c$ når det ellers burde være der, men i dette kompendium skriver vi det ud.}:
+%
+\begin{align} \label{rel:eq:xo_enhed}
+    \big[ x^0 \big] = \big[ ct \big] = \frac{\si{\meter}}{\SI{}{\second}} \cdot \si{\second} = \si{\meter}.
+\end{align}
+%
+I \cref{rel:eq:xo_enhed} betyder notationen med de firkantede parenteser enheden af, hvad der står i dem. Eksempelvis betyder $[ct]$ ``enheden for $ct$''. På den måde kan man altså måle tid i meter (eller længder i sekunder). Vi snakker altså ikke kun om rum og tid som seperate ting, men som en samlet \emph{rumtid}.
+
+Vi bruger rumtidsdiagrammer til at vise objekters bevægelse igennem rumtid, for eksempel kan man have en bold der ligger stille på gulvet. Det er måske ikke den mest spændende scenarie, at forestille sig, men husk på at nok ligger bolden stille i rummet, men den bevæger sig altid fremad i tid! Derfor ville vi tegne den i et rumtidsdiagram som en linje, der holder samme værdi på $x^1$-aksen, men fortsætter op af $x^0$-aksen; med andre ord, en lodret streg. Stregen som et objekt danner på et rumtidsdiagram kalder vi for objektets \emph{verdenslinje}. Hvis vi nu lader bolden trille med den konstante hastighed $v$ i retningen af $x^1$-aksen, vil dens position i rummet selvfølgelig også ændre sig; altså vil dens verdenslinje være en ret linje. Rumtidsdiagrammerne for disse bolde kan findes i \cref{rel:fig:ball}.
+
+\begin{figure}
+    \centering
+    \includegraphics[trim = 0 100 0 0, clip, width = \textwidth]{Rel/Billeder/Ball_diagram.pdf}
+    \caption{(a) Rumtidsdiagram med verdenslinje for en bold der ligger stille. Læg mærke til, at boldens $x^1$-værdi altid er den samme, men den bevæger sig fremad (eller opad) i tid, $x^0$. (b) Rumtidsdiagram for en bold, der triller med konstant hastighed. Læg mærke til, at bolden her både ændrer sin $x^1$-værdi og sin-$x^0$ værdi -- den bevæger både sig i rum og tid.}
+    \label{rel:fig:ball}
+\end{figure}
+
+\subsection{Lorentz transformationer i rumtidsdiagrammer}
+
+Relativitetsteori handler i sin essens om, hvordan ting ser ud i forskellige referencesystemer. Derfor er det også vigtigt, at få en intuitiv forståelse af hvordan transformationerne imellem referencesystemer ``ser ud''. Tilbage i \cref{rel:sec:trans} udledte vi formlen for Lorentztransformation, \cref{rel:eq:lorentrans}, som er grundstenen bag speciel relativitetsteori. Lad os prøve at se hvordan sådan en transformation ser ud, hvis vi tegner den ind i et rumtidsdiagram. Kigger tilbage på \cref{rel:eq:lorx0,rel:eq:lorx1},
+%
+\begin{subequations}
+\begin{align}
+    \left(x^0\right)' &= \gamma \cdot \left(x^0 - \frac{v \cdot  x^1}{c}\right), \label{rel:eq:lorentz_rumtid_tid} \\
+    \left(x^1\right)' &= \gamma \cdot \left(x^1 - \frac{v\cdot x^0}{c}\right), \label{rel:eq:lorentz_rumtid_sted}
+\end{align}
+\end{subequations}
+%
+så lad os overveje, hvad disse ligninger visuelt betyder for rumtidsdiagrammet. Ligningerne transformerer koordinater fra ét inertialsystem $S$, til et andet system $S'$, som bevæger sig med konstant hastighed $v$ i $x^1$-aksens retning relativt til $S$. $\left(x^0\right)'$ er tidskoordinatet i vores nye inertialsystem, $S'$, så hvis vi sætter $\left(x^0\right)' = 0$, får vi den vandrette akse i $S'$, altså $\left(x^1\right)'$-aksen. Ligeledes, hvis vi sætter $\left(x^1\right)' = 0$, finder vi den lodrette akse i $S'$. Lad os prøve at gøre dette, og repræsentere akserne i $S'$, i forhold til akserne i $S$. Dette gør vi først med $\left(x^0\right)' = 0$. Isoleres $x^0$ i \cref{rel:eq:lorentz_rumtid_tid} fås
+%
+\begin{align}
+\begin{aligned}
+    \left(x^0\right)' = 0 &= \gamma\cdot \left(x^0 - \frac{v\cdot x^1}{c}\right) = \gamma \cdot x^0 - \gamma \cdot \frac{v\cdot x^1}{c}  \\
+    \implies -\gamma \cdot x^0 &= - \gamma \cdot \frac{v\cdot x^1}{c} = \gamma \cdot \frac{v\cdot x^1}{c} \\
+    \implies x^0 &= \frac{v\cdot x^1}{c}
+\end{aligned}
+\end{align}
+%
+Dette svarer til en ret linje, som går igennem origo med hældningen $v/c$. Ligeså kan man sætte $\left(x^1\right)' = 0$ og finde den rette linje%
+%
+\begin{align}
+    \left(x^0\right)'& = \frac{c\cdot x^1}{v}.
+    %
+    \intertext{Disse to rette linjer kan ses indtegnet i rumtidsdiagrammet for $S$ i \cref{rel:fig:TransDia}.
+    Det ses, at akserne for $S'$ bliver ``trykket sammen'' i forhold til dem for $S$ -- jo størrere relativ hastighed, $v$, imellem de to inertialsystemer, desto mere bliver $S'$ trykket sammen. Man kunne eksempelvis kigge på vinklen imellem $x^1$-aksen og $\left(x^1\right)'$-aksen. Denne vinkel er den samme, som den imellem $x^0$-aksen og $\left(x^0\right)'$-aksen. Prøv om du kan tænke dig frem til hvorfor. Denne vinkel kan vi kalde for $\alpha$, og med en smule trigonometrisk snilde kan det vises, at}
+    %
+    \alpha &= \tan^{-1} \left(\frac{v}{c}\right).
+\end{align}
+%
+Med dette resultat kan vi sågar sige, at jo større hastighed $v$, desto større bliver vinklen\footnote{Dette skyldes at $\tan^{-1}$ er hvad man kalder en \emph{monoton, strengt voksende} funktion -- altså at en større $x$-værdi medfører en større værdi af $\tan^{-1}(x)$.} $\alpha$. Denne vinkel kaldes \emph{boostvinklen}, da en Lorentztransformation også ofte kaldes et Lorentzboost.
+% den viser hvor meget $S'$ er ``boosted'' relativt til $S$.
+%
+\begin{figure}[]
+    \centering
+    \includegraphics[trim = 100 150 200 0, clip, width =  0.49\textwidth]{Rel/Billeder/LorentzTransform.pdf}
+    \includegraphics[trim = 100 150 200 0, clip, width = 0.49\textwidth]{Rel/Billeder/BoostAngle.pdf}
+    \caption{Rumtidsdiagrammet for $S$, hvor akserne for $S'$ er indtegnet. Læg mærke til, at det ligner, at det nye inertialsystem bliver ``trykket sammen''. I (a) ses forskriften for de rette linjer, der udgør akserne i $S'$. I (b) ses boost-vinklen, $\alpha$, imellem akserne i $S$ og $S'$.}
+    \label{rel:fig:TransDia}
+\end{figure}
+
+
+
+\section{Rumtidsinterval}
+
+
+
+
+
+
+% ====================
+
+
+I den specielle relativitetsteori er hverken tid eller rum det samme for forskellige observatører.
+Vi har derfor brug for en ny måde at relatere to begivenheder, som alle observatører kan blive enige om.
+Vi har brug for en størrelse, der antager samme værdi i alle inertialsystemer -- en såkaldt \emph{invariant} størrelse.
+
+Lad os se på to begivenheder, en der sker i $x_1$ til tiden $t_1$, og en anden der sker i $x_2$ til tiden $t_2$ i inertialsystemet\footnote{Bemærk at det her er praktisk, at rumtidsindekset stod øverst, fordi vi så kan bruge et indeks nederst til at navngive en bestemt begivenhed, uden at blande de to sammen.} $S$.
+Vi ønsker nu at se på, hvad der sker med de to begivenheder, hvis vi skifter til inertialsystemet $S'$. I $S$ er afstanden og tidsforskellen imellem de to begivenheder givet ved:
+%
+\begin{subequations}
+\begin{align}
+    \Delta x&=x_2-x_1, \\
+    \Delta t&=t_2-t_1.
+\end{align}
+\end{subequations}
+%
+For at finde afstanden og tidsforskellen i $S'$ benytter vi Lorentztransformationerne:
+%
+\begin{subequations}
+\begin{align}
+    \Delta x' &= x'_2-x'_1=\gamma x_2-\gamma vt_2-\gamma x_1+\gamma v t_1=\gamma \Big(\Delta x- v\Delta t\Big), \\
+    \Delta t' &= t'_2-t'_1=\gamma t_2-\gamma \frac{vx_2}{c^2}-\gamma t_1+\gamma \frac{vx_1}{c^2} = \frac{\gamma}{c} \left(c\Delta t - \frac{v\Delta x}{c} \right).
+\end{align}
+\end{subequations}
+%
+Nu lader vi os inspirere af, at når vi normalt måler afstande, bruger vi $\Delta x^2$-led\footnote{I tre dimensioner er afstanden imellem to punkter $\Delta l=\sqrt{\Delta x^2+\Delta y^2+\Delta z^2}$.}.
+Det giver
+%
+\begin{subequations}
+\begin{align}
+    \left(\Delta x'\right)^2 &= \gamma^2\Big(\Delta x^2+v^2\Delta t^2-2v\Delta x\Delta t\Big) \label{rel:eq:delta_x'} \\
+    \left(\Delta t'\right)^2 &= \frac{\gamma^2}{c^2} \left(c^2\Delta t^2+\frac{v^2\Delta x^2}{c^2}-2v\Delta x\Delta t\right) \label{rel:eq:delta_t'}
+\end{align}
+\end{subequations}
+%
+Det er nu smart at trække \cref{rel:eq:delta_t'} fra \cref{rel:eq:delta_x'} efter at have flyttet $c^2$ over på den anden side, så enhederne er ens i begge ligninger. Vi bemærker også, at de to sidste led i begge parenteser er ens, %så vi lader dem gå ud med hinanden,
+hvorved vi får at
+%
+\begin{align}
+    \left(\Delta x'\right)^2-c^2\left(\Delta t'\right)^2 &= \gamma^2\left(\Delta x^2+v^2\Delta t^2-c^2\Delta t^2-\frac{v^2}{c^2}\Delta x^2\right).
+    %
+    \intertext{Flytter vi en anelse rundt på ledene i parentesen, får vi at}
+    %
+    \left(\Delta x'\right)^2-c^2\left(\Delta t'\right)^2 &= \gamma^2\left(1-\frac{v^2}{c^2}\right) \left( \Delta x^2-c^2\Delta t^2 \right) = \Delta x^2-c^2\Delta t^2.
+\end{align}
+%
+Vi ser nu, at denne størrelse er ens for de to observatører -- den ændrer sig ikke under en Lorentztransformation.
+Det er faktisk ligegyldigt, hvilket inertialsystem størrelsen $\Delta x^2-c^2\Delta t$ regnes i -- den er den samme i alle inertialsystemer.
+Vi har netop fundet en invariant størrelse\footnote{Det er netop sådan noget med, at holde styr på, hvad der er invariant, og hvad der ikke er, som indeksnotationen fra \cref{rel:fn:indeks} er smart til.} og kalder denne størrelse rumtidsintervallet. Den skrives som
+%
+\begin{align} \label{rel:eq:rumtidsinterval}
+    \Delta s^2 = \Delta x^2-c^2\Delta t^2.
+\end{align}
+%
+Det smarte ved en invariant størrelse er netop det, at den ikke ændrer sig, når vi skifter inertialsystem. Således er invariante størrelser noget, som alle observatører, \emph{uanset deres inertialsystem}, er enige om.
+Det betyder, at vi kan vælge netop det system, der gør det så let som muligt, at analysere en fysisk situation, hvilket ofte er en partikels hvilesystem, da dens hastighed her per definition er $0$. 
+
+
+% ====================
+
+
+
+
+\section{Kort om generel relativitetsteori} \label{rel:sec:gr}%Lol GR er sjovt venner
+
+Nu har vi arbejdet meget om speciel relativitetsteori -- og der er skam også rigeligt i emnet. Det er en af de mest velafprøvede fysiske teorier, og fungerer selv når mere komplicerede ting som elektromagnetisme eller kvantemekanik sættes i spil\footnote{Hvis du vil høre om hvordan elektromagnetisme, kvantemekanik og speciel relativitetsteori spiller sammen, kan du få en af de ældre faglige til at snakke om \emph{Kvanteelektrodynamik} og \emph{Kvantefeltteori}, men vid at det er noget yderst avanceret materiale!}. Einstein udgav sin originale artikel om speciel relativitetsteori i 1905. Med denne var Einstein med til at indlede en moderne videnskabelig revolution -- vigtigheden af hvilken, det er umuligt at overdrive. 
+
+Der er dog én ting som speciel relativitetsteori ikke kan få styr på: tyngdekraft. Tænk på, at vi indtil nu har defineret speciel relativitetsteori i form af inertialsystemer, som \emph{ikke accelererer}. Men tyngdekraften, som er tilstede overalt i universet, skaber acceleration på objekter og observatører, idet det jo er en kraft. Hvor finder vi så et inertialsystem? Hvis vi laver et forsøg på Jordens overflade, vil en observatør opleve en konstant acceleration imod Jordens centrum -- selv hvis vi ser bort fra det, accelererer Jorden i sin bane omkring Solen, og Solen i sin bane omkring mælkevejens centrum, og så videre. Alle disse problemer forårsagede, at den originale formulering af speciel relativitetsteori simpelthen ignorerede effekterne af tyngdekraft. Mere arbejde (og en del mere matematik) skulle der til for at inkorporere tyngdekraften i relativitetsteori -- hvilket resulterede i at Einstein i 1915 formulerede \emph{generel relativitetsteori}, som beskriver påvirkningen af tyngdekraft på fysiske systemer\footnote{Faktisk krævede det uderligere arbejde af matematiken David Hilbert, før generel relativitetsteori blev formuleret i sproget fra \cref{chap:mek}. Man skulle først finde en passende Lagrangefunktion.} Generel relativitetsteori (eller GR, hvis man vil skynde sig) er en af de mest velafprøvede teorier, vi har i fysikken i dag, og står sammen med partikelfysikkens Standard Model, som noget af det ypperste indenfor moderne fysik. GR er blevet vist i stand til at forudsige, med uhyggelig præcision, alt fra præcessionen af Merkurs bane om Solen (ellipsebanen drejer som tiden går), til universets udvidelse, sorte huller og tyngdebølger -- naturfænomener med utrolige implikationer, men som dog er blevet observeret senere hen. Så hvad har ændret sig? Vi vil nu se en smule nærmere på nogen af ideerne bag GR. Vi vil dog ikke gå i for meget dybden med matematikken, da den er yderst abstrakt\footnote{Den differentialgeometri, der blev nævnt i \cref{rel:fn:indeks}, er legende let sammenlignet med hvad generel relativitetsteori kræver.}.
+
+\subsection{Ækvivalensprincippet}
+
+En af Einsteins store styrker var hans evne til at konstruere tankeeksperimenter (gedankenexperiment\footnote{Her er et tilfælde, hvor man på engelsk bruger det tyske fagord. Det hedder altså ``Gedankenexperiment'' på både tysk og engelsk, hvor tyskerne i modsætning til englænderne staver det med stort begyndelsesbogstav, da der er tale om et navneord. Et andet eksempel er, hvad vi i Danmark kalder bremsestråling, der på både tysk og engelsk hedder ``Bremsstrahlung''.}, som han ville have kaldt det). Vi arbejde lidt tankeeksperimenter tidligere, da vi diskuterede observatøren i toget og på platformen ved siden af, \cref{rel:eq:galilei,rel:sec:sync}. Ved først at fastslå, hvad der \emph{ikke} ændrer sig imellem de to referencerammer, såsom lysets hastighed, kan man begynde at kigge på hvordan andre størrelser ændrer sig, såsom tidsforlængelse og længdeforkortelse. Samme fremgangsmetode anvendte Einstein, i sit forsøg på at generalisere relativitetsteorien\footnote{Heraf navnet \emph{generel relativitetsteori}, hvoraf speciel relativitetsteori også opstår, hvis blot man igen ignorerer tyngdekraft -- altså er den et specialtilfælde af en mere generel teori.}. Han forestillede sig her et scenarie af en person i en elevator (eller blot en kasse -- det vigtige er personen ikke kan se, hvad der er udenfor). Dette minder om situationen fra \cref{mek:sec:elevator}. Personen har en bold med sig i elevatoren, som hun kaster op i luften, hvorefter hun observerer at den falder mod elevatorens gulv med en acceleration $g$. Nu kommer spørgsmålet: \emph{hvorfor}?
+%
+Einstein kom med to mulige forklaringer for denne observation:
+%
+\begin{enumerate}
+    \item Elevatoren bliver trukket opad med en konstant acceleration $g$. Dette får elevatorens gulv til at bevæge sig opad imod bolden, hvilket fra vores observatørs synspunkt ligner, at bolden falder \emph{imod} gulvet, da hun også bevæger sig opad.
+    \item Elevatoren er placeret i tyngdefeltet fra en planet, som forårsager en tyngdeacceleration $g$. Det er altså tyngdekraften, som trækker bolden ned i dette tilfælde.
+\end{enumerate}
+%
+Disse to scenarier kan ses illustreret i \cref{rel:fig:equiv}.
+%
+I begge scenarier falder bolden til gulvet, men os, som ser det hele udefra, ville helt klart mene at der er forskel på de fysiske omstændigheder. Einstein påpegede dog, at observatøren inde i elevatoren ikke på nogen måde kan se forskel på de to scenarier. Der eksisterer ikke et eneste eksperiment, hun ville kunne udfører, der kan fortælle hende, om hun befandt sig i et tyngdefelt eller ej. Ligheden i mellem disse to scenarier fik Einstein til at formulere \emph{ækvivalensprincippet}:
+%
+\begin{center}
+\fbox{\begin{minipage}{\dimexpr\textwidth-2cm}
+\itshape
+\textbf{I små nok områder, og over små nok tidsrum, er fysikkens love dem formuleret i speciel relativitetsteori. Det er således umuligt, at måle tyngdekraft ved brug af lokale eksperimenter.}
+\end{minipage}}
+\end{center}
+%
+\begin{figure}[]
+    \centering
+    \includegraphics[width = \textwidth]{Rel/Billeder/Equiv.pdf}
+    \caption{De to scenarier i Einsteins tankeeksperiment. (1): Elevatoren bliver trukket opad med et reb med en konstant acceleration $g$. Dette får elevatorens gulv til at bevæge sig opad imod bolden. (2): Elevatoren er placeret i tyngdefeltet af en planet, som forårsager en tyngdeacceleration $g$.}
+    \label{rel:fig:equiv}
+\end{figure}
+%
+Hvad ordet ``lokal'' betyder, har en præcis matematisk definition, men denne er en smule uintuitiv og ville nok kræve en hel camp mere at forklare. I store træk betyder det, at i eksperimenter på små skalaer, som f.eks. indeni elevatoren, kan man ignorere effekterne af tyngdekraft. Den fysiske konsekvens af ækvivalensprincippet er enorm. Da bolden i scenarie 1. ikke oplever nogen kræfter, og observatøren i elevatoren ikke kan se forskel på scenarie 1. og 2., må det betyde, at bolden i scenarie 2. heller ikke oplever nogen kræfter. Dette kan kun lede os til én konklusion:
+%
+\begin{center}
+\fbox{\begin{minipage}{\dimexpr\textwidth-2cm}
+\itshape
+\textbf{Tyngdekraften er ikke en kraft.}
+\end{minipage}}
+\end{center}
+%
+Det virker underligt -- specielt når det ellers lader til at blive indikeret af navnet\footnote{Dette er et uheldigt tilfælde i det danske sprog. På engelsk kaldes tyngdekraften blot ``\emph{gravity}'', og skaber således ikke samme misforståelse.}, men skyldes at tyngdekraften er navngivet lang tid før Einstein. Vi er dog også tvunget til at konkludere, at tyngdekraften må være \emph{noget} -- vi sidder fast på Jorden, som kredser rundt om Solen, som kredser rundt om Mælkevejens centrum, og så videre, og så videre. Tyngdekraften er en uundgåelig del af den virkelige verden. Men hvis det ikke er en kraft, hvad er det så? Einstein postulerede at i stedet for at være en kraft, så er tyngdekraften et resultat af at selve rumtiden, vi befinder os, i har en \emph{krumning}. Krumning er igen et ord med en meget specifik, og kompliceret, matematisk betydning, som vi vil forsøge at opbygge en fysisk intuition for. Rumtidens krumning blev diskuteret en smule i \cref{chap:kosmo}, men lad os dykke lidt dybere ned i konceptet. 
+
+\subsection{Krumning, geodæter og metrikker}
+I sin essens fortæller krumningen af en overflade, eller et rum, hvordan man måler afstande på den overflade, eller i det rum. Man skal tage højde for krumninger i mange tilfælde i det virkelige liv -- landopmålere tager for eksempel højde for krumningen af Jordens overflade, da overfladen af en kugle bestemt er krum.
+
+Rent matematisk kalder man afstandsmålet i et rum for en \emph{metrik}. Du kender indirekte allerede til en metrik i 3-dimensionelt, fladt rum\footnote{Også kaldet Euklidisk rum.}, nemlig Pytagoras sætning. Hvis vi har to punker $(x_1,y_1,z_1)$ og $(x_2,y_2,z_2)$, så fortæller Pythagoras os, at afstanden, $\Delta s$, imellem dem er
+%
+\begin{align} \label{rel:eq:dist_euc}
+    (\Delta s)^2 = (\Delta x)^2 + (\Delta y)^2 + (\Delta x)^2,
+\end{align}
+%
+hvor $\Delta x = x_2 - x_1$, og tilsvarende for $y$ og $z$. Denne måde at måle afstande på gælder dog kun hvis rummet er \emph{fladt} (ikke krumt). Vi definerede også tidligere en metrik til at måle rumtidsintervaller i én rummelig og én tidslig dimension, \cref{rel:eq:rumtidsinterval}. Genereliseres den til 4-dimensionel rumtid fås:
+%
+\begin{align}
+    (\Delta s)^2 &= -\left(\Delta   x^0\right)^2 + \left(\Delta x^1\right)^2 + \left(\Delta x^2\right)^2 + \left(\Delta x^3\right)^2 \label{rel:eq:dist_min1}
+    %
+    \intertext{Faktisk plejer man at skrive metrikken som en afstand i mellem punkter med en infinitesimal afstand til hinanden, dvs.}
+    %
+    \lim_{\Delta s \rightarrow 0} (\Delta s)^2 &= \dd s^2 = -\left(\dd x^0\right)^2 + \left(\dd x^1\right)^2 + \left(\dd x^2\right)^2 + \left(\dd x^3\right)^2 \label{rel:eq:dist_min2}
+\end{align}
+%
+Bemærk dog, at dette er et specialtilfælde, som kun gælder i en flad rumtid. Det selve metrikken fortæller, er hvad man skal gøre ved forskellene i hver dimensions kvadrat, for at få et afstandsmål. I \cref{rel:eq:dist_euc} fortæller metrikken, at vi skal lægge dem sammen, mens i \cref{rel:eq:dist_min1,rel:eq:dist_min2} fortæller metrikken, at vi skal huske et fortegn på tidsdimensionen. Hvad GR fortæller os, er at denne metrik kan have mange forskellige former -- altså at afstandsmålet i rummet kan være meget anderledes end dem vi kender fra Pythagoras sætning og speciel relativitetsteori. Med andre ord kan rummet krumme på mange forskellige måder. Et eksempel på en metrik, der dukker op, er Schwardschildmetrikken, som beskriver, hvordan man måler afstande (altså hvordan rummet krummer) omkring sfærisk symmetriske objekter med massen $M$. Det kunne for eksempel være en planet, en stjerne eller et sort hul! I de såkaldte sfæriske koordinater $(x^0 = ct, x^1 = r, x^2 = \theta, x^3 = \phi)$, kan den skrives som
+%
+\begin{align}
+    \dd s^2 = -\left(1 - \frac{2GM}{c^2 r}\right)\dd t^2 + \dfrac{1}{1 - 2GM/(rc^2)}\dd r^2 + r^2\dd \theta^2 + r^2 \sin^2{(\theta)} \dd \phi^2
+\end{align}
+%
+Det ser umiddelbart kompliceret ud -- og det er det også! Generel Relativitetsteori er kendt for at være en af de sværeste discipliner indenfor fysik, både fordi matematikken kan være utroligt kringlet, men også fordi de fysiske implikationer af GR kan være besværlige at forstå. 
+
+Nu har vi så kigget lidt på krumning, men hvad har det at gøre med tyngdekraft? Hvis du husker tilbage på rumtidsdiagrammerne for bolden i \cref{rel:fig:ball}, så læg mærke til at bolden altid følger rette linjer -- enten direkte op eller skråt, alt efter om den er i bevægelse. Fordi bolden altid bevæger sig fremad i tid, har den en naturlig bevægelse gennem rumtid. Hvis bolden ikke bliver påvirket af nogen kræfter, altså hvis den ligger stille eller bevæger sig med konstant hastighed, vil den følge en ret linje igennem rumtid. Dette er essentielt set Newtons første lov fra \cref{mat:sec:diffeq}, Sådan en ret linje kaldes en \emph{geodæt}. En geodæt er defineret som den korteste vej i mellem to punkter i rumtid\footnote{Dette er ikke helt rigigt, men det er en fin definition til vores formål.}. I flat rum er dette den rette linje vi er vant til, men selvfølgelig vil den korteste vej imellem to punkter afhænge af hvordan man måler afstande, og derfor af metrikken. Den korteste vej imellem to punkter på overfladen af en kugle, er en kurve, som deler kuglen op i to lige store dele: en ækvator. Den korteste vej imellem Danmark og Japan er retningen øst-vest, men hen over nordpolen. Dette kan man måle med en globus og et stykke snor, hvor man finder ud af, at man skal bruge mindre snor, for at nå fra Danmark til Japan over norpolen end over Rusland. Det viser sig, at den korteste vej igennem rumtid, når man befinder sig på Jordens overflade, er direkte ned imod Jordens centrum. Altså er tyngdekraft blot oplevelsen af vores naturlige bevægelse langs den korteste vej igennem rumtid\footnote{Vi bliver dog, takket være Jordens overflade, forhindret i at følge denne korteste vej, da vi ellers bare ville falde direkte ind i Jordens centrum.}. Således forklarer Einstein at tyngdekraft er et fuldstændig geometrisk fænomen, hvori rumtid krummes af masse, og masse bevæger sig langs rette linjer rumtiden.
+
+\end{document}

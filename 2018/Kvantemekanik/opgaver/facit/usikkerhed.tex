@@ -1,0 +1,229 @@
+\begin{opgave}{Parabelformet bølgefunktion igen}{1}
+Denne opgave bygger videre på opgave \ref{kvant:opg:parabel}, så det er en fordel at have lavet denne opgave først. Vi ser igen på en parabelformet bølgefunktion i en uendelig brønd:
+$$
+\psi=Nx(L-x)
+$$
+\opg Hvad er $\sigma_x^2 = \expect{x^2}-\expect{x}^2$?
+
+Vi kender allerede $\expect{x}$ og $\abs N^2$ fra opgave \ref{kvant:opg:parabel}.
+\begin{align*}
+\expect{x} &= \frac{L}{2}\\
+\abs N^2 &= \frac{30}{L^5}
+\end{align*}
+For at finde $\expect{x^2}$ bruges sandwichen:
+\begin{align*}
+    \expect{x^2}&= \abs N^2 \integral{x^3(L-x)}{x}{0}{L}\\
+    &= \frac{30}{L^5}\integral{x^5-2x^4L+x^3L^2}{x}{0}{L}\\
+    &= \frac{30}{L^5}\left[\frac{x^6}{6}-\frac{2x^5L}{5}+\frac{x^6}{6}\right]_0^L\\
+    &= 30 L^2\left(\frac{15}{60}-\frac{24}{60}+\frac{10}{60}\right)\\
+    &= \frac{L^2}{2}
+\end{align*}
+Nu er usikkerheden:
+$$
+\sigma_x^2 = \expect{x^2}-\expect{x}^2 = \frac{L^2}{2}-\frac{L^2}{4}=\frac{L^2}{2}
+$$
+og
+$$
+\sigma_x = \frac{L}{\sqrt{2}}
+$$
+\opg Hvad er $\sigma_p^2 = \expect{p^2}-\expect{p}^2$?
+Her skal vi bruge at $\op p = -i\hbar\pdif{x}{}$. Så bliver sandwichen:
+\begin{align*}
+    \expect{p} &= -i\hbar\abs N^2\integral{x(L-x)\pdif{x}{}\left(x(L-x)\right)}{x}{0}{L}\\
+    &= \frac{-30i\hbar }{L^5}\integral{x(L-x)(L-2x)}{x}{0}{L}\\
+    &= \frac{-30i\hbar }{L^5}\integral{xL^2-3x^2L+2x^3}{x}{0}{L}\\
+    &= \frac{-30i\hbar }{L^5}\left[\frac{x^2L^2}{2}-x^3L+\frac{x^4}{2}\right]_0^L\\
+    &= \frac{-30i\hbar }{L} \left(\frac{1}{2}-1+\frac{1}{2}\right)\\
+    &=0
+\end{align*}
+Tilsvarende for $\expect{p^2}$, hvor $op p^2 = -\hbar^2\pdif[2]{x}{}$.
+\begin{align*}
+    \expect{p^2} &= \abs N^2 \integral{x(L-x)\pdif[2]{x}{}\left(x(L-x)\right)}{x}{0}{L}\\
+    &= \frac{-30\hbar^2 }{L^5}\integral{x(L-x)(-2)}{x}{0}{L}\\
+    &= \frac{60\hbar^2}{L^5}\integral{xL-x^2}{x}{0}{L}\\
+    &= \frac{60\hbar^2}{L^5}\left[\frac{x^2L}{2}-\frac{x^3}{3}\right]_0^L\\
+    &= \frac{60\hbar^2}{L^5}\left(\frac{L^3}{2}-\frac{L^3}{3}\right)\\
+    &= \frac{60\hbar^2}{L^2}\left(\frac{3}{6}-\frac{2}{6}\right)\\
+    &= \frac{10\hbar^2}{L^2}
+\end{align*}
+Så usikkerheden er:
+$$
+\sigma_p^2 = \expect{p^2} = \frac{10\hbar^2}{L^2}
+$$
+og:
+$$
+\sigma_p = \frac{\hbar\sqrt{10}}{L}
+$$
+\opg Passer det med Heisenbergs usikkerhedsprincip?
+
+Sættes $\sigma_x$ og $\sigma_p$ ind i Heisenbers usikkerhedsprincip findes:
+$$
+\sigma_x\sigma_p = \frac{L}{\sqrt{2}}\frac{\hbar\sqrt{10}}{L}= \hbar\sqrt{5}\geq\frac{\hbar}{2}
+$$
+Heisenberg er tilfreds $\ddot \smile$
+\end{opgave}
+
+\begin{opgave}{Den frie partikel}{2}
+En fri partikel er en partikel der ikke påvirkes af noget potentiale, så $V(x)=0$ for alle $x$
+\opg Hvad er $\op H$?
+
+Der er ikke noget potentiale så:
+$$
+\op H = \frac{-\hbar^2}{2m}\pdif[2]{x}{} = \frac{\op p^2}{2m}
+$$
+\opg Hvad er $[\op p,\op H]$?
+
+Bemærk at operatorer altid kommuterer med sig selv, så:
+\begin{align*}
+    [\op p,\op H]&= \op p\op H-\op H\op p\\
+    &= \frac{\op p^3}{2m}-\frac{\op p^3}{2m}\\
+    &= 0
+\end{align*}
+\opg Hvilke bølgefunktioner opfylder: $\op p \psi_p = -i\hbar\pdif{x}{\psi_p} = p\psi_p$?
+
+Omskrives dette findes differentialligningen:
+$$
+\pdif{x}{\psi_p}=\frac{ip}{\hbar}
+$$
+Løsningen til denne differentialligning er blot en eksponentialfunktion. Imaginærfaktoren ændrer ikke dette, så:
+$$
+\psi_p = e^{\frac{ipx}{\hbar}}
+$$
+\opg Hvad sker der hvis man sætter $\psi_p$ ind i Schrödingerligninen?
+\begin{align*}
+    \op H\psi_p &= \frac{-\hbar^2}{2m}\pdif[2]{x}{\psi_p}\\
+    &= \frac{-\hbar^2}{2m}\left(\frac{ip}{\hbar}\right)^2\psi_p\\
+    &= \frac{-\hbar^2}{2m}\frac{-p^2}{\hbar^2}\psi_p\\
+    &=\frac{p^2}{2m}\psi_p
+\end{align*}
+\opg Hvad er sammenhængen imellem $E$og $p$?
+
+Energien er:
+$$
+E=\frac{p^2}{2m}
+$$
+\opg Hvad er $\sigma_p$ og $\sigma_E$?
+
+Først findes $\expect{p}$, $\expect{p^2}$, $\expect{E}$ og $\expect{E^2}$.
+\begin{align*}
+    \expect{p} &= \braket{\psi_p}{\op p\psi_p}\\
+    &= p\braket{\psi_p}{\psi_p}\\
+    &=p
+\end{align*}
+Dette er en konsekvens af at det er en egentilstand. Udregningen er tilsvarende for de andre.
+\begin{align*}
+    \expect{p^2} &= p^2\\
+    \expect{E} &= E\\
+    \expect{E^2} &= E^2
+\end{align*}
+Det gør det muligt at finde usikkerhederne:
+\begin{align*}
+    \sigma_p &= \expect{p^2}-\expect p^2 = 0\\
+    \sigma_E &= \expect{E^2}-\expect E^2 = 0
+\end{align*}
+Man kan godt kende $p$og $E$ på samme tid for den frie partikel, og det er ved $\psi_p$ tilstandene.
+\end{opgave}
+
+\begin{opgave}{En anden usikkerhedsrelation}{3}
+\opg Vis at:
+$$
+\dif{t}{\expect Q} = \braket{\pdif{t}{\Psi}}{\op Q\Psi}+\braket{\Psi}{\pdif{t}{\op Q}\Psi}+\braket{\Psi}{\op Q \pdif{t} \Psi}
+$$
+Først skal det bemærkes at $\expect Q$ dækker over et integral:
+$$
+\expect Q = \integral{\Psi^*\op Q\Psi}{x}{}{}
+$$
+Siden integralet er i forhold til $x$ og differentialet er i forhold til $t$ kan differential operatoren flyttes ind i integralet. Herefter anvendes kæderegelen.
+\begin{align*}
+\dif{t}{\expect Q} &= \integral{\dif{t}{}\Psi^*\op Q\psi}{x}{}{}\\
+&= \integral{\left(\dif{t}{\Psi}^*\op Q\Psi+\Psi^*\dif{t}{\op Q}\Psi+\Psi^*\op Q\pdif{t}{\Psi}\right)}{x}{}{}
+\end{align*}
+Hverken $x$ eller $p$ afhænger af $t$, så den totale afledte er lig den delviste.  Herefter kan integralet splittes op, og bringes på braket form (man kan sagtan lave hele denne opgave på braket form, men det kan være en hælp at se integralerne). Bemærk at rækkefølgen af differentiering og komplekskonjugering er underordnet.
+\begin{align*}
+\dif{t}Q&= \integral{\left(\pdif{t}{\Psi}\right)^*\op Q\Psi}{x}{}{}+\integral{\Psi^*\pdif{t}{\op Q}\Psi}{x}{}{}+\integral{\Psi^*\op Q\pdif{t}{\Psi}}{x}{}{}\\
+&=\braket{\pdif{t}{\Psi}}{\op Q\Psi}+\braket{\Psi}{\pdif{t}{\op Q}\Psi}+\braket{\Psi}{\op Q \pdif{t} \Psi}
+\end{align*}
+Som vi ville vise
+\opg Vis at:
+$$
+\dif{t}{\expect Q} = \frac{1}{\hbar}\expect{[\op H,\op Q]}+\expect{\pdif{t}{\expect Q}}
+$$
+Først isoleres $\pdif{t}\Psi$ i Schrödingerligningen.
+$$
+\pdif{t}\Psi = \frac{1}{i\hbar}\op H\Psi
+$$
+Komplekskonjugeres på begge sider findes:
+$$
+\pdif{t}\Psi^* = \frac{-1}{i\hbar}\op H\Psi^*
+$$
+I første led indsættes fra Schrödingerligningen.
+\begin{align*}
+\braket{\pdif{t}{\Psi}}{\op Q\Psi} &= \integral{\pdif{t}{\Psi}^*\op Q\Psi}{x}{}{}\\
+&=\frac{-1}{i\hbar}\integral{\op H\Psi^*\op Q\Psi}{x}{}{}\\
+&=\frac{-1}{i\hbar}\braket{\op H\Psi}{\op Q\Psi}\\
+&= \frac{-1}{i\hbar}\braket{\Psi}{\op H \op Q \Psi}\\
+\end{align*}
+I sidste skridt udnyttede vi hintet.
+For det tredje led er fremgangsmåden den samme, så det giver:
+$$
+\braket{\Psi}{\op Q\pdif{t}\Psi} = \frac{1}{i\hbar}\braket{\Psi}{\op Q\op H\Psi}
+$$
+Kombineres de to led fåes:
+\begin{align*}
+\braket{\pdif{t}{\Psi}}{\op Q\Psi}+\braket{\Psi}{\op Q\pdif{t}\Psi} &= \frac{-1}{i\hbar}\left(\braket{\Psi}{\op H\op Q\Psi}-\braket{\Psi}{\op Q \op H \Psi}\right)\\
+&= \frac{-1}{i\hbar}\braket{\Psi}{(\op H\op Q-\op Q\op H)\Psi}\\
+&= \frac{i}{\hbar}\expect{[\op H,\op Q]}
+\end{align*}
+Det andet led indentificeres blot som forventningsværdien af ændrinen i operatoren.
+$$
+\braket{\Psi}{\pdif{t}{\op Q}\Psi} = \expect{\pdif{t}{\op Q}}
+$$
+Det giver det udtryk vi søgte:
+$$
+\dif{t}{\expect Q} = \frac{1}{\hbar}\expect{[\op H,\op Q]}+\expect{\pdif{t}{\expect Q}}
+$$
+\opg Hvordan ændrer antagelsen om at $\op Q$ er uafhængig af $t$ de to tidligere resultater?
+Hvis $\op Q$ er afhængig af $t$ er:
+$$
+\pdif{t}{\op Q} = 0
+$$
+så
+$$
+\dif{t}{\expect Q} = \braket{\pdif{t}{\Psi}}{\op Q\Psi}+\braket{\Psi}{\op Q \pdif{t} \Psi}
+$$
+Med kun første og tredje led tilbage bliver resultatet af anden delopgave kun kommutatoren:
+\begin{equation}
+\label{opg:heisenberg}
+\dif{t}{\expect Q} = \frac{i}{\hbar}\expect{[\op H,\op Q]}
+\end{equation}
+\opg Vis:
+$$
+\sigma_H\sigma_Q \geq \frac{\hbar}{2}\abs{\dif{t}{\expect{Q}}}
+$$
+Den gennerelle usikkerhedsrelation er:
+$$
+\sigma_A^2\sigma_B^2\geq \left(\frac{1}{2i}\expect{[\op A,\op B]}\right)^2
+$$
+Sættes $\op A$ og $\op B$ som $\op H$ og $\op Q$ får vi:
+\begin{align*}
+\sigma_H^2\sigma_Q^2&\geq \left(\frac{1}{2i}\expect{[\op H,\op Q]}\right)^2\\\Rightarrow
+\sigma_H\sigma_Q &\geq \abs{\frac{1}{2i}\expect{[\op H,\op Q]}}
+\end{align*}
+Nu insdætter vi fra ligning \eqref{opg:heisenberg}.
+$$
+\sigma_H\sigma_Q \geq \abs{\frac{1}{2i}\frac{\hbar}{i}\dif{t}{\expect{Q}}}= \frac{\hbar}{2}\abs{\dif{t}{\expect{Q}}}
+$$
+\opg Find tids energi usikkerhedsrelationen.
+Vi er givet:
+$$
+\sigma_t = \frac{\sigma_Q}{\abs{\d\expect Q/\d t}}
+$$
+Uligheden vi fandt før kan omarangeres til:
+$$
+\frac{\sigma_Q}{\abs{\d \expect Q/\d t}} \geq \frac{\hbar}{2 \sigma_H}
+$$
+Den givne formel indsættes hvilket giver:
+$$
+\sigma_t \geq \frac{\hbar}{2 \sigma_H}\iff \sigma_t\sigma_E \geq \frac{\hbar}{2}
+$$
+\end{opgave}

@@ -1,0 +1,97 @@
+%% VI LAVER NOGLE FYSIK- OG MATEMATIK-MAKROER:
+
+
+%% Generelt
+%\newcommand{\g}{\cdot} % Prikprodukt, gangetegn
+\newcommand{\subv}[2]{\gv{#1}_{\text{#2}}} % Pæn subscript til vektorer
+\newcommand{\sub}[2]{#1_{\text{#2}}} % Pæn subscript til
+\newcommand{\e}{\mathcal{E}} % Skrevet E
+\newcommand{\abs}[1]{\left| #1 \right|} % Numerisk værdi
+\newcommand{\N}{\ensuremath{\mathbb{N}}} % Naturlige tal
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % Hele tal
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % Rationelle tal
+\newcommand{\R}{\ensuremath{\mathbb{R}}} % Reelle tal
+\newcommand{\C}{\ensuremath{\mathbb{C}}} % Komplekse tal
+\newcommand{\F}{\ensuremath{\mathbb{F}}} % Legeme tal
+\newcommand{\A}{\ensuremath{\mathbb{A}}} % Algebraiske tal
+\newcommand{\re}{\text{Re}}
+\newcommand{\im}{\text{Im}}
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+%% Angiv sværhedsgrad til opgaver (benytter \usepackage{xstring})
+%\newcommand{\lvl}[1]{%
+%\IfStrEqCase{#1}{{1}{\ensuremath{\star}}
+%    {2}{\ensuremath{\star\star}}
+%    {3}{\ensuremath{\star\star\star}}}
+%    [nada]
+%}
+
+%% Infinitesimalregning
+
+\let\underdot=\d % omdøb indbygget kommando \d{} til \underdot{}
+%\renewcommand{\d}[2]{\partial_{#2} \, #1} % afledt
+%\newcommand{\dd}[2]{\partial_{#2}^2 \, #1} % dbl.afledt
+
+%differentierings d
+\renewcommand{\d}{\mathrm{d}}
+
+%haard differentiering
+\newcommand{\dif}[3][]{\frac{\d^{#1}{#3}}{{\d {#2}}^{#1}}}
+
+%partiel differentiering
+\newcommand{\pdif}[3][]{\frac{\partial^{#1}{#3}}{\partial {#2}^{#1}}}
+
+\newcommand{\dt}[1]{\dot{#1}} % afledt mht. t (dot-notation)
+\newcommand{\ddt}[1]{\ddot{#1}} % dbl.afledt mht. t (dbl.dot)
+
+\newcommand{\integral}[4]{\int\limits_{#3}^{#4} \! #1 \, \textrm{d}#2} % integrere
+\newcommand{\ubint}[2]{\integral{#1}{#2}{}{}}
+\renewcommand{\iint}{\int\!\!\!\!\int}
+\newcommand{\ubiint}[3]{\ubint{\!\!\!\ubint{#1}{#2}}{#3}}
+% til Euler-Lagrange ligningen
+\newcommand{\el}[1]{\dif{t}{}\left(\pdif{#1}{L}\right)}
+
+
+% Vektorer
+
+\newcommand{\xyz}[3]{\begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}} %3D-vektor
+\newcommand{\xy}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}} %2D-vektor
+\let\vaccent=\v % Omdøb \v{} til \vaccent{}
+
+\newcommand{\gv}[1]{{\vec{\boldsymbol{#1}}}} % Vektor med græske bogstaver
+\renewcommand{\v}[1]{\gv{#1}} % Vektor med fed
+\newcommand{\hatvec}[1]{\hat{\mathbf{#1}}} % Hatvektor
+\newcommand{\ihat}{\boldsymbol{\hat{\textbf{\i}}}} % Enhedsvektor i
+\newcommand{\jhat}{\boldsymbol{\hat{\textbf{\j}}}} % .. j
+\newcommand{\khat}{\mathbf{\hat{k}}}  % .. k
+\newcommand{\xhat}{\mathbf{\hat{x}}} % Enhedsvektor x
+\newcommand{\yhat}{\mathbf{\hat{y}}} % .. y
+\newcommand{\zhat}{\mathbf{\hat{z}}} % .. z
+\newcommand{\rhat}{\mathbf{\hat{r}}} 
+\newcommand{\thhat}{\mathbf{\hat{\boldsymbol{\theta}}}} 
+\newcommand{\phhat}{\mathbf{\hat{\boldsymbol{\phi}}}} 
+\newcommand{\grad}[1]{\gv{\nabla} #1} % Gradient
+\let\divsymb=\div % Omdøb \div til \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % Divergens
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % Curl
+% Vil man tage div eller curl af græske bogstaver,
+% skal man lade argumentetet være fx \gv{\mu} for µ-vektor
+
+% Kvantemekanik
+
+\newcommand{\op}[1]{\hat #1} % operator
+
+\newcommand{\expect}[1]{\left< #1 \right>} % Forventningsværdi
+\newcommand{\trace}{\ensuremath{\text{Tr}}\xspace}
+\newcommand{\Hilbert}{\ensuremath{\mathcal{H}}}
+\newcommand{\lag}{\ensuremath{{L}}}
+\newcommand{\tr}[1]{\text{Tr}\left(#1\right)} % Trace
+\newcommand{\ptr}[2]{\text{Tr}_{#1}\left(#2\right)} % Partial trace
+\newcommand{\ket}[1]{\left| #1 \right>} % Dirac-notation: ket
+\newcommand{\bra}[1]{\left< #1 \right|} % bra
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \, \right|
+  \left. \! #2 \vphantom{#1} \right>} % bracket
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+  #2 \left| #3 \vphantom{#1#2} \right>} % Bracket med ekstra streg

@@ -1,0 +1,61 @@
+\documentclass[a4paper]{memoir}
+\usepackage{standalone}
+\usepackage{import}
+
+\subimport{setup/}{preamble.tex}
+
+\title{Fysik Camp 2021}
+
+\begin{document}
+
+\input{setup/front_matter.tex}
+
+\newpage
+\begin{KeepFromToc}
+    \tableofcontents
+\end{KeepFromToc}
+\newpage
+\mainmatter
+
+\subimport{Matematik/}{Matematik.tex}
+\newpage
+\printbibliography[keyword=mat, heading=subbibliography, title={Litteraturliste for Mekanik og Matematik}]
+
+\subimport{Kosmo/}{Kosmo.tex}
+\newpage
+\printbibliography[keyword=kosmo, heading=subbibliography, title={Litteraturliste for Kosmologi}]
+
+\subimport{Mekanik/}{Mekanik.tex} 
+\newpage
+\printbibliography[keyword=mek, heading=subbibliography, title={Litteraturliste for Analytisk Mekanik}]
+
+\subimport{Elektro/}{Elektro.tex}
+\newpage
+\printbibliography[keyword=elektro, heading=subbibliography, title={Litteraturliste for Elektromagnetisme}]
+
+\subimport{NumFys/}{NumFys.tex}
+\newpage
+\printbibliography[keyword=numfys, heading=subbibliography, title={Litteraturliste for Numerisk Fysik}]
+
+\subimport{Rel/}{Rel.tex}
+\newpage
+\printbibliography[keyword=rel, heading=subbibliography, title={Litteraturliste for Speciel Relativitetsteori}]
+
+\subimport{Laserfysik/}{Laserfysik.tex}
+\newpage
+\printbibliography[keyword = laser, heading = subbibliography, title = {Litteraturliste for Laserfysik}]
+% \subimport{Laserfysik_Vejledning/}{Vejledning.tex} % Skal ikke med i kompendium, men ved siden af, hvorfor den står i separat kapitel
+
+
+% \printbibheading[title = Litteraturliste] % Sætter og printer titlen på litteraturlisten
+
+% BibLaTeX print bibliografi tilhørende specifikke keywords (dem som står herunder ud for 'keyword'. Disse skal i hver bibliografi entry skrives som 'keywords = {<keyword1>, <keyword2>, ..., <keywordN>},' for mængden af N keywords)
+% \printbibliography[keyword = mat, heading = subbibliography, title = {Mekanik og Matematik}]
+% \printbibliography[keyword = termo, heading = subbibliography, title = {Termodynamik}]
+% \printbibliography[keyword = stjerner, heading = subbibliography, title = {Stjerner}]
+% \printbibliography[keyword = laser, heading = subbibliography, title = {Laserfysik}]
+% \printbibliography[keyword = kvant, heading = subbibliography, title = {Kvantemekanik}]
+% \printbibliography[keyword = lyd, heading = subbibliography, title = {Akustik}]
+% \printbibliography[keyword = matf, heading = subbibliography, title = {Fysisk Matematik}]
+
+\end{document}

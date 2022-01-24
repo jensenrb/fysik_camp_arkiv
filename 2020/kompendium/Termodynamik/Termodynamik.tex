@@ -1,0 +1,460 @@
+\documentclass[crop=false, class=memoir]{standalone}
+
+\input{../setup/preamble.tex}
+
+\begin{document}
+
+\chapter{Termodynamik}
+
+Termodynamik er en af de ældste grene indenfor fysikken, men er stadig relevant i dag. efwoefiweif klima
+Noget med approksimationer og at det er lidt 1800-talsfysik
+
+\section{Dimensionsanalyse}
+Enhedsgøgl og dimensionsanalyse (i hvert fald som nogle af de første opgaver)
+
+\section{Hvad er termodynamik?}
+
+\subsection{Vigtige begreber}
+Et \emph{system} kan have mange forskellige egenskaber, som vi kommer ind på i dette system. Hvis systemet er \emph{lukket}, kan det ikke udveksle egenskaber med omgivelserne - hvis det er \emph{åbent}, kan det godt; i det mindste for nogle ag dem.
+
+Vi vil i emnet her beskrive \emph{antal partikler} med $N$, volumen med $V$, masse med $m$ og areal med $A$. 
+
+\emph{Kraft} kan vi beskrive med Newtons anden lov,
+$F = m a$,
+hvor $a$ er acceleration. Hvis man slår til en bold med en bestemt kraft, kan man altså beregne hvilken acceleration den får. 
+
+\emph{Tryk} er kraft per areal, og det udligner sig hurtigt, hvis man forbinder to systemer, så de udveksler partikler:
+\begin{align}
+    P = \frac{F}{A}.
+\end{align}
+
+\emph{Densitet} kan også kaldes massefylde, og fortæller hvor tæt massen er i volumenet. Dvs. at densiteten er masse per volumen:
+\begin{align}
+    \rho = \frac{m}{V}.
+\end{align}
+
+\emph{Energi} er en fundamental størrelse, der kan udveksles mellem systemer og omdannes til forskellige former. 
+
+\emph{Temperatur} har de fleste en intuitiv forståelse for, men definitionen er mere kompliceret. Hvis man sætter to systemer i forbindelse med hinanden, vil deres temperatur over tid uligne sig. Det kolde system vil optage energi fra det varme system og temperaturen bliver højere - og omvendt for det varme system. Temperatur er altså en egenskab der udligner sig over tid, når systemer forbindes. En præcis definition kræver et nyt begreb "entropi", som vi kommer ind på senere. Temperatur kan blive så høj man har lyst til, men der findes en laveste temperatur - det såkaldte \emph{absolutte nulpunkt}. Til hverdag måler vi temperatur i $\textdegree{}C$ og på den skala er det absolutte nulpunkt $-273,15\textdegree{}C$. Det er dog praktisk at definere en ny skala, hvor hver grad har samme størrelse som 1 $\textdegree{}C$, men vi tæller antal grader fra det absolutte nulpunkt. Denne nye temperaturenhed kalder vi en kelvin (forkortet K) og det absolutte nulpunkt ligger ved 0 K. Formlerne i termodynamik er baseret på kelvinskalaen, så husk altid at konvertere til den.
+
+%\subsection{Ligevægt}
+
+Ligesom temperatur vil andre egenskaber også ændre sig, når man sætter systemer i kontakt med hinanden. Man siger, at de er kommet i \emph{ligevægt}, når de ikke ændrer sig mere.
+
+\subsection{Idealgasligningen}
+
+Når vi vil beskrive systemer er det ofte nødvendigt at gøre antagelser, så det bliver simplere at regne på. For eksempel kan vi under normale omstændigheder beskrive en gas som en såkaldt \emph{idealgas}. En idealgas følger følgende formel:
+
+\begin{align}
+    P \cdot V = N\kb T,
+    \label{termo:eq:ideal}
+\end{align}
+
+hvor $\kb = \SI{1.380649e-23}{\joule \per \kelvin}$ er \emph{Boltzmanns konstant}. Hvis man har et bestemt antal partikler $N$ i en kasse med konstant volumen $V$ og man øger temperaturen til det dobbelte, vil det altså medføre at trykket bliver dobbelt så stort.
+
+\subsection{Entropi}
+
+Entropi kan forsimplet forstås som hvor rodet et system er. Hvis man blander ting sammen, øger man nemlig entropien. Men mere specifikt, så beskriver entropi, hvor mange måder man kan få, det system man ser. 
+
+Hvis man fx slår med 2 terninger og ved summen giver 12, så kan det kun lade sig gøre på 1 måde - nemlig at man slog 2 6'ere. Hvis man derimod ved summen er 11, kunne man have slået 5 med den første terning og 6 med den næste eller 6 med den første terning og 5 med den næste. Så der er flere muligheder i det andet tilfælde og dermed større entropi. Den højeste entropi finder man når summen af øjnene er 7, da det kan slås på flest måder. Antal måder at få et bestemt kaldes \emph{multipliciteten}, $\Omega$, af systemet.
+
+På samme måde kan man forestille sig et system, hvor man ved hvor mange atomer der er, og hvad den totale energi er. Multipliciteten er så hvor mange måder, man kan fordele energien i de forskellige atomer. Ud fra det finder man entropien, $S$, som
+\begin{align}
+    S = \kb\ln{\Omega}.
+\end{align}
+
+Hvis $\Omega$ er høj, bliver entropien også høj og omvendt. Så entropien er bare en anden måde at beskrive antal måder et system kan være fordelt på. Og så har det den praktiske egenskab, at hvis man har et system $A$ med entropien $S_A$ og et system $B$ med entropien $S_B$, så er den totale entropi af systemerne
+\begin{align}
+    S_{total} = S_A + S_B
+\end{align}{}
+
+\section{Termodynamikkens 4 love}
+
+Alt termodynamik bryder ned til studiet af interaktioner mellem gasser, som følger termodynamikkens 4 love. Igennem dette emne vil vi ligeså have fokus på disse love - hvad de siger, hvordan de fungerer og hvordan vi kom frem til dem overhovedet. Vi vil gå mere u dybden med hver af dem individuelt, men lad os hurtigt lige skrive dem op her.
+
+\subsection{0. Lov}
+
+\begin{center}
+    \textit{Hvis A og B er i ligevægt, og B og C er i ligevægt, så er A og C i ligevægt.}
+\end{center}
+Dette kaldes også \textit{loven om termodynamisk ligevægt}, og den kan være lidt kringlet at forstå første gang man læser den. I termodynamik forstås ligevægt som at to systemer har samme temperatur, så man kunne forstå den ved at tænke på 2 glas vand i et rum ved stuetemperatur. Hvis det ene glas, A, har samme temperatur som rummet, B, og rummet har samme temperatur som det andet glas, C, så har de to glas samme temperatur.
+
+\subsection{1. Lov}
+
+\begin{center}
+    \textit{Den totale ændring i den indre energi af et system er lig summen af varmestrømmen til systemet og arbejdet udført på systemet}
+\end{center}
+\begin{align}
+    \boxed{\Delta U = Q + W}
+    \label{termo:eq:lov1}
+\end{align}
+
+Dette kaldes også \textit{loven om energibevarelse} og den er nok den vigtigste lov termodynamikken har at byde på. Den har konsekvenser ikke kun indenfor termodynamik, men inden for alle grene af fysik - klassisk mekanik, relativitetsteori, kvantemekanik, partikelfysik, m.m.
+Den siger i bund og grund at hvis du vil have energi ind i et system skal du tage det fra et andet, og hvis du skal have energi ud skal du give det til et andet. Energi kan på den måde aldrig opstå eller destrueres, kun udbyttes imellem systemer. 
+
+\subsection{2. Lov}
+\begin{center}
+    \textit{Entropien i et lukket system vil stige over tid (eller være konstant).}
+\end{center}
+\begin{align}
+    \boxed{\Delta S \geq 0 \textit{, for et lukket system}}
+    \label{termo:eq:lov2}
+\end{align}
+Det vil sige, at uanset hvilken proces man får et lukket system til at gennemgå, så vil det aldrig kunne mindske entropien. Den eneste måde man kan mindske entropien af et system, er at lade det overføre noget entropi til et andet system - og så er det jo et åbent system. Hvis man kigger på de to systemer samlet, som ét lukket system, så vil entropien stadig ikke kunne mindskes.
+
+Entropien kan derimod i teorien godt holdes konstant i nogle processer, selvom systemet er lukket. Det kræver bare, at processen er reversibel. Dvs. at man kan få systemet tilbage sin oprindelige tilstand - vel at mærke uden at påvirke det udefra, så det holdes lukket. Det er ikke muligt i praksis, og vi vil vende tilbage til hvorfor.
+
+Når systemer gennemgår tilfældige processer vil de altså med tiden få højere og højere entropi, og de vil nærme sig en maksimal værdi. Sådan kommer systemet i ligevægt, da ingen processer vil ændre kraftigt på dets termodynamiske egenskaber.
+
+Et få  eksempel på en reversibel
+
+\subsection{3. Lov}
+
+\section{Varme}
+
+Da vi beskrev termodynamikkens første lov, snakkede vi om at ændre den indre energi i et system. Der er to mekanismer som kan ændre denne indre energi, varmestrøm og arbejde. Varmestrøm, eller bare varme, er den energi som et system modtager eller afgiver ved bestråling fra og til sine omgivelser. Sagt på en anden måde: hvis et varmt objekt kommer i tæt på et mindre varmt objekt, vil det mindre varme objekt blive varmere og vise versa. Det er vigtigt her at nævne at varme endelig ikke må forveksles med temperatur. Ofte går de to størrelser hånd i hånd, altså jo mere varme et objekt udstråler, desto højere temperatur har objek
+
+\section{Arbejde}
+
+\subsection{Sammenpresning af gas}
+\begin{align}
+    W = - P \cdot \Delta V
+    \label{termo:eq:quas}
+\end{align}
+
+
+\section{Total energi}
+
+\subsection{Frihedsgrader}
+
+Indenfor termodynamik er det vigtigt at snakke om partiklers \emph{frihedsgrader}. En frihedsgrad er groft sagt, en måde hvorpå en partikel kan bevæge sig - bemærk her at vi med \emph{partikel} både kan mene atomer eller molekyler. I termodynamik arbejder vi oftest med gasser, hvilket betyder at vi altid har mindst tre frihedsgrader, korresponderende til de tre dimensioner man kan bevæge sig i. En anden frihedsgrad partikler kan have er rotation. Der er igen 3 mulige akser at rotere en partikel omkring, men ved rotationsfrihedsgrader er der noget lidt specielt - nemlig at hvis noget skal tælle som en rotationsfrihedsgrad, må partiklen ikke være symmetrisk omkring den givne akse. Forestil dig et enkelt atom som en ensfarvet kugle. Ligemeget hvilken vej du drejer denne kugle, vil du ikke kunne kende forskel på den før og efter rotationen. Altså er denne kugle symmetrisk omkring alle rotationsakser og har derfor 0 rotationsfrihedsgrader. Har du derimod et molekyle bestående af to atomer, findes der måder hvorpå du kan dreje molekylet således at man kan se forskel på før og efter. Der findes dog også en rotationsakse man omkring hvilken molekylet er symmetrisk, nemlig hvis du forestiller dig at sætte begge atomer i molekylet på en stang og så dreje stangen rundt om sig selv. Da vi hertil kan finde én akse hvorom molekylet er symmetrisk, må molekylet have to rotationsfrihedsgrader. Når vi bevæger os op til molekyler med flere atomer, finder vi ikke længere denne slags symmetriakser, så større molekyler har hertil altid 3 rotationsfrihedsgrader. Alt dette kan være lidt svært at forstå og forestille sig, men om intet andet kan man tage følgende huskeregel med sig.
+\begin{align}
+    \text{Ét atom:}\hspace{3mm}f=3\\
+    \text{To atomer:}\hspace{3mm}f=5\\
+    \text{Tre eller flere atomer:}\hspace{3mm}f=6
+\end{align}
+Her angiver $f$ det totale antal frihedsgrader, altså både for bevægelse og rotation. Ved høje nok temperaturer forekommer det at nogle molekyler kan have flere end seks frihedsgrader. Disse frihedsgrader fremkommer af et kvantemekanisk koncept kaldet \emph{vibration}, men da dette er meget spøjst, vil vi ikke arbejde med det i dette emne. Vi holder os altså til et maksimum af seks frihedsgrader.
+
+\subsection{Ækvipartionsteoremet}
+
+I klassisk mekanik definerer vi ofte kinetisk energi for en partikel med hastighed $v$ som følgende:
+\begin{align}
+    K = \frac{1}{2}m v^2
+\end{align}
+Har vi bevæglse i tre retninger, både $x$, $y$ og $z$, bliver dette skrevet ud som:
+\begin{align}
+    K = \frac{1}{2}m v_x^2 + \frac{1}{2}m v_y^2 + \frac{1}{2}m v_z^2
+\end{align}
+Altså ligger vi et lignende led til for hver bevægelsesretning vi har. Fra samme tankegang definerer vi i termodynamik hvad vi kalder \emph{ækvipartitionsteoremet}: 
+\begin{center}
+    Ved en given temperatur $T$ har en partikel med $f$ frihedsgrader en total energi svarende til
+    \begin{align}
+        U_{\text{partikel}} = f\cdot \frac{1}{2}\cdot \kb \cdot T
+    \end{align}
+\end{center}
+Da dette gælder for alle partikler i et givet system, kan vi sige at for en gas med $N$ partikler har vi:
+\begin{align}
+    U_{\text{total}} = N\cdot U_{\text{partikel}} = N\cdot  \frac{f}{2}\cdot \kb \cdot T
+\end{align}
+Da den eneste totale energi vi rent faktisk vil anskue er den totale energi for et helt system, kan vi droppe den sænkede skrift og lade $U_{\text{total}} = U$. På den måde får vi den mest anvendte for af ækvipartitionsteoremet:
+\begin{align}
+    U = \frac{f}{2}N \kb T
+    \label{termo:eq:ekvi}
+\end{align}
+
+\section{Kredsprocesser}
+
+ I termodynamik er det vigtigt at vide at der er forskellige måder at komme fra én tilstand til en anden, og at dette har en påvirkning på hvor meget energi det kræver at skifte tilstand. Vi kan se dette lidt mere visuelt hvis vi husker tilbage på \cref{termo:eq:quas}. Da arbejde beskriver den energi man skal bruge for at skifte systemet fra den ene tilstand til den anden og det er defineret ud fra tryk og volumen, kan det være rart at tegne processer ind i hvad man kalder et $PV$-diagram. Et $PV$-diagram er en graf med tryk, $P$, op af $y$-aksen og volumen, $V$, ud af $x$-aksen. 
+ 
+ *Her er en figur som ligner figur 1.9 i Thermal Physics af Daniel V. Schroeder*
+
+Figur ?? viser 2 $PV$-diagrammer for to forskellige processer mellem to punkter $A$ og $B$ - der er dog en markant forskel: I den første graf er trykket konstant, hvilket også var hvad vi antog i \cref{termo:eq:quas}, men i den anden graf skifter trykket undervejs. Dette betyder at vi ikke længere kan bestemme arbejdet med samme formel som før - så lad os prøve noget nyt. Vi kan anskue arbejdet som arealet under kurven i et $PV$-diagram. Det kan ses let for figur ??.a, da arealet af firkanten som optegnes må være
+\begin{align}
+    \text{Areal} = P \cdot (V_B - V_A ) = P\cdot \Delta V
+\end{align}
+(fortegnet i \cref{termo:eq:quas} kommer vi ind på lidt senere, det vigtige lige nu er at størrelsen er den samme). Ved at bruge samme argument som tilbage i \cref{mat:subsec:int} kan vi sige at arbejdet må være et integrale over $P(V)$, altså tryk som funktion af volumen.
+\begin{align}
+    W = -\int_{V_A}^{V_B} P(V) \dd{V}
+    \label{termo:eq:work}
+\end{align}
+Der er uendeligt mange måder at gå i mellem 2 punkter i et $PV$-diagram på, men vi vil i dette emne kigge på nogle af de mest normale.
+
+\subsubsection{Eksempel: Konstant temperatur}
+
+Lad os prøve at bestemme en formel for arbejdet mellem to tilstande $A$ og $B$ hvis temperaturen forbliver konstant under processen. Lad os starte med at finde $P(V)$ ved at tage \cref{termo:eq:ideal} og dividere $V$ over på den anden side.
+\begin{align}
+    P V = N \kb T\\
+    P = \frac{N \kb T}{V}
+\end{align}
+Vi putter nu dette ind i \ref{termo:eq:work} for at finde arbejdet.
+\begin{align}
+    W = \int_{V_A}^{V_B} \frac{N \kb T}{V} \dd{V}
+    \label{termo:eq:work_int}
+\end{align}
+Da $T$ er konstant, kan vi trække den ud af integralet sammen med $N$ og $\kb$.
+\begin{align}
+    W = - N \kb T \int_{V_A}^{V_B} \frac{1}{V} \dd{V}
+\end{align}
+Vi ved at stamfunktionen til $\nicefrac{1}{x}$ er $\ln{(x)}$, så dette integral giver os:
+\begin{align}
+    W = - N \kb T \left(\ln(V_B) - \ln(V_A) \right)
+\end{align}
+Ved at gange minuset ind i parentesen kan vi bytte rundt på leddene inde i den:
+\begin{align}
+    W = N\kb T(-\ln{(V_A)} + \ln{(V_B)}) = N\kb T (\ln{(V_B)} - \ln{(V_A)})
+\end{align}
+Vi bruger hertil den 2. logaritmeregneregel, nemlig $\ln{(a)} - \ln{(b)} = \ln{(\nicefrac{a}{b})}$ (\cref{mat:log:minus} i matematikafsnittet).
+\begin{align}
+    W = N \kb T \ln{\left( \frac{V_A}{V_B} \right)}
+    \label{termo:eq:term_work}
+\end{align}
+
+\subsection{Isobar, -term og -kor}
+
+Som vi lige har set i eksemplet kan det ofte være nemmere at bestemme noget om en termodynamisk proces hvis én af størrelserne i idealgasligningen forholdes konstant. I eksemplet ovenfor arbejdede vi med konstant temperatur - en såkaldt \emph{isoterm}-proces. \emph{Iso} er latin og betyder \emph{lig}. \emph{Term} betyder temperatur, så isoterm betyder "lig temperatur", altså konstant temperatur. Er trykket konstant kaldes processen for \emph{isobar} og er volumen konstant kaldes processen \emph{isokor}. Vi vil ikke arbejde med eksempler hvor partikkelantallet ændre sig, så $N$ er altid konstant.\footnote{Der er ikke et konvensionelt navn for processer med konstant $N$, men hvis man virkelig vil kan man godt kalde det for \emph{isonumerus}-processer.} Lad os prøve at på samme måde som i eksemplet at finde formler for arbejdet i henholdsvis isobare og isokore processer.
+
+\subsubsection{Arbejde i en isobar process}
+Vi starter med at opstille integralet for arbejde.
+\begin{align}
+    W = - \int_{V_A}^{V_B} P \dd{V}
+\end{align}
+Da en isobar process har $P = \text{konstant}$ kan vi bare trække den ud af integralet.
+\begin{align}
+    W = -P \int_{V_A}^{V_B} \dd{V}\\
+    W = - P \cdot (V_B - V_A)\\
+    W = - P \Delta V
+    \label{termo:eq:isobar_work}
+\end{align}
+Bemærk at dette er præcis det samme som \cref{termo:eq:quas}, hvor vi også antog konstant tryk.
+
+\subsubsection{Arbejde i en isokor process}
+Vi anvender igen integralet for arbejde.
+\begin{align}
+    W = - \int_{V_A}^{V_B} P \dd{V}
+\end{align}
+Men da volumen er konstant i en isokor process må $V_A = V_B$
+\begin{align}
+    W = - \int_{V_A}^{V_A} P \dd{V}
+\end{align}
+Dette svarer til at skulle finde arealet af en søjle uden bredde, hvilket kun kan betyde at
+\begin{align}
+    W = - \int_{V_A}^{V_A} P \dd{V} = 0
+    \label{termo:eq:korwork}
+\end{align}
+altså udføres der ikke noget arbejde i en isokor proces!\footnote{En skarp matematiker ville nok godt kunne komme på en funktion $P$ for hvilken $\int_{V_A}^{V_A} P \dd{V} \neq 0$ (man bruger endda én af dem rigtig meget indenfor kvantemekanik), men man vil aldrig se en trykfordeling i virkelighedens verden som ser sådan ud - vi kan derfor roligt sætte integralet lig nul.} Dette giver også fin mening rent intuitivt, da hvis systemet ikke ændrer størrelse kan man ikke have skubbet på det, altså udført et arbejde. 
+
+\subsection{Adiabatisk}
+En \emph{adiabatisk} process er en lidt spøjs størrelse. De er defineret ved at de sker så hurtigt at systemet ikke når at modtage eller afgive varmestråling til omgivelserne:
+\begin{align}
+    Q = 0
+\end{align}
+Ordet \emph{adiabat} betyder direkte "uden varmeudveklsing med omgivelserne". Vi kan finde arbejdet i sådan en proces ved hjælp af termodynamikkens første lov:
+\begin{align}
+    \Delta U = W + Q \text{  } \xrightarrow{Q = 0} \text{  } \Delta U = W 
+\end{align}
+Vi kan finde $\Delta U$ ud fra ækvipartitionsteoremet, \cref{termo:eq:ekvi}.
+\begin{align}
+    \Delta U &= U_f - U_i = \frac{f}{2} N \kb (T_f - T_i)\\
+    \Delta U &= \frac{f}{2} N \kb \Delta T\\
+    W &= \frac{f}{2} N \kb \Delta T
+\end{align}
+Hermed har vi bestemt arbejdet udført i en adiabatisk proces.
+
+\subsection{Varmestrøm i processer}
+
+Når vi nu har bestemt arbejdet det kræver at udføre disse kredsprocesser, kan vi ligeså bestemme varmestrømmen, $Q$, som vil forekomme under disse processer for at danne os et komplet billede af energiudvekslingen som sker.
+
+\subsubsection{Varmestrøm i adiabatisk proces}
+
+Denne er den nemmeste, da definitionen af en adiabatisk proces giver os at
+\begin{align}
+    Q = 0
+\end{align}
+
+\subsubsection{Varmestrøm i isokor proces}
+
+Vi ved fra \cref{termo:eq:korwork} at en isokor process leder til $W = 0$. Termodynamikkens, \cref{termo:eq:lov1}, første lov kan derfor nemmest anvendes til at bestemme $Q$:
+\begin{align}
+    \Delta U = Q + W = Q
+\end{align}
+Vi kan nu bestemme $\Delta U$ ved ekvipartitionsteoremet, \cref{termo:eq:ekvi}:
+\begin{align}
+    Q = \Delta U = \frac{f}{2}N \kb \Delta T
+\end{align}
+
+\subsubsection{Varmestrøm i isobar proces}
+
+Vi anvender hertil termodynamikkens 1. hovedsætning igen:
+\begin{align}
+    \Delta U = Q + W \rightarrow Q = \Delta U - W
+\end{align}
+Vi udtrykker hertil $\Delta U$ med ækvipartitionsteoremet og $W$ med \cref{termo:eq:isobar_work}.
+\begin{align}
+    Q = \frac{f}{2}N\kb \Delta T + P \Delta V
+\end{align}
+Vi kan nu bruge idealgasligningen til at udtrykke $P\Delta V$:
+\begin{align}
+    P\Delta V = N\kb \Delta T
+\end{align}
+Lig mærke til at fordi vi har $\Delta V$, må vi nødvendigvis også have $\Delta T$, da hverken $N$ eller $\kb$ kan ændre sig. Dette sætter vi ind i vores udtryk for $Q$, så vi finder:
+\begin{align}
+    Q = \frac{f}{2}N\kb \Delta T + N\kb \Delta T = \left(\frac{f}{2} + 1\right)N \kb \Delta T
+\end{align}
+
+\subsubsection{Varmestrøm i isoterm proces}
+
+Definitionen på en isoterm proces er at temperaturen ikke ændrer sig. Altså $\Delta T = 0$. Vi finder derfor
+\begin{align}
+    \Delta U = \frac{f}{2} N\kb \Delta T = 0
+\end{align}
+Fra termodynamikkens første hovedsætning får vi
+\begin{align}
+    0 = Q + W \rightarrow Q = -W
+\end{align}
+Vi kender arbejdet i en isoterm proces fra \cref{termo:eq:term_work}. Hertil får vi
+\begin{align}
+    Q = -N\kb T \ln{\left( \frac{V_A}{V_B} \right)}
+\end{align}
+Vi anvender hertil endnu en regneregl: $-\ln{(\nicefrac{a}{b})} = \ln{(\nicefrac{b}{a})}$. Således får vi
+\begin{align}
+    Q = N\kb T \ln{\left( \frac{V_B}{V_A} \right)}
+\end{align}
+
+\subsubsection{Opsummering}
+
+Okay det var en del formler. Lad os lige lave en tabel for at få et overblik over hvilke formler der hører til hvor. 
+
+\begin{table}
+\centering
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        Proces    & Arbejde & Varmestrøm & Total energiforskel \\ \hline
+        Isobar     &    $W = -P\Delta V$     &  $Q = \left(\nicefrac{f}{2} + 1\right) N \kb \Delta T$  &    $\Delta U = \nicefrac{f}{2}N \kb \Delta T$ \\ \hline
+        Isokor     & $W = 0$ & $Q = \nicefrac{f}{2}N \kb \Delta T$  &  $\Delta U = \nicefrac{f}{2}N \kb \Delta T$  \\ \hline
+        Isoterm    & $W = N\kb T\ln{\left(\nicefrac{V_A}{V_B}\right)}$        & $Q = N\kb T \ln{\left(\nicefrac{V_B}{V_A}\right)}$     & $\Delta U = 0$      \\ \hline
+        Adiabatisk &     $W = \nicefrac{f}{2} N\kb \Delta T$    & $Q = 0$       &  $\Delta U = \nicefrac{f}{2}N \kb \Delta T$        \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Andre brugbare formler}
+
+Der er andre formler som er brugbare når vi regner på effekterne af kredsprocesser. Vi vil ikke udlede dem her, men hvis du er flittig kan du prøve at gøre det selv. Alle de følgende formler gælder ved overgange fra en tilstand $A$ til en tilstand $B$:
+\begin{align}
+    \text{Isoterm proces:} \hspace{3mm} P_A V_A = P_B V_B
+    \label{termo:eq:isoterm_relation}
+\end{align}
+\begin{align}
+    \text{Isobar proces:} \hspace{3mm} \frac{T_A}{V_A} = \frac{T_B}{V_B}
+    \label{termo:eq:isobar_relation}
+\end{align}
+\begin{align}
+    \text{Isokor proces:} \hspace{3mm} \frac{T_A}{P_A} = \frac{T_B}{P_B}
+    \label{termo:eq:isokor_relation}
+\end{align}
+\begin{align}
+    \text{Adiabatisk proces:} \hspace{3mm} V_A T^{\nicefrac{f}{2}}_A = V_B T^{\nicefrac{f}{2}}_B  \hspace{3mm},\hspace{3mm} V^{\gamma}_A P_A = V^{\gamma}_B P_B
+    \label{termo:eq:adiabat_relation}
+\end{align}
+Hvori $\gamma = \nicefrac{(f+2)}{2}$. $\gamma$ er også kaldet \emph{adiabatkonstanten}.
+
+\subsection{Cyklusser og maskiner}
+
+Lad os nu kigge på hvordan vi kan anvende hvad vi ved om disse kredsprocesser. Sagt på en anden måde: hvor ser vi alt det her i virkeligheden? Ofte når man arbejder med termodynamik kigger man på en serie af kredsprocesser som tilsammen bringer en gas fra et startpunkt, tilbage til samme startpunkt og så gentager sig. Et eksempel på dette kunne være en benzinmotor, hvori vi starter med en cylinder fyldt med gas som bliver trykket sammen af et stempel. Når gassen er så sammenpresset som den kan blive, andtændes den således at den udvider sig og stemplet skubbes tilbage op. Herefter fyldes cylinderen igen med gas således at vi er tilbage hvor vi startede og processen kan starte igen. En sådan proces hvor vi ender samme sted som vi startede kaldes for en \emph{cyklus}. Normalt tegner vi cyklusser ind på et $PV$-diagram, således at vi bedst muligt kan have et overblik over dem. 
+
+*Figur af en firkanted cyklus som eksempel*
+
+Cyklusser bruges til at modellere såkaldte termodynamiske maskiner. Et eksempel på en maskine kunne være en benzinmotor som jeg nævnte tidligere. Egentlig er forskellen på cyklusser og maskiner ikke specielt vigtig, helt præcist er en cyklus $PV$-diagrammet vi kigger på, og processerne deri, hvorimod en maskine er den fysiske ting som udfører disse processer.
+
+\subsubsection{Carnotmaskiner}
+
+En Carnotmaskine er den teoretisk mest effektive måde at bringe en idealgas fra én temperatur til en anden og tilbage igen.\footnote{Hvad "mest effektiv" betyder, og hvordan vi bestemmer det kommer vi tilbage til i \cref{termo:sec:effect}} Der er fire skridt i en Carnotcyklus, med fire kredsprocesser til at forbinde dem alle. $1\rightarrow 2$ er en isoterm udvidelse. $2\rightarrow 3$ er en adiabatisk udvidelse. $3\rightarrow 4$ er en isoterm sammentrækning og $4\rightarrow 1$ er en adiabatisk sammentrækning. En sammentrækning er en proces hvori volumen bliver mindre. Modsat er en udvidelse en hvori volumen bliver større. Vi bruger disse ekstra udtryk for at indikere retningen som den givne proces går på $PV$-diagrammet. Arbejder vi med en isokor proces hvori volumen ikke ændrer sig, anvender vi udtrykket "opvarmning" for en proces hvori temperaturen stiger og "nedkøling" hvis temperaturen falder. En carnotmaskine er umulig at bygge i praksis, da en sand isoterm proces tager går uendeligt langsomt og en sand adiabatisk proces sker instantant, men de er alligevel brugbare at kunne regne på. 
+\subsubsection{Eksempel}
+
+Lad os sige vi er givet en gas bestående af $N=10^{23}$ Helium atomer. Denne gas føres igennem Carnotcyklus med følgende information:
+\begin{align}
+    T_1 = \SI{450}{\kelvin}, \hspace{3mm} V_1 = \SI{2}{\liter}, \hspace{3mm} V_2 = \SI{3}{\liter}, \hspace{3mm} T_3 = \SI{300}{\kelvin}
+\end{align}
+Vi vil nu anvende denne information til at bestemme temperatur, volumen og tryk for alle fire skridt i Carnotcyklussen. Lad os starte med at bestemme $P_1$. Til dette kan vi anvende idealgasligningen.
+\begin{align}
+    P_1 V_1 = N\kb T_1 \rightarrow P_1 = N\kb\frac{T_1}{V_1}
+\end{align}
+Vi omregner $V_1$ til kubikmeter, således at enhederne passer: $\SI{2}{\liter} = \SI{2e-3}{\cubic \meter}$.
+\begin{align}
+    P_1 = 10^{23}\cdot \SI{1.381e-23}{\joule \per \kelvin} \cdot \frac{\SI{450}{\kelvin}}{\SI{2e-3}{\cubic \meter}} = \SI{3.11e5}{\pascal}
+\end{align}
+Nu når vi kender alle informationerne om skridt 1, kan vi bevæge os videre til skridt 2. Da processen $1 \rightarrow 2$ er isoterm, kan vi konkludere:
+\begin{align}
+    T_1 = T_2 = \SI{450}{\kelvin}
+\end{align}
+Vi kan bestemme $P_2$ udfra \cref{termo:eq:isoterm_relation}. Vi har:
+\begin{align}
+    P_2 V_2 = P_1 V_1  
+\end{align}
+\begin{align}
+    P_2 = P_1 \frac{V_1}{V_2}
+\end{align}
+\begin{align}
+    P_2 = \SI{3.11e5}{\pascal} \cdot \frac{\SI{2e-3}{\cubic \meter}}{\SI{3e-3}{\cubic \meter}} = \SI{2.07e5}{\pascal}
+\end{align}
+Vi kender nu alle informationer om skridt 2. Hertil kan vi gå videre til skridt 3. Da $2 \rightarrow 3$ er adiabatisk, kan vi anvende \cref{termo:eq:adiabat_relation}.
+\begin{align}
+    V_3 T_3^{f/2} = V_2 T_2^{\nicefrac{f}{2}}
+\end{align}
+Vi kender $T_3$, så vi kan isolere dette udtryk for $V_3$.
+\begin{align}
+    V_3 = V_2 \left( \frac{T_2}{T_3} \right)^{\nicefrac{f}{2}}
+\end{align}
+Da gassen vi arbejder med er Heliumatomer har vi ingen rotationsfrihedsgrader. Altså har vi $f = 3$.
+\begin{align}
+    V_3 = \SI{3e-3}{\cubic \meter} \cdot \left( \frac{\SI{450}{\kelvin}}{\SI{300}{\kelvin}} \right)^{\nicefrac{3}{2}} = \SI{5.51e-3}{\cubic \meter}
+\end{align}
+Vi finder nu $P_3$ ved idealgasligningen.
+\begin{align}
+    P_3 V_3 = N \kb T_3 \rightarrow P_3 = N\kb \frac{T_3}{V_3}
+\end{align}
+\begin{align}
+    P_3 = 10^{23} \cdot \SI{1.381e-23}{\joule \per \kelvin} \cdot \frac{\SI{300}{\kelvin}}{\SI{5.51e-3}{\cubic \meter}} = \SI{7.52e4}{\pascal}
+\end{align}
+Lad os som det sidste bestemme $P_4$, $T_4$ og $V_4$. Da $3\rightarrow 4$ er isoterm, kender vi allerede $T_4$:
+\begin{align}
+    T_4 = T_3 = \SI{300}{\kelvin}
+\end{align}
+Vi kan nu anvende \cref{termo:eq:adiabat_relation} til at bestemme $V_4$, da $4 \rightarrow 1$ er adiabatisk.
+\begin{align}
+    V_4 T_4^{\nicefrac{f}{2}} = V_1 T_1^{\nicefrac{f}{2}} \rightarrow V_4 = V_1 \left( \frac{T_1}{T_4} \right)^{\nicefrac{f}{2}}
+\end{align}
+\begin{align}
+    V_4 = \SI{2e-3}{\cubic \meter} \left( \frac{\SI{450}{\kelvin}}{\SI{300}{\kelvin}} \right)^{3/2} = \SI{3.67e-3}{\cubic \meter}
+\end{align}
+Allersidst kan vi regne $P_4$ fra idealgasligningen:
+\begin{align}
+    P_4 V_4 = N \kb T_4 \rightarrow P_4 = N\kb \frac{T_4}{V_4}
+\end{align}
+\begin{align}
+    P_4 = 10^{23} \cdot \SI{1.381e-23}{\joule \per \kelvin} \cdot \frac{\SI{300}{\kelvin}}{\SI{3.67e-3}{\cubic \meter}} = \SI{1.69e5}{\pascal}
+\end{align}
+Det var en masse udregninger, så lad os lige opsummere dem med et diagram:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Skridt & $P \left[\SI{e5}{\pascal}\right]$ & $V \left[\SI{e-3}{\cubic \meter}\right]$ & $T \left[ \SI{}{\kelvin} \right]$ \\ \hline
+1 & $3.11$ & $2.00$ & $450$ \\ \hline
+2 & $2.07$ & $3.00$ &  $450$ \\ \hline
+3 & $0.752$ & $5.51$ & $300$ \\ \hline
+4 & $1.69$ & $3.67$ &  $300$ \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Køleskabe}
+\subsubsection{Varmeskabe}
+
+\subsection{Effektivitet}\label{termo:sec:effect}
+
+
+\section{Enthalpi}
+\section{Gibbs fri energi}
+\section{Helmholtz fri energi}
+\subsection{Termodynamikkens identitet}
+
+\end{document}

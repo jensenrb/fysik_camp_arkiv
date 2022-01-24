@@ -1,0 +1,67 @@
+\section*{Uendeligt dyb brønd}
+\begin{opgave}{Parabelformet bølgefunktion}{1}\label{kvant:opg:parabel}
+Vi ser her på en partikel i en uendelig brønd i intervallet fra $0$ til $L$. Lad bølgefunktionen være:
+$$
+\psi = Nx(L-x) 
+$$
+\opg Find $N$ så bølgefunktionen er normeret.
+\opg Hvad er forventningsværdien for positionen $\expect x$?
+\opg Find forventningsværdien for energien $\expect E$ og sammenlign den fundne energi med grundtilstandsenergien: $\frac{\pi^2\hbar^2}{2mL^2}$.
+\opg Er $\psi$ en stationær tilstand?
+\end{opgave}
+%
+\begin{opgave}{Sammensatte bølgefunktioner}{1}
+Find normeringskonstanten $N$ og energien $E$ for de følgende bølgefunktioner, der er sammensat af stationære tilstande for den uendelige brønd.
+\opg $N(\psi_1+\psi_2)$.
+\opg $N(\psi_1-\psi_3)$.
+\opg $N(\psi_1+\psi_2-2\psi_3)$.\\
+Hint: Udnyt at bølgefunktionerne er ortonormale.
+\end{opgave}
+%
+\begin{opgave}{Den tidsafhængige bølgefunktion}{2}
+I en uendelig brønd er bølgefunktionen til tiden $t=0$:
+$$
+\Psi(x,0) = \frac{1}{\sqrt{5}}(2\psi_1+\psi_2) 
+$$
+\opg Hvad er $\Psi(x,t)$? Du kan med fordel bruge 
+$$
+\omega = \frac{E_1}{\hbar} = \frac{\pi^2\hbar}{2mL^2} \, .
+$$
+\opg Hvad er $\Psi^*(x,t)$?
+\opg Skriv $\Psi^*x\Psi$ så simpelt som muligt.
+\opg Hvad er $\expect{x(t)}$? \\
+Hint:
+\begin{align*}
+e^{i\theta}+e^{-i\theta} &= 2\cos \theta \, , \\ \matrixel{\psi_n}{x}{\psi_n} &= \frac{L}{2} \, , \\  \matrixel{\psi_1}{x}{\psi_2} &= \frac{-16L}{9\pi^2} \, .
+\end{align*}
+\end{opgave}
+%
+\begin{opgave}{En partikel i et kvadrat}{3}
+I to dimensioner er den tidsuafhængige Schrödingerligning i kartesiske koordinater:
+$$
+E\psi(x,y) = \frac{-\hbar^2}{2m}\left(\pdif[2]{x}\psi +\pdif[2]{y}\psi\right) + V(x,y)
+$$
+Vi vil se på en kvadratisk brønd, i to dimensioner, med sidelængder på $L$. Her er potentialet nul, når $0\leq x\leq L$ og $0\leq y\leq L$.
+Antag nu at man kan skrive bølgefunktionen som:
+ $$\psi(x,y) = X(x)Y(y) = XY$$
+\opg Indsæt $\psi = XY$ i Schrödingerligningen med $V=0$ og isoler $E$.
+\opg Energien vil bestå af en bidrag fra $X$ og $Y$, så $E=E_x+E_y$. Opstil differentialligninger i stil med ligning \eqref{k-kvant:eq:infb} i kompendiet for $X$ og $Y$.
+\opg Find generelle løsninger til differentialligningerne, bølgefunktionen og de tilhørende energier. Bemærk at der vil være et kvantetal for hver af differentialligningerne. 
+\opg Hvad er de fem laveste energier? Skitser bølgefunktionerne med disse energier.
+\end{opgave}
+%
+\begin{opgave}{En partikel i en boks}{3}
+I tre dimensioner er den tidsuafhængige Schrödingerligning i kartesiske koordinater:
+$$
+E\psi(x,y,z) = \frac{-\hbar^2}{2m}\left(\pdif[2]{x}\psi +\pdif[2]{y}\psi+\pdif[2]{z}\psi\right) + V(x,y,z)
+$$
+Vi vil se på en kubisk boks med en sidelængde på $L$, hvor potentialet er nul, når $x$, $y$ og $z$ alle er imellem 0 og $L$.
+Antag at man kan skrive bølgefunktionen som:
+$$
+\psi(x,y,z) = X(x)Y(y)Z(z) = XYZ
+$$
+\opg Indsæt $\psi = XYZ$ i Schrödingerligningen med $V=0$ og isoler $E$.
+\opg Energien vil bestå af et bidrag fra $X$, $Y$ og $Z$, så $E=E_x+E_y+E_z$. Opstil differentialligninger i stil med ligning \eqref{k-kvant:eq:infb} i kompendiet for $X$, $Y$ og $Z$.
+\opg Find generelle løsninger til differentialligningerne, bølgefunktionen og de tilhørende energier. Bemærk at der vil være et kvantetal for hver af differentialligningerne. 
+\opg Find de laveste 5 mulige energier udtrykt i $E_1 = \frac{\pi^2\hbar^2}{2mL^2}$ energien for en  endimensionel uendelig brønd med samme brede som boksens sidelængde.
+\end{opgave}

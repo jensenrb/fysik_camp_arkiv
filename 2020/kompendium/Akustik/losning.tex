@@ -1,0 +1,51 @@
+\section{Løsning af bølgeligningen}
+Vi så tidligere at enhver funktion på formen $f(x\pm ct)$ er en løsning til bølgeligningen. Dette giver dog ikke ret meget information om den lyd et instrument producerer. Vi vil eksempelvis gerne kunne forklare hvorfor et strenginstruments tone bliver dybere, når man gør strengen længere. Hvor høj eller dyb en tone er, er beskrevet ved dens frekvens, $\nu$, hvorfor vi gerne vil kunne bestemme denne. Snoren på strenginstrumentet bølgeligningen er udledt for er spændt fast i sine ender, hvorfor
+%
+\begin{align} \label{aku:eq:randbetingelse}
+    u(x=0,t) = u(x=L,t) = 0
+\end{align}
+%
+til alle tider, hvilket er den randbetingelse, som løsningen til bølgeligningen skal opfylde. Sinus- og cosinusfunktioner har velbestemte frekvenser, så derfor prøver vi at kigge på en løsning til bølgeligningen på formen
+%
+\begin{align}
+    u(x,t) = A\cos\left(k\big[x\pm v_\mathrm{lyd}t\big]\right) + B\sin\left(k\big[x\pm v_\mathrm{lyd}t\big]\right),
+\end{align}
+%
+hvor $k$ er bølgetallet. Da randbetingelserne skal være opfyldt til alle tider, skal de specielt også være opfyldt til tiden $t=0$, hvorfor
+%
+\begin{align}
+    0 = u(x=0,t=0) = A\cos(0) + B\sin(0) = A.
+\end{align}
+%
+Den anden randbetingelse giver at
+%
+\begin{align}
+    0 = u(x=L,t=0) = B\sin(kL).
+\end{align}
+%
+En løsning til den ligning er $B = 0$, hvilket betyder at $u=0$, hvorfor strengen ikke vibrerer. Denne løsning er triviel og giver ingen information. Heldigvis er der løsninger hvor $B\neq0$ for $kL = n\pi$ hvor $n$ er heltal. Det bemærkes at $n=0$ er den trivielle løsning og at sinus er en ulige funktion, $\sin(-x) = -\sin(x)$. Det betyder, at vi har alle interessante løsninger, hvis $n = 1,2,...$. $k$ kan derfor kun have helt bestemte værdier, for at løsningen opfylder randbetingelserne -- specifikt skal
+%
+\begin{align}
+    k = k_n = \frac{n\pi}{L},
+\end{align}
+%
+hvor notationen $k_n$ bruges til at indikere hvilket $n$ bølgetallet tilhører. Disse bølger kaldes stående bølger, da de ikke flytter sig i tid. En bølge som \cref{aku:fig:gauss_wave} kan også eksistere på snoren, men den vil flytte sig frem og tilbage på snoren. Frekvensen\footnote{Her er $\nu$ det græske bogstav ny, og ikke det latinske bogstav $v$. }, $\nu_n$, for en sinusbølge med bølgetal $k_n$ er
+%
+\begin{align} \label{aku:eq:frekvens}
+    \nu_n = k_nv_\mathrm{lyd} = n\nu_0, \enspace \nu_0=\frac{\pi}{L}\sqrt{\frac{F_s}{\mu}},
+\end{align}
+%
+hvor $\nu_0$ er den lavest mulige frekvens, der også kaldes grundtonefrekvensen. Vi siger at en tone er dyb, hvis dens frekvens er lav og høj hvis frekvensen stor. Ligning \eqref{aku:eq:frekvens} giver således, at vi får en højere tone, ved at øge snorkraften, dvs. stramme snoren, og en dybere tone ved at gøre strengen længere eller tungere. Strenginstrumenter har skruer for enden af gribebrætten, så de kan justere snorkraften og derved stemme hver streng til den ønskede frekvens eller tone. De tilladte frekvenser udgør hvad der i musik kaldes \textit{overtonerækken}\footnote{Som udgangspunkt skal man passe på, når musikere udtaler sig om fysik og matematik, da de har en tendens til at bruge fagordene forkert. Overtonerækken, der også ofte kaldes den harmoniske række, er et glimrende eksempel på dette, da der ikke er nogen sum i \cref{aku:eq:frekvens}, hvorfor det hedder en følge og ikke en række. Derudover er en harmonisk række i matematik den uendelige sum $\sum_{n=1}^\infty \nicefrac{1}{n}$. Det vi opfatter som en tone er ikke en bølge med en frekvens i overtonerækken, men flere bølger med frekvenser i samme overtonerække, hvorfor man kalder de individuelle bølger for partialtoner. Hvis man skal være helt pedantisk, bør man derfor kalde overtonerækken for partialtonefølgen.}, $\nu_n=n\nu_0$. Den er vigtig fordi det viser sig, at det vi opfatter som toner er lydbølger, der består af frekvenser fra overtonerække. Med andre ord så spiller blæse-, streng-, tangent- og tasteinstrumenter samt pauker toner fordi de tilladte frekvenser fra disse instrumenter netop er en overtonerække. Trommer, bækkener og andet ustemt slagtøj spiller derimod ikke toner, da deres tilladte frekvenser ikke er en overtonerække\footnote{Hvis man vil vise det, så skal man generalisere \cref{aku:sec:wave} til to dimension for at opskrive bølgeligningen. Dette skal så gøres i polære koordinater for at få løsningerne, som er Besselfunktioner, der er defineret som en uendelige række. Med andre ord bliver matematikken en smule mere kringlet.}. I matematikafsnittet om rækkeudviklinger, \cref{mat:sec:raekker}, blev det bemærket at funktioner kan skrives som en undelig række. Dette betyder, at alle løsninger til bølgeligningen, der opfylder \cref{aku:eq:randbetingelse}, kan skrives på formen
+%
+\begin{align} \label{aku:eq:losning_1}
+    u(x,t) = \sum_{n=1}^\infty A_n\sin\left(k_n\big[x + v_\mathrm{lyd}t\big]\right) + B_n\sin\left(k_n\big[x - v_\mathrm{lyd}t\big]\right),
+\end{align}
+%
+hvilket hedder en Fourierrække. Hvis $A=B$, kan man vise at \cref{aku:eq:losning_1} også kan skrives på formen
+%
+\begin{align} \label{aku:eq:losning_2}
+    u(x,t) = \sum_{n=1}^\infty C_n\sin(k_nx)\cos(k_nv_\mathrm{lyd}t),
+\end{align}
+%
+hvor koefficienterne $C_n$ er bestemt af startbetingelserne, dvs. hvordan vibrationerne i strengen startes.\footnote{Hele denne proces med at løse bølgeligningen og kræve at nogle bestemte randbetingelser skal være opfyldt, er det samme man gør i kvantemekanik, når man løser Schrödingerligningen. Konceptet om tilladte og forbudte energier i atomer, der også kendes fra Bohrs atommodel, kommer rent matematisk af de randbetingelser man kræver at løsningen til Schödingerligningen skal opfylde.} 
+Vi kan således identificere Fourieropløsningen med overtonerækken, hvor hvert led i summen svarer til en overtone. Størrelsen af $C_n$ er amplituden (størrelsen af udsvinget) af den n'te overtone, og amplituden er det som man hører som hvor kraftig en tone er. En stor amplitude giver en kraftig tone (større lydstyrke). I eksemplet med strengen får man en stor amplitude hvis man hiver strengen langt ud og slipper, og det lyder også kraftigere end hvis man kun lige rører den og tager hånden til sig igen.

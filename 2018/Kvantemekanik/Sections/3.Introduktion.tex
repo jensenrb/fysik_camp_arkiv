@@ -1,0 +1,56 @@
+\documentclass[../Kvantemekanik.tex]{subfiles}
+ 
+\begin{document}
+\section{Introduktion}
+Okay nok krumspring, lad os komme til sagen, og lad os starte med en ting som I allerede er godt bekendt med, nemlig Newtons love. Disse love ser i deres enkelhed og elegance således ud:
+\begin{align*}
+    (1)\quad & \text{Uden ydre kræfter vil et legeme bevæge sig med konstant hastighed.} \; \v F=\v 0 \rightarrow \v v=\text{konstant}\\
+    (2)\quad & \text{Kræften er proportionel til ændringen i hastighed (accelerationen).}\; \v F=\dif{t}{\v p}=m \v a\\
+    (3)\quad & \text{Enhver kraft resulterer i en ligeså stor, men modsatrettet, kraft}\; \rightarrow \; \v F_{12}=-\v F_{21}
+\end{align*}
+Ud fra disse love er man i stand til at udlede alle de regler og love, der er i klassisk mekanik. Med andre ord, disse tre love er fundamentet for den klassiske mekanik. Nu kommer det store spørgsmål så bare, for hvor kommer disse love fra?
+Konsekvenserne af disse ligninger viser sig at være korrekte i alle de tilfælde, vi har været i stand til at teste dem i (så længe vi befinder os i det klassiske regime), så der må naturligvis ligge et mere grundlæggende princip bag, en underliggende årsag til at de er korrekte? Selvom det måske virker underligt, så er svaret på dette spørgsmål faktisk nej! Der er ikke noget underliggende princip bag Newtons love, de er det grundlæggende bag Newtonsk mekanik \footnote{Det er faktisk også muligt at udlede Euler-Lagrangeligningerne ud fra disse.}.
+
+Det vi lige er stødt på her, er det man kalder et aksiom. Et aksiom er en antagelse eller formodning, om hvordan verden er skruet sammen, og altså ikke noget der er udledt andre steder fra. I enhver teori vil det være teoriens aksiomer der danner grundlaget for teorien, og dermed dem der bliver testet når man laver forsøg der har til formål at undersøge om teorien passer med virkeligheden. I Newtonsk mekanik er der 3 aksiomer, nemlig Newtons tre love.
+
+Hvis vi nu vender os imod kvantemekanikken, så vil et naturligt spørgsmål være at spørge, hvilke aksiomer der ligger til grund for denne teori? Ligesom med klassisk mekanik er det faktisk muligt at koge det ned til tre aksiomer, omend disse aksiomer er noget anderledes end klassisk mekanik. Aksiomerne er angivet nedenunder.
+
+\subsection*{1}
+Et system betragtes som kvantemekanisk, hvis det opfylder Schrödingerligningen:
+\begin{equation}
+    i\hbar\pdif{t}{\Psi}=\frac{-\hbar^{2}}{2m}\nabla^{2}\Psi+V(\v r,t)\Psi
+\label{kvant:eq:sch}
+\end{equation}
+\subsection*{2}
+$|\Psi|^2$ er sandsynlighedsfordelingen, og det må derfor gælde at:
+\begin{equation}
+    \integral{\abs{\Psi}^{2}}{\v r}{-\infty}{\infty}=\integral{\Psi^{*}\Psi}{\v r}{-\infty}{\infty}=\braket{\Psi}{\Psi}=1
+    \label{kvant:eq:norm}
+\end{equation}
+\subsection*{3}
+Forventningsværdien af enhver observabel er givet ved:
+\begin{equation}
+\expect Q=\integral{\Psi^{*}\op Q\Psi}{\v r}{-\infty}{\infty} = \matrixel{\Psi}{\op Q}{\Psi}
+\label{kvant:eq:forvent}
+\end{equation}
+I disse aksiomer vil der formentlig optræde en del begreber, som du ikke er bekendt med endnu, så lad os lige bruge lidt tid på at gennemgå dem:
+\begin{itemize}
+
+\item For det første er der bølgefunktionen $\Psi$, som beskriver systemet. Grunden til at vi her bruger ordet system i stedet for partikel er, at bølgefunktionen sagtens kan beskrive et system af flere partikler. Dette kan f.eks. være elektronerne i et atom, eller to atomer der interagerer. Det skal dog siges, at matematikken hurtigt bliver så kompliceret, når man arbejder med fler-partikel systemer, at man ikke er i stand til at løse det analytisk, og derfor må bruge numeriske metoder\footnote{Computer beregninger}. Af samme grund vil vi i dette forløb holde os til systemer, der beskriver en partikel af gangen. Bølgefunktionen er altid en funktion af både tid og position. Man bør derfor egentligt skrive $\Psi(\v r,t)$, men det er så almindeligt at bruge store psi for bølgefunktionen, at man oftest bare skriver $\Psi$.
+
+\item Dernæst er der potentialet $V(\v r,t)$. Dette kan betragtes som det "landskab" partiklen befinder sig i. $V(\v r,t)$ har enheder af energi, og angiver hvor meget energi, det kræver for partiklen at være bestemte steder. Klassisk vil man opleve, at hvis man skyder en bold op af en bakke, vil den trille tilbage igen, hvis den ikke har nok kinetisk energi til at overkomme den potentielle energi, som bakken har. I kvantemekanik vil man derimod opleve, at løsningen til Schrödingerligningen gør det muligt for partiklen at være steder, som klassisk ikke ville være tilladt.
+
+\item Sandsynlighedsfortolkningen af bølgefunktionen kan tolkes, som at hvis vi integrerer fra minus uendelig til plus uendelig, betragtes det som at vi integrerer over hele rummet, og da partiklen er et eller andet sted i universet må sandsynligheden for at finde den derfor være én (100\%  sandsynlighed for at finde partiklen). Hvis vi i stedet havde integreret over et bestemt område af rummet, ville vi finde sandsynligheden, for at finde partiklen i den del af rummet, som et decimaltal.
+
+\item Idet at partiklen har en sandsynlighed for at være alle steder i universet (omend den næsten er uendelig lille langt de fleste steder), vil det også være muligt for os at måle alle værdier af en bestemt observabel. Det eneste vi derfor kan sige noget om, er forventningsværdien $\expect{Q}$ af en bestemt observabel. Forventningsværdien er gennemsnittet af en bestemt observabel fra et bestemt system, hvis vi måler den uendelig mange gange.
+
+\item Operatoren $\op{Q}$ er en ny størrelse, som vi her støder på. Det kan være lidt svært at få en ordentlig forståelse for, hvad sådan en egentlig repræsenterer, da der ikke er noget tilsvarende i klassisk mekanik, men man kan tænke på den som en ting, der udfører målingen af observablen på systemet. Vi skal senere se, hvordan operatorerne fører til ting som usikkerhedsrelationen, og begrænsninger i antallet af ting vi på én gang kan vide om et system.
+
+\item Klammerne i ligning \eqref{kvant:eq:norm} og \eqref{kvant:eq:forvent} kaldes Dirac notation eller bra-ket notation. Det er lettest at se det som en let måde at skrive integralerne op på. Notationen tillader nogle matematiske spidsfindigheder, som vi desværre ikke dækker.
+
+\end{itemize}
+Dvs. at vores fremgangsmåde, når vi skal løse kvantemekaniske problemer, er at opstille Schrödingerligningen for systemet, og så løse den for at finde bølgefunktionen. Derefter skal vi sørge for at sandsynlighedsfordelingen giver 1, når vi integrerer over hele rummet, vi skal altså normere den. Til sidst vil vi da være i stand til at spørge systemet om diverse ting, som f.eks. hvad den gennemsnitlige impuls vil være, eller hvor den partiklen i gennemsnit vil være.
+
+Nu vi har fået grundprincipperne på plads, er vi klar til at gå i gang med at regne på nogle kvantemekaniske problemer, så lad os gå lige til den.
+
+\end{document}

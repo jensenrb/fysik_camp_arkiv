@@ -1,0 +1,198 @@
+\begin{opgave}{Harmonisk oscillator med $\op a_- \op a_+$}{1}
+\label{kvant:opg:amap}
+Færdiggør udledningen af den harmoniske oscillator. Hvis du havde problemer med denne udledning er denne opgave stærkt anbefalet.
+\opg Udregn $\op a_-\op a_+$.
+
+$\op a_+$ og $\op a_-$ kan findes i ligning \eqref{k-kvant:eq:ahigher} og \eqref{k-kvant:eq:alower}. Husk at operatorer ikke kommuterer. Det udnyttes at $[\op x,\op p] = i\hbar$.
+\begin{align*}
+    \op a_-\op a_+ &= \frac{1}{2\hbar\omega m}(i\op p+m\omega \op x)(-i\op p+m\omega \op x)\\
+    &= \frac{1}{2\hbar\omega m}(\op p^2+m^2\omega^2\op x^2-im\omega(\op x\op p-\op p\op x))\\
+    &= \frac{1}{\hbar \omega}\left(\frac{1}{2m}\op p^2+\frac{m\omega^2}{2}\op x^2\right)-\frac{i}{2\hbar}(\op x\op p-\op p\op x)\\
+    &=\frac{1}{\hbar\omega}\op H-\frac{i}{2\hbar}[\op x,\op p]\\
+    &=\frac{1}{\hbar\omega}\op H+\frac{1}{2}
+\end{align*}
+\opg brug dette til at udlede ligning \eqref{k-kvant:eq:Hamap}.
+
+Denne ligning omarangeres så:
+$$
+\op H = \hbar\omega\left(\op a_-\op a_+-\frac{1}{2}\right)
+$$
+\opg Vis at hvis $\psi_n$ er en løsning til Schrödingerligningen, så er $\op a_-\psi_n$ det også.
+Hamliton operatoren anvendes på $\op a_-\psi_n$:
+\begin{align*}
+    \op H(\op a_-\psi_n) &= \frac{1}{\hbar\omega}\left(\op a_- \op a_+ -\frac{1}{2}\right)\op a_-\psi_n\\
+    &= {\hbar\omega}\left(\op a_-\op a_+\op a_- - \frac{1}{2}\op a_-\right)\psi_n\\
+    &= {\hbar\omega}\op a_-\left(\op a_+\op a_-+\frac{1}{2}-1\right)\psi_n\\
+    &= \op H\psi_n-\hbar\omega\psi_n\\
+    &= (E_n-\hbar\omega)\psi_n
+\end{align*}
+\opg Hvad er energien af $\op a_- \psi_n$
+
+Vi fandt energien da vi satte $\op a-\psi_n$ ind i schrödingerligningen. Den er:
+$$
+E=E_n-\hbar\omega
+$$
+\end{opgave}
+\begin{opgave}{Det klassisk tilladte område.}{2}
+Vi vil her sammenligne den kvanteharmoniske oscillator med en klassisk harmonisk oscillator med samme $V$ og $E=E_0=\frac{\hbar\omega}{2}$
+\opg Hvad er den maksimale værdi af $x$?
+
+Den maksimale værdi findes hvor alt energien er potentiel energi.
+\begin{align*}
+    E=\frac{\hbar\omega}{2}&=V=\frac{m\omega^2x}{2}\\
+    \iff x_\text{max} &= \frac{\hbar}{m\omega}
+\end{align*}
+\opg
+Hvad er sandsynligheden for at finde en partikel i $\psi_0$ tilstanden i intervallet fra $-x_\text{max}$ til $x_\text{max}$?
+
+Sandsynlighedstætheden er givet $\abs \psi^2$. Dette integreres imellem $-x_\text{max}$ og $x_\text{max}$.
+Her er $\psi_0 = \sqrt[4]{\frac{m\omega}{\pi\hbar}}\exp\left(\frac{m\omega}{2\hbar} x^2\right)$.
+\begin{align*}
+    P &= \integral{\abs{\psi_0}^2}{x}{-x\text{max}}{x_\text{max}}\\
+    &= \sqrt{\frac{m\omega}{\pi\hbar}}\integral{\exp\left(\frac{-m\omega}{\hbar}x^2\right)}{x}{-x_\text{max}}{x_\text{max}}\\
+    &= \sqrt{\frac{m\omega}{\pi\hbar}}\frac{\hbar}{2m\omega}\left[\exp\left(\frac{-m\omega}{\hbar}x^2\right)\right]_{-x_\text{max}}^{x_\text{max}}\\
+    &=\sqrt{\frac{\hbar}{m\omega}}\exp\left(\frac{-m\omega}{\hbar}x_\text{max}\right)\\
+    &=\sqrt{\frac{\hbar}{m\omega}}e^{-1}
+\end{align*}
+(Hint: $\integral{xe^{-ax^2}}{x}{}{} = \frac{e^{-ax^2}}{2a}+k$.)
+\end{opgave}
+
+\begin{opgave}{Sjov med operatorer}{2}
+\label{kvant:opg:sjov}
+Vi vil her komme ind på en af grundene til, at hæve-/sænkeoperatorerne er smarte. Udenyt at bølgefunktionerne er ortonormale.
+\opg Udtryk $\op x$ og $\op p$ med $\op a_+$ og $\op a_-$.
+
+Summen af de to operatorer er:
+\begin{align*}
+\op a_++\op a_- &= \frac{1}{\sqrt{m\hbar\omega}}(-i\op p+m\omega \op x+i\op p+m\omega\op x)\\
+&=\sqrt{\frac{2m\omega}{\hbar}}\op x
+\end{align*}
+Isoleres $\op x$ findes:
+$$
+\op x = \sqrt{\frac{\hbar}{2m\omega}}(\op a_++\op a_-)
+$$
+Tilsvarende for differensen:
+\begin{align*}
+    \op a_+-\op a_- &= \frac{1}{\sqrt{m\hbar\omega}}(-i\op p+m\omega\op x-i\op p-m\omega\op x)\\
+    &= -i\frac{2}{\sqrt{\hbar m\omega}}\op p\\
+    \iff \op p &= -i\sqrt{\frac{\hbar m\omega}{2}}(\op a_--\op a_+)
+\end{align*}
+\opg Find $\expect x$ og $\expect p$ for $\psi_0$, $\psi_1$ og $\psi_{n}$.
+Har man fundet svaret for $\psi_n$ kan man bare indsætte tallene bagefter.
+Husk på at $\op a_+\psi_n = \sqrt{n+1}\psi_{n+1}$ og $\op a_-\psi_n = \sqrt{n}\psi_{n-1}$
+\begin{align*}
+    \expect{x} &= \integral{\psi_n^*\op x \psi_n}{x}{}{}\\
+    &= \sqrt{\frac{\hbar}{2m\omega}}\integral{\psi_n^*(\op a_+\psi_n+\op a_-\psi_n)}{x}{}{}\\
+    &= \sqrt{\frac{\hbar}{2m\omega}}\integral{\psi_n^*\sqrt{n+1}\psi_{n+1}+\sqrt{n}\psi_{n-1}}{x}{}{}\\
+    &= \sqrt{\frac{\hbar}{2m\omega}}\Bigg(\sqrt{n+1}\integral{\psi_n\psi_n^*\psi_{n+1}}{x}{}{}\\
+    &+\sqrt{n}\integral{\psi_n^*\psi_{n-1}}{x}{}{}\Bigg)\\
+    &= 0
+\end{align*}
+Siden denne metode frigør os fra at løse et eneste integral kan vi lige så godt bruge braket notation.
+\begin{align*}
+    \expect p &= \matrixel{\psi_n}{\op p}{\psi_n}\\
+    &= i\sqrt{\frac{\hbar m\omega}{2} }\braket{\psi_n}{(\op a_-\psi_n-\op a_+\psi_n}\\
+    &= i\sqrt{\frac{\hbar m\omega}{2}}(\sqrt{n}\braket{\psi_n}{\psi_{n-1}}-\sqrt{n+1}\braket{\psi_n}{\psi_{n+1}})\\
+    &=0
+\end{align*}
+Så forventningsværdien er nul for alle stationære tilstande.
+\opg Gør det samme for $\expect{x^2}$ og $\expect{p^2}$.
+
+Først skal vi finde $\op x^2$ og $\op p^2$ udtrykt med $\op a_+$ og $\op a_-$. Husk at operatorer ikke kommuterer
+\begin{align*}
+\op x^2 &= \frac{\hbar}{2m\omega}(\op a_++\op a_-)^2 = \frac{\hbar}{m\omega}(\op a_+^2+\op a_-^2+\op a_-\op a_++\op a_+\op a_-)\\
+\op p^2 &= \frac{-\hbar m\omega}{2} (\op a_--\op a_+)^2 = -\hbar m \omega (\op a_+^2+\op a_-^2-\op a_-\op a_+-\op a_+\op a_-)
+\end{align*}
+Nu er det muligt at finde $\expect{x^2}$ og $\expect{p^2}$.
+\begin{align*}
+    \expect{x^2} &= \frac{\hbar}{2m\omega}\matrixel{\psi_n}{\op a_+^2+\op a_-+\op a_+\op a_-+\op a_-\op a_+}{\psi_n}\\
+    &= \frac{\hbar}{2m\omega}\braket{\psi_n}{\op a_+^2\psi_n+\op a_-^2\psi_n+\op a_-\op a_+\psi_n+\op a_+\op a_-\psi_n}\\
+    &= \frac{\hbar}{2m\omega}\braket{\psi_n}{\sqrt{(n+1)(n+2)}\psi_{n+2}+\sqrt{n(n-1)}\psi_{n-2}}\\
+    &+ \frac{\hbar}{2m\omega}\braket{\psi_n}{(n+1)\psi_n+n\psi_{n}}\\
+    &= \frac{\hbar}{2m\omega}(2n+1)\braket{\psi_n}{\psi_n}\\
+    &= \frac{\hbar(2n+1)}{2m\omega}
+\end{align*}
+Bemærk at kun når der er lige mange hæve og sænke operatorer at ledene bidrager med andet end nul. Dette gælder ikke generelt.
+\begin{align*}
+    \expect{p^2} &= \frac{\hbar m\omega}{2} \matrixel{\psi_n}{\op a_+\op a_-+\op a_-\op a_+-\op a_+^2-\op a_-^2}{\psi_n}\\
+    &= \frac{\hbar m\omega}{2} \braket{\psi_n}{\op a_+\op a_-\psi_n+\op a_-\op a_+\psi_n}\\
+    &= \frac{\hbar m\omega}{2} \braket{\psi_n}{n\psi_n+(n+1)\psi_n}\\
+    &= \frac{\hbar m\omega (2n+1)}{2}
+\end{align*}
+\opg Hvad er $\sigma_x$ og $\sigma_p$ for $\psi_n$?
+
+Siden $\sigma_A^2 = \expect{A^2}-\expect A^2$ er:
+\begin{align*}
+    \sigma_x &= \sqrt{\expect{x^2}-\expect x^2} = \sqrt{\frac{\hbar (2n+1)}{m\omega}}\\
+    \sigma_p &= \sqrt{\expect{p^2}-\expect p^2} = \sqrt{\frac{\hbar m\omega (2n+1)}{2}}
+\end{align*}
+\opg Hvor dan passer det med Heisenbergs usikkerhedsprincip?
+
+Indsætter vi $\sigma_x$ og $\sigma_p$ i Heisenbergs usikkerheds princip finder vi:
+$$
+\sigma_x\sigma_p = \frac{\hbar(2n+1)}{2}\geq \frac{\hbar}{2}
+$$
+Heisenberg er altid opfyldt, og når $n=0$ er det en lighed.
+\end{opgave}
+
+\begin{opgave}{Nu med tid}{2}
+Til tiden $t=0$ har vi bølgefunktionen: $$\Psi(x,t=0) = N(\psi_0+\psi_1)$$ (Det kan være en fordel at have lavet opgave \ref{kvant:opg:sjov} først.)
+\opg Hvad er $N$?
+
+Det udnyttes at bølgefunktionerne er ortonormale.
+\begin{align*}
+    1&=\braket{\Psi}{\Psi}\\
+    &= \abs N^2 \braket{\psi_0+\psi_1}{\psi_0+\psi_1}\\
+    &= \abs N^2 (\braket{\psi_0}{\psi_0}+\braket{\psi_0}{\psi_1}+\braket{\psi_1}{\psi_0}+\braket{\psi_1}{\psi_1})\\
+    &= 2\abs N^2\\
+    \Rightarrow \abs N &= \frac{1}{\sqrt{2}}
+\end{align*}
+I princippet kan vi ikke sige mere om $N$. Her vælges $N=\frac{1}{\sqrt{2}}$ uden tab af generealitet.
+\opg Hvad er $\Psi(x,t)$?
+
+Begge de stationære tilstande får en $\exp(\frac{-i\hbar Et}{\hbar})$ faktor.
+
+$$
+\Psi(x,t) = \frac{1}{\sqrt{2}}\left(\psi_0e^{-i\omega t/2}+\psi_1e^{-3i\omega t/2}\right)
+$$
+\opg Hvad er $\expect E$?
+
+En måde at finde $\expect E$ er at udnytte at vi ved hvordan hamiltonoperatoren virker på de stationære tilstande, og kun afhænger af bølgefunktionens rumafhængighed. Det kan udnyttes at $\braket{e^{i\theta}}{e^{i\theta}}=1$ og at de stationære tilstande er ortonormale.
+\begin{align*}
+    \expect E &= \matrixel{\Psi}{\op H}{\Psi}\\
+    &=\frac{1}{\sqrt{2}}\braket{\Psi}{\op H\psi_0e^{-i\omega/2}+\op H\psi_1e^{-3i\omega/2}}\\
+    &=\frac{1}{\sqrt{2}}\braket{\Psi}{\frac{\hbar}{2}\psi_0e^{-i\omega/2}+\frac{3\hbar\omega}{2}\psi_1e^{-3i\omega/2}}\\
+    &= \frac{1}{2}\braket{\psi_0 e^{-i\omega t/2}+\psi_1e^{-3i\omega t/2}}{\frac{\hbar}{2}\psi_0e^{-i\omega/2}+\frac{3\hbar\omega}{2}\psi_1e^{-3i\omega/2}}\\
+    &=\frac{1}{2}\left(\frac{\hbar \omega}{2}\braket{\psi_0}{\psi_0}+\frac{3\hbar\omega}{2}\braket{\psi_1}{\psi_1}\right)\\
+    &=\hbar\omega
+\end{align*}
+\opg Hvad er $\expect {x(t)}$?
+Først skrives forventningsværdien som flere mindre integraler:
+\begin{align*}
+    \expect x &= \matrixel{\Psi}{x}{\Psi}\\
+    &=\abs N^2 \matrixel{\psi_0e^{-i\omega t/2}+\psi_1^{-3i\omega t/2}}{x}{\psi_0e^{-i\omega t/2}+\psi_1^{-3i\omega t/2}}\\
+    &= \abs N^2 \matrixel{\psi_0 + \psi_1 e^{-i\omega t}}{x}{\psi_0+\psi_1e^{-i\omega t}}\\
+    &= \abs N^2 \big(\matrixel{\psi_0}{x}{\psi_0}+\matrixel{\psi_1e^{-i\omega t}}{x}{\psi_1e^{-i\omega t}}\\
+    &+ \matrixel{\psi_0}{x}{\psi_1e^{-i\omega t}}+\matrixel{\psi_1e^{-i\omega t}}{x}{\psi_0}\big)\\
+    &=\abs N^2 \big (\matrixel{\psi_0}{x}{\psi_0}+\matrixel{\psi_1}{x}{\psi_1}\\
+    &+\matrixel{\psi_0}{x}{\psi_1}(e^{i\omega t}+e^{-i\omega t})\big )
+\end{align*}
+Nu udregnes de enkelte integraler seperat. Det kan udnyttes at $e^{i\theta}+e^{-i\theta} = 2\cos \theta$.
+\begin{align*}
+    \matrixel{\psi_n}{x}{\psi_n} &= \sqrt{\frac{\hbar}{2m\omega}}\matrixel{\psi_n}{\op a_++\op a_-}{\psi_n}\\
+    &= \sqrt{\frac{\hbar}{2m\omega}}\braket{\psi_n}{\sqrt{n+1}\psi_{n+1}+\sqrt{n}\psi_{n-1}}\\
+    &= \sqrt{\frac{\hbar}{2m\omega}}\left(\sqrt{n+1}\braket{\psi_n}{\psi_{n+1}}+\sqrt{n}\braket{\psi_n}{\psi_{n-1}}\right)\\
+    &=0
+\end{align*}
+Dermed er både $\matrixel{\psi_0}{x}{\psi_0}$ og $\matrixel{\psi_1}{x}{\psi_1}$ lig nul.
+\begin{align*}
+    \matrixel{\psi_0}{x}{\psi_1} &= \sqrt{\frac{\hbar}{2m\omega}}\matrixel{\psi_0}{a_++a_-}{\psi_1}\\
+    &=\sqrt{\frac{\hbar}{2m\omega}}\left(\braket{\psi_0}{\sqrt{2}\psi_2}+\braket{\psi_0}{\psi_0}\right)\\
+    &=\sqrt{\frac{\hbar}{2m\omega}}\braket{\psi_0}{\psi_0}\\
+    &=\sqrt{\frac{\hbar}{2m\omega}}
+\end{align*}
+Nu er det muligt at sætte ind og finde $\expect x$.
+$$
+\expect x = \sqrt{\frac{2\hbar}{m\omega}}\cos(\omega t)
+$$
+\end{opgave}

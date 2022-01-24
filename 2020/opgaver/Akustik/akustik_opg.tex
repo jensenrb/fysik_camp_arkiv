@@ -1,0 +1,126 @@
+\documentclass[crop=false, class=memoir]{standalone}
+\input{../setup/preamble.tex}
+\usepackage{import}
+\begin{document}
+\section{Akustik}
+%%
+\begin{opgave}[1]{Lydens hastighed} \label{aku:opg:vlyd}
+I denne opgave vil vi undersøge lydhastigheden i en snor.
+\opg Hvilken fysisk størrelse beskriver hvor stramt snoren er spændt?
+\opg Hvis snoren strammes, hvad sker der så med lydhastigheden?
+\opg Hvad sker der med lydhastigheden, hvis snoren gøres tungere?
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Grundtonen og stemning af strenginstrumenter}
+I denne opgave vil vi undersøge hvordan grundtonens frekvens ændrer sig, når forskellige parametrer ændrer sig, samt hvordan musikere kan bruge dette til at stemme strenginstrumenter. Hvad sker der med grundetonefrekvensen, hvis strengen
+\opg strammes?
+\opg gøres tungere?
+\opg gøres længere?
+\opg gøres dobbelt så stram og forlænges til det dobbelte? \\[2mm]
+På strenginstrumenter er strengen fastspændt i begge ender, hvorfor længden ikke kan ændres. Massetæthed afhænger af strengens tykkelse, samt hvilket materiale, den er lavet af, men kan ikke ændres uden at skrifte strengen. I praksis stemmes strenginstrumenter med en skrue, der kontrollerer snorspændingen. Hvad skal man gøre, hvis ens instruments tone er
+\opg for høj?
+\opg for lav?
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Temperering}
+Violiner har fire strenge stemt i kvinter, hvilket betyder at frekvensforholdet mellem to nabostrenge er $\nicefrac{3}{2}$. Stregene navngives hhv. g-, d-, a- og e- strengen efter deres grundtone. Hvad er frekvensforholdet mellem
+\opg g- og d-strengen, $\nicefrac{\nu_{d0}}{\nu_{g0}}$?
+\opg g- og a-strengen, $\nicefrac{\nu_{a0}}{\nu_{g0}}$? \\[2mm]
+På et moderne klaver er frekvensforholdet mellem dets tilsvarende a og g $\nicefrac{\nu_{a0}}{\nu_{g0}} = 2^{\nicefrac{14}{12}}$, hvilket ikke er det samme som på violinen.
+\opg Spilles violinens og klaverets a samtidigt, hvilket bølgefænomen vil man så høre?
+\opg Hvis violinisten stemte sine strenge i frekvensforholdet $2^{\nicefrac{7}{12}}$, ville vedkommende så få samme a som pianisten? \\[2mm]
+Det viser sig, at være umuligt, at få mere end et interval til at stemme perfekt for alle toner, hvis man deler oktaven ind i 12 toner. I dag vælger man derfor typisk, at stemme instrumenter således, at frekvensforholdet mellem to nabotoner er det samme for alle nabotoner, hvilket man ikke altid har gjort. I den såkaldte pythagoræiske stemning insisterer man på at oktaver og næsten alle kvinter skal være rene. Dette gøres ved, at vælge én kvint, der bliver meget falsk, som kaldes ulvekvinten, da den lyder lidt som en ulv, der hyler.
+\opg Bestemt ulvekvintens frekvensforhold ved at løse ligningen\footnote{Ligningen kommer ved at kræve, at det skal være det samme at gå 7 oktaver op, som at gå 11 rene kvinter og en ulvekvint op.} $2^7=x_\mathrm{ulv}\left(\nicefrac{3}{2}\right)^{11}$
+\opg De fleste mennesker kan høre stødtoner ved frekvensforskelle omkring et par hertz, men trænede musikere kan dem ved frekvensforskelle under en hertz. Brug dette til at sammenligne ulvekvinten med den rene kvint, $x_\mathrm{kvint} = \nicefrac{3}{2}$  ved at beregne begge kvinter over A$=\SI{440}{\hertz}$.
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{Vibrato}
+Vibrato er en teknik, hvor musikeren får sit instrument til at producere en tone, hvis grundfrekvens svinger i tid. På en stryger gøres dette ved at bevæge sig finger hurtigt frem og tilbage på fingerbrættet.
+\opg Forklar hvorfor dette får grundtonefrekvensen til at svinge i tid.
+\opg Man kan gøre noget lignende på et klokkespil\footnote{Et klokkespil er et slagtøjsinstrument med taster af metal lagt som tangenterne på et klaver.}, hvor man slår tonen an på sædvanligvis, hvorefter man holder hånden ind over den ringende tast. Vibrato opnås ved at bevæge hånden hurtigt op og ned. Hvorfor det?
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{Bølger og ubestemthed}
+Betragt bølgerne i \cref{aku:fig:wave}. Vi vil i det følgende undersøge deres bølgelængder og placering i rummet.
+\opg Aflæs bølgelængden i \cref{aku:fig:sine_wave}.
+\opg Giv et bud på bølgelængden i \cref{aku:fig:gauss_wave}.
+\opg Bestem bølgens centrum i \cref{aku:fig:gauss_wave}.
+\opg Har bølgen i \cref{aku:fig:sine_wave} et centrum? \\[2mm]
+Bølgen i \cref{aku:fig:gauss_wave} har en funktionsforskrift på formen $f(x) = e^{-ax^2}\cos(bx)$, men kan også skrives som en sum af cosinusbølger med forskellige bølgelængder. Den har derfor ikke en entydig bølgelængde.
+\opg Forklar på baggrund af \cref{aku:fig:wave} man ikke kan kende både bølgelængden og bølgens position i rummet på samme tid med arbitrær præcision
+, hvilket i kvantemekanik kaldes Heisenbergs ubestemthedsprincip.
+\end{opgave}
+%%
+%%%%
+\begin{opgave}[2]{Løsninger på forskellige former}
+Her skal vi vise et udtryk, som blev postuleret i kompendiet.
+\opg Vis at ligning \eqref{aku:eq:losning_1} kan omskrives til \eqref{aku:eq:losning_2} hvis $A=B$.
+\opg Udtryk $C_n$ ved $A_n$ og $B_n$.\\
+(\textit{Hint: $\sin(a\pm b)=\sin(a)\cos(b)\pm \cos(a)\sin(b)$, hvor der enten skal være plus begge steder eller minus begge steder.})
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{oktaver}
+Er det sandt, at tonen D6 (1174 \si{.Hz}) er tre oktaver over tonen D3 (147 \si{.Hz})?
+\end{opgave}
+%%
+\begin{opgave}[3]{Sammenhæng mellem hastighed og tryk for en lydbølge}
+Her skal vi vise, at tryk og hastighed virkelig \textit{er} to sider af samme sag, som det bliver postuleret i kompendiet.\\
+Brug \textit{Eulers formel} $\rho \pdv{u(x,t)}{t} + \pdv{u(x,t)}{x}=0e$ i en dimension hvor man ser bort fra tyngdekraft til at skrive et udtryk for trykket, $p(x,t)$ ud fra udtrykket for $u(x,t)$. $\rho$ er densiteten af luft.
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Grundfrekvenser af forskellige instrumenter}
+Find grundfrekvensen af
+    \opg en streng med længden 1 \si{.m}.
+    \opg en klarinet, som har længden 1 \si{.m}.
+    \opg en fløjte, som har længden 1 \si{.m}.\\
+Groft regnet mener man, at det dybeste et menneske kan høre er 20 \si{.Hz}, mens det højeste mennesker kan høre er 20 \si{.kHz} (præfikset $k$ betyder $\cdot 10^3$). Følgende opgaver kan laves for både åbent/åbent rør og åbent/lukket rør. Man kan også nøjes med en af versionerne, men prøv da at overveje om det andet sæt randbetingelser ville give et længere eller et kortere rør.
+    \opg hvor langt et rør skal der til for at kunne spille den dybeste frekvens et menneske kan høre?
+    \opg hvad er længden af et rør, hvis grundfrekvens er det højeste et menneske regnes med at kunne høre?
+    \opg hvad er det længste rør, der kan spille den højeste tone, som et menneske regnes med at kunne høre? (dette er lidt et trickspørgsmål)
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{streng og fløjte}
+Med de rigtige randbetingelser, tegn hastighedsfunktionen for stående bølger på en streng og trykfunktionen for stående bølger i en fløjte. Nyd hvor dejligt ens de er.\\
+(\textit{Hint: for en fløjte er randbetingelserne, at trykket er atmosfærisk i begge ender.})
+\end{opgave}
+%%
+%%
+\begin{opgave}[3]{overtoner på klarinet}
+Betragt figur \ref{aku:fig:D3}. Vi har konstateret, der i klarinetten kun "er plads til" stående bølger med frekvenser svarende til hver anden i forhold til et instrument af samme længde, som har samme randbetingelser i hver ende. Men vi kan stadig se nogle små toppe for frekvenser, som ikke svarer til stående bølger i klarinetten. Hvor tror du de kunne komme fra?
+\end{opgave}
+%%
+%%
+\begin{opgave}{Stående bølger i en fløjte}
+\end{opgave}
+%%
+%%
+\begin{opgave}[1]{Stødtoner (pløg-ind-opgave)}
+    Beregn stødtonefrekvens og amplitudefrekvens for de to bølger
+    \begin{gather*}
+        f_1=\sin(2\pi \nu_1 t)\\
+        f_2=\sin(2\pi \nu_2 t)
+    \end{gather*}
+    hvor $\nu_1=440 \si{.Hz}$ og $\nu_2=442 \si{.Hz}$.
+\end{opgave}
+%%
+%%
+\begin{opgave}[2]{Stødtoner}
+    Hvad er forholdet mellem frekvensforskel og amplitudefrekvens?
+        \opg For en større frekvensforskel, bliver amplitudefrekvensen så højere eller lavere?
+        \opg Beregn amplitudefrekvensen for stødtonen mellem de to (over)toner
+        \begin{gather*}
+            t_1=A\sin(2\pi \nu t)\\
+            t_2=A\sin(2\pi (\nu+\Delta \nu) t)
+        \end{gather*}
+        hvor $\Delta \nu $ også er en frekvens.
+    (Hint: additionsformlen for %note til sol: indsæt den additionsformel man får brug for
+\end{opgave}
+
+\end{document}

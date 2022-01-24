@@ -1,0 +1,137 @@
+\documentclass[../Kvantemekanik.tex]{subfiles}
+ 
+\begin{document}
+
+\section{Usikkerhedsrelationen}
+
+Inden vi kommer til usikkerhedsrelationen skal vi lige have styr på hvad vi mener med usikkerhed.
+For at gøre det lidt lettere vil vi starte med at se på diskrete variable. Det kunne f.eks være de seks mulige resultater man kan få med en sekssidet terning.
+Slår man mange gange med terningen vil det gennemsnitlige resultat være det samlede resultat delt med antal slag.
+Dette vil også kunne skrives som værdien af de enkelte slag gange sandsynligheden for at få dette slag.
+\begin{equation}
+    \expect j =\sum_j jP(j)
+\end{equation}
+Bemærk at gennemsnittet er skrevet med samme notation som forventningsværdien, det er bevidst, da det senere skal vise sig at forventningsværdien er det gennemsnitlige resultat af en måling. Gennemsnittet er dog ikke alt, f.eks vil en tyvesidet terning give samme gennemsnitlige resultat som 3 sekssidede terninger.
+Mere generelt kan men finde gennemsnittet af en en funktion. I terningsanalogien vil det svare til at hver side kan have et vilkårligt tal:
+\begin{equation}
+    \expect f = \sum_jf(j)P(j)
+\end{equation}
+Det er derfor interessant at vide hvormeget man kan forvente et resultat at afvige fra gennemsnittet:
+\begin{equation}
+    \Delta f = f(j)- \expect f
+\end{equation}
+Nu er det oplagte spørgsmål: hvad er den gennemsnitlige afvigelse?
+\begin{equation}
+    \expect{\Delta f} = \sum_j(f(j)-\Delta f)P(j) = \sum_jf(j)P(j)-\expect f\sum_jP(j) = \expect f-\expect f = 0
+\end{equation}
+Det var ikke så interessant, men egentligt ikke overraskende at afvigelserne fra gennemsnittet på begge sider er lige stort.
+Det ville være oplagt at finde den gennemsnitlige absolutte afvigelse, men det viser sig at det er mere brugbart at tage gennemsnittet af kvadratet af afvigelsen. Dette kaldes usikkerheden. For at få en størrelse i de samme enheder bruges kvadratroden af usikkerheden kaldes standardafvigelsen skrevet $\sigma$.
+\begin{equation}
+    \sigma_f^2 = \expect{(\Delta f)^2}
+    \label{kvant:eq:usikkerheddef}
+\end{equation}
+Når vi regner på kvantemekaniske systemer er afvigelsen ikke så praktisk, så vi kan med fordel omskrive usikkerheden.
+\begin{align*}
+    \sigma_f^2&=\sum_j(\Delta f(j))^2P(j)\\
+    &= \sum_j(f(j)-\expect f)^2P(j)\\
+    &=\sum_j(f(j)^2-2f(j)\expect f+\expect f^2)P(j)\\
+    &= \sum_jf(j)^2p(j)-2\expect f\sum_jf(j)P(j)+\expect f^2\sum_jP(j)\\
+    &= \expect{f^2}-\expect f^2+\expect f^2 = \expect{f^2}-\expect f^2
+\end{align*}
+Dette giver os et mere praktisk udtryk for usikkerheden:
+\begin{equation}
+    \sigma_f^2=\expect{f^2}-\expect f^2
+    \label{kvant:eq:usikkerhed}
+\end{equation}
+Går vi tilbage til kvantemekanikken er gennemsnittet det samme som forventningsværdien. Resten af udregningerne er tilsvarende, så ligning \eqref{kvant:eq:usikkerhed} gælder stadig.
+
+Det vi kommer til nu er Heisenbrgs usikkerhedsrelation, som nok er en af de mest berømte resultater fra kvantemekanikken. Det er Heisenberg der siger at det ikke er muligt, på samme tid, at kende en partikels position og hastighed. Spredningen på målingerne er givet ved denne ulighed:
+\begin{equation}
+\sigma_x\sigma_p \geq \frac{\hbar}{2}
+\label{kvant:eq:heisenbergxp}
+\end{equation}
+Dette i sig selv havde været et fint resultat, men der er mere i usikkerhedsprincippet. Heisenberg kan give tilsvarende uligheder for {\em alle} par af observable. Vi vil nu se på to vilkårlige observable $A$ og $B$. Som tidligere nævnt har alle observable en tilhørende operator, så vi har også operatorerne $\op A$ og $\op B$. Usikkerheden vil her være givet ved ligning \eqref{kvant:eq:usikkerheddef}.
+\begin{equation}
+    \sigma_A^2 = \expect{(\op A - \expect A)^2} = \matrixel{\Psi}{(\op A-\expect A)^2}{\Psi} = \matrixel{\Psi}{(\op A-\expect A)}{(\op A-\expect A)\Psi}
+\end{equation}
+I det sidste skridt har den ene afvigelses operator fået lov til at virke på bølgefunktionen. En spidsfindighed er at hvis man bytter om på bølgefunktionerne i en braket svarer det til at komplekskonjugere de hele:
+$$
+\matrixel{\psi_1}{\op O}{\psi_2} = \matrixel{\psi_2}{\op O}{\psi_1}^*
+$$
+Siden $A$ er en observabel vil forventningsværdien være reel. Hvis det ikke var tilfældet ville det være muligt at måle komplekse størrelser.
+\begin{equation}
+    \sigma_A^2 = \matrixel{(\op A - \expect A}{(\op A - \expect A)}{\Psi} = \braket{(\op A-\expect A)\Psi}{(\op A-\expect A)\Psi}= \braket{f}{f}
+\end{equation}
+Siden vi kommer til at bruge $(\op A-\expect A)\Psi$ en del fremover er denne funktion blevet omdøbt til $f$.
+Vi kan lave en tilsvarende udregning for $B$. Lige som vi har $f$ fra $\sigma_A$ vil vi her bruge $g=(\op B -\expect B)\Psi$. Vi finder usikkerheden:
+\begin{equation}
+    \sigma_B^2 = \matrixel{\Psi}{(\op B-\expect B)^2}{\Psi} = \braket{(\op B-\expect B)\Psi}{(\op B-\expect B)\Psi}= \braket{g}{g}
+\end{equation}
+
+Som vi så i afsnittet om repræsentation så vi at man kunne finde ud af hvor meget en egenfunktion udgjorde af en tilstand (\eqref{kvant:eq:proj}).
+Tilsvarende er det muligt at finde i hvor stor grad to funktioner deler egenfunktioner som: $\braket{f}{g}$. Det er ikke muligt at finde to funktioner der har mere tilfælles med hinanden end funktionen har med sig selv\footnote{
+På mange måder minder $\braket{f}{g}$ om prikproduktet, hvor der er en tilsvarende relation. Prikproduktet imellem to vektorer er vektorernes længde gange cosinus til deres inbyrdes vinkel. Så her gælder:
+$$
+(\v a \cdot \v b)^2 = (|{\v a}||{\v b}|\cos\theta)^2 = |\v a|^2|\v b|^2\cos^2\theta\leq |\v a|^2|\v b|^2 
+$$
+}. Det gør det muligt at opstille en ulighed:
+\begin{equation}
+    \sigma_A^2\sigma_B^2 =\braket{f}{f}\braket{g}{g}\geq \abs{\braket{f}{g}}^2
+    \label{kvant:eq:heisenbergm1}
+\end{equation}
+Her er $\braket{f}{g}$et komplekst tal. For for alle komplekse tal $z$ gælder følgende ulighed:
+\begin{equation}
+    \abs{z}^2= Re(z)^2+Im(z)^2\geq Im(z) = \left(\frac{1}{2i}(z-z^*)\right)^2
+\end{equation}
+Så længe vi holder styr på krokodillenæbs symbolet kan vi sætte denne ulighed ind i ligning \eqref{kvant:eq:heisenbergm1}. Her kan det igen udnyttes at ombytning af funktionerne i braketten svarer til komplekskonjugering.
+\begin{equation}
+    \sigma_A^2\sigma_B^2\geq \left(\frac{1}{2i}(\braket{f}{g}-\braket{g}{f})\right)^2
+    \label{kvant:eq:heisenbergm2}
+\end{equation}
+Nu har $f$ og $g$ tjent deres formål, men vi bliver desværre nød til at arbejde en smule for at komme af med dem.
+\begin{align*}
+    \braket{f}{g} &= \braket{(\op A-\expect A)\Psi}{(\op B \expect B)\Psi}\\
+    &=\matrixel{\Psi}{(\op A - \expect A)(\op B - \expect B)}{\Psi}\\
+    &= \matrixel{\Psi}{\op A\op B -\op A \expect B - \expect A \op B + \expect A\expect B}{\Psi}\\
+    &=\matrixel{\Psi}{\op A\op B}{\Psi}-\expect B\matrixel{\Psi}{\op A}{}-\expect A\matrixel{\Psi}{\op B}{\Psi} + \expect A\expect B\braket{\Psi}{\Psi}\\
+    &=\expect{\op A \op B}-\expect B \expect A - \expect A \expect B + \expect A\expect B\\
+    &=\expect{\op A\op B}-\expect A\expect B
+\end{align*}
+Den samme udregning kan laves for $\braket{g}{f}$. Det giver:
+$$
+\braket{g}{f} = \expect{\op B\op A}-\expect A \expect B
+$$
+Det betyder at $f$ og $g$ delen af ligning \eqref{kvant:eq:heisenbergm2} bliver:
+\begin{align*}
+\braket{f}{g}-\braket{g}{f} &= \expect{\op A \op B}-\expect A\expect B-\expect{\op B \op A} + \expect A \expect B\\
+&= \expect{\op A \op B}-\expect{\op B \op A}\\
+&= \expect{[\op A,\op B]}
+\end{align*}
+Nu kan vi sætte dette ind i ligning \eqref{kvant:eq:heisenbergm2} hvilket givers det generelle usikkerhedsprincip:
+\begin{equation}
+    \sigma_A^2\sigma_B^2\geq \left(\frac{1}{2i}\expect{[\op A,\op B]}\right)^2
+    \label{kvant:eq:heisenberg}
+\end{equation}
+Ved første øjekast kan det godt virke som et problem at der er et $i$ i denne ulighed, men heldigvis vil $\expect{\op A,\op B]}$ altid være rent imaginær, så $i$'erne går ud med hinanden\footnote{
+Dette skyldes at observable ikke bare er vilkårlige operatorer, men en særlig klasse af operatorer kaldet hermitiske. Præcis hvad det er har vi desværre ikke plads til at komme ind på, så lad os bare sige at de opfører sig pænt.}.
+Siden vi startede med usikkerhedsrelationen imellem position og impuls (ligning \eqref{kvant:eq:heisenbergxp}) ville det være dejligt hvis vi kunne genskabe denne relation. Her husker vi tilbage til den kanoniske komutator: \eqref{kvant:eq:kankom}:
+$$
+[\op x,\op p] = i\hbar
+$$
+Hvilket giver relationen:
+$$
+\sigma_x^2\sigma_p^2 \geq \left( \frac{1}{2i}i\hbar \right)^2 = \frac{\hbar^2}{4}
+$$
+Siden usikkerheden altid er positiv giver det den relation vi så til at starte med:
+\begin{equation}\tag{\ref{kvant:eq:heisenbergxp}}
+\sigma_x\sigma_p \geq \frac{\hbar}{2}
+\end{equation}
+Det er værd at bemærke at Heisenberg ikke siger noget om usikkerheden i isolation. Det muligt af have tilstande med $\sigma_x =0$ eller $\sigma_p=0$, men her er usikkerheden på den anden uendeligt stor.
+
+Tilstande med $\sigma_A=0$ er særligt interessante. Efter ligning \eqref{kvant:eq:usikkerhed} må de nødvendigvis opfylde:
+\begin{equation}
+    \sigma_A=0 ~~~~~~\iff ~~~~~~\expect A^2=\expect{(\op A)^2}
+\end{equation}
+Dette sker kun for såkaldte egenfunktioner. En operators egenfunktioner er de funktioner der  Hvis en operator virker på en funktion og efterlader funktionen gange en skalar, er der tale om en egenfunktion. Vi er allerede stødt på et par egenfunktioner, nemlig de stationære tilstande, der er egenfunktioner for hamlitonoperatoren. En ekstra konsekvens af Heisenbergs usikkerhedsprincip er at hvis to operatorer kommuterer vil det være muligt at finde funktioner der er egenfunktioner for dem begge. Omvendt hvis de ikke kommuterer er dette umuligt.
+
+\end{document}

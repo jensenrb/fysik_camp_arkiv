@@ -1,0 +1,483 @@
+\chapter{Facit til opgaver i astrofysik}
+
+\begin{opgave}{Stjernernes spektre}{1}
+\opg For at se hvilke grundstoffer, der er i atmosfæren, skal du se for hvilke grundstoffer, der er absorptionslinjer. Vi kan derfor se, at der er eksempelvis er Hydrogen og Jern indholdt i atmosfæren.
+\opg Ud fra hvad vi ved om spektralklasser, så har stjerner af spektralklasse M en lavere temperatur end stjerner af spektralklasse G, som f.eks. Solen. Når en stjerne er kold, slås molekylerne ikke så let i stykker, og derfor kan vi finde molekyler som MgH og TiO i dens atmosfære. 
+\end{opgave}
+
+
+
+\begin{opgave}{Blinke, blinke stjerne der}{1}
+  \opg Luminositeten er givet ved 
+  \begin{align*}
+  L = 4\pi R^2 \sigma T^4 
+  \end{align*}
+  Vi får givet alle værdier, og sætter derfor blot ind i udtrykket. 
+  \begin{align*}
+  L = 1,37 \cdot 10^{31}~\si{W}
+  \end{align*}
+  \opg Udtrykket for flux er givet ved 
+  \begin{align*}
+  f = \frac{L}{4\pi d_L^2}
+  \end{align*}
+  og når vi skal bestemme fluxen ved dens egen overflade, sættes $d_L = R$. 
+  \begin{align*}
+  f = 3,48\cdot 10^{10}~\si{W/m^2}
+  \end{align*}
+  \opg Når vi skal bestemme fluxen ved Jordens overflade sættes $d_L = d+R$, men da radius af stjernen er så lille i forhold til afstanden $d$, kan vi blot se bort fra den og sætte $d_L = d$. Inden vi sætter ind i udtrykket, så sørg for at regne afstanden om til meter.
+  \begin{align*}
+  f = 7,58\cdot 10^{-8}~\si{W/m^2}
+  \end{align*}
+  \opg Når vi bestemmer stjernens flux i enheder af Solens flux bruger vi følgende
+  \begin{align*}
+  m_1-m_2 = -2,5\log \left( \frac{f_1}{f_2} \right)
+  \end{align*}
+  hvor 1 angiver Solen og 2 angiver stjernen. Vi vil som sagt gerne bestemme forholdet, så det isoleres.  
+  \begin{align*}
+  10^{\frac{m_1-m_2}{-2,5}} &= 10^{\log \frac{f_1}{f_2}}\\
+  &=\frac{f_1}{f_2}\\
+  &=1,91\cdot 10^{-12}
+  \end{align*}
+  \textbf{Evaluering}: Det vil altså sige, at vi modtager væsentligt mindre lys fra stjernen end fra Solen når vi står på Jordens overflade. Fluxerne vi ser på er nemlig set fra Jordens overflade. 
+\end{opgave}
+
+\begin{opgave}{Afstandsbedømmelse i nabolaget}{2}
+	\opg Vi ved 
+	\begin{align*}
+	m-M = 5\log \left( \frac{d_L}{\si{pc}} \right) +5
+	\end{align*}
+	Og vi vil gerne bestemme $d_L$, så den isoleres. 
+	\begin{align*}
+	\frac{m-M-5}{5} &= \log \left( \frac{d_L}{\si{pc}} \right) \\
+	\Rightarrow 10^{\frac{m-M-5}{5}} &= 10^{\log \left( \frac{d_L}{\si{pc}} \right)}\\
+	&= \frac{d_L}{\si{pc}}\\
+	\Rightarrow d_L &= 10^{\frac{m-M-5}{5}}\\
+	& \approx 56754~\si{pc}
+	\end{align*}
+	\opg Vi bestemmer parallaksen ved 
+	\begin{align*}
+	p &= \frac{1}{d}\\
+	&=1,76\cdot 10^{-5}~^{\prime\prime}
+	\end{align*}
+	Husk her at, at $d$ skal være i pc for at få p ud i buesekunder. \\
+	\textbf{Evaluering}: GAIA vil altså godt kunne måle stjernens parallakse, i det mikro er $10^{-6}$, og vi får et resualt i $10^{-5}$. 
+	\opg Hvis udslukningen er 60$\%$ vil kun 40 $\%$ af lyset nå os. Det betyder også at 
+	\begin{align*}
+	0,40f_{faktisk} &= f_{obs}\\
+	f_{faktisk} &= \frac{f_{obs}}{0,40}
+	\end{align*}
+	Vi har nu udtrykket 
+	\begin{align*}
+	m_1-m_2 = -2,5 \log \left( \frac{f_1}{f_2} \right) 
+\end{align*}	 
+Hvor $f_1$ erstattes med med $f_{faktisk}$. 
+\begin{align*}
+m_{faktisk}-m_{obs} = -2,5 \log \left( \frac{f_{obs}}{0,40f_{obs}} \right) 
+\end{align*}
+	Det betyder
+	\begin{align*}
+	m_{faktisk} &=-2,5\log \left( \frac{1}{0,40} \right) +m_{obs} \\
+	&= 16,5
+	\end{align*}
+	En mindre magnitude betyder, at stjernen lyser klarere. \\
+	Så for at bestemme den faktisk afstand indsættes den faktiske tilsyneladende magnitude i udtrykket fra delopgave 1. 
+	\begin{align*}
+	d_{faktisk} = 35809~\si{pc}
+	\end{align*}
+	Vi udregner også parallaksen for at se om GAIA kan måle den. 
+	\begin{align*}
+	p &= \frac{1}{d}\\
+	&=2,78\cdot 10^{-5}~^{\prime\prime}
+	\end{align*}
+	Og det ser vi igen, at det kan den godt. 
+\end{opgave}
+
+\begin{opgave}{Sortlegemestråling}{1}
+  \opg Vi bestemmer $\lambda_\text{max}$ for hver af dem, og ser hvilken der med korteste bølgelængde udsender sortlegmestråling ved maksimal intensitet. 
+  \begin{align*}
+  \lambda_{\text{max}_\text{p}} &= 9993~\si{nm}\\
+  \lambda_{\text{max}_\text{s}} &= 579~\si{nm}\\
+  \lambda_{\text{max}_\text{hd}} &= 116~\si{nm}\\
+  \lambda_{\text{max}_\text{ns}} &= 2,9~\si{nm}\\
+\end{align*}  
+Neutronstjernen er altså den, der med korteste bølgelængde udsender sortelegemestråling ved maksimal intensitet.
+\opg Vi bestemmer luminositeten ved 
+ \begin{align*}
+ L = 4\pi R^2 \sigma T^4
+ \end{align*}
+ \begin{align*}
+ L_p &=1,81\cdot 10^{17}~\si{W}\\
+ L_s &=1,60\cdot 10^{26}~\si{W}\\
+ L_{hd} &=1,00\cdot 10^{25}~\si{W}\\
+ L_{ns} &=7,13\cdot 10^{25}~\si{W}\\
+ \end{align*}
+ Stjernen udsender altså sortlegmestråling med den største luminositet. 
+\end{opgave}
+
+\begin{opgave}{Det super-massive sorte hul i Mælkevejens centrum}{2}
+  \opg Til at bestemme massen af det centrale objekt isolerer vi M i følgende udtryk
+  \begin{align*}
+  P^2 &= \frac{4\pi ^2}{G\left( M+m\right)}a^3\\
+  \Rightarrow M &= \frac{a^3 4\pi ^2}{P^2G}-m\\
+  &=8,05\cdot 10^{36}~\si{kg}\\
+  &=4,05\cdot 10^6~M_\odot
+  \end{align*}
+  \opg Den korteste afstand er udfra figur 1.3, givet ved
+  \begin{align*}
+  r_p &= a\left( 1-e\right)\\
+  &= 110~\si{AU}
+  \end{align*}
+  \opg Forholdet mellem den korteste og længste afstand er 
+  \begin{align*}
+  \frac{a(1+e)}{a(1-e)} \approx 32
+  \end{align*}
+  \textbf{Evaluering}: Det vil sige, at S0-16 er påvirket 32 gange så meget af tidevandskræfterne når den befinder sig i det inderste punkt i banen i forhold til det yderste punkt i banen. 
+  \opg Objektet i midten har en meget stor masse i forhold til Solen, samtidig med at det er ret småt - Sorte huller opfylder dette i det de er meget massive, men ikke fylder så meget!
+  \textbf{Evaluering: Faktisk udstrækker Mælkevejens supermassive sorte hul kun 3 AU (altså kun tre gange afstanden fra Jorden til Solen).}
+\end{opgave}
+
+%\begin{opgave}{M87}{1}
+%	\emph{Galaksen M87 ligger i centrum af den nærmeste store galaksehob Virgohoben. Rødforskydningen af lys fra M87 og dermed fra centrum af Virgohoben er målt til $z = 0.00436$. Vi antager en Hubblekonstant på $H_0 = 70$ km/s/Mpc.}
+%	\opg 
+%	Beregn afstanden til M87. Gør rede for dine antagelser. 
+%\end{opgave}
+
+\begin{opgave}{That's no moon...}{3}
+ \opg Vi bestemmer perioden 
+ \begin{align*}
+ P^2 &= \frac{4\pi ^2}{G\left( M+m\right)}a^3\\
+ \Rightarrow P &= \sqrt{\frac{4\pi ^2}{G\left( M+m\right)}a^3}\\
+ &= 81520~\si{s}\\
+ &= 22,6~\si{timer}
+ \end{align*}
+ \opg For at kunne komme frem til udtrykket starter vi med at se på fluxen, altså det lys, som vi modtager. Fluxen er givet ved
+ \begin{align*}
+ f &= \frac{L_\odot}{4\pi d^2}\\
+ &= \frac{4\pi R_\odot^2 \sigma T_\odot^4}{4\pi d^2}\\
+ &= \left( \frac{R_\odot}{d}\right) ^2 \sigma T_\odot^4
+ \end{align*}
+ Vi ser nu på den energi som planeten absorberer. Vi antager at vi har en jævn kugle, som energien fordeles jævnt udover. Derudover skal vi have albedoen i spil, i det den fortæller os hvor meget lys, der bliver reflekteret. 
+ \begin{align*}
+ L_\text{abs} &= \pi R_{m}^2 f \left( 1-A\right) \\
+ &= \pi R_{m}^2 \left( \frac{R_\odot}{d}\right) ^2 \sigma T_\odot^4 \left( 1-A\right)\\
+ &= \frac{\pi R_m^2R_\odot^2 \sigma T_\odot^4}{d^2} \left( 1-A\right) 
+ \end{align*}
+ \opg I det Solen er en stjerne i termisk ligevægt, det betyder at der bliver udsendt lige så meget energi som der bliver absorberet. 
+ \begin{align*}
+ L_\text{uds} = 4\pi R_m^2 \sigma T_m^4
+ \end{align*}
+ \begin{align*}
+ L_\text{uds} &= L_\text{abs} \\
+ \Rightarrow 4\pi R_m^2 \sigma T_m^4 &= \frac{\pi R_m^2R_\odot^2 \sigma T_\odot^4}{d^2} \left( 1-A\right) \\
+ \Rightarrow 4T_m^4 &= \left( \frac{R_\odot}{d} \right) ^2 T_\odot^4 \left( 1-A\right) \\
+ \Rightarrow T_m^4 &= \left( \frac{R_\odot}{d} \right) ^2 \frac{\left( 1-A\right)}{4} T_\odot^4\\ 
+ \Rightarrow T_m &= \left( \frac{R_\odot}{d} \right) ^{\frac{1}{2}} \left( \frac{\left( 1-A \right) }{4} \right) ^{\frac{1}{4}} T_\odot
+ \end{align*}
+ \opg Vi bruger udtrykket, som vi lige har fundet og bestemmer temperaturen på overfladen. 
+ \begin{align*}
+ T_m \approx 40~\si{K}
+ \end{align*}
+ Vi antager at den roterer hurtigt. Det har den betydning, at vi antager at temperaturen er den samme på over det hele, der vil altså ikke være noget ''dag og nat''. Den teoretiske værdi siger 40 Kelvin og temperaturen er blevet vurderet til 65 Kelvin. Det tyder derfor på, at vores antagelse om hurtigt rotation muligvis ikke er så god. Hvis den roterer langsomt, vil det betyde at temperaturen ikke er den samme overalt, hvilket kan forklare hvorfor temperaturen er blevet vurderet til 65 Kelvin. 
+\end{opgave}
+
+%\begin{opgave}{Venus}{2}
+%  \emph{Planeten Venus er vores nærmeste nabo i solsystemet og bevæger
+%    sig ligesom Jorden i en ellipsebane omkring Solen. Baneparametre
+%    og fysiske egenskaber af Venus er:\\
+%    $a_{Venus} = 0.732$ AU\\
+%    $e_{Venus} = 0.0068$\\
+%    $T_{Venus} = 0.615$ år\\
+%    Rotationsperiode $= 243$ dage\\
+%    $A_{Venus} = 0.76$} \opg Beregn den kortest mulige og den størst
+%  mulige afstand mellem Venus og Solen.  \opg Beregn fluxen af energi
+%  fra Solen, som rammer Venus i hhv. den kortest mulige og den størst
+%  mulige afstand.  \opg Giv et overslag over temperaturen på
+%  overfladen af Venus, idet vi approximerer fluxen fra Solen med
+%  gennemsnittet af de to svar i 2) og ser bort fra drivhuseffekt.
+%  \opg At se bort fra drivhuseffekt ved overfladen af Venus er en
+%  ringe approximation, idet Venus er kendetegnet ved et tykt lag af
+%  CO$_2$, som holder temperaturen på ca. 740 K. CO$_2$-laget er
+%  gennemsigtigt for lys i det visuelle område, hvorimod det er
+%  uigennemsigtigt ved infrarøde bølgelængder. Gør rede for hvordan de
+%  oplysninger giver anledning til drivhuseffekt ved overfladen af
+%  Venus.
+%\end{opgave}
+
+\begin{opgave}{Til skræk og rædsel...}{1}
+\opg minimumsafstanden mellem Mars og Phobos er Roche-grænsen, som er givet ved
+\begin{align*}
+r_R &= 2,44 \left( \frac{\rho_M}{\rho_{Ph}} \right) ^{\frac{1}{3}} R_M\\
+&= 10534~\si{km}\\
+&= 3,1~\si{R_M}
+\end{align*}
+\opg Vi ser at Phobos rent faktisk kredser tættere på Mars end Roche-grænsen. Grunden til, at Phobos ikke bliver slået i stykker skyldes den elektromagnetiske kraft, som også forhindrer at du ikke bliver revet i stykker når du er inden for din Rochegrænse i forhold til Jorden. 
+\end{opgave}
+
+\begin{opgave}{Rejsen til Mars}{3}
+\opg Den halve storakse mellem Mars og Jorden bestemmes ved
+\begin{align*}
+a_{total}&=\frac{a_{\oplus + a_{Mars}}}{2}\\
+&=1,26~\si{AU}
+\end{align*}
+\opg Rejsetiden svarer til den halve periode af Hohmannbanen
+\begin{align*}
+P_{total} = \frac{1}{2} \left( \frac{4\pi ^2}{G\left( M_{\odot}+m\right) } a_{total}^3 \right) ^{\frac{1}{2}} 
+\end{align*}
+Da $M>>m$ ser vi bort fra $m$ og får rejsetiden til 
+\begin{align*}
+P_{total} &= \frac{1}{2} \left( \frac{4\pi ^2}{GM_{\odot} } a_{total}^3 \right) ^{\frac{1}{2}}\\
+&=1,41~\si{yr}
+\end{align*}
+\opg For at finde hastigheden af Jorden i banen bruger vi \textsl{Vis Viva} ligningen.
+\begin{align*}
+v_{Jord} &= \frac{2\pi a_{\oplus}}{P_{\oplus}} \left( 2 \frac{a_{\oplus}}{r} -1\right) ^{\frac{1}{2}}\\
+&=\frac{2\pi a_{\oplus}}{P_{\oplus}}\\
+&=29,8~\si{km} \si{s}^{-1}
+\end{align*}
+Omskrivingen sker fordi $a_{\oplus}=r$. \\
+Når vi ser på Mars har vi 
+\begin{align*}
+v_{Mars} &= \frac{2\pi a_{Mars}}{P_{Mars}} \left( 2 \frac{a_{Mars}}{r} -1\right) ^{\frac{1}{2}}\\
+&=24~\si{km} \si{s^{-1}}
+\end{align*}
+\opg For at bestemme rumskibets hastighed bruger vi igen \textsl{Vis Viva} ligningen.
+\begin{align*}
+v_{Hohmann} &= \frac{2\pi a_{total}}{P_{total}} \left( 2 \frac{a_{total}}{a_{jord}} -1\right) ^{\frac{1}{2}}\\
+&=32,9~\si{km} \si{s}^{-1}
+\end{align*}
+\opg Det er hurtigere end Jorden og rumskibets hastighed er $3,1~\si{km} \si{s}^{-1}$ hurtigere. 
+\opg Hastigheden ved ankomst til Mars er ud fra \textsl{Vis Viva} ligningen
+\begin{align*}
+v_{ap} &= \frac{2\pi a_{total}}{P_{total}} \left( 2 \frac{a_{total}}{a_{Mars}} -1\right) ^{\frac{1}{2}}\\
+&=21,7~\si{km} \si{s^{-1}}
+\end{align*}
+\opg Det er langsommere end Mars og det er $2,3~\si{km} \si{s^{-1}}$ langsommere.
+\opg Fordele: Lavt brændstofforbrug, det kræver kun to justeringer af hastighed for rumskibet.\\
+Ulemper: Det tager længere tid end et direkte kredsløb.
+\opg Rejsetiden ud i Solsystemet afhænger af $a^{\frac{3}{2}}$ ud fra Keplers 3. Lov. 
+\opg Gravity assist, Solsejl, Ormehul (Interstellar). Find selv på flere.  
+\end{opgave}
+
+%\begin{opgave}{Et særligt par}{2}
+%	\emph{Et objekt i Mælkevejen udsender sortlegemestråling med to toppe, og vi konkluderer, at objektet er en dobbeltstjerne. De to Planck-spektre topper ved hhv. $\lambda _1 = 7034$Å for stjerne 1 og $\lambda _2 = 28$Å for stjerne 2. Desuden har vi målt parallaksen af objektet til $\pi = 0.011''$. }
+%	\opg 
+%	Beregn temperaturen på overfladen af de to stjerner.
+%	\opg 
+%	Beregn afstanden til dobbeltstjernen. \\
+%	\emph{I vores teleskoper på Jorden modtager vi en samlet flux fra dobbeltstjernen på $F = 1.5\cdot 10^{-8}$W/m$^2$. Vi anslår, at stjerne 1 bidrager med 99.99pct. af den samlede flux, og stjerne 2 bidrager med 0.01pct. af den samlede flux.}
+%	\opg 
+%	Beregn radius af de to stjerner. Hvilke to typer stjerner har vi formentlig med at gøre?
+%\end{opgave}
+
+%\begin{opgave}{Hvide dværge}{1}
+%	\emph{De fleste stjerner ender deres liv som hvide dværge, som langsomt køler af over en lang tidsskala. 40 Eri B er et eksempel på en hvid dværg med en observeret overfladetemperatur på $T_{hd} = 16500$K og en anslået radius på $R_{hd} = 0.014 R_{\odot}$}
+%	\opg 
+%	Beregn luminositeten af den hvide dværg $L_{hd}$.
+%\end{opgave}
+
+\begin{opgave}{Massen af Solsystemet}{1}
+  \opg Måden hvorpå vi kan estimere den totale masse af solsystemet ud fra planeten Neptun, er ved at bruge Keplers 3. lov, hvor parameteren $M$ isoleres. Her benytter vi at $M$ er hele solsystemets masse, mens $m$ er massen af Neptun. Vi får da
+\begin{align*}
+P^2 &= \frac{4\cdot pi^2}{G(M+m)}a^3 \\
+P^2 \cdot (M+m) &= \frac{4\cdot \pi^2}{g}a^3 \\
+M+m &= \frac{4\cdot \pi^2}{G\cdot P^2}a^3 \\
+M &= \frac{4\cdot \pi^2}{G\cdot P^2}a^3 - m \\
+&= 1,98\cdot 10^{30}~\si{kg}
+\end{align*} 
+\textbf{Evaluering}: Denne værdi er næsten identisk til Solens masse. Dette er dog okay at antage, da Solen alene udgør $\approx 99,85\%$ af solsystemet. 
+\end{opgave}
+
+\begin{opgave}{Undslippelseshastighed}{1}
+ \opg Undslippelseshastigheden (Escape velocity, red.) for en rumraket der letter fra Jordens overflade må være
+  \begin{align*}
+  v_{esc} &= \left(\frac{2GM}{r}\right)^{\frac{1}{2}} \\
+  \end{align*}
+Vi bruger her, at $M = M_{\oplus}$ samt $r = r_{\oplus}$. Vi får da
+\begin{align*}
+v_{esc} &= 11,18~\si{km} \si{s}^{-1} 
+\end{align*}
+  
+\textbf{Evaluering}: Hvis vi altså antager, at Jorden er en sfærisk uniform massefordeling, vil det kræve at rumraketten flyver $11,18~\si{km} \si{s}^{-1}$ for at undslippe Jordens tyngdefelt. 
+\opg Hvis vi nu antager at rumraketten flyver ud af solsystemet fra Jordens bane vil det kræve en undslippelseshastighed på
+\begin{align*}
+ v_{esc} &= \left(\frac{2GM}{r}\right)^{\frac{1}{2}} \\
+ &= 42,11~\si{km} \si{s}^{-1} 
+\end{align*}
+
+\textbf{Evaluering}: Vi har i denne opgave antaget at al massen er i Solens centrum, hvilket gør at vi skal have en større hastighed for at undslippe solsystemet. 
+\end{opgave}
+
+\begin{opgave}{En tur i et sort hul}{3}
+\opg Vi sætter $v_{esc} = c$ og isolerer $r$
+\begin{align*}
+r_{sch} = \frac{2GM}{c^2}
+\end{align*}
+For at finde udtrykket givet i opgaven indsættes enhederne for alle parametre bortset fra massen $M$, og derefter udregnes det. Når enhederne indsættes for Gravitationskonstanten, Newton og hastighed får vi $\frac{\si{m}}{\si{kg}}$ tilbage. Vi ved, at massen M har enheden kg, så når den indsættes vil vi kun have enheden meter tilbage. Vi kender en passende konstant med enheden kg, nemlig Solens masse, og derfor kan vi omkskrive udtrykket for Schwarzschild radius til en længdekonstant gange massen M i solmasser. Når vi gerne vil komme frem til resultatet i opgaven, ser vi i første omgang bort fra $M$ og regner konstanten ud. 
+\begin{align*}
+r_{sch} &= \frac{2GM}{c^2}\\
+&=1,485\cdot 10^{-27} M\\
+&= \frac{2954~\si{m}}{M_{\odot}}M\\
+&\approx 3~\si{km} \frac{M}{M_{\odot}}
+\end{align*}
+\opg Vi sætter 1 solmasse ind og ser, at det bliver $3$ km. 
+\opg Vi antager at det sorte hul lavet ud af Solen er en uniform kugle, og vi kan derfor bestemme densiteten ved først at regne volumen af en kugle. Vi bruger Solens Schwarzschild radius. 
+\begin{align*}
+V &= \frac{4}{3} \pi r_{sch}^3\\
+&=1,13\cdot 10^{11}~\si{m}^{-3}\\
+\rho &= \frac{M_{\odot}}{V} \\
+&=1,758 \cdot 10^{19}~\si{kg}\si{m}^{-3}
+\end{align*}
+\opg Densiteten af det super massive sorte hul bestemmes ud fra samme formel som forrige, men i stedet bruges radius for det sorte hul, som bestemmes ved 
+\begin{align*}
+r_{sch} &= 3~\si{km} \frac{M_{\bullet}}{M_{\odot}}\\
+&=1,24\cdot 10^{10}~\si{m}
+\end{align*}
+Vi kan nu bestemme volumen og densitet
+\begin{align*}
+V &= \frac{4}{3} \pi r_{sch}^3\\
+&=8,00 \cdot 10^{30}~\si{m}^{-3}\\
+\rho &= \frac{M_{\bullet}}{V}
+&=1,04 \cdot 10^{6}~\si{kg}\si{m}^{-3}
+\end{align*}
+\textbf{Evaluering}: Det vil altså sige, at jo større masse det sorte hul har, des mindre densitet har det. 
+\opg Vi isolerer $r^3$ i det givne udtryk, og tager den 3. rod. 
+\begin{align*}
+r_{rip} = \left( \frac{GMml}{F_{rip}}\right) ^{\frac{1}{3}}
+\end{align*}
+På samme måde som i delopgave 1 indsættes talværdier og vi får
+\begin{align*}
+r_{rip} \approx 480~\si{km} \left( \frac{M}{M_{\odot}}\right) ^{\frac{1}{3}}
+\end{align*}
+\opg Nej man kan ikke overleve der, da man bliver revet i stykker af de voldsomme tidevandskræfter. Jo større masse, des mindre tidevandskræfter, da $\Delta F$ godt nok afhænger af $M$ men også af $r^{-3}$ (som vokser tilsvarende til $M$). Derfor bliver $\Delta F$ mindre for tungere sorte huller. Det betyder så også, at der går længere tid før man bliver revet i stykker. Ønsker du derfor en hurtigere død skal du derfor hoppe i et knapt så tungt sort hul, da du vil blive revet hurtigt i stykker og ikke når at lide så meget. \\
+De to radier $r_{rip}$ og $r_{sch}$ sammenlignes
+\begin{align*}
+\frac{r_{rip}}{r_{sch}} \approx 160 \left( \frac{M}{M_{\odot}}\right) ^{-\frac{2}{3}}
+\end{align*}
+Det vil sige når det sorte hul er tungere end 2000 solmasser overlever man at krydse begivenhedshorisonten. 
+\end{opgave}
+
+\begin{opgave}{Saturns måner}{2}
+\opg Fokuspunktet i denne opgave er at se på Saturn og en af dets måner, Fornjot. Der bedes ud fra oplysninger regnet den halve storeakse, $a$ for Fornjot omkring Saturn. Her bruges Keplers 3. lov, hvor et udtryk for $a$ isoleres samt værdi beregnes.
+\begin{align*}
+P^2 &= \frac{4\cdot \pi^2}{G(M+m)}a^3 \\
+\frac{P^2 G (M+m)}{4\cdot \pi^2} &= a^3 \\
+\sqrt[3]{\frac{P^2 G (M+m)}{4\cdot \pi^2}} &= a \\
+a_F &= 0,16~\si{AU} \\
+\end{align*} 
+
+\textbf{Evaluering}: Det ses altså at månen Fornjot har en halv storakse på $0,16~\si{AU}$, hvilket er et pænt resultat taget den planet den kredser oms størrelse.
+\opg Der findes en maksimal og tilsvarende minimal baneradius for at være i en stabil bane. Dette kaldes Roche- og Hillradius. Der findes en maksimal baneradius pga. tyngdepåvirkingen fra Solen. Hill radius er den maksimale og for Fornjot er Hill radius
+\begin{align*}
+r_H &= \left(\frac{M_S}{2M_{\odot}}\right)^{\frac{1}{3}}\cdot a_S \\
+&= 0,49~\si{AU}
+\end{align*}
+\opg Vi ser om den på noget tidspunkt vil komme længere ud end Hill radius. Den maksimale afstand er apoapsis, som er givet ved
+\begin{align*}
+r_a &= a_F\left( a_F+e\right) \\
+&= 0.20~\si{AU}
+\end{align*} 
+\textbf{Evaluering}: Vi ser at apoapsis er mindre end Hill radiussen, så det vil sige at Fornjot aldrig kommer længere ud end Hill radius.
+\end{opgave}
+
+%\begin{opgave}{Jordens rotation}{2}
+%	\emph{Jordens rotationshastighed er ikke helt konstant, idet rotationen gradvist bliver langsommere med en rate på 0.0016 s/århundrede. }
+%	\opg
+%	Gør rede for hvorfor Jordens rotationshastighed bliver gradvist langsommere. 
+%\end{opgave}
+
+
+%\begin{opgave}{De gallileiske måner}{2}
+%	\emph{For Jupiters tre måner Io, Europa og Ganymedes gælder følgende sammenhæng mellem deres baneperioder 
+%	\begin{align}
+%	4P_{Io} = 2P_{Europa} = P_{Ganymedes}
+%	\end{align}
+%	Masserne af de tre måner samt Jupiter er 
+%	\begin{align}
+%	M_{Io} = 8.93\cdot 10^{22} kg \\
+%	M_{Europa} = 4.75\cdot 10^{22} kg \\
+%	M_{Ganymedes} = 1.48\cdot 10^{23} kg \\
+%	M_{Jupiter} = 1.90\cdot 10^{27} kg 
+%	\end{align}
+%	Den halve storakse af banen af Io omkring Jupiter er bestemt til 
+%	\begin{align}
+%	a_{Io} = 4.22\cdot 10^5 km
+%	\end{align}
+%	}
+%	\opg 
+%	Bestem baneperioderne af de tre måner. 
+%	\opg 
+%	Bestem den halve storakse af banerne af Europa og Ganymedes. \\
+%	\emph{Banerne af de tre måner ligger i Solsystemets plan og kan antages for at være cirkulære. Radierne af de tre måner oplyses til 
+%	\begin{align}
+%	R_{Io} = 1820 km\\
+%	R_{Europa} = 1565 km\\
+%	R_{Ganymedes} = 2634 km
+%	\end{align}
+%	}
+%	\opg 
+%	Månen Io er præget af ekstrem vulkansk aktivitet på overfladen, hvorimod vi ikke ser tegn på vulkansk aktivitet på overfladen af de to andre måner. Forklar ud fra oplysninger og resultater i opgaven det kan skyldes. 
+%\end{opgave}
+
+\begin{opgave}{Bortløbne stjerner}{3}
+\opg Vi bruger de tre oplysninger samt formlen. 
+\begin{align*}
+v_{pe} = \left( \frac{GM}{a} \frac{1+e}{1-e} \right) ^{\frac{1}{2}}
+\end{align*}
+Men i det $e=0$ og $r_2=\frac{r_1m_1}{m_2}$ får vi følgende:
+\begin{align*}
+v_{pe} &= \left( \frac{GM}{a} \right) ^{\frac{1}{2}}\\
+&=\left( \frac{Gm_2}{r_1+r_2} \right) ^{\frac{1}{2}}\\
+&=\left( \frac{Gm_2}{r_1+\frac{r_1m_1}{m_2}} \right) ^{\frac{1}{2}}\\
+\end{align*}
+Vi indser at $r_1$ er lig den halve storakse i det bineære system. 
+\begin{align*}
+v_{pe} &=\left( \frac{Gm_2}{a_{bin}+\frac{a_{bin}m_1}{m_2}} \right) ^{\frac{1}{2}}\\
+&=\left( \frac{Gm_2}{a_{bin}\left( 1+ \frac{m_1}{m_2}\right) } \right) ^{\frac{1}{2}}\\
+&=\left( \frac{Gm_2^2}{a_{bin}\left( m_2+ m_1\right) } \right) ^{\frac{1}{2}}\\
+&= \left( \frac{Gm_2^2\left( m_2+m_1\right)}{a_{bin}\left( m_2+m_1\right)^2} \right) ^{\frac{1}{2}}\\
+&= \left( \frac{G\left( m_2+m_1\right)}{a_{bin}}\right) ^{\frac{1}{2}} \left( \frac{m_2}{\left( m_2+m_1\right)} \right) 
+\end{align*}
+\end{opgave}
+
+\begin{opgave}{Supernovaer}{3}
+\opg SN2014J har distance-modulus $\mu=27,7$. Afstanden findes ud fra:
+\begin{align*}
+\mu &= m - M = 5\log\left( \frac{d_L}{\text{pc}} \right) - 5 \\
+\Downarrow & \\
+d_L &= 10^{\frac{\mu + 5}{5}} \\
+&=  3,46 \cdot 10^6~\si{pc}
+\end{align*}
+\opg Generelt kan vi om den absolutte magnitude og luminositet skrive
+\begin{equation}
+M = -2,5 \log (L) + \text{konstant}
+\end{equation}
+
+Den absolutte magnitude minus Solens magnitude kan skrives som:
+\begin{align*}
+M - M_\odot &= -2,5\log (L) + \text{konstant} - (-2,5\log (L_\odot) + \text{konstant}) \\
+&=-2,5 \left( \log{L} - \log(L_\odot \right) \\
+&= -2,5 \log \left( \frac{L}{L_\odot} \right) \\
+\Downarrow & \\
+M = -2,5 \log \left( \frac{L}{L_\odot} \right) + M_\odot
+\end{align*}
+og det ønskede er vist.
+\opg $L$ isoleres i ovenstående:
+\begin{align*}
+L = 10^{-0,4(M-M_\odot)} L_\odot
+\end{align*}
+\opg SN2014J er observeret med en tilsyneladende magnitude på 11 mag.  Dette giver absolut magnitude på $M = m - \mu = -16,7$. 
+Solens absolutte magnitude er 4,74 . Dette giver en luminositet på:
+\begin{align*}
+L &= 10^{-0,4(-16,7-4,74)} L_\odot \\
+&= 3,77 \cdot 10^8  L_\odot
+\end{align*} 
+\textbf{Evaluering: dette er virkelig lysstærkt!}
+\end{opgave}
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End: 

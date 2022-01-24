@@ -1,0 +1,241 @@
+% \section{Regler for Feynman-diagrammer}
+% \noindent \emph{Supplement til PN kapitel 4.4}
+%
+Feynmandiagrammerne er symbolske repræsentationer af processer (henfald eller reaktioner) -- de eneste vigtige aspekter er
+\begin{itemize}
+    \item Hvordan diagrammet er forbundet. \\
+    \item At linjerne deles op i partikler, der går ind i processen, partikler, som kommer ud fra processen, og virtuelle partikler.  Dog skal man klart kunne se om fermionlinjer går til højre eller
+venstre, med en klart markeret pil på dem.
+\end{itemize}
+%
+Linjer, som derved går fra et knudepunkt til et andet, repræsenterer virtuelle partikler. Partikler, der ikke deltager i processen, optræder blot som gennemgående linjer. De basale former for knudepunkterne er givet i figur \ref{fig:vertex}. Symbolerne $\ell$, $\nu_{\ell}$ og $q$ står for henholdsvis en ladet lepton (e, $\mu$ eller $\tau$), en neutrino ($\nu_\mathrm{e}$, $\nu_{\mu}$ og $\nu_{\tau}$) og en quark (d, u, s, c, b eller t). Bemærk at W-koblingerne til kvarker involverer d' i stedet for d osv., som betyder at koblingen sker fortrinsvist til, i dette tilfælde, nedkvarken, men at der også kobles til andre kvarker med samme ladning. Koblinger af kvarker fra forskellige generationer er tilladte, men de er undertrykte -- det vil sige at sandsynligheden for at reaktionen, i det knudepunkt, sker er lille.  Kun i knudepunkter hvor W$^-$ eller W$^+$ indgår, kan der ``laves om på'' partikeltypen. Bemærk specielt at da u- og d-kvarker har lille masse vil u$\bar{\mathrm{u}}$- og d$\bar{\mathrm d}$-par kunne dannes af lavenergi gluoner; det er
+derfor ``gratis'' at introducere sådanne par i et diagram.  For de andre vekselvirkninger gælder at jo færre knudepunkter, og dermed virtuelle partikler, desto mere sandsynlig er processen. \\
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+		\begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{$l$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$l$};
+		    \draw[photon] (0,0) -- (-60:1)node[anchor = north west]{$\gamma$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+		%
+        \hspace{2cm}
+        %
+		\begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{$q$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$q$};
+		    \draw[photon] (0,0) -- (-60:1)node[anchor = north west]{$\gamma$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        \caption{Elektromagnetiske vekselvirkninger.}
+        \label{fig:Feynman_el}
+    \end{subfigure}
+    %
+    \begin{subfigure}{\textwidth}
+        \centering
+        %
+        \begin{tikzpicture}
+	    	\draw[fermion] (180:1) node[anchor = east]{$q$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$q$};
+		    \draw[gluon] (0,0) -- (-60:1)node[anchor = north west]{$g$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        %
+        \hspace{3cm}
+        %
+        \begin{tikzpicture}
+		    \draw[gluon] (180:1) node[anchor = east]{$g$} -- (0,0);
+		    \draw[gluon] (0,0) -- (60:1)node[anchor = south west]{g};
+		    \draw[gluon] (0,0) -- (-60:1)node[anchor = north west]{g};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        %
+        \hspace{3cm}
+        %
+        \begin{tikzpicture}
+            \draw[gluon] (0,0) -- (45:1)node[anchor = south west]{g};
+            \draw[gluon] (0,0) -- (-45:1)node[anchor = north west]{g};
+            \draw[gluon] (0,0) -- (135:1)node[anchor = south east]{g};
+            \draw[gluon] (0,0) -- (-135:1)node[anchor = north east]{g};
+            \vertex{0,0};
+        \end{tikzpicture}
+        
+        \caption{Stærke vekselvirkninger.}
+        \label{fig:Feynman_strong}
+    \end{subfigure}
+    %
+    \begin{subfigure}{\textwidth}
+        \centering
+        \begin{tikzpicture}
+		    \draw[fermion] (0,0) -- (60:1) node[anchor = south west]{$\nu_\mathrm{e}$};
+		    \draw[fermion] (180:1)node[anchor = east]{e$^-$} -- (0,0);
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+		%
+        \hspace{3cm}
+        %
+        \begin{tikzpicture}
+		    \draw[fermion] (0,0) -- (60:1) node[anchor = south west]{$\nu_\mu$};
+		    \draw[fermion] (180:1)node[anchor = east]{$\mu^-$} -- (0,0);
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        %
+        \hspace{3cm}
+        %
+        \begin{tikzpicture}
+		    \draw[fermion] (0,0) -- (60:1) node[anchor = south west]{$\nu_\tau$};
+		    \draw[fermion] (180:1)node[anchor = east]{$\tau^-$} -- (0,0);
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        \caption{Svage vekselvirkninger med leptoner.}
+        \label{fig:Feynman_svag_lepton}
+    \end{subfigure}
+    %
+    \begin{subfigure}{\textwidth}
+        \centering
+        \begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{d$'$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{u};
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+		%
+		\hspace{3cm}
+		%
+		\begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{s'} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{c};
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+		%
+		\hspace{3cm}
+		%
+		\begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{b'} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{t};
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        \caption{Svage vekselvirkninger med kvarker.}
+        \label{fig:Feynman_svag_kvark}
+    \end{subfigure}
+    %
+    \begin{subfigure}{\textwidth}
+        \centering
+        \begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{$l$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$l$};
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{Z$^0$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+		%
+		\hspace{3cm}
+		%
+		\begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{$q$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$q$};
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{Z$^0$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+		%
+		\hspace{3cm}
+		%
+		\begin{tikzpicture}
+		    \draw[fermion] (180:1) node[anchor = east]{$\nu_l$} -- (0,0);
+		    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$\nu_l$};
+		    \draw[boson] (0,0) -- (-60:1)node[anchor = north west]{Z$^0$};
+		    \vertex{0,0};
+		\end{tikzpicture}
+        \caption{Elektrisk neutrale svage vekselvirkninger.}
+        \label{fig:Feynman_svag_neutral}
+    \end{subfigure}
+    \caption{De basale knudepunkter for (a) den elektromagnetiske vekselvirkning, (b) den stærke vekselvirkning, (c-e) den svage vekselvirkning. Symbolerne $\ell$, $\nu_{\ell}$ og $q$ står for henholdsvis en ladet lepton (e, $\mu$ eller $\tau$), en neutrino ($\nu_\mathrm{e}$, $\nu_{\mu}$ og $\nu_{\tau}$) og en quark (d, u, s, c, b eller t).}
+    \label{fig:vertex}
+\end{figure}
+
+Der er en frihed i alle knudepunkter i og med at de frit kan roteres, så længe en partikel ombyttes med dens antipartikel, hvis den krydser den imaginære lodrette linje gennem knudepunktet. Figurene \ref{fig:vertex_rot_el} og \ref{fig:vertex_rot_svag} giver nogle eksempler på hvordan man, ud fra de basale knudepunkter, kan finde andre tilladte former for knudepunkter. Yderligere er det også tilladt at skifte fortegn på samtlige partiklers ladning, både elektrisk og farve, i samme Feynmandiagram. % Der er to regler for omformning af et knudepunkt til et andet tilladt knudepunkt: for det f{\o}rste kan man skifte \emph{alle} partikler til antipartikler (og omvendt) i et knudepunkt.  For det andet kan \emph{en} indg{\aa}ende partikel erstattes med en udg{\aa}ende antipartikel (eller de naturlige variationer heraf: en indg{\aa}ende antipartikel erstattes med en udg{\aa}ende partikel, en udg{\aa}ende partikel erstattes med en indg{\aa}ende antipartikel, eller en udg{\aa}ende antipartikel erstattes med en indg{\aa}ende partikel --- en ind/udg{\aa}ende W$^-$ erstattes af en ud/indg{\aa}ende W$^+$, mens fotonen, gluoner og Z$^0$ alle er deres egen antipartikel).
+%
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[fermion] (180:1) node[anchor = east]{e$^-$} -- (0,0);
+		\draw[fermion] (0,0) -- (60:1)node[anchor = south west]{e$^-$};
+		\draw[photon] (0,0) -- (-60:1)node[anchor = north west]{$\gamma$};
+		\vertex{0,0};
+    \end{tikzpicture}
+	%
+	\hspace{1cm}
+	%
+	\begin{tikzpicture}
+		\draw[fermion] (120:1) node[anchor = south east]{e$^-$} -- (0,0);
+		\draw[fermion] (0,0) -- (0:1)node[anchor = west]{e$^-$};
+		\draw[photon] (0,0) -- (-120:1)node[anchor = north east]{$\gamma$};
+		\vertex{0,0};
+	\end{tikzpicture}
+	%
+	\hspace{1cm}
+	%
+	\begin{tikzpicture}
+	    \draw[photon] (180:1) node[anchor = east]{$\gamma$} -- (0,0);
+	    \draw[fermion] (0,0) -- (60:1)node[anchor = south west]{e$^-$};
+	    \draw[fermion] (-60:1) node[anchor = north west]{e$^+$} -- (0,0);
+	    \vertex{0,0};
+	\end{tikzpicture}
+	%
+	\hspace{1cm}
+	%
+	\begin{tikzpicture}
+		\draw[fermion] (180:1) node[anchor = east]{e$^+$} -- (0,0);
+		\draw[photon] (0,0) -- (60:1)node[anchor = south west]{$\gamma$};
+		\draw[fermion] (-60:1) node[anchor = north west]{e$^+$} -- (0,0);
+		\vertex{0,0};
+	\end{tikzpicture}
+    \caption{Eksempel på hvordan det samme basale (elektromagnetiske) knudepunkt kan omformes udfra de to regler nævnt i teksten.}
+    \label{fig:vertex_rot_el}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+		\draw[fermion] (180:1) node[anchor = east]{e$^-$} -- (0,0);
+		\draw[fermion] (0,0) -- (60:1)node[anchor = south west]{$\nu_\mathrm{e}$};
+		\draw[boson] (0,0) -- (-60:1)node[anchor = north west]{W$^-$};
+		\vertex{0,0};
+	\end{tikzpicture}
+	%
+	\hspace{1cm}
+	%
+	\begin{tikzpicture}
+		\draw[fermion] (120:1) node[anchor = south east]{e$^-$} -- (0,0);
+		\draw[fermion] (0,0) -- (0:1)node[anchor = west]{$\nu_\mathrm{e}$};
+		\draw[boson] (0,0) -- (-120:1)node[anchor = north east]{W$^+$};
+		\vertex{0,0};
+	\end{tikzpicture}
+	%
+	\hspace{1cm}
+	%
+	\begin{tikzpicture}
+		\draw[boson] (180:1) node[anchor = east]{W$^-$} -- (0,0);
+		\draw[fermion] (0,0) -- (60:1)node[anchor = south west]{e$^-$};
+		\draw[fermion] (-60:1) node[anchor = north west]{$\bar{\nu}_e$} -- (0,0);
+		\vertex{0,0};
+	\end{tikzpicture}
+	%
+	\hspace{1cm}
+	%
+	\begin{tikzpicture}
+		\draw[fermion] (180:1) node[anchor = east]{e$^+$} -- (0,0);
+		\draw[boson] (0,0) -- (60:1)node[anchor = south west]{W$^+$};
+		\draw[fermion] (-60:1) node[anchor = north west]{$\bar{\nu}_e$} -- (0,0);
+		\vertex{0,0};
+	\end{tikzpicture}
+    \caption{Eksempel på hvordan det samme basale (svage) knudepunkt kan omformes udfra de to regler nævnt i teksten.}
+    \label{fig:vertex_rot_svag}
+\end{figure}

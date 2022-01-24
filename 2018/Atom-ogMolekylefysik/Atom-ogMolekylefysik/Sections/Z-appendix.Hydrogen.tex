@@ -1,0 +1,270 @@
+\documentclass[../../Atom-ogMolekylefysik.tex]{subfiles}
+\begin{document}
+\subsection*{Brintatomet}
+Med de ting vi har set på indtil videre, er vi nu faktisk i stand til at løse hydrogenatomet i tre dimensioner. For at gøre det skal vi først opsætte Schrödingerligningen i dette tilfælde. [NOTE!: Dette afsnit er kun for show, hvis man ikke er glad for matematik kan dette afsnit springes over, men hvis du gerne vil se hvordan løsningerne til hydrogenatomet udledes, så kan dette afsnit være rimelig interessant].\\
+For at vi kan blive i stand til at vælge hvilken opsætning, vi skal bruge, bliver vi nød til at analysere systemet. Brintatomet er dog et relativt nemt system at analysere, for her har vi jo kun en positivt ladet proton og en negativt ladet elektron. Da protonen er 2000 gange tungere end elektronen vil protonen bevæge sig meget mindre end elektronen. Vi skal derfor lave vores første approksimation i dette kursus, nemlig at vi ser protonen, som en stationær partikel, der ikke rykker sig. Man kan argumentere for dette ved at betragte en bordtennisbold og en bowlingkugle. Hvis man giver bordtennisbolden et smølfespark, vil man se, at bolden begynder at flyve væk med høj hastighed. Hvis man derimod giver bowlingkuglen et smølfespark, vil den nok ikke rykke sig, og man vil få ondt i fingeren. Så da de to partikler bliver udsat for samme kraft, vil elektronen bevæge sig så meget at protonen vil se ud som om den ligger stille i forhold til denne.\\
+Det næste vi skal gøre er at bestemme hvordan vores potentiale ser ud. Dette er egentlig ret simpelt, for man bruger nemlig ikke tyngdekraften i kvantemekanik, så den eneste kraft, der er mellem elektronen og protonen er den elektriske kraft. Denne skal dog udtrykkes i termer af dens potentiale og vi får derfor at potentialet bliver:
+\begin{equation*}
+    V(x,y,z)=\frac{1}{4\pi\epsilon_{0}}\frac{q_{1}q_{2}}{\sqrt{x^2+y^2+z^2}}
+\end{equation*}
+Nu skal vi så tænke os om, for lige nu er vores potentiale defineret ud fra de kartesiske koordinater. Vi kan dog ret hurtigt indse at det er muligt at opskrive potentialet på en langt pænere måde. Det er nemlig sådan at hvis vi har et todimensionelt system, så får vi at afstanden til et vilkårligt punkt i koordinatsystemet fra origo er $r=\sqrt{x^2+y^2}$, hvilket bare er formlen for en retvinklet trekant. I tre dimensioner er det så sådan at afstanden til et vilkårligt punkt kan skrives som $r=\sqrt{x^2+y^2+z^2}$. Ud fra dette kan vi se at vi i stedet for at beskrive vores potentiale ved hjælp af x,y,z kan vi i stedet beskrive det ved hjælp af $r$. I brintatomet er de to ladninger $e$ for atomkernen og $-e$ for elektronen. $e$ er elementarladningen. Det giver potentialet:
+\begin{equation*}
+    V(r)=\frac{1}{4\pi\epsilon_{0}}\frac{-e^2}{r}
+\end{equation*}
+Vi har dermed valgt at vi vil beskæftige os med sfæriske koordinater, da afstanden i sfæriske koordinater jo bare er r, hvilket fortæller os at den udgave af Hamiltonoperatoren, vi skal bruge, er den sfæriske udgave, og vi får derfor at Schrödingerligningen for brintatomet ser ud på følgende måde:
+\begin{equation}
+    \left(\frac{-\hbar^2}{2m}\left(\frac{1}{r^2}\pdif{r}{}\left(r^2\pdif{r}{}\right)+\frac{1}{r^2\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{}\right)+\frac{1}{r^2\sin^2\theta}\pdif[2]{\phi}{}\right)-\frac{1}{4\pi\epsilon_{0}}\frac{e^2}{r}\right)\psi=E\psi
+\end{equation}
+Her er vores bølgefunktion så en funktion af 3 variable $r,\theta$ og $\phi$ så $\psi=\psi(r,\theta,\phi)$. Vi ser derefter på løsninger, hvor vi kan antage seperation af variable, hvilket vi skriver som $\psi(r,\theta,\phi)=R(r)Y(\theta,\phi)$, og vi får derfor Schrödingerligningen til at se ud på følgende form:
+\begin{equation}
+    \left(\frac{-\hbar^2}{2m}\left(\pdif{r}{}\left(r^2\pdif{r}{}\right)+\frac{1}{\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{}\right)+\frac{1}{\sin^2\theta}\pdif[2]{\phi}{}\right)-\frac{1}{4\pi\epsilon_{0}}e^2r\right)RY=r^{2}ERY
+\end{equation}
+Vi samler så alle r variable på højre side og lader variablene $\theta,\phi$ stående på venstre side, hvilket giver:
+\begin{equation}
+    \frac{-\hbar^2}{2m}\left(\frac{1}{\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{}\right)+\frac{1}{\sin^2\theta}\pdif[2]{\phi}{}\right)RY=r^{2}ERY+\frac{\hbar^2}{2m}\pdif{r}{}\left(r^2\pdif{r}{}\right)RY+\frac{1}{4\pi\epsilon_{0}}e^2rRY
+\end{equation}
+Vi dividerer så med $RY$ på begge sider og får:
+\begin{equation}
+    -\left(\frac{1}{\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{Y}\right)+\frac{1}{\sin^2\theta}\pdif[2]{\phi}{Y}\right)\frac{1}{Y}=\frac{2m}{\hbar^2}r^{2}E+\frac{1}{R}\pdif{r}{}\left(r^2\pdif{r}{R}\right)+\frac{2m}{\hbar^2}\frac{1}{4\pi\epsilon_{0}}e^2r
+\end{equation}
+Vi kan nu bruge samme argument, som da vi udledte den tidsuafhængige Schrödingerligning i en dimension, nemlig at siden højre side kun afhænger af r og venstre side kun afhænger af $\theta$ og $\phi$, og da disse altid skal være ens, må vi til alle værdier af de variable, betyder dette at de begge må være lig med den samme konstant, som vi kalder $l(l+1)$, og vi får derfor:
+\begin{equation}
+    -\left(\frac{1}{\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{Y}\right)+\frac{1}{\sin^2\theta}\pdif[2]{\phi}{Y}\right)\frac{1}{Y}=\frac{2m}{\hbar^2}r^{2}E+\frac{1}{R}\pdif{r}{}\left(r^2\pdif{r}{R}\right)+\frac{2m}{\hbar^2}\frac{1}{4\pi\epsilon_{0}}e^2r=l(l+1)
+\end{equation}
+Dette leder frem til at vi nu har to ligninger vi skal løse, og disse er:
+\begin{equation}
+    \frac{2m}{\hbar^2}r^{2}ER+\pdif{r}{}\left(r^2\pdif{r}{R}\right)+\frac{2m}{\hbar^2}\frac{1}{4\pi\epsilon_{0}}e^2rR-l(l+1)R=0
+    \label{eq:amo:radial}
+\end{equation}
+\begin{equation}
+    \left(\frac{1}{\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{Y}\right)+\frac{1}{\sin^2\theta}\pdif[2]{\phi}{Y}\right)+l(l+1)Y=0
+\end{equation}
+Hvor man kalder den øverste for den radielle ligning og den nederste for den angulære ligning. Vi vil her starte med at løse den angulære ligning.
+\subsubsection*{Den angulære ligning}
+I den angulære ligning har vi funktionen $Y(\theta,\phi)$ som er en funktion af to variable. For at løse denne ligning vil vi igen benytte os af vores ynglings matematik, seperation af variable. Vi antager der, at $Y(\theta,\phi)$ er en funktion af to andre variable nemlig $Y(\theta,\phi)=\Theta(\theta)\Phi(\phi)$ Dette giver os\footnote{Bemærk at m er et kvantetal, og {\em ikke} massen}:
+\begin{align*}
+    \left(\frac{\Phi}{\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{\Theta}\right)+\frac{\Theta}{\sin^2\theta}\pdif[2]{\phi}{\Phi}\right)+l(l+1)\Theta\Phi=0\\
+\frac{\sin{\theta}}{\Theta}\pdif{\theta}{}\left(\sin{\theta\pdif{\theta}{\Theta}}\right)+l(l+1)\sin^2\theta=-\frac{1}{\Phi}\pdif[2]{\phi}{\Phi}=m^2
+\end{align*}
+og vi får derfor igen to ligninger vi skal løse, hvilket er:
+\begin{align*}
+    \pdif[2]{\phi}{\Phi}&=-m^2\Phi\\
+    \sin{\theta}\pdif{\theta}{}\left(\sin{\theta\pdif{\theta}{\Theta}}\right)+l(&l+1)\sin^2\theta=m^2\Theta
+\end{align*}
+Den første ligning er ret nem at løse, da vi bare kan se at et løsningen bliver et komplekst eksponentiale:
+\begin{equation}
+    \Phi=e^{im\phi}
+\end{equation}
+Her skal vi dog begynde at tænke os om. For variablen $\phi$ beskriver nemlig elektronens rotation omkring z aksen, og der gælder derfor det, at hvis vores har en eller anden partikel og den roterer $2\pi$ rundt om z aksen, så må vi komme tilbage til der hvor vi startede. Vi kan derfor lægge nogle randbetingelser ind på vores $\Phi$ funktion, der siger at når vi lægger $2\pi$ til $\phi$, så bliver funktionen lig det den startede med at være, hvilket giver os:
+\begin{align*}
+    \Phi(\phi)&=\Phi(\phi+2\pi)\iff\\
+    e^{im\phi}&=e^{im(\phi+2\pi)}\iff\\
+    e^{im\phi}&=e^{im\phi}e^{im2\pi}
+\end{align*}
+for at denne ligning går op må vi derfor kræve at:
+\begin{equation*}
+    e^{im2\pi}=1
+\end{equation*}
+hvilket kun er tilfældet når m er et helt tal. Altså kan vi nu bestemme værdien af m til at være:
+\begin{equation}
+    m=0, \pm1, \pm2, \pm3... 
+\end{equation}
+Egentlig burde vi også have en konstant ganget på vores eksponentialfunktion, men denne kan vi bare absorbere ind i vores løsning til funktionen $\Theta$.\\
+Den anden ligning er lidt mere irriterende at løse, og vi vil derfor ikke gøre det her. Løsningen til denne er nemlig givet ved:
+\begin{equation}
+    \Theta(\theta)=AP_{l}^{m}(\cos\theta)
+\end{equation}
+hvor $P_{l}^{m}(x)$ funktionerne er de såkaldte associerede Legendre funktioner, som er et sæt af specielle funktioner, og A er bare en konstant. Disse specielle funktioner er givet ved:
+%$$
+%P_l^\abs{m}(x) = (1-x^2)^{\abs{m}/2}\left(\dif{x}{}\right)^\abs{m}P_l^0(x)
+%$$
+Dette er ikke synderligt pænt. En håndfuld af de første polynomier der indgår i løsningerne kan findes i tabel \ref{tab:AMO:legendre}.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+        $P_0^0 = 1$ & $P_2^0 = \frac{1}{2}(3\cos^2 \theta-1)$ \\
+        $P_1^1 = \sin\theta$ & $P_2^0 = 15\sin\theta (1-\cos^2\theta)$ \\
+        $P_1^0 = \cos \theta$ & $P_2^0 = 15\sin^2\theta \cos\theta$ \\
+        $P_2^2 = 3\sin^2 \theta$ & $P_2^0 = \frac{3}{2}\sin\theta(5\cos^2\theta-1)$ \\
+        $P_0^0 = 3\cos \theta\sin\theta$ & $P_2^0 = \frac{1}{2}(5\cos^3\theta-3\cos\theta)$ \\
+    \end{tabular}
+    \caption{Nogle at de laveste Legendre polynomier $P_l^m(\cos \theta)$.}
+    \label{tab:AMO:legendre}
+\end{table}
+Vi ønsker at den endelige bølgefunktion er normaliseret. Den letteste måde at gøre dette på er at normalisere de separerede funktioner enkeltvist. Dette er især en fordel, da de angulære funktioner ikke afhænger af $V$ vil de optræde en del andre steder, f.eks molekylære rotationer eller i atomkerner.
+$$
+\integral{\integral{\integral{\abs{\psi}^2r^2\sin\theta}{r}{0}{\infty}}{\theta}{0}{\pi}}{\phi}{0}{2\pi}=\integral{\abs{R}^2r^2}{r}{0}{\infty}\integral{\integral{\abs{Y}^2\sin\theta}{\theta}{0}{\pi}}{\phi}{0}{2\pi}=1\cdot 1 = 1
+$$
+Normeringskonstanten findes ved at løse et integral for den generelle løsning, hvilket ikke er helt trivielt. Det giver dog at den normerede løsning er:
+\begin{equation}
+Y_l^m(\theta,\phi)=\epsilon\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-\abs{m})!}{(l+\abs{m})!}}e^{im\phi}P_l^m(\cos\theta)
+\end{equation}
+Her er $\epsilon=-1$ for ulige negative $m$ og $1$ ellers.
+Det er værd at nævne at, lige som de løsninger vi fandt i kvantemekanik kapitlet er ortonormale.
+$$
+\integral{\integral{(Y_{l_1}^{m_1})^*Y_{l_2}^{m_2}\sin\theta}{\theta}{0}{\pi}}{\phi}{0}{2\pi}=\delta_{l_1,l_2}\delta_{m_1,m_2}
+$$
+\subsection{Radialligningen}
+Nu hvor vi har fundet løsninger til den angulære ligning vil vi se på den radiale ligning \eqref{eq:amo:radial}. Modsat den angulære ligning har potentialet en indflydelse på den radiale ligning.
+\begin{equation}
+\frac{2m}{\hbar^2}r^{2}ER+\pdif{r}{}\left(r^2\pdif{r}{R}\right)+\frac{2m}{\hbar^2}\frac{1}{4\pi\epsilon_{0}}e^2rR=l(l+1)R
+\end{equation}
+Når man skal løse differentialligninger eller integraler kan det være en fordel at erstatte (substituere) funktionen med en ligende funktion. Her vil vi substituere $u(r)=rR(r)$. Differentialerne der indgår er så:
+\begin{align*}
+    R&=\frac{u}{r}\\
+    \pdif{r} R &= \frac{r\pdif{r}u -u}{r^2}\\
+    \pdif{r}{}\left(r^2\pdif{r}{R}\right)&=r\pdif[2]{r}{u}
+\end{align*}
+Radialligningen udtrykt ved $u$ er nu:
+\begin{equation}
+    \frac{-\hbar^2}{2m}\pdif[2]{r}u+\left(\frac{\hbar^2}{2m}\frac{l(l+1)}{r^2}-\frac{e^2}{4\pi\epsilon_0r}\right)u = Eu
+\end{equation}
+Denne ligning ser værre ud end den er, da den er fyldt med forskellige konstanter. Det første vi kan gøre er at indføre en konstant der skjuler dem.
+\begin{equation}
+\kappa=\frac{\sqrt{-2mE}}{\hbar}
+\label{eq:amo:kappa}
+\end{equation}
+Vi er kun interesserede i bundne tilstande hvor $E$ er mindre end nul, så $\kappa$ er et reelt tal. Deles med $E$ på begge sider bliver radialligningen:
+\begin{equation}
+    \frac{1}{\kappa^2}\pdif[2]{r}u\left(1-\frac{me^2}{2\pi\epsilon_0\hbar^2 \kappa}\frac{1}{\kappa r}+\frac{l(l+1)}{\kappa^2r^2}\right)u
+\end{equation}
+Bemærk at $r$ stort set alle steder optræder sammen med $\kappa$. Det er derfor oplagt at erstatte $r$ med $\rho=\kappa r$. Derudover indføres konstanten:
+\begin{equation}
+\rho_0 = \frac{me^2}{2\pi\epsilon_0\hbar^2\kappa}
+\label{eq:amo:rhonul}
+\end{equation}
+Nu er differentialligningen nogenlunde så pæn som den kan blive:
+\begin{equation}
+    \pdif[2]{\rho}u=\left(1-\frac{\rho_0}{\rho}+\frac{l(l+1)}{\rho^2}\right)u
+\end{equation}
+Lad os først se på hvordan radialligningen opfører sig langt fra kernen, d.v.s. store $\rho$. Her domminerer konstantledet i parantesen, så radialligningen nærmer sig:
+\begin{equation}
+    \pdif[2]{\rho}{u}=u~~~~~~~~\text{for store $\rho$}
+\end{equation}
+Tilsvarende må løsningen til radialligningen også opfylde denne differentialligning for store $\rho$. Det giver løsninger på formen:
+\begin{equation}
+    u(\rho) = Ae^{-\rho}+B e^\rho~~~~~~~~\text{for store $\rho$}
+\end{equation}
+For at få en normaliserbar løsning må bølgefunktionen gå imod nul i det uendeligt fjerne. $e^\rho$ går imod uendelig, så den duer ikke. Derfor må $B=0$. Så for store $\rho$ er løsningen tilnærmelsesvis:
+\begin{equation}
+    u(\rho) = Ae^{-\rho}~~~~~~~~\text{for store $\rho$}
+\end{equation}
+Lader vi i stedet $\rho$ gå imod nul vil $\frac{l(l+1)}{\rho^2}$ ledet dominere. Egentlig gælder det kun for $l\neq0$ da dette led ellers ville være nul. Man burde derfor behandle dette tilfælde separat, men det viser sig at man får det samme resultat. Her tilnærmes radialligningen:
+\begin{equation}
+    \pdif[2]{\rho}{u}= \frac{l(l+1)}{\rho^2}u~~~~~~~~\text{for små $\rho$}
+\end{equation}
+Her er den generelle løsning:
+$$
+u(\rho) = C\rho^{l+1}+D\rho^{-l}~~~~~~~~\text{for små $\rho$}
+$$
+I denne ligning springer $\rho^{-l}$ i luften for $\rho=0$. Derfor må $D=0$ og vi ender med
+\begin{equation}
+    u(\rho) = C\rho^{1+1}~~~~~~~~\text{for små $\rho$}
+\end{equation}
+Nu ved vi hvordan løsningen skal opføre sig for store og for små $\rho$ nu er udfordringen at kæde de to løsninger sammen. En måde man kunne gøre det var at antage at den endelige løsning er produkt af vores to grænse løsninger og en ny funktion $v(\rho)$. Det giver et gæt på løsningen på formen:
+\begin{equation}
+    u(\rho) = \rho^{l+1}e^{-\rho}
+\end{equation}
+Udtrykt på denne måde er det afledte af $u$:
+\begin{align*}
+    \pdif{\rho}{u}&=\rho^le^{-\rho}\left((l+1-\rho)v+\rho\pdif{\rho} v\right)\\
+    \pdif[2]{\rho}{u}&=\rho^le^{-\rho}\left(\left(-2l-2+\rho+\frac{l+(l+1)}{\rho}\right)v+2(l+1-\rho)\pdif{\rho}{v}+\rho\pdif[2]{\rho}{v}\right)
+\end{align*}
+Dette sættes ind i radialligningen:
+\begin{equation}
+\rho^le^{-\rho}\left(\left(-2l-2+\rho+\frac{l+(l+1)}{\rho}\right)v+2(l+1-\rho)\pdif{\rho}{v}+\rho\pdif[2]{\rho}{v}\right)=\left(1-\frac{\rho_0}{\rho}+\frac{l(l+1)}{\rho^2}\right)\rho^{l+1}e^{-\rho}v
+\end{equation}
+Heldigvis er der en hel del der går ud med hinanden, og radialligningen for $v(\rho)$ bliver:
+\begin{equation}
+    \rho\pdif[2]{\rho}{v}+2(l+1-\rho)\pdif{\rho}{v}+(\rho_0-2(l+1))v=0
+\end{equation}
+Vi ville lyve hvis vi sagde at denne differentialligning er pæn, men det skal vise sig at vi næsten er i mål. Nu antages det at $v$ kan skrives som et uendeligt polynomium. Dette kan virke som en urimelig antagelse, indtil man husker at langt de fleste differentiable funktioner kan skrives som en Taylor række, og at vi egentligt er i gang med at finde Taylorrækken for $v$. Alle $c_j$ konstanterne er de endnu ukendte koefficienter.
+\begin{equation}
+    v(\rho) = \sum_{j=0}^\infty c_j\rho^j
+\end{equation}
+For at indsætte denne sum i radialligningen er det nødvendigt at kende de afledte. Bemærk at $j$ blot er et index, og det derfor er muligt at justere $j$ så summerne er så pæne som muligt.
+\begin{align}
+    \pdif{\rho}{v}&= \sum_{j=0}^\infty jc_j\rho^{j-1}=\sum_{j=0}^\infty(j+1)c_{j+1}\rho^{j}\\
+    \pdif[2]{\rho}{v} &= \sum_{j=0}^\infty j(j+1)c_{j+1}\rho^{j-1}
+\end{align}
+Sætter vi dette ind i radialligningen får vi:
+\begin{equation}
+    \sum_{j=0}^\infty j(j+1)c_{j+1}\rho^j+2(l+1)\sum_{j=0}^\infty(j+1)c_{j+1}\rho^j-2\sum_{j=0}^\infty jc_j\rho^j+(\rho_0-2(l+1))\sum_{j=0}^\infty c_j\rho^j=0
+\end{equation}
+Siden alle leden bliver summet over det samme index der det muligt at sætte det hele under den samme summation.
+\begin{equation}
+    \sum_{j=0}^\infty \left((j(j+1)+2(l+1)(j+1))c_{j+1}-(2 j+(\rho_0-2(l+1))) c_j\right)\rho^j=0
+\end{equation}
+Dette udtryk kan kun være nul hvis alle led i summen er det.
+\begin{equation}
+    ((j(j+1)+2(l+1)(j+1))c_{j+1}-(2 j+(\rho_0-2(l+1))) c_j=0
+\end{equation}
+Det er nu muligt at opstille et udtryk for $c_{j+1}$ ud fra $c_j$ med dette krav.
+\begin{equation}
+c_{j+1}=\frac{2(j+l+1)-\rho_0}{(j+1)(j+2l+2)}c_j
+\end{equation}
+Givet en $c_0$ er det nu muligt at finde alle $_j$ ved hjælp af rekurssion. $c_0$ kan vi få ud fra normeringen af bølgefunktionen. Bemærk at hvis $c_j=0$, så er $c_{j+1}$ det også, og vi ender med et endeligt polynomium. Det er værd at undersøge hvad der sker, hvis polynomiet aldrig terminerer. Vi kan tilnærme rekurssionsformelen for store $j$ ved at negligere alle led der ikke indeholder $j$.
+$$
+c_j\approx \frac{2j}{j(j+1)}c_j=\frac{2}{j+1}c_j
+$$
+Antager vi at det var den faktiske rekurssionsformel ville vi få:
+$$
+c_j=\frac{2^j}{j!}c_0
+$$
+Husker vi Taylorrækken for eksponentialfunktionen ser vi at det giver en $v$ der er:
+$$
+v(\rho) = c_0\sum_{j=0}^\infty \frac{2^j}{j!}\rho^j=c_0e^{2\rho}
+$$
+Det giver en $u$ der er:
+$$
+u(\rho)=c_0\rho^{l+1}e^{\rho}
+$$
+Denne funktion vil springe i luften for store $\rho$, og vores tilnærmede rekurssionsformel giver faktisk for lavt et resultat. Denne løsning er derfor ikke normaliserbar og duer ikke. Vi kan derfor konkludere at rekurssionsformelen må terminere. Det vil sige at der er et $\sub{j}{max}$ hvor alle større $j$ er $c_j=0$. Specifikt må det gælde:
+\begin{equation}
+    c_{\sub{j}{max}+1}=0
+\end{equation}
+Det kan kun være tilfældet hvis tælleren i rekurssionsformelen er nul (Det er ikke synderligt hjælpsomt at dele med nul). 
+\begin{equation}
+    2(\sub{j}{max}+l+1)-\rho_0=0
+\end{equation}
+Her kan vi definere det sidste kvantetal vi mangler:
+\begin{equation}
+    n=\sub{j}{max}+l+1
+\end{equation}
+At skulle have fat i rekurssionsformelen hver gang man skal udregne en bølgefunktion for brintatomet er ikke så praktisk, men heldigvis kan $v(\rho)$ skrives ved hjælp af de såkaldte associerede Laguerre polynomier(se tabel \ref{tab:amo:laguerre}):
+\begin{equation}
+    v(\rho)=L_{n-l-1}^{2l+1}(2\rho)
+\end{equation}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+        $L_0^0 = 1$ & $L_0^2 = 2$\\
+        $L_1^0 = -x+1$ & $L_1^2 = -6x+18$\\
+        $L_2^0 = x^2-4x+2$ & $L_2^2 = 12x^2-96x+144$\\
+        $L_0^1 = 1$ & $L_0^3 = 6$\\
+        $L_1^1 = -2x+4$ & $L_1^3 = -24x+96$\\
+        $L_2^1 = 3x^2-18x+18$ & $L_2^3 = 60x^2-600x+1200$\\
+    \end{tabular}
+    \caption{Et par af de tidlige associerede Laguerre polynomier}
+    \label{tab:amo:laguerre}
+\end{table}
+Det er nu muligt at skrive en vilkårlig bølgefunktion op. Det er normalt at skrive bølgefunktionen $\psi_{nlm}$. Vi vil springe normaliseringen af $R$ over, da ud over at være besværlig er der ingen forskel på denne udregning og en hver anden normalisering.
+\begin{equation}
+    \psi_{nlm}(r,\theta,\phi) = \sqrt{\left(\frac{2}{na_0}\right)^3\frac{(n-l-1)!}{2n((n+1)!)^3}}e^{\frac{-r}{na_0}}\left(\frac{2r}{na}\right)^l\left(L_{n-l-1}^{2l-1}\left(\frac{2r}{na_0}\right)\right)Y_l^m(\theta,\phi)
+\end{equation}
+Det er ikke ligefremt pænt. Det er fordi vi er ved grænsen for hvor det er muligt at skrive bølgefunktionerne op analytisk. 
+Bemærk konstanten $a_0$, det er Bohrradien. Det var oprindeligt radien for den inderste elektronskal i Bohr modellen. På trods af at Bohr modellen blev forældet med indførelsen af egentlig kvantemekanik har denne radius stadig betydning i den kvantemekaniske beskrivelse af brintatomet. Det er den afstand, hvor det er mest sandsynligt, at finde elektronen i grundtilstanden, $\psi_{100}$. Bohrradien er:
+\begin{equation}
+    a_0 = \frac{4\pi\epsilon_0\hbar^2}{me^2} = \SI{0.529e-10}{m}
+\end{equation}
+Det er nu muligt at finde energien da $E$ afhænger af $\kappa$ efter ligning \eqref{eq:amo:kappa}. Efter ligning \eqref{eq:amo:rhonul} afhænger $\rho_0$ af $\kappa$ og da $\rho_0=2n$ finder vi:
+\begin{equation}
+    E = \frac{-\hbar^2\kappa^2}{2m} = \frac{-me^4}{8\pi^2\epsilon_0^2\hbar^2\rho_0^2}
+\end{equation}
+Det giver at de mulige energier for brintatomet er:
+\begin{equation}
+    E_n = -\left(\frac{m}{2\hbar^2}\left(\frac{e^2}{4\pi\epsilon_0}\right)^2\right)\frac{1}{n^2}= \frac{E_1}{n^2}~~\text{for}~~n=1,2,3,4,...
+\end{equation}
+At energien kun afhænger af $n$ gælder kun for brintatomet.
+\end{document}

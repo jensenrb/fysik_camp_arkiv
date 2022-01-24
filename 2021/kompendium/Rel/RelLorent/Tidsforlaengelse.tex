@@ -1,0 +1,77 @@
+\subsubsection{Tidsforlængelse} \label{rel:sec:Tidsforlaengelse}
+En spøjs konsekvens af relativitetsteorien er, at tidens gang afhænger af, hvor hurtigt man bevæger sig. For at kunne snakke om tid bliver vi først nødt til at have et ur, men vi kan ikke bare gøre brug af et hvilket som helst ur. Vi har brug for et ur, der eksplicit udnytter lysets hastighed, for at forstå hvordan tid opfører sig i speciel relativitetsteori. Vi vil derfor se på det såkaldte \emph{lysur}. Lysuret består af to perfekte spejle overfor hinanden, og mellem disse er en lyspuls, der bevæger sig frem og tilbage imellem spejlene, se \cref{rel:fig:Lysur}a. At det på ingen måde er praktisk, at fremstille et sådant ur, er ikke et problem -- vi vil blot regne på det.
+
+Lyset vil bevæge sig mellem de to spejle med lysets hastighed. Tiden, som det vil tage lyset at tilbagelægge en afstand $L$ mellem de to spejle, vil derved være $L/c$. Det betyder, at urets periode, som er tiden, det tager lyset at nå frem og tilbage igen mellem spejlene, når uret er i hvile, vil være
+%
+\begin{align}
+    T_0 &= \frac{2L}{c}. \label{rel:eq:hvile}
+    %
+    \intertext{Uret sættes nu i bevægelse med konstant hastighed $v$ vinkelret på lysstrålen i uret.
+    Lad os kalde den afstand, som uret rejser i løbet af en halv periode, for $s$. Da er}
+    %
+    s &= \frac{vT}{2}. \label{rel:eq:halv_periode}
+\end{align}
+%
+Hvis man observerer lyset fra lysurets hvilesystem -- systemet, som bevæger sig med konstant hastighed $v$ i samme retning som lysuret -- så vil lyset stadig se ud til at bevæge sig lodret op og ned. Lyset skal ramme samme punkt på spejlet, uanset om lysuret betragtes i et inertialsystem i hvile eller i bevægelse. Ellers ville naturlove være forskellige i de to inertialsystem i modstrid med Einsteins første postulat. Tilsvarende skal lyset bevæge sig i en ret linje, i det system hvor lysuret bevæger sig, da lysets bane er en ret linje i det system, hvor uret er i hvile. Hvis ikke det var tilfældet, så ville naturens love være forskellige i de to inertialsystemet, og ligeledes bryde med relativitetsprincippet. Observerer man nu lyset fra et system, hvor lysuret bevæger sig med den konstante hastighed $v$ vinkelret på lysets bevægelse, så må lyset i dette system have en `skrå' bevægelse, ligesomsom siderne på en ligevinklet trekant, da lyset må følge resten af uret, se \cref{rel:fig:Lysur}b. Lysets hastighed, $c$, skal dog være uændret ifølge det andet postulat.
+%
+\begin{figure}
+    \centering
+    \includegraphics[width=.75\textwidth]{Rel/RelLorent/Lysur.png}
+    \caption{Illustration a lysuret. a) Stillestående (eller blot set fra hvilesystemet). Lysstrålen bevæger sig præcis lodret, men er her blot tegnet en smule forskudt, så pricippet i lysuret kan ses. b) Bevægende med konstant hastighed $v$. Kilde: figur 2.1 og 2.2 i \cite{uggerhojSpecielRelativitetsteori2016}.}
+    \label{rel:fig:Lysur}
+\end{figure}
+%
+Lad os kalde den `skrå' afstand, som lyset bevæger sig, for $h$.
+Vi kan nu benytte Pythagoras sætning til at sammenkæde $h$, $s$ og $L$, fordi den ligevinklet trekant i \cref{rel:fig:Lysur} består af to retvinklede trekanter, hvilket giver
+%
+\begin{align}
+    h^2 &= L^2+s^2. \label{rel:eq:pyt}
+    %
+    \intertext{Afstanden $h$ må blive tilbagelagt på en halv periode, da det tager en hel periode at nå fra det nederste spejl til det øverste og tilbage igen. Idet lysuret er i bevægelse betegner vi perioden med $T$, og den findes ved}
+    %
+    T &= \frac{2h}{c}. \label{rel:eq:per}
+\end{align}
+%
+Vi kan isolere længderne $L$, $h$ og $s$ fra urets periode i de to systemer, \cref{rel:eq:hvile,rel:eq:halv_periode,rel:eq:per}, og indsætte disse i Pythagoras sætning, \cref{rel:eq:pyt}, for at få:
+%
+\begin{align}
+    \frac{T^2c^2}{4} = \frac{T_0^2c^2}{4}+\frac{T^2v^2}{4}.
+\end{align}
+%
+Her kan $T$ isoleres
+%
+\begin{align} \label{rel:Tidsforlaengelse}
+    T = \frac{T_0}{\sqrt{1-v^2/c^2}} = \gamma T_0.
+\end{align}
+%
+Udtrykket
+%
+\begin{align}
+    \gamma = \frac{1}{\sqrt{1-v^2/c^2}}
+\end{align}
+%
+er så almindeligt i relativitetsteorien, at det har fået sit eget symbol, $\gamma$. Denne kaldes Lorentzfaktoren, men bliver også kaldet gammafaktoren, grundet dets symbolet ($\gamma$).
+For en observatør, der rejser med lysuret, er uret oplagt i hvile, hvorfor den observerede periode for lysuret vil være $T_0$ i stedet for $T = \gamma T_0$. De to observatører ser altså uret gå forskelligt.
+% Hvordan kan vi få det til at give mening?
+% Det kan virke mystisk, men den lettest måde at få det til at give mening, er 
+Man siger at tiden går langsommere, desto hurtigere uret bevæger sig, eller at \emph{et ur i bevægelse går langsomt}.
+% Derudover er der intet, der adskiller lysuret fra andre måder at opleve tiden, ud over at det er let at regne på.
+
+
+Det kan virke spøjst, at tidens gang afhænger af, hvor hurtigt man bevæger sig, men der er naturlige fænomener, der afhænger af tidsforlængelse.
+Når solvinden rammer Jordens atmosfære i en højde af ca. \SI{10}{\kilo\metre}, dannes der myoner\footnote{Myonen er en tung variant af en elektron.}. Myoner er ustabile partikler, og de henfalder ret hurtigt -- de har en halveringstid i hvile på $T_{1/2} = \SI{1,5}{\micro\second}$. Myonerne dannes dog med en hastighed tæt på lysets hastighed. Uden relativistiske effekter ville afstanden, som myonerne ville tilbagelægge, før halvdelen af dem er henfaldet, kaldet halveringslængden, $L_{1/2}$, være
+%
+\begin{align}
+    L_{1/2} = t_{1/2}c = \SI{450}{\metre}.
+\end{align}
+%
+Efter \SI{10}{\kilo\metre} burde praktisk talt alle myonerne være henfaldet.
+Dog når en stor del af myonerne Jordens overflade. Dette kan forklares ved myonerne bevæger sig med en hastighed tæt på lyset. Da et ur i bevægelse går langsomt, går tiden også langsomt for myonerne, hvorfor de kan nå ned til Jorden.
+
+Men hvad så med situationen set fra myonerne?
+Myonerne er i hvile i forhold til dem selv, så her går tiden, ikke langsomt.
+Med med deres korte levetid kan myonerne ikke tilbagelægge de \SI{10}{\kilo\metre} ned til Jordens overflade.
+Vi kan ikke have to modstridende resultater, da det strider imod både sund fornuft -- og ikke mindst -- imod relativitetsprincippet.
+Det viser sig ikke at være et problem, da det ikke kun er tid, der afhænger af observatøren, men også afstande, hvilket vi vil se på i \cref{rel:sec:Laengdeforkortelse}.
+
+Tiden i hvilesystemet kaldes også for egentiden, $\tau$ (det græske bogstav \emph{tau}), og siden det er for et specifikt inertialsystem, kan alle observatører blive enige om egentiden. 

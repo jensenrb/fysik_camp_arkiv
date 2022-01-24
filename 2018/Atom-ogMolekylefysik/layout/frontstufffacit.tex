@@ -1,0 +1,125 @@
+
+%% VI LAVER NOGET LAYOUT-KODE TIL FORSIDE OG KOLOFON:
+
+% Some comments about the code below: 
+%
+% * We use the adjustwidth environment in order to make the left and
+% right margins _equal_ locally. Remember that the spine and edge
+% margins are usually different. However, on the front page we wish to
+% center the material with respect to the physical paper, not with
+% respect to the (unseen) margins. The \calccentering macro calculates
+% how much we must subtract/add to the left/right margins in order to
+% make the margins equal.
+%
+% * I change the margins by a something other than the
+% calculated \frontpagecorrection. I make both margins smaller, so
+% that there is more room for the text. This is done so that my rather
+% long title can be typeset on the four lines I have manually broken
+% it into. 
+%
+% * I choose the font sizes explicitly using
+% \fontsize{<size>}{<baselineskip>} instead of the \large - \Large -
+% \LARGE - \huge - \Huge - \Huge declarations. This is done because
+% the size of the letters on the front page doesn't need to have
+% anything to do with whether the document is set at 10, 11 or 12pt.
+
+% Half page (minder om forsiden)
+\begin{titlingpage}
+  \newlength{\frontpagecorrection}
+  \calccentering{\frontpagecorrection}
+
+  \begin{adjustwidth*}{\frontpagecorrection-2cm}{-\frontpagecorrection-2cm}
+    
+  \centering
+
+  \vfill
+
+  \includegraphics[width=8cm]{old/Unflogo.eps}
+ 
+  \scshape
+    
+  \fontsize{24pt}{28pt}\selectfont
+
+  \bigskip
+
+  \vspace{0.5cm}
+
+  Facit til\par
+    
+  Fysik Camp 2016\par
+
+  \vspace{1cm}
+  
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{ll}
+      \textit{Faglige:} & \\
+      Kasper Zøllner (ansv.)       & \href{mailto:kaz@unf.dk}{kaz@unf.dk} \\
+      Nanna Bill Andersen          & \href{mailto:nba@unf.dk}{nba@unf.dk} \\
+      Niels Jakob Søe Loft         & \href{mailto:nsl@unf.dk}{nsl@unf.dk} \\
+      Dorte Thrige Plauborg        & \href{mailto:dtp@unf.dk}{dtp@unf.dk} \\
+      Rasmus Krog                  & \href{mailto:rak@unf.dk}{rak@unf.dk} \\
+      Christoffer Hansen           & \href{mailto:ch@unf.dk}{ch@unf.dk} \\
+    \end{tabular}
+  \end{table}
+
+  \vfill
+    
+  \fontsize{14pt}{18pt}\selectfont
+  \href{http://www.unf.dk/}{Ungdommens Naturvidenskabelige
+    Forening}\par
+  \end{adjustwidth*}
+\end{titlingpage}
+
+\newpage
+
+% Kolofon
+
+\begin{adjustwidth*}{\frontpagecorrection}{-\frontpagecorrection}
+  \thispagestyle{empty}
+  \strut
+  \setlength{\parindent}{0pt}
+  \addtolength{\parskip}{.6em}
+
+  \vfill
+    
+  \begin{center}
+    \bfseries Kolofon
+  \end{center}
+ 
+  % I typeset the colophon in \small. In order to get the right size
+  % of the \baselineskip I have to "remember" the global value
+  % before the \small declaration. \edef differs from \def in that
+  % it expands the argument at definition time (otherwise, the
+  % \the\baselineskip wouldn't get expanded until the macro is used
+  % below, and at that time the \baselineskip has a different value
+  % than the global one...).
+  \makeatletter
+  \edef\fontandleading{\@memptsize.0/\the\baselineskip}
+  \makeatother
+
+  \small
+   
+  \textsl{\thesistitle}
+    
+  \smallskip
+  
+  Opgavekompendiet er skrevet af Niels Jakob Søe Loft, Nanna Bill
+  Andersen, Kasper Zøllner, Dorte Thrige Plauborg, Rasmus Krog og Christoffer Hansen. 
+  Opgavekompendiet er trykt i juli 2016 og teksten er copyright
+  \textcopyright 2016 af UNF og forfatterne. Gengivelse med kildehenvisning tilladt. \\
+  Layout: Niels Jakob Søe Loft og Mick Althoff Kristensen.\\
+  Ansvarlig: Kasper Zøllner
+\end{adjustwidth*}
+
+
+%%% Contents stop %%%
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% ispell-local-dictionary: "english"
+%%% TeX-command-default: "pdf"
+%%% TeX-open-quote: ">>"
+%%% TeX-close-quote: "<<"
+%%% End: 

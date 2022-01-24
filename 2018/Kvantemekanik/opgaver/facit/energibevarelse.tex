@@ -1,0 +1,41 @@
+\section*{Energibevarelse}
+\begin{opgave}{Energibevarelse i kvantetilstande}{3}
+Vi skal i denne opgave se på hvordan energibevarelse kommer til udtryk i kvantemekaniske tilstande. Til enhver Hamilton $\hat{H}$ operator kan vi finde et sæt af løsninger som opfylder følgende ligning: $\hat{H}\psi_n=E_n\psi_n$.
+\opg Udtryk en generel funktion $f(x)$ som en kombination af løsninger til Schrödinger ligningen.
+
+Alle funktion kan skrives som en som af egentilstande, da disse løsninger danner en komplet basis:
+$$
+f(x) = \sum_nc_n\psi_n
+$$
+Man kunne finde koefficienterne $c_n$ med ligning (2.30) men deres præcise form er underordnet 
+\opg Hvordan vil denne funktion udvikle sig over tid? (Hint: udtryk $f(x,t)$ som en kombination af løsninger til Schrödinger ligningen)
+
+Tidsudviklingen af $f(x)$ kan findes ved at multiplicere hvert led i summen med den tilsvarende faktor $\exp\left(\frac{-iE_nt}{\hbar}\right)$. Det giver:
+$$
+f(x,t) = \sum_n c_n\psi_ne^{-iE_nt/\hbar}
+$$
+\opg Udregn forventningsværdien af energien $\expect E$. Hvordan vil denne udvikle sig over tid?
+
+Forventingsværdien er givet:
+\begin{align*}
+\expect E &= \matrixel{f(x,t)}{\op H}{f(x,t)}
+\end{align*}
+Hamiltonoperatoren kan flyttes ind i summen til højre, og anvendes på de individuelle tilstande.
+\begin{align*}
+&= \matrixel{\sum_n c_n\psi_ne^{-iE_nt/\hbar}}{\op H}{\sum_m c_m\psi_me^{-iE_mt/\hbar}}\\
+&= \braket{\sum_n c_n\psi_ne^{-iE_nt/\hbar}}{\sum_m c_m\op H\psi_me^{-iE_mt/\hbar}}\\
+&= \braket{\sum_n c_n\psi_ne^{-iE_nt/\hbar}}{\sum_m c_mE_m\psi_me^{-iE_mt/\hbar}}
+\end{align*}
+Istedet for at have sumtegnene inde i braketten, kan de flyttes udenfor, så det bliver en dobbelt sum.
+\begin{align*}
+&=\sum_n\sum_m\braket{c_n\psi_ne^{-iE_nt/\hbar}}{c_mE_m\psi_me^{-iE_mt/\hbar}}\\
+&=\sum_n\sum_mc_n^*c_mE_m\braket{\psi_ne^{-iE_nt/\hbar}}{\psi_me^{-iE_mt/\hbar}}\\
+&=\sum_n\sum_mc_n^*c_mE_me^{i(E_n-E_m)t/\hbar}\braket{\psi_n}{\psi_m}
+\end{align*}
+Når man tager en dobbelt sum vil man lægge alle kombinationer af $n$ og $m$ sammen. Siden løsningerne til schrödingerligningen er ortonormale vil braketten enten være et når $n=m$ og nul ellers. Det betyder at kun ledene hvor $n$ og $m$ er ens skal tælles med og vi kan reducere den dobbelte sum til en enkelt sum.
+\begin{align*}
+&= \sum_nc_n^*c_nE_nE^{i(E_n-E_n)t/\hbar}\braket{\psi_n}{\psi_n}\\
+&= \sum_n \abs{c_n}^2E_n
+\end{align*}
+Her fosvandt tidsafhængigheden, så energiens forventningsværdi er konstant.
+\end{opgave}

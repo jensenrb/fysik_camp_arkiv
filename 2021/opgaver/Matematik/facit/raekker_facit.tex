@@ -1,0 +1,50 @@
+\section*{Rækkeudviklinger}
+%%
+%%
+\begin{opgave}[1]{Approksimation af funktion}
+\opg Hvert led sikrer, at Taylorpolynomiets afledte i punktet $x=a$ passer med funktionens. Førsteordensledet sørger derfor, at den første afledte passer, andenordensledet for den anden afledte osv. Dette gøres ved at have ledene på formen
+%
+\begin{align*}
+    \frac{f^{(n)}(a)}{n!}(x-a)^n.
+\end{align*}
+%
+\opg Jo flere led der tages med, desto flere afledte i punktet $x=a$ passer Taylorpolonomiet til funktionen.
+%
+\opg Faktoren $(x-a)^n$ er lille tæt på $a$, når $n > 1$, og den medfører at højreordensbidragene først betyder noget, når man kommer et stykke væk fra $a$.
+%
+\opg Alle Taylorpolynomierne ser ud til at passe ret godt omkring $x = 0$, men jo længere væk fra $x=0$, man kommer, desto større forskel bliver der på Taylorpolynomierne. Vi kan også se, at eksponentialsfunktions form er ret langt fra de kendte polynomier, men desto højere polynomiets orden bliver, desto bedre bliver muligheden for at tilpasse sig eksponentialfunktionen.
+\end{opgave}	
+%%
+%%
+\begin{opgave}[2]{Taylorpolynomier for simple funktioner}
+\opg Differentiere cosinus fås sinus og et fortegnsskift. Denne skal evalueres i 0, hvor sinus er 0. Differentieres sinus fås cosinus, hvorfor alle led i Taylorrækken med ulige potens ikke indgår. Cosinus evalueret i 0 er 1, men der kan komme et fortegn fra differentieringen. Fortegnet skifter fra led til led. Derfor fås
+%
+\begin{align*}
+    \cos(x) = \sum_{n=0}^{N} (-1)^n \frac{x^{2n}}{(2n)!}.
+\end{align*}
+%
+\opg Samme system fås med sinus, men hvor det er de ulige led, der overlever. Dermed fås
+%
+\begin{align*}
+    \sin(x) = \sum_{n=0}^{N} (-1)^n \frac{x^{2n+1}}{(2n+1)!}.
+\end{align*}
+%
+\opg Eksponentialfunktionen er sin egen afledte, der evalueret i 0 giver 1. Derfor er
+%
+\begin{align*}
+    e^{x} = \sum_{n=0}^{N} \frac{x^n}{n!}.
+\end{align*}
+%
+\opg Dette passer med tabellen.
+\end{opgave}
+%%
+%%
+\begin{opgave}[3]{Flere gode Taylorudviklinger}
+Der er dobbeltnotation i opgaven. Lad $f(x) = (1+x)^b$.
+%
+\opg $T_0(x) = 1$, $T_1(x) = 1 + bx$.
+%
+\opg For $b = 1/2$ fås $T_1(x) = 1 + x/2$, hvorfor $\sqrt{x} \approx 1 + x/2$ for $x \ll 1$.
+%
+\opg $T_0(x) = 1$, $T_1(x) = x$.
+\end{opgave}

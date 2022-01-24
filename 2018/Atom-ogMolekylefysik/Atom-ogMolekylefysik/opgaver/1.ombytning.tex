@@ -1,0 +1,43 @@
+\documentclass[../../Atom-ogMolekylefysik.tex]{subfiles}
+\begin{document}
+\begin{opgave}{Pauli princippet uden spin}{1}
+Lad $\op O$ være ombytningsoperatoren. Som navnet antyder er det den operator der for to elektroner til at bytte plads.
+$$
+\op O \Psi(x_1,x_2) = \Psi(x_2,x_1)
+$$
+
+Lad $\psi$ være en en elektron tilstand, og $\Psi(x_1,x_2) = \psi(x_1)\psi(x_2)$
+\opg Hvad er $\op \Psi(x_1,x_2)$?
+
+For at en tilstand skal opfylde Pauli princippet skal bølgefunktionen være antisymmetrisk under ombytning. Det vil sige $\Psi(x_1,x_2) = -\Psi(x_2,x_1)$.
+\opg Er $\Psi(x_1,x_2)$ tilladt ifølge Pauli?
+\end{opgave}
+
+\begin{opgave}{Rumbølgefinktioner}{2}
+Lad os istedet se på to elektroner i to forskellige tilstande: $\psi_1$ og $\psi_2$.
+Lad $\Psi_{12}(x_1,x_2) = \psi_1(x_1)\psi_2(x_2)$ og $\Psi_{21}(x_1,x_2) = \psi_2(x_1)\psi_1(x_2)$
+Udregn de følgende ombytninger.
+\opg $\op O \Psi_{12}(x_1,x_2)$
+\opg $\op O \Psi_{21}(x_1,x_2)$
+\opg $\op O \Psi^S(x_1,x_2)=\op O (\Psi_{12}(x_1,x_2)+\Psi_{21}(x_1,x_2))$
+\opg $\op O \Psi^A(x_1,x_2)=\op O (\Psi_{12}(x_1,x_2)-\Psi_{21}(x_1,x_2))$
+\opg Er bølgefunktionerne symmetriske, antisymmetriske eller ingen af delene.
+\end{opgave}
+
+\begin{opgave}{Pauli med spin}{3}
+Nu vil vi tage højde for spin. Det gøres ved at multiplicere bølgefunktionen med en spinfunktion. Elektronen kan have spin op eller spin ned. Det angives med $\alpha$ eller $\beta$. For at holde styr på hvilken partikel der har hvilket spin tilføjes et tal til spinfunktionen. Så har partikel et spin op og partikel to spin ned skrives det: $\chi=\alpha(1)\beta(2)$.
+Ombytningsoperatoren ombytter også hvilken partikel der har hvilket spin.
+Hvad er:
+\opg $\op O \alpha(1)\alpha(2)$
+\opg $\op O \beta(1)\beta(2)$
+\opg $\op O \alpha(1)\beta(2)$
+\opg $\op O \beta(1)\alpha(2)$
+\opg Brug dette til at finde tre spinfunktioner der er symmetriske under ombytning.
+\opg Find en spinfunktion der er antisymmetrisk under ombytning.
+
+Tag Højde for både spin og rum delen af den totale bølgefunktion.
+\opg Hvor mange muligheder er der der er tilladt af Pauli, når de to elektroner har samme tilstand?
+\opg Hvad er denne tilstand?
+\opg Hvor mange Paulitilladte bølgefunktioner er der når de to elektronbølgefunktioner er forskellige.
+\end{opgave}
+\end{document}

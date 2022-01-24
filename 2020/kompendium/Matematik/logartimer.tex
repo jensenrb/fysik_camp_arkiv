@@ -1,0 +1,60 @@
+\section{Logaritmer og eksponentialer} \label{mat:sec:log}
+I tiden inden næsten alle gik rundt med en computer i lommen med nok regnekraft til at udføre en månelanding, var det en udfordring at gange store tal sammen.
+De fleste vil nok være enig i, at det er lettere at lægge tal sammen end at gange dem sammen. Man havde derfor brug for en sammenhæng imellem addition og multiplikation, hvilket vi nu vil prøve at finde.
+Ligesom multiplikation er gentaget addition, giver gentaget multiplikation os eksponentialet
+$$
+a^b=a\cdot a\cdot ...\cdot a~~\text{($b$ gange)} \, ,
+$$
+hvor $a$ kaldes grundtallet, og $b$ kaldes eksponenten. Ganges to eksponentialer med samme grundtal, får vi at
+\begin{subequations} \label{mat:eq:exp_regel}
+\begin{align}
+   a^b\cdot a^c&=(a\cdot ...\cdot a~~\text{($b$ gange)})\cdot(a\cdot ...\cdot a~~\text{($c$ gange)})\nonumber \, ,\\
+   &=a\cdot ...\cdot a~~\text{($b+c$ gange)}\nonumber \, ,\\
+   &=a^{b+c} \, \label{mat:eq:exp_regel1}.
+\end{align}
+Vi har nu vores sammenhæng imellem multiplikation og addition, men inden vi fortsætter, bemærker vi to eksponentialregneregler:
+\begin{align}
+    \frac{a^b}{a^c}&=a^{b-c} \, \label{mat:eq:exp_regel2},\\
+    \left(a^b\right)^c&=a^{bc} \, \label{mat:eq:exp_regel3}.
+\end{align}
+\end{subequations}
+Ligesom division er omvendt multiplikation, findes der også et omvendt eksponential, hvilket er logaritmen, $\log_a(b)$, der defineres til at opfylde at
+%
+\begin{equation} \label{mat:eq:log_def}
+     a^{\log_a(b)} = b,
+\end{equation}
+%
+hvor tallet $a$ kaldes for logaritmens base. Logaritmen, $\log_a(b)$, giver således det tal $a$ skal opløftes i for at få $b$. Der er således mange forskellige logaritmer, alt efter hvilken base man vælger. Hvis basen er 10, kaldes det for 10--talslogaritmen og skrives $\log_{10}(x)$, men hvis basen er Eulers tal (tallet $e$), kaldes det for den naturlige logaritme og skrives $\ln(x) = \log_e(x)$. I fysik er det den naturlige logaritme, som man primært arbejder med\footnote{I fysik bruges eksponentialfunktionen, $e^x$, og dens inverse $\ln(x)$, fordi Eulers tal er defineret til, at have en særlig pæn egenskab, hvorfor disse opfører sig pænt i den matematik, vi gerne vil bruge til at beskrive den fysiske verden.}. Regnereglerne for eksponentialer kan nu genfindes for logaritmer:
+\begin{subequations}
+\label{mat:eq:log}
+\begin{align}
+    \log_a(b)+\log_a(c)&=\log_a(bc) \, ,\label{mat:log:plus}\\
+    \log_a(b)-\log_a(c)&=\log_a\left(\frac{b}{c}\right)\,,\label{mat:log:minus}\\
+    c\log_a(b)&=\log_a(b^c)\, .\label{mat:log:gange}
+\end{align}
+\end{subequations}
+Det er netop disse egenskaber, der gjorde logaritmer praktiske til større udregninger i tiden inden regnemaskiner. \\
+
+Når vi regner med logaritmer, er det ofte fordi, det er en god måde at håndtere meget store tal på. I fysikken dukker sådanne tal tit op i formen af fakulteter, hvilket vi derfor kort introducerer. 
+Fakultet af tallet $n$, er $n$ gange alle mindre naturlige tal ned til 1.
+Man skriver fakultet med et udråbstegn som følger
+\begin{equation} \label{mat:eq:fakultet}
+    n!=n\cdot(n-1)\cdot(n-2)\cdot ...\cdot 2\cdot 1.
+\end{equation}
+Det kan desværre være svært at håndtere selve logaritmen af en sådan størrelse, når $n$ er stor.
+Her kan vi i stedet bruge det, der hedder {\em Stirlings approksimation}.
+Den siger, at for store $n$ kan vi skrive
+%
+\begin{equation}
+    \ln(n!) \simeq n\ln(n)-n,
+\end{equation}
+%
+hvor tegnet $\simeq$ betyder cirka lig med. At det er en approksimation betyder, at det der står på hver side af tegnet ikke er helt ens, men næsten ens. Man bruger ofte approksimationer, når vi har ligninger, der ikke har en løsning -- man siger at der ikke eksisterer en eksakt løsning --  hvorved det bedste, vi kan gøre, er at finde en approksimativ løsning. %\\
+
+% I dette afsnit er logaritmen blevet beskrevet som et værktøj, til at gøre det lettere at regne med store tal. Logaritmen bruge som en regel til at lave et tal om til et andet og denne regel er oveni købet entydig, hvilket er hvad vi i \cref{mat:eq:funktioner} definerede som en funktion. Logaritmen med basen $a$, kan derfor skrives som en funktion med argumentet $x$,
+% %
+% \begin{align}
+%     f(x) = \log_a(x).
+% \end{align}
+% %
+% Vi har således opnået værktøjerne til at forstå den naturlige logaritme, som den inverse funktion til eksponentialfunktionen.

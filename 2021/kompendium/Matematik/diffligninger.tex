@@ -1,0 +1,95 @@
+\section{Differentialligninger} \label{mat:sec:diffeq}
+Det er meget fint, at kunne beskrive hvordan ting bevæger sig, men som så mange andre steder, er det store spørgsmål: hvorfor?
+Det er den del af mekanikken, der hedder dynamik, som belyser dette spørgsmål. Her vender vi derfor tilbage til Newton, hvis tre love lægger fundamentet for den klassiske mekanik. 
+De er:
+%
+\begin{enumerate}
+    \item lov (\emph{inertiens lov}): Et legeme, der ikke er udsat for nogen kraft, vil forblive i hvile, eller bevæge sig langs en ret linje med konstant hastighed.
+    \item lov: Summen af alle kræfter på et legeme vil være lig dets masse gange acceleration.
+    %
+    \begin{align} \label{mat:eq:N2}
+        \sum F &= ma.
+    %
+    \intertext{\item lov: Påvirker et legeme et andet legeme med en kraft, vil det første legeme blive påvirket af en lige så stor og modsatrettet kraft. Kort; \emph{aktion lig reaktion}:}
+    %
+        F_{12} &= -F_{21}.
+    \end{align}
+\end{enumerate}
+%
+Det vigtigste Newtons love gør, er at de definerer, hvad en kraft er.
+Man kan derfor se dem som den centrale antagelse i den klassiske mekanik\footnote{Dette er blot en udgave af klassisk mekanik, der er andre, så som Lagrangeformalismen, som vi kommer til i \cref{chap:mek}. Disse andre formuleringer af klassisk mekanik har andre centrale antagelser. Fælles for dem alle er, at ligegyldigt hvor man starter kan man udlede resten af dem.}.
+Newtons anden lov giver os udtryk på formen
+%
+\begin{align} \label{mat:eq:n2}
+    \qquad\qquad\enspace F=m\dv[2]{x}{t}, % Mellemrummene før ligningen er for at få lighedstegnet til at passe med dem i den nummererede liste. LaTeX kan ikke lide environments på tværs af hinanden, så vi må leve med denne løsning :(
+\end{align}
+%
+hvilket er det man kalder en \emph{differentialligning}, altså en ligning der indeholder differentialkvotienter, fordi kræfter afhænger af sted, $x$, og hastighed, $v$.
+Hvor løsningen til en almindelig ligning er det/de tal, der får begge sider til at være ens, så er løsningen til en differentialligning en funktion, der får begge sider til at være ens.
+Hvis vi er i stand til at finde funktionen $x(t)$, der opfylder Newtons anden lov, så ved vi, hvordan legemet bevæger sig, da $x(t)$ i dette tilfælde vil være stedfunktionen.
+Den afledte funktion i en differentialligning, der har højeste orden (f.eks. anden afledte eller tredje afledte), angiver ligningens orden. Så hvis et $\dv*[2]{}{t}$ indgår, som det led, der er afledt flest gange, er differentialligningen af anden orden.
+Newtons anden lov giver oftes andenordensdifferentialligninger, og
+mange fysiske problemer kræver, at man løser en andenordensdifferentialligning.
+
+\begin{example} \label{mat:ex:diff_lign}%
+En airhockey puck glider uden friktion fra underlaget, men den oplever luftmodstand. Luftmodstand kan beskrives med kraften
+%
+\begin{align}
+    F_\text{luft} &= -cv, \label{mat:eq:luftmodstand}
+    %
+    \intertext{hvor $v$ er puckens hastighed. Her giver Newtons anden lov}
+    %
+    -cv &= ma,
+    %
+    \intertext{hvilket skrevet vha. afledte bliver}
+    %
+    -\frac{c}{m}\dv{x}{t} &= \dv[2]{x}{t}. \label{mat:eq:diff_eq}
+    %
+    \intertext{Siden det i denne differentialligning, hvor $x$ differentieres flest gang er $\dv*[2]{x}{t}$, hvor $x$ differentieres to gange, er \cref{mat:eq:diff_eq} en andenordensdifferentialligning. Før vi går videre med denne, og prøver at finde en løsning, udtrykker vi \cref{mat:eq:diff_eq} ved hastigheden. Fra \cref{mat:eq:hast} har vi at $v = \dv*{x}{t}$, og indsættes det i \cref{mat:eq:diff_eq} fås}
+    % slår vi lige koldt vand i blodet og starter med en førsteordensdifferentialligning. Udtrykkes \cref{mat:eq:diff_eq} ved hastigheden fås
+    %
+    -\frac{c}{m}v &= \dv{v}{t}. \label{mat:eq:diff_eq_speed}
+\end{align}
+%
+\Cref{mat:eq:diff_eq_speed} er en førsteordensdifferentialligning i modsætning til \cref{mat:eq:diff_eq}. Vi har nu brug for en funktion, der er sin egen afledte. I \cref{mat:tab:diff} ses det, at eksponentialfunktionen er sin egen afledte. Løsningen til differentialligningen i \cref{mat:eq:diff_eq_speed} er derfor
+%
+\begin{align} \label{mat:eq:puck_hastighed}
+    v(t) &= v_0e^{-tc/m},
+\end{align}
+%
+hvor $v_0$ er hastigheden til tiden $t=0$. At dette rent faktisk er løsningen kan tjekkes ved at differentiere $v(t)$, indsætte den i differentialligningen ovenfor, og se at begge sider er ens.
+Nu kan vi finde positionen, ved at integrere begge sider af \cref{mat:eq:puck_hastighed}:
+%
+\begin{align} \label{mat:eq:puck_eom}
+    x(t) = \int v(t) \dd{t} = v_0\int e^{-tc/m}\dd{t} = x_0-\frac{v_0m}{c}e^{-tc/m}.
+\end{align}
+%
+I \cref{mat:eq:puck_eom} er $x_0$ positionen til tiden $t=0$. På denne måde har vi fundet ud af, hvordan puckens position ændrer sig, hvis vi kender startpositionen $x_0$ og starthastigheden $v_0$. Med andre ord har vi løst differentialligningen i \cref{mat:eq:diff_eq}. Det er også værd at bemærke, at kræfter på formen i \cref{mat:eq:luftmodstand} generelt giver en eksponentiel dæmpning af et legemes hastigheden, som det er tilfældet i \cref{mat:eq:puck_eom}.
+\end{example}
+
+Det kan godt virke som noget gætværk at finde løsninger til differentialligninger.
+I endnu højere grad end for differential- og integralregning, løses differentialligninger ved at slå op i en tabel\footnote{Eller ved at bestikke en matematiker til at gøre det for sig.}, så som \cref{mat:tab:diffligninger}.
+%
+\setlength{\tabcolsep}{1 em}
+\renewcommand{\arraystretch}{1.6}
+\begin{table}[]
+    \centering
+    \begin{tabular}{cc}% c c}
+        \toprule
+        Ligning & Løsning \\%\specialrule{.125em}{.1em}{.1em}
+        \midrule
+        $\dv*{f}{t}=0$ & $f(t)=C$ \\
+        $\dv*{f}{t}=k$ & $f(t)=kt+C$ \\
+        $\dv*{f}{t}=g(t)$ & $f(t)=\displaystyle\int g(t)\dd{t}=G(t)$ \\%& dvs. & $\dv*{G}{t}=g(t)$ \\
+        $\dv*{f}{t}=kf(t)$ & $f(t)= A\exp(kt)+C$ \\
+        $\dv*[2]{f}{t}=0$ & $f(t)=At+B$ \\
+        $\dv*[2]{f}{t}=k$ & $f(t)=\dfrac{1}{2}kt^2+At+B$ \\
+        $\dv*[2]{f}{t}=\omega^2 f(t)$ & $f(t)= Ae^{\omega t} + Be^{-\omega t}$ \\
+        $\dv*[2]{f}{t}=-\omega^2 f(t)$ & $f(t)=A\sin(\omega t)+B\cos(\omega t) = C\cos(\omega t+\delta)$ \\
+        % \specialrule{.125em}{.1em}{.1em}
+        \bottomrule
+    \end{tabular}
+    \caption{Løsningerne til nogle af de mest almindelige differentialligninger. Det to løsninger til den sidste differentialligning, nemlig $f(t)=A\sin(\omega t)+B\cos(\omega t)$ og $f(t) = C\cos(\omega t+\delta)$ er ækvivalente, og begge bruges i fysik afhængig af startbetingelserne.}
+    \label{mat:tab:diffligninger}
+\end{table}
+

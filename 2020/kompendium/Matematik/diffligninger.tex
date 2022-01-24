@@ -1,0 +1,80 @@
+\section{Differentialligninger} \label{mat:sec:diffeq}
+Det er meget fint at kunne beskrive, hvordan ting bevæger sig, men som så mange andre steder er det store spørgsmål: hvorfor?
+Det er som nævnt den del af mekanikken, der hedder dynamik, som belyser dette spørgsmål. Her vender vi derfor tilbage til Newton, hvis tre love lægger fundamentet for den klassiske mekanik. 
+De er:
+\begin{enumerate}
+    \item lov ({\em inertiens lov}): Et legeme, der ikke er udsat for nogen kraft, vil forblive i hvile, eller bevæge sig med konstant hastighed og retning.
+    \item lov: Kraften på et legeme vil være lig dets masse gange acceleration.
+    \begin{equation} \label{mat:eq:N2}
+        F=ma \, .
+    \end{equation}
+    \item lov: Påvirker et legeme et andet legeme med en kraft, vil det første legeme blive påvirket af en lige så stor og modsatrettet kraft. Eller kort; {\em aktion lig reaktion}.
+    \begin{equation}
+        F_{12}=-F_{21} \, .
+    \end{equation}
+\end{enumerate}
+Det vigtigste Newtons love gør, er at de definerer, hvad en kraft er.
+Man kan derfor godt se dem som den centrale antagelse i den klassiske mekanik\footnote{Dette er blot en udgave af klassisk mekanik, der er andre, så som Lagrangeformalismen. Disse andre formuleringer af klassisk mekanik har andre centrale antagelser. Fælles for dem alle er, at ligegyldigt hvor man starter kan man udlede resten af dem.}.
+Newtons anden lov giver os udtryk på formen
+\begin{equation} \label{mat:eq:n2}
+    F=m\dv[2]{x}{t} \, ,
+\end{equation}
+hvilket er det man kalder en \emph{differentialligning}, altså en ligning der indeholder differentialkvotienter, fordi kræfter afhænger af sted, $x$, og hastighed, $v$.
+Hvor løsningen til en almindelig ligning er det/de tal, der får begge sider til at være ens, så er løsningen til en differentialligning en funktion, der får begge sider til at være ens.
+Hvis vi er i stand til at finde funktionen $x(t)$, der opfylder Newtons anden lov, så ved vi, hvordan legemet bevæger sig, da $x(t)$ i dette tilfælde vil være stedfunktionen.
+Den afledte funktion i en differentialligning, der har højeste orden (f.eks. anden afledte eller tredje afledte), angiver ligningens orden. Så hvis et $\nicefrac{\dd^2}{\dd ^2t}$ -- led indgår, som det led der er afledt flest gange, er differentialligningen af anden orden.
+Newtons anden lov giver oftes andenordensdifferentialligninger, og
+mange fysiske problemer kræver, at man løser en andenordensdifferentialligning.
+
+\subsubsection{Eksempel}
+En airhockey puck glider uden friktion fra underlaget, men den oplever luftmodstand, så kraften bliver
+\begin{equation*}
+    F_\text{luft}=-cv \, ,
+\end{equation*}
+hvor $v$ er puckens hastighed. Her giver Newtons anden lov
+\begin{equation}
+-cv=ma \, ,
+\end{equation}
+hvilket skrevet vha. afledte bliver
+\begin{equation} \label{mat:eq:diff_eq}
+ -\frac{c}{m}\dv{x}{t} = \dv[2]{x}{t} \, .
+\end{equation}
+Siden den højeste afledte i denne differentialligning er af anden orden, er dette en andenordensdifferentialligning.
+Før vi går videre med denne og prøver at finde en løsning, slår vi lige koldt vand i blodet og starter med en førsteordensdifferentialligning. Udtrykkes \cref{mat:eq:diff_eq} ved hastigheden fås
+\begin{equation}
+-\frac{c}{m}v=\dv{v}{t} \, .
+\end{equation}
+Vi har nu brug for en funktion, der er sin egen afledte, hvilket eksponentialfunktionen er. Løsningen til denne differentialligning er
+\begin{equation}
+v(t)=v_0e^{\nicefrac{-tc}{m}} \, ,
+\end{equation}
+hvor $v_0$ er hastigheden til tiden $t=0$. At dette rent faktisk er løsningen kan tjekkes ved at differentiere $v(t)$, indsætte den i differentialligningen ovenfor, og se at begge sider er ens.
+Nu kan vi finde positionen, ved at integrere begge sider
+\begin{equation}
+x(t)= \int v(t) \dd{t} = v_0\int e^{\nicefrac{-tc}{m}}\dd{t}=x_0-\frac{v_0m}{c}e^{\nicefrac{-ct}{m}} \, ,
+\end{equation}
+hvor $x_0$ er positionen til tiden $t=0$. På denne måde har vi fundet ud af, hvordan puckens position ændrer sig, hvis vi kender startpositionen $x_0$ og starthastigheden $v_0$.\\
+
+Det kan godt virke som noget gætværk at finde løsninger til differentialligninger.
+I endnu højere grad end for differential- og integralregning, løses differentialligninger ved at slå op i en tabel\footnote{Eller ved at bestikke en matematiker til at gøre det for sig.}, så som \cref{mat:tab:diffligninger}.
+{
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{1 em}
+\begin{table} []
+    \centering
+    \begin{tabular}{l|c c c}
+        Ligning&&Løsning\\\specialrule{.125em}{.1em}{.1em}
+        $\dv{f}{t}=0$&$f(t)=C$\\
+        $\dv{f}{t}=k$&$f(t)=kt+C$\\
+        $\dv{f}{t}=g(t)$&$f(t)=\int g(t)\dd{t}=G(t)$&dvs.& $\nicefrac{\dd G}{\dd t}=g(t)$\\
+        $\dv{f}{t}=kf(t)$&$f(t)= A\exp(kt)+C$\\
+        $\dv[2]{f}{t}=0$&$f(t)=At+B$\\
+        $\dv[2]{f}{t}=k$&$f(t)=\frac{1}{2}kt^2+At+B$\\
+        $\dv[2]{f}{t}=\omega^2 f(t)$&$f(t)= Ae^{\omega t} + Be^{-\omega t}$\\
+        $\dv[2]{f}{t}=-\omega^2 f(t)$&$f(t)=A\sin(\omega t)+B\cos(\omega t)$&eller&$f(t)=C\cos(\omega t+\delta)$ \\
+        \specialrule{.125em}{.1em}{.1em}
+    \end{tabular}
+    \caption{Løsningerne til nogle af de mest almindelige differentialligninger.}
+    \label{mat:tab:diffligninger}
+\end{table}
+}

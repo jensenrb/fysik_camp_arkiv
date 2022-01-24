@@ -1,0 +1,59 @@
+%% VI LAVER NOGLE FYSIK- OG MATEMATIK-MAKROER:
+
+%% Generelt
+\newcommand{\g}{\cdot} % Prikprodukt, gangetegn
+\newcommand{\kraft}[2]{#1_{\text{#2}}} % Pæn subscript
+\newcommand{\e}{\mathcal{E}} % Skrevet E
+
+%% Angiv sværhedsgrad til opgaver (benytter \usepackage{xstring})
+%\newcommand{\lvl}[1]{%
+%\IfStrEqCase{#1}{{1}{\ensuremath{\star}}
+%    {2}{\ensuremath{\star\star}}
+%    {3}{\ensuremath{\star\star\star}}}
+%    [nada]
+%}
+
+%% Matematik
+
+\newcommand{\abs}[1]{\left| #1 \right|} % Numerisk værdi
+\let\underdot=\d % omdøb indbygget kommando \d{} til \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % afledt
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % dbl.afledt
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %partiel afl.
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} %db.p.afl.
+\newcommand{\R}{\mathbb{R}} % Reelle tal
+
+% Vektorer
+
+\newcommand{\xyz}[3]{\begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}} %3D-vektor
+\newcommand{\xy}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}} %2D-vektor
+\let\vaccent=\v % Omdøb \v{} til \vaccent{}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % Vektor med fed
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} % Vektor med græske bogstaver
+\newcommand{\hatvec}[1]{\hat{\mathbf{#1}}} % Hatvektor
+\newcommand{\ihat}{\boldsymbol{\hat{\textbf{\i}}}} % Enhedsvektor i
+\newcommand{\jhat}{\boldsymbol{\hat{\textbf{\j}}}} % .. j
+\newcommand{\khat}{\mathbf{\hat{k}}}  % .. k
+\newcommand{\xhat}{\mathbf{\hat{x}}} % Enhedsvektor x
+\newcommand{\yhat}{\mathbf{\hat{y}}} % .. y
+\newcommand{\zhat}{\mathbf{\hat{z}}} % .. z
+\newcommand{\grad}[1]{\gv{\nabla} #1} % Gradient
+\let\divsymb=\div % Omdøb \div til \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % Divergens
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % Curl
+% Vil man tage div eller curl af græske bogstaver,
+% skal man lade argumentetet være fx \gv{\mu} for µ-vektor
+
+% Kvantemekanik
+
+\newcommand{\expect}[1]{\left< #1 \right>} % Forventningsværdi
+\newcommand{\trace}{\ensuremath{\text{Tr}}\xspace}
+\newcommand{\Hilbert}{\ensuremath{\mathcal{H}}}
+\newcommand{\tr}[1]{\text{Tr}\left(#1\right)} % Trace
+\newcommand{\ptr}[2]{\text{Tr}_{#1}\left(#2\right)} % Partial trace
+\newcommand{\ket}[1]{\left| #1 \right>} % Dirac-notation: ket
+\newcommand{\bra}[1]{\left< #1 \right|} % bra
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \, \right|
+  \left. \! #2 \vphantom{#1} \right>} % bracket
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+  #2 \left| #3 \vphantom{#1#2} \right>} % Bracket med ekstra streg

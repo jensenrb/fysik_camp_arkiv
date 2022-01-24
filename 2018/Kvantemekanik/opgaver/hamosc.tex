@@ -1,0 +1,51 @@
+\section*{Harmoniske oscillatorer}
+\begin{opgave}{Harmonisk oscillator med $\boldsymbol{\op a_- \op a_+}$}{1}
+\label{kvant:opg:amap}
+Færdiggør udledningen af den harmoniske oscillator. Hvis du havde problemer med denne udledning er denne opgave stærkt anbefalet.
+\opg Udregn $\op a_-\op a_+$.
+\opg Brug dette til at udlede ligning \eqref{k-kvant:eq:Hamap} i kompendiet.
+\opg Vis at hvis $\psi_n$ er en løsning til Schrödingerligningen, så er $\op a_-\psi_n$ det også.
+\opg Hvad er energien af $\op a_- \psi_n$
+\end{opgave}
+%
+\begin{opgave}{Sjov med operatorer}{2}
+\label{kvant:opg:sjov}
+Vi vil her komme ind på en af grundene til, at hæve-/sænkeoperatorerne er smarte. Udnyt at bølgefunktionerne er ortonormale, og husk at
+$$
+\op a_\pm = \frac{1}{\sqrt{2 m \hbar\omega}}(\mp i\op p+m\omega \op x) \, .
+$$
+\opg Udtryk $\op x$ og $\op p$ ved $\op a_+$ og $\op a_-$.
+\opg Find $\expect x$ og $\expect p$ for $\psi_0$, $\psi_1$ og $\psi_{n}$.
+\opg Gør det samme for $\expect{x^2}$ og $\expect{p^2}$.
+\opg Hvad er $\sigma_x$ og $\sigma_p$ for $\psi_n$?
+\opg Hvordan passer det med Heisenbergs usikkerhedsprincip?
+\end{opgave}
+%
+\begin{opgave}{Nu med tid}{2}
+Til tiden $t=0$ har vi bølgefunktionen: $$\Psi(x,t=0) = N(\psi_0+\psi_1)$$ (Det kan være en fordel at have lavet opgave \ref{kvant:opg:sjov} først.)
+\opg Hvad er $N$?
+\opg Hvad er $\Psi(x,t)$?
+\opg Hvad er $\expect E$?
+\opg Hvad er $\expect {x(t)}$?
+\end{opgave}
+%
+\begin{opgave}{Molekylære vibrationer}{2}
+En god model for bindingen i et molekyle er Morsepotentialet:
+$$
+V(r) = D\left(1-e^{-(r-R)}\right)^2
+$$
+\opg Hvor er potentialets minimum (ligevægtsafstanden)?
+\opg Hvad er minimumsværdien af potentialet?
+\opg Hvad er potentialet for meget store $r$.
+\opg Hvad er $\pdif[2]{r}{V}$ i ligevægtspunktet. Dette er kraftkonstanten $k$ analogt med for en fjeder.
+\opg Molekylet vil kunne vibrere omkring ligevægtspunktet. Hvad er $\omega$?
+\opg Morse potentialet kan tilnærmes som en harmonisk oscillator. Hvad er grundtilstandsenergien for denne?\\ \\
+For et brintmolekyle er Morsepotentialet givet ved:
+\begin{align*}
+D&=\SI{7.24e-19}{J} \, ,\\
+a &= \SI{3.93e10}{m^{-1}} \, ,\\
+R &= \SI{7.40e-11}{m} \, ,\\
+m_p&=\SI{1.67e-27}{kg} \, .
+\end{align*}
+\opg Hvad er $\omega$ og $E_0$ for brintmolekylet.
+\end{opgave}

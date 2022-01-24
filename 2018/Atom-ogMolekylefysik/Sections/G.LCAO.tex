@@ -1,0 +1,65 @@
+\documentclass[../../Atom-ogMolekylefysik.tex]{subfiles}
+\begin{document}
+\subsection{Born-Oppenheimer approximationen}
+Da vi så på atomer så vi egentligt på brintatomet og lavede korrektioner når vi tilføjede flere elektroner. Da molekyler består af flere atomer der er bundet til hinanden vil det her ikke være nok at korregere for flere elektroner, men vi skal også tage højde for flere atomkærner. Systemets kinetiske energi er blot den kinetiske energi for alle de enkelte partikler. Dette kan deles op i en elektron del($K_e$ og en kærne$K_\text{N}$ del.
+\begin{equation}
+    K_\text{total} = K_e+K_\text{N}
+\end{equation}
+For den potentielle energi er det ikke helt så simpelt. Her vil alle partiklerne  frastøde eller tiltrække hinanden efter Coloumbs lov:
+\begin{equation}
+    V_{12}=k_\text{C}\frac{q_1q_2}{r}
+\end{equation}
+Her er $q_1$ og $q_2$ partiklernes ladning, $r$ er deres afstand og $k_\text{C}$ er en konstant\footnote{Couloumbs lov skrives normalt i form af kraft:
+$
+\v F_{12} = -k_\text{C}\frac{q_1q_2}{r^2}\rhat
+$
+}.
+Der er et potentiale bidrag for hvert par af partikler. Det er muligt at opdele det i elektron-elektron par, kærne-kærne par og elektron-kærne par. Det giver potentialet:
+\begin{equation}
+    V_\text{total} = V_{ee}+V_{e\text{N}}+V_\text{NN}
+\end{equation}
+Kombineres giver det den totale hamiltonoperator:
+\begin{equation}
+    H_\text{total} = K_e + K_\text{N}+V_{ee}+V{e\text{N}}+V_\text{NN}
+\end{equation}
+Hvis vi skulle beskrive molekylet fra bunden er det Schrödingerligningen for denne hamiltonoperator vi skulle løse. Det bliver ikke bedre at selv relativt små molekyler bliver antallet af elektroner ret stort. Vi har tidligere haft stort held med separation af variable. Havde det været et vilkårligt system af forskellige ladede partikler ville vi dog ikke kunne gøre det. Siden elektroner er meget lettere end atomkærner\footnote{En protron masse er omkring 1836 elektronmasser.} vil kærnerne kærnerne bevæge sig så meget langsommere end elektronerne at de effektivt er stationære. Under denne tilnærmelse, kaldet Born-Oppenheimer approximationen, er det muligt at splitte bølgefunktionen op i en elektron del og en kærne del. Det gør det muligt at løse elektronbølgefunktionen , og derefter kærnebølgefunktionen, hvor elektronbølgefunktionens energi virker som en potentiel energi, da den afhænger at kærnernes position, skrevet $\v R$.
+\begin{align}
+    H_e\Psi_e = (K_e+V_{ee}+V_{e\text{N}}+V_\text{NN})\Psi_e&=E(\v R)\Psi_e\\
+    \left(K_\text{N}+E(\v R)\right)\Psi_\text{N}&= E_\text{total}\Psi_\text{N}
+\end{align}
+Det er værd at bemærke at molekylet kun vil være stabilt omkring et minimum i $E(\v R)$. Vi vil ikke gå i dybden med kærneligningen, lad det bare blive sagt at dens løsninger vil beskrive vibrationer i molekylet. Derfor vil vi droppe $e$ indexet fremover, og lade det være implicit at vi ser på elektroner, derefter vil $\v R$ udelades for nemheds skyld. Det efterlader to udfordringer: at finde en elektronenergi ud fra en konfiguration, og derudfra finde ligevægtspunkter.
+
+\subsection{Variationsprincippet}
+Vi har tidligere set på hvordan en bølgefunktion kan beskrives som en kombination af andre funktioner. Vi har hidtil set på situationer, hvor denne beskrivelse er perfekt. Når vi har et såkaldt fuldstendingt basissæt. Når der er en analytisk løsning til Schrödingerligningen er det ikke det store problem. For atomet fandt vi energierne ved at udføre korrektioner på løsninger til brintatomet. Dette er en fremgangsmåde. Metoden vi vil bruge på molekylerne kaldes variationsprincippet. Givet et sær basisfunktioner, findes en tilnærmet grundtilstand, som den kombination der har den laveste energi. 
+Ser vi på en tilnærmet tilstand $\psi_\text{gæt}$ kan den skrives som en sum af de stationære tilstande $\psi_n$. Selvom vi ikke kender de stationere tilstande må summen eksistere.
+\begin{equation}
+    \psi_\text{gæt} = \sum_na_n\psi_n
+\end{equation}
+Da der er talt om stationære tilstande er det relativt let at finde energien:
+\begin{equation}
+    E(\psi_\text{gæt})= \frac{\matrixel{\psi_\text{gæt}}{\op H}{\psi_\text{gæt}}}{\braket{\psi_\text{gæt}}{\psi_\text{gæt}}} = \frac{\sum_na_nE_n}{\sum_na_n}
+\end{equation}
+Nævneren er inkluderet for, at kunne håndtere unomerede bølgefunktioner. Var bølgefunktionen normeret, ville det blot være en. Ved at gange grundtilstandsenergien kreativt med en, kan den skrives på en tilsvarende form.
+\begin{equation}
+    E_0 = \frac{\sum_na_nE_0}{\sum_na_n}
+\end{equation}
+Nu kan vi finde forskellen imellem den gættede energi og grundtilstanden. Her er det værd at huske, at grundtilstanden altid har den lavest mulige energi blandt de stationære tilstande.
+\begin{equation}
+    E(\psi_\text{gæt})-E_0 = \frac{\sum_na_n(E_n-E_0)}{\sum_na_n}\geq 0
+\end{equation}
+Ikke nok med at grundtilstanden har den laveste energi blandt de stationære tilstande, den har den lavest mulige energi. Kravet for at have lav energi er at $a_0$ er så stor som muligt, og de andre $a_n$ er så små som muligt. Præcis samme krav giver en god tilnærmelse af $\psi_0$. 
+Det er altid muligt at finde ortonormale basissæt, så de følgende energier findes blandt funktionerne der er ortonormale på den tilnærmede grundtilstand. Det betyder dog at usikkerhederne ophober sig, og den bedst bestemte tilstand er grundtilstanden. Det er ikke et stort problem, da molekylernes elektroner normalt befinder sig i grundtilstanden.
+\subsection{Valg af basissæt}
+Det der afgør om variationsprincippet giver et godt resultat, er det anvendte basissæt. I den ideelle verden ville vi vælge et fuldstændigt basissæt, men det ville også kræve uendelig regnekraft, uden en analytisk løsning. 
+Molekylerne er domineret af atomkærner der binder elektroner til sig. Det andet system hvor det også gælder er selvfølgelig atomerne vi så på tidligere i dette kapitel. Dette kalde LCAO metoden. Det står for LinearKombination af AtomOrbitaler\footnote{Dette er i dansk oversættelse på engelsk er det: Linear Combination of Atomic Orbitals}. Stationære elektron tilstande i atomer og molekyler kaldes ofte orbitaler, dette er et levn fra tidlige atommodeller, hvor man troede at elektroner kredsede om atomkærnerne. Ikke alle atomorbitaler bidrager ligeligt. Tæt på kernerne vil elektronerne kun opleve den nærmeste kerne, så de laveste atomorbitaler indgår ikke i bindingen. De yderste tilstande har så høj energi at de kun bidrager marginalt til molekyler i grundtilstanden. Vi kan derfor opstille et minimalt valens\footnote{Elektronerne i disse orbitaler kaldes valens elektroner, og det er dem der indgår i langt de fleste kemiske reaktioner.} basissæt. For brint ville dette sæt bestå af $1s$ orbitalen, for grundstoffer som ilt eller kvælstof ville det være $\{2s,2p_x,2p_y,2p_z\}$. Dette er en meget simplificeret situation, men det er desværre vilkårene når man ikke har adgang til en supercomputer. 
+\subsection{Brintmolekylet}
+Lad os betragte et af de simpleste molekyler: H$_2$.
+Molekylets struktur beskrives fuldstændigt af afstanden imellem de to brintkerner: $R$. Vi vælger at se på hver elektron i isolation. Det giver en 
+Grundtilstanden for atomart brint har en energi på \SI{13.6}{eV}. Bølgefunktionen er:
+\begin{equation}
+    \psi_{100} = \frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0}
+\end{equation}
+$a_0$ er den såkaldte Bohr radius. Den er $\SI{0.529e-10}{m}$. Der er lige så stor sandsynlighed for at finde elektronen i et brintatom inden for Bohr radien, som udenfor.
+
+Først findes 
+\end{document}

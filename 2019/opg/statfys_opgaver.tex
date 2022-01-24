@@ -1,0 +1,149 @@
+\section{Opgaver}
+\begin{opgave}{Stirling}
+    Hvis man inkluderer det næste led i Stirlings approksimation, får man
+    \[ \ln N!\approx N\ln N-N+\left(\frac{1}{2}\ln N\right) \, , \]
+    hvor det ekstra led er sat i parentes. Beregn forholdet mellem Stirling's approksimationer, hvor man hhv. inkluderer to eller tre led, for
+    \begin{itemize}
+        \item $N=10$
+        \item $N=100$
+        \item $N=10^4$
+        \item $N_A$ (Avogadro's tal)
+    \end{itemize}
+    Hvad med hvis man fjerner det andet led, ``$-N$''? Hvad kan du konkludere?
+\end{opgave}
+\begin{opgave}{Konfigurationer}
+    Betragt et system med 9 identiske skelnelige partikler\footnote{For eksempel atomer i et krystalgitter som man kan skelne via deres position.}. Hver partikel kan have energi $j\epsilon$ for $j=0,1,2,3,\dots$. Den samlede energi i systemet er $U=7\epsilon$.
+    \opg Hvilke(n) af følgende konfigurationer er \emph{ikke} mulige for dette system?
+    \begin{enumerate}[label=\alph*)]
+        \item $[6,2,0,0,0,1,0,\dots]$
+        \item $[8,0,0,0,0,0,0,1,0,\dots]$
+        \item $[4,3,1,1,0,\dots]$
+        \item $[5,1,3,0,\dots]$
+    \end{enumerate}$ $
+    \opg Hvad er multipliciteten for konfigurationen $[7,0,0,1,1,0,\dots]$?
+    \begin{enumerate}[label=\alph*)]
+        \item 5040
+        \item 72
+        \item 9
+        \item 1
+    \end{enumerate}$ $
+    \opg Hvad er sandsynligheden for at finde en partikel i $j=7$ tilstanden?
+    \begin{enumerate}[label=\alph*)]
+        \item $1/15$
+        \item $0.00140$
+        \item $0.000155$
+        \item $0$
+    \end{enumerate}$ $
+    \opg Hvad er sandsynligheden for at finde ligevægtskonfigurationen?
+    \begin{enumerate}[label=\alph*)]
+        \item $0.235$
+        \item $1/15$
+        \item $0.00417$
+        \item $0.000155$
+    \end{enumerate}$ $
+    \opg Hvad er den totale entropi af systemet?
+    \begin{enumerate}[label=\alph*)]
+        \item $8.77k_B$
+        \item $7.32k_B$
+        \item $2.71k_B$
+        \item $0$
+    \end{enumerate}$ $
+    \opg Hvad er entropien af ligevægtskonfigurationen?
+    \begin{enumerate}[label=\alph*)]
+        \item $8.77k_B$
+        \item $7.32k_B$
+        \item $2.71k_B$
+        \item $0$
+    \end{enumerate}$ $
+\end{opgave}
+
+\begin{opgave}{Spillekort}
+    Et sæt af 52 spillekort har fire kulører ($\heartsuit,\spadesuit,\diamondsuit,\clubsuit$) af 13 forskellige kort (fra $A,2,3,\dots,10,J,Q,K$). 
+    \opg Lad $\Omega$ være det totale antal unikke måder kortene kan blandes på. Ved at betragte hvert unikt bunke blandede kort som en mikrotilstand, så er $\Omega$ multipliciteten af systemet. Beregn $\Omega$ for spillekortene.
+    \opg Betragt nu to kulører med 13 kort hver, som vi nu blander sammen. Hvad er multipliciteten for den blandede bunke kort hvis (i) kulørerne er forskellige (fx $\heartsuit$ og $\spadesuit$) eller (ii) hvis kulørerne er ens (fx $\diamondsuit$ og $\diamondsuit$)?
+    \opg Argumenter for, hvis vi blander to identiske sæt af 52 forskellige kort sammen, at den samlede multiplicitet er
+    \[ \Omega_T=\frac{1}{2^{52}}(104!). \]
+\end{opgave}
+
+\begin{opgave}{Boltzmannfordelingen}
+    Betragt et isoleret system med mange identiske og skelnelige partikler som kan befinde sig i tre energiniveauer, $\epsilon_1$, $\epsilon_2$ og $\epsilon_3$. Lad antallet af partikler i hver tilstand være $n_1$, $n_2$ og $n_3$.
+    \opg Skriv udtrykket for multiplciteten af konfigurationen $[n_1,n_2,n_3]$, $\Omega_n$.\\
+    Betragt nu en lille ændring i fordelingen af partikler mellem de tre tilstande, $\delta n_1$, $\delta n_2$ og $\delta n_3$.
+    \opg Skriv ændringen i $\ln \Omega_n$ ud fra $\delta n_j$'erne. (Hint: Brug Stirling's approksimation)\\
+    For ligevægtskonfigurationen må $\ln\Omega_n$ være maksimum. Man kan derfor sætte $\delta(\ln\Omega_n)=0$.
+    \opg Skriv to ligninger for betingelserne på konstant $U$ og $N$, udtrykt i $\delta n_j$.
+    \opg Brug disse ligninger til at eliminere $\delta n_j$, og vis at for maksimum $\ln\Omega_n$ gælder
+    \[ \frac{1}{\epsilon_3-\epsilon_1}\ln\left(\frac{n_3}{n_1}\right)=\frac{1}{\epsilon_2-\epsilon_1}\ln\left(\frac{n_2}{n_1}\right). \]
+    \opg Ved at angive en arbitrær værdi $-\beta$, vis at
+    \[ \frac{n_3}{n_1}=e^{-\beta(\epsilon_3-\epsilon_1)}\quad\text{og}\quad\frac{n_2}{n_1}=e^{-\beta(\epsilon_2-\epsilon_1)}. \] 
+    Dette er Boltzmannfordelingen.
+\end{opgave}
+
+\begin{opgave}{Adiabatisk ekspansion}
+    Betragt en kasse med samlet volumen $V$, med to rum, adskilt af en væg. På den ene side er der et volumen $V_0$ og i alt $N$ molekyler. På den anden side er der fuldkomment tomt. Væggen fjernes nu, og gassen udvider sig til resten af kassen.
+    \opg Efter udvidelsen, hvad er chancen for at et tilfældigt molekyle befinder sig i det originale volumen $V_0$?
+    \opg Hvad er chancen for at alle de $N$ molekyler befinder sig i det originale volumen $V_0$?
+    \opg Ud fra de ovenstående svar, og det fundamentale postulat for statistisk mekanik, vis at
+    \[ \Omega=\Omega_0\left(\frac{V}{V_0}\right)^N, \]
+    hvor $\Omega$ er multipliciteten for systemet efter væggen er fjernet, og $\Omega_0$ er multiplcitieten for systemet med alle molekylerne i det originale volumen $V_0$.
+    \opg Vis dermed at ændringen i Boltzmann entropien er
+    \[ \Delta S_B=Nk_B\ln(V/V_0). \]
+    Fra et termodynamisk perspektiv er dette en adiabatisk ekspansion af en ideal gas.
+\end{opgave}
+
+\begin{opgave}{Exciteret konfiguration}
+    Forestil dig et stort antal $N$ skelnelige patikler fordelt i $M$ kasser. Vi ved at det totale antal mikrotilstande er
+    \[ \Omega=M^N \]
+    og at antallet af mikrotilstande med $n_1$ partikler i den første kasse, $n_2$ partikler i den anden kasse, osv. -- altså konfigurationen $[n_1,n_2,\dots,n_M]$ er givet ved
+    \[ \Omega_n=\frac{N!}{\prod_{j=1}^M n_j!}. \]
+    \opg Vis at ligevægtskonfigurationen er den hvor der er et lige antal partikler fordelt mellem de $M$ kasser.
+    \opg Hvad er sandsynligheden for denne konfiguration?\\[12pt]
+    I ligevægtskonfigurationen er der $n_0=N/M$ partikler i hver kasse. Lad $\Omega_0$ og $p_0$ være hhv. multipliciteten og sandsynligheden for denne konfiguration. Forestil dig at vi flytter $\delta n$ partikler fra kasse 1 til kasse 2, som giver følgende konfiguration:
+    \[ [n_0-\delta n,n_0+\delta n,n_0,n_0,\dots,n_0] \]
+    \opg For \underline{én} kasse, kan ændringen i $\ln\Omega_n$ på grund af en ændring $\delta n$ skrives som
+    \[ \delta(\ln\Omega_n)=-\ln\left((n_0+\delta n)!\right)+\ln(n_0!). \]
+    Skriv Taylor-udvidelsen
+    \[ f(x)\approx f(x_0)+f'(x_0)\delta x+f''(x_0)\delta x^2 \]
+    for Stirling approksimationen af $\ln n!$ omkring $n_0$, og brug den til at vise 
+    \[ \ln\Omega_n\approx \ln\Omega_0-\frac{\delta n^2}{n_0}. \]
+    \opg Udled derfra et udtryk for sandsynligheden for den nye konfiguration.\\[12pt]
+    Nu flytter vi ikke kun rundt på partikler mellem to kasser, men mellem alle kasser. Herfra får vi konfigurationen
+    \[ [n_0+\delta n_1,n_0+\delta n_2,n_0+\delta n_3,\dots,n_0+\delta n_M] \]
+    \opg Vis på samme måde at multipliciteten
+    \[ \ln\Omega_n\approx \ln\Omega_0-\sum_j\frac{\delta n_j^2}{2n_0} \]
+    \opg Udled sandsynligheden for at få denne konfiguration.
+    \opg Vis at får et stort antal kasser $M$, så er sandsynligheden for at der findes $n_0+\delta n_j$ partikler i den $j$'te kasse
+    \[ p\approx p_{n_0}e^{-\frac{\delta n_j^2}{2n_0}}, \]
+    hvor $p_{n_0}$ er sandsynligheden for at der er $n_0$ partikler i kassen.
+\end{opgave}
+
+\begin{opgave}{Paramagnetisme}
+    Vi vil gerne undersøge fænomenet om paramagnetisme i et metal. Vi antager at systemet består af $N$ identiske og svagt interagerende partikler. Fordi de ligger i et krystalgitter, er de skelnelige på baggrund af deres faste positioner.
+    
+    Først vil vi se på et enkelt-partikel system med to mulige tilstande, $\epsilon_0$ og $\epsilon_1$.
+    \opg Skriv tilstandssummen $Z_1$ for dette enkelt-partikel system.
+    \opg Omskriv $Z_1$ så det er udtrykt i energiforskellen $\epsilon=\epsilon_1-\epsilon_0$ og grundtilstanden $\epsilon_0$.
+    \opg Skriv udtryk for antallet af optagede tilstande $n_0$ og $n_1$ i energiniveauerne $\epsilon_0$ og $\epsilon_1$, for et system bestående af $N$ partikler.\\[12pt]
+    Vi definerer nu den effektive temperatur $\theta=\epsilon/k_B$.
+    \opg Genskriv $Z_1$, $n_0$ og $n_1$ udtrykt i $\theta$.
+    \opg Tegn grafer for $n_0$ og $n_1$ som funktion af $T$ i intervallet $0$ til $2\theta$. Hvad bliver $n_0$ og $n_1$ når $T\to\infty$ og $T\to 0$.\\[12pt]
+    Betragt nu en paramagnet bestående af $N$ partikler som kan være i to energitilstande. Når der ikke er påført noget magnetfelt, vil begge energier være det samme. Men for et magnetfelt $B$ vil energierne afhænge af partiklernes `orientering' i feltet. De to energiniveauer bliver derfor $\epsilon_0=-\mu B$ og $\epsilon_0=+\mu B$, hvor $\mu$ er partiklernes magnetiske dipolmoment.
+    \opg Skriv udtryk for $n_0$ og $n_1$, og vis derfra at \emph{magnetiseringen} $M=n_0\mu-n_1\mu$ for systemet er
+    \[ M=N\mu\tanh\left(\frac{\mu B}{k_B T}\right).\]
+    \opg Plot $M$ som funktion $\mu B/k_BT$.
+    \opg Vis at for $\theta\ll T$,
+    \[\frac{M}{B}\propto\frac{1}{T}.\]
+    Dette er Curie's lov. (HINT: $\tanh(x)\approx x$ for små $x$) \\[12pt]
+    (Følgende er ekstraopgaver)
+    \opg Antag at det magnetiserede system er isoleret og at magnetfeltet $B$ langsomt og adiabatisk (uden ændring i systemets energi) reduceres, således at partiklernes orientering ikke kan justere deres retninger med hensyn til feltet. Hvad sker der med temperaturen?
+    \opg Hvad hvis magnetfeltets retning $B$ pludseligt vendes i modsat retning? Hvad er systemets temperatur nu?
+\end{opgave}
+
+\begin{opgave}{Elastik}
+    Forestil dig et lod med masse $m$ som hænger for enden af en elastik. Vi kan antage at elastikken er i termodynamisk ligevægt med dens omgivelser som har temperatur $T$. Elastikken består af $N$ skelnelige, masseløse segmenter med længde $a$. Hvert segment kan enten pege op eller ned, således at den maksimale længde elastikken kan have er $aN$. Kraften som loddet trækker med gør så segmenterne helst vil pege nedad, og gøre elastikken længere, men den termiske energi fra omgivelserne gør, at segmenterne nogle gange kan ændre retning, så loddet enten stiger eller falder i højde.
+    \opg Skriv et generelt udtryk tilstandssummen $Z$ af ét enkelt segment, samt sandsynligheden $p_j$ for at segmentet er i tilstand $j$ med energi $\epsilon_j$.
+    \opg Alle segmenterne har samme længde $a$, så hvis man kun ændrer retningen på én, vil den samlede længde ændres med $2a$. Skriv ændringen i loddets potentielle energi når et segment vendes fra op til ned. Skriv derfra det fulde udtryk for $Z$.
+    \opg Bestem sandsynligheden for at segment peger enten op eller ned. Vis derfra at elastikkens længde er givet ved
+    \[ L=Na\tanh\left(\frac{amg}{k_BT}\right). \]
+    \opg Nu varmer vi langsomt på elastikken. Baseret på dine resultater, hvad forestiller du dig vil ske, og hvorfor?
+\end{opgave}

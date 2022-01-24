@@ -1,0 +1,59 @@
+\subsection*{Integralregning}
+%%
+\begin{opgave}[1]{Integraler og arealer under funktioner}
+I matematikafsnittet i kompendiet nævnes det, at når man regner et bestemt integral
+\begin{equation*}
+\int^a_b{f(x)}\dd{x},
+\end{equation*}
+så svare det til arealet under grafen for $f(x)$ i intervallet $[a,b]$ på $x$-aksen. Brug dette faktum til at diskutere den fysiske forståelse af følgende udsagn.
+\opg Hvis man integrerer en hastighed $v(t)$ ift. tiden $t$, så får man en position $x(t)$.
+\opg Hvis man integrerer en acceleration $a(t)$ ift. tiden $t$, så får man en hastighed $v(t)$.
+\end{opgave}
+
+\begin{opgave}[1]{Ubestemte integraler}
+	Udregn det ubestemte integral af følgende funktioner:
+	\opg $f(x) = x^3$.
+	\opg $f(x) = x^2 + 4x$.
+	\opg $f(x) = x^2 + \dfrac{1}{x^2}$.
+	\opg $f(x) = \cos (x)$.
+	\opg $f(x) = \frac{1}{x}$.
+\end{opgave}
+%%
+\begin{opgave}[2]{Størrelsen af en port}
+    En tømmer er blevet hyret til at lave tre porte.
+    Toppen af hver port kan beskrives med en af de følgende funktioner
+    \begin{align*}
+        f(x)&=1-x^2,\\
+        g(x)&=2-\frac{e^x+e^{-x}}{2},\\
+        h(x) &= 1-\abs{x}.        
+    \end{align*}
+    Alle portene er i intervallet $[-\nicefrac{1}{2},\nicefrac{1}{2}]$.
+    \opg Opstil bestemte integraler til at udregne arealet af de tre porte.
+    \opg Hvilken port er størst?
+    \opg Hvilken er mindst?
+\end{opgave}
+%%
+%%
+\begin{opgave}[4]{Lige og ulige funktioner} \label{opg:lige/ulige}
+En funktion, så som $f(x) = x^2$, der opfylder kravet, $f(x) = f(-x)$, kaldes en lige funktion. En funktion, som $f(x) = x$, der opfylder det lignende krav, $f(x)=-f(-x)$, kaldes for en ulige funktion.
+Det vil sige, at en lige funktion er uændret, hvis man spejler den i $y$-aksen, mens en ulige funktion skifter fortegn ved den samme spejling.
+Bemærk at de fleste funktioner er hverken lige eller ulige, og unikt er funktionen $f(x) = 0$ både lige og ulige.
+Afgør om følgende funktioner er lige eller ulige.
+\opg $f_1(x) = x$
+\opg $f_2(x) = |x|$
+\opg $f_3(x) = \sin(x)$
+\opg $f_4(x) = e^{-x^2}$
+\opg $f_5(x) = \cos(x)$ \\[2mm]
+Arealet under kurven for en ulige funktion i intervallet $[-a,0[$ er af definitionen ligeså stort som arealet under kurven i intervallet $]0,a]$, mens $f(0)=0$. Derfor er $\int_{-a}^{a}f(x)\dd{x} = 0$ for en ulige funktion.
+\opg Eftervis at dette er sandt for de funktioner ovenfor, der er ulige.
+\opg Bevis udsagnet for en generel ulige funktion. Obs: Dette kræver kendskab til integration ved substitution.
+\end{opgave}
+%%
+%%
+% \begin{opgave}{Ubestemte højereordensintegraler}
+%     Udregn følgende ubestemte højereordensintegraler. Sæt alle integrationskonstanter til nul.
+%     \opg $\iint ye^{-x}\dd{x}\dd{y}.$
+%     \opg $\iint y\cos(xy)\dd{x}\dd{y}.$
+%     \opg $\iiint (x^2+y^2)z\dd{x}z\dd{y}\dd{z}.$
+%     \opg $\iiint \sin(x)\sin(y)\sin(z)\dd{x}\dd{y}\dd{z}.$
+% \end{opgave}

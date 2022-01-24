@@ -1,0 +1,215 @@
+\documentclass[../Kvantemekanik.tex]{subfiles}
+ 
+\begin{document}
+
+\section{Kvantemekanikkens forunderlige egenskaber}
+Løsningen til den uendelige potentialebrønd ser måske ikke ud af meget, men bliv ikke snydt, for dette resultat indeholder faktisk en hel del information om mange af de underlige egenskaber der er ved kvantemekanik, så lad os bruge en del energi på at gennemgå dem.
+
+\subsubsection{Grundtilstanden}
+Da vi løste Schrödingerligningen for den uendelige potentialbrønd, fandt vi at der er en tilstand med minimal energi, og alle andre tilstande har en højere energi end denne tilstand.
+Dette viser sig at være en generel ting, og vi vil genfinde det, når vi løser andre systemer.
+Den laveste tilstand har et særligt navn. Den kaldes for grundtilstanden. 
+Lad os se på en hypotetisk tilstand med en energi, der alle steder er lavere end potentialet.
+$$
+E<V(x)~~\forall x\in \R
+$$
+Så er det muligt at omarrangere den tidsuafhængige Schrödingerligning til:
+\begin{equation}
+    \dif[2]{x}{\psi} = \frac{2m}{\hbar^2}(V-E)\psi
+\end{equation}
+Som man kan se er krumningen (den anden afledte) af $\psi$ altid positiv. Det betyder at hældningen altid vil være stigende, så det er ikke muligt for bølgefunktionen at gå imod nul i det uendeligt fjerne. Dette er et krav for at bølgefunktionen kan normeres, så for at finde en løsning til Schrödingerligningen som kan normeres, må grundtilsstandsenergien være større end potentialets minimum.
+
+\subsection{Ortonormalitet}
+For det første er det værd at bemærke, at vi i ligningerne for energien og bølgefunktionen har benævnt dem begge med et subscript $n$. Dette er gjort, da alle de andre konstanter der indgår i udtrykkene er bestemt for os på forhånd, hvorimod $n$ er et vilkårligt tal, vi var nød til at indføre da matematikken krævede det. Dette $n$ er skyld i, at vores partikel ikke kan have alle tænkelige energier, men er begrænset til at have en ud af mange diskrete energier. Samtidig betyder det også, at partiklen er begrænset til at have én ud af en række bestemte bølgefunktioner.
+
+Betyder det at en partikel ikke kan bevæge sig frit i en sådan boks, og at den samtidig er nød til at have helt bestemte energier? Nej ikke helt, men for at forstå det, skal vi først lære lidt om hvordan disse bølgefunktioner fungerer.
+
+Den første ting vi skal indse, er at disse funktioner er indbyrdes ortonormale. Ortonormale betyder at en funktion $\psi_n$ ikke kan skrives som en kombination af andre funktioner $\sum_m \psi_m$ for $m\neq n$. Dette kan ses ved at udføre integralet.
+\begin{equation}
+    \integral{\psi_m^*\psi_n}{x}{0}{L} = \delta_{m,n}
+\end{equation}
+hvor tegnet $\delta_{m,n}$ er det såkaldte Kronecker-delta-tegn, der er 1 når $m=n$, og 0 ellers. Dette integral kan tolkes som at funktionen $\psi_n$ ikke indeholder noget af funktionen $\psi_m$.
+
+\subsection{Repræsentation}
+Ortonormalitet betyder at funktionerne $\psi_1, \psi_2...$ udspænder et komplet rum, hvor de hver især er uafhængige af hinanden, men ved at lave lineære kombinationer af disse funktioner, kan vi repræsentere alle andre funktioner vi kan tænke på inde i intervallet $x=0,L$, og alle disse funktioner vil have en unik kombination af $\psi_n$ funktioner at blive repræsenteret af. Man kan tænke på dette som et koordinatsystem. Et punkt i et 3-dimensionalt kartesisk koordinatsystem $(a,b,c)$, kan beskrives ved tre enhedsvektorer $\xhat$, $\yhat$ og $\zhat$ på følgende måde:
+\begin{equation*}
+    P(a,b,c)=a\xhat+b\yhat+c\zhat
+\end{equation*}
+Denne repræsentation er unik, da man ikke kan beskrive punktet $P(a,b,c)$ på andre måder i det kartesiske rum, end den måde vi lige har vist. Derfor kan man se funktionerne $\psi_n$ som enhedsvektorer i et komplet rum, der gør det muligt at beskrive alle funktioner som en unik linear kombination af disse enhedsfunktioner, også kaldet egenfunktioner. Dette er en parallel til Taylorudvikling, her bruger vi bare ikke polynomier, men sinus funktioner som vores funktions base.
+
+Dette kan måske virke som en underlig egenskab ved den uendelige potentialebrønd, men faktisk viser det sig, at dette er en generel egenskab ved alle potentialer. Det er nemlig sådan, at ved alle potentialer vi kan tænke på til Schrödingerligningen, vil løsningerne være et sæt af egenfunktioner, der udspænder et komplet rum, og disse egenfunktioner vil hver især have en egenenergi $E_n$ knyttet til sig. Det vil samtidig være muligt at udtrykke alle tænkelige funktioner, som en linear kombination af disse egenfuntioner. 
+
+Men hvordan repræsenterer man så en vilkårlig funktion ud fra en samling af egenfunktioner? Svaret på dette er faktisk ganske simpelt (omend matematikken godt kan være lidt drilsk), man spørger simpelthen hvor meget af funktionen der er indeholdt i hver af egenfunktionerne. Dette gøres på samme måde som vi før gjorde, da vi så hvor meget af egenfunktionerne der er indeholdt i de andre egenfunktioner (i det tilfælde var resultatet 0). Så hvis vi har en funktion $f(x)$ der er normeret således at:
+\begin{equation*}
+    \integral{\abs{f(x)}^2}{x}{0}{L} = 1
+\end{equation*}
+så vil vi være i stand til at finde, hvor meget af hver egenfunktion $\psi_n$ der er indeholdt i $f(x)$ ved at sige:
+\begin{equation}
+c_n 
+= \integral{f^*(x)\psi_n}{x}{0}{L}
+\label{kvant:eq:proj}
+\end{equation}
+Hvor
+\begin{equation*}
+    \sum_{n=1}^{\infty}|c_n|^2=1
+\end{equation*}
+Hvilket så betyder at, vi kan udtrykke $f(x)$ som en linear kombination af egenfunktioner $\psi_n$ på følgende måde:
+\begin{equation}
+    f(x)=\sum_{n=1}^{\infty}c_{n}\psi_{n}
+\end{equation}
+\subsection{Superposition}
+Dette er i sig selv et fantastisk resultat, men den opmærksomme læser vil allerede nu have stillet sig selv et meget dybt spørgsmål. For hvis partiklen befinder sig i tilstanden $f(x)$, hvad er så dens energi? For at besvare dette spørgsmål, må vi henvende os til kvantemekanikkens tredje postulat, der handler om målingen af forventningsværdier, der siger, at vi skal presse operatoren for den værdi vi gerne vil måle ind imellem de to funktioner, når vi tager integralet af funktionerne. Fra sidste afsnit ved vi yderligere, at energioperatoren er den såkaldte Hamilton operator, og vi har jo lige fundet alle egenenergierne til den uendelige potentialebrønd, så vi har alt hvad vi skal bruge for at finde svaret. Vi sætter derfor bare ind og får:
+\begin{align}
+    \expect E&=\integral{f^*(x)\op H f(x)}{x}{0}{L}\nonumber\\
+    &=\integral{(c_1\psi_1+c_2\psi_2+...)^{*}\hat{H}(c_1\psi_1+c_2\psi_2+...)}{x}{0}{L}\nonumber\\
+    &=\integral{(c_1\psi_1+c_2\psi_2+...)^{*}(E_1c_1\psi_1+E_2c_2\psi_2+...)}{x}{0}{L}\nonumber\\
+    &=E_1\abs{c_1}^2\integral{\abs{\psi_1}^2}{x}{0}{L}+E_2\abs{c_2}^2\integral{\abs{\psi_2}^2}{x}{0}{L}+...\nonumber\\
+    &=E_1\abs{c_1}^2+E_2\abs{c_2}^2+E_3\abs{c_3}^2+E_4\abs{c_4}^2+...\label{eq:kvant:frovE}
+\end{align}
+Hvor vi her har brugt at 
+$$ \integral{\psi_{m}^{*}\psi_n}{x}{0}{L}=0 \qquad \text{for} \qquad n \neq m$$
+Ud fra dette kunne man derfor tro, at partiklen så har energien $\expect E$, hvilket så må medføre at partiklen dermed kan have alle energier, bare vi sørger for at forberede den i den rigtige tilstand $f(x)$, men dette er dog ikke tilfældet.
+Det er nemlig sådan at en partikel kun kan befinde sig i sin egenfunktion til potentialet $\psi_n$. Vi skal jo huske på, at $\expect E$ står for den gennemsnitlige energi vi burde finde, hvis vi laver uendelig mange målinger på et system med funktionen $f(x)$. Men ved en enkelt måling er det kun muligt at måle energierne $E_n$.
+
+Men hvordan ved vi hvilken $E_n$ vi så måler, når vi laver en måling af systemet? Svaret er, at det ved vi ikke, men vi kender sandsynligheden for at få energien $E_n$, og denne sandsynlighed er netop koefficienten $\abs{c_n}^2$. 
+
+Nu skal vi holde tungen lige i munden, for efter man har foretaget en måling af energien, og fået af vide at partiklen har energien $E_n$, så betyder det at hvis vi foretager endnu en måling af energien lige bagefter, så må vi nødvendigvis få samme svar tilbage, da partiklen jo lige har sagt at den har energien $E_n$, og at den befinder sig i tilstanden $\psi_n$.
+Det vi er her er stødt på er det man kalder superpositionsprincippet, hvilket siger, at hvis en partikel befinder sig i en bestemt tilstand
+\begin{equation*}
+    f(x)=\sum_{n=1}^{\infty}c_n\psi_n
+\end{equation*}
+og vi så måler på den, så tvinger vi partiklen til at beslutte sig for hvilken tilstand $\psi_n$, den gerne vil være i, hvorefter den kollapser til denne tilstand, således at $f(x)$ ændres til:
+\begin{equation*}
+    f(x)=\psi_n
+\end{equation*}
+Med andre ord, når vi måler på et system, så ændrer vi på systemet. Dette betyder ikke at partiklen så vil blive i tilstanden $\psi_n$, indtil vi igen måler på den, for den vil blive påvirket af alle mulige andre ting, man ikke kan skærme den for, som f.eks. fotoner, interaktioner med andre partikler og kvantefluktuationer, så den vil ret hurtigt igen blive ændret, til at være i en tilstand der er en linear kombination af egenfunktioner $\psi_n$, men det vigtige her er, at denne tilstand ikke er den samme tilstand, som vi startede med. 
+Men hvorfor er det så vigtigt at vide, hvad der sker, når vi laver en linear kombination af egenfunktioner? Grunden til dette er, at vi kun kan have bevægelse, hvis vores partikel har en tilstand,, der er en linear kombination af egentilstande, hvilket vi nu skal til at vise.
+\subsection{Tidsudvikling}
+Vi skal først huske på at den generelle løsning til Schrödingerligningen er
+$$\Psi_n(x,t)=\psi_n(x)\phi_n(t)=\psi_n(x)e^{\frac{-iE_nt}{\hbar}}$$
+Så hvis vi vil få vores bølgefunktion til at udvikle sig over tid, så skal vi gange det tidslige led $\Phi_n(t)$ på hver af vores egentilstande. Derfor kan vi udtrykke en generel tidsafhængig tilstand således:
+\begin{equation}
+    f(x,t)=\sum_{n=1}^{\infty}c_n\Psi_n(x,t)=\sum_{n=1}^{\infty}c_n\psi_n(x)e^{\frac{-iE_nt}{\hbar}}
+\end{equation}
+Nu forestiller vi os så, at vi har en tilstand, der kun består af en egentilstand $n=1$, $f(x,t)=\psi_1e^{\frac{-iE_1t}{\hbar}}$, så vores sandsynlighedsfordeling $\abs{f(x,t)}^2$ kan derfor udregnes til at være:
+\begin{equation*}
+    \abs{f(x,t)}^2=\left(\psi_1e^{\frac{-iE_1t}{\hbar}}\right)^{*}\left(\psi_1e^{\frac{-iE_1t}{\hbar}}\right)=\psi_1^{*}\psi_1 e^{\frac{+iE_1t}{\hbar}}e^{\frac{-iE_1t}{\hbar}}=\abs{\psi_1}^{2}
+\end{equation*}
+som tydeligvis ikke er tidsafhængigt, da egentilstandene $\psi_n$ kun er funktioner af sted.
+
+Hvis vi i stedet prøver at kigge på et tilstand $f(x,t)$ som består af to egenfunktioner, således at: $f(x,t)=c_1\Psi_1(x,t)+c_2\Psi_2(x,t)$, får vi følgende sandsynlighedsfordeling:
+\begin{align*}
+    \abs{f(x,t)}^2&=(c_1\Psi_1(x,t)+c_2\Psi_2(x,t))^{*}(c_1\Psi_1(x,t)+c_2\Psi_2(x,t))\\
+    &=\abs{c_1}^{2}\abs{\psi_1}^{2}+\abs{c_2}^{2}\abs{\psi_2}^{2}+c_1^{*}c_2\Psi_1^{*}\Psi_2+c_1c_2^{*}\Psi_1\Psi_2^{*}\\
+    &=\abs{c_1}^{2}\abs{\psi_1}^{2}+\abs{c_2}^{2}\abs{\psi_2}^{2}+c_1^{*}c_2\psi_1^{*}\psi_2e^{\frac{-i(E_2-E_1)t}{\hbar}}+c_1c_2^{*}\psi_1\psi_2^{*}e^{\frac{i(E_2-E_1)t}{\hbar}}\\
+    &\text{Hvis vi antager at $c_1$, $c_2$ og $\psi_1$, $\psi_2$ er reelle får vi:}\\
+    &=\abs{c_1}^{2}\abs{\psi_1}^{2}+\abs{c_2}^{2}\abs{\psi_2}^{2}+c_1c_2\psi_1\psi_2\cos\left(\frac{(E_2-E_1)t}{\hbar}\right)
+\end{align*}
+Hvilket viser at sandsynlighedsfordelingen for denne tilstand oscillere som en cosinusfunktion med frekvensen $\frac{E_2-E_1}{\hbar}$. Nu er det sådan at siden sandsynlighedsfordelingen ændrer sig med tiden, så bør vi også forvente at forventningsværdien af positionen $\expect x$ ændrer sig med tiden. Dette kan vi vise først ved at se på:
+\begin{equation*}
+    \integral{\abs{f(x,t)}^2}{x}{0}{L}=\integral{\abs{c_1}^{2}\abs{\psi_1}^{2}+\abs{c_2}^{2}\abs{\psi_2}^{2}+c_1c_2\psi_1\psi_2\cos\left(\frac{(E_2-E_1)t}{\hbar}\right)}{x}{0}{L}=\abs{c_1}^2+\abs{c_2}^2=1
+\end{equation*}
+Hvor vi her ikke kan regne med at leddet med $\psi_1$, $\psi_2$ giver 0, når vi integrerer over $x$. Dette skyldes, at vi her har puttet en operator ind i integralet, der ændrer funktionen så ortonormalitetsbetingelsen ikke længere holder. Dette betyder så at vores forventningsværdi for $x$ over tid vil ændre sig med en værdig givet ved:
+\begin{equation*}
+    \left<x\right>=c_1c_2\cos\left( \frac{(E_{2}-E_{1})t}{\hbar}\right)\int_{0}^{L}\psi_1x\psi_2 dx
+\end{equation*}
+For at forstå hvad det præcist er, der sker her, er vi derfor nødt til at forstå hvad en operator er, hvilket vi skal se på i næste afsnit.
+\subsection*{Operatorer}
+I kvantemekanikken er operatorer meget vigtige, men hvad er de egentligt. På mange måder minder operatorer om en funktion, men i stedet for at tage et tal som input og give et nyt tal vil en operator virke på en funktion og give en ny funktion. Operatorerne virker på alle funktioner til højre for dem, og efterlader alle til vestre for dem urørt.
+En type operator de fleste nok er bekendt med er differentialoperatoren: $\dif{x}{}$ Derudover er ting som at gange med en funktion eller et tal også operatorer. I kvantemekanikken er alle observable repræsenteret af operatorer. Vi har allerede stiftet bekendskab med en observabel, $x$.
+
+Forventingsværdien er den gennemsnitlige værdi vores observable vil have når man måler. Det er normalt også den værdi, man ville forvente ud fra klassisk mekanik. Hvis vi ønsker at finde en operator for hastigheden må vi stille det krav at forventningsværdien svarer til den klassiske hastighed:
+$$
+\expect v = \pdif{t}{\expect x}
+$$
+Siden $\op x$ blot er operatoren der ganger med funktionen $f(x)=x$, vil vi kunne ombytte funktionerne i udtrykket for $\expect x$ frit. Udtrykket er på samme form som i ligning \eqref{kvant:eq:forvent}. Da de er 
+$$
+\expect v = 
+\pdif{t}{} \integral{\Psi^*\op x\Psi}{x}{-\infty}{\infty} = 
+\integral{x\pdif{t}{}\abs{\Psi}^2}{x}{-\infty}{\infty}
+$$
+For at finde $\pdif{t}{}\abs{\Psi}^2$ bruges kæderegelen:
+$$
+\pdif{t}{}\abs{\Psi}^2 = \Psi^*\pdif{t}{\Psi}+\Psi\pdif{t}{\Psi^*}
+$$
+Ved at isolere $\pdif{t}{\Psi}$ i Schrödingerligningen \eqref{kvant:eq:sch} og ved at kompleks konjugere, er det muligt at erstatte tids differentieringen med $x$ differentialer:
+\begin{align*}
+\pdif{t}{\Psi} &= \frac{i\hbar}{2m}\pdif[2]{x}{\Psi}-\frac{i}{\hbar}V\Psi\\
+\pdif{t}{\Psi^*} &= \frac{-i\hbar}{2m}\pdif[2]{x}{\Psi^*}+\frac{i}{\hbar}V\Psi^*
+\end{align*}
+Det giver forventingsværdien for hastigheden som:
+\begin{align*}
+\expect v &= \frac{i\hbar}{2m}\integral{x
+\left( 
+\Psi^*\pdif[2]{x}{\Psi}-\frac{2m}{\hbar^2}\abs{\Psi}^2V
+-\Psi\pdif[2]{x}{\Psi^*}+\frac{2m}{\hbar^2}\abs{\Psi}^2V
+\right)}{x}{-\infty}{\infty} \\
+&=
+\frac{i\hbar}{2m}\integral{x\left(\Psi^*\pdif[2]{x}{\Psi}-\Psi\pdif[2]{x}{\Psi^*}\right)}{x}{-\infty}{\infty}
+\end{align*}
+Ofte kan udregninger gøres lettere ved at lægge nul til på en smart måde. I dette tilfælde $0=\pdif{x}{\Psi}\pdif{x}{\Psi^*}-\pdif{x}{\Psi}\pdif{x}{\Psi^*}$. Vi kan herefter anvende kæderegelen baglæns.
+\begin{align*}
+\expect v &= \frac{i\hbar}{2m}\integral{x\left(\Psi^*\pdif[2]{x}{\Psi}+\pdif{x}{\Psi}\pdif{x}{\Psi^*}-\Psi\pdif[2]{x}{\Psi^*}-\pdif{x}{\Psi}\pdif{x}{\Psi^*}\right)}{x}{-\infty}{\infty}\\
+&= 
+\frac{i\hbar}{2m}\integral{x\pdif{x}{}\left(\Psi^*\pdif{x}\Psi-\Psi\pdif{x}\Psi\right)}{x}{-\infty}{\infty}
+\end{align*}
+Når man finde differentialet af et produkt af funktioner bruger man kædereglen. Tilsvarende findes der en regel for integralet kaldet partiel integration. Desværre er udtrykket ikke lige så pænt.
+$$
+\integral{f\dif{x}{g}}{x}{a}{b} = [fg]_a^b -\integral{\dif{x}{f}g}{x}{a}{b}
+$$
+Hvis vores bølgefunktion er normerbar må den gå imod 0 i det uendeligt fjerne i begge retninger. Første led vil derfor være nul når vi arbejder med bølgefunktioner, og kan smides væk. 
+Delvis integration giver forventningsværdien:
+$$
+\expect v = \frac{-i\hbar}{2m}\integral{\pdif{x}{x}
+\left(\Psi^*\pdif{x}{\Psi}-\Psi\pdif{x}{\Psi^*}\right)
+}{x}{-\infty}{\infty}=
+\frac{-i\hbar}{2m}\integral{
+\Psi^*\pdif{x}{\Psi}-\Psi\pdif{x}{\Psi^*}
+}{x}{-\infty}{\infty}
+$$
+Anvendes delvis integration en gang til på andet led, ender vi med et resultat på samme form som ligning \eqref{kvant:eq:forvent}.
+$$
+\expect v = \frac{-i\hbar}{2m}\integral{\Psi^*\pdif{x}\Psi}{x}{-\infty}{\infty}+\frac{i\hbar}{2m}\integral{Psi\pdif{x}\Psi^*}{x}{-\infty}{\infty} = \frac{-i\hbar}{m}\integral{\Psi^*\pdif{x}{}\Psi}{x}{-\infty}{\infty}
+$$
+Herfra er det muligt, at slutte at hastighedsoperatoren er:
+\begin{equation}
+\op v = \frac{-i\hbar}{m}\pdif{x}{}
+\end{equation}
+Nu hvor vi har operatorer for position og hastighed, er det muligt at konstruere operatorer for andre observable herudfra. Den operator der ofte er af interesse er impulsoperatoren:
+\begin{equation} \label{kvant:eq:schax}
+    \op p = -i\hbar \pdif{x}{}
+\end{equation}
+Da Schrödinger opstillede ligningen, der idag er navngivet efter ham, havde han et andet udgangspunkt end vi har taget her. Schrödinger tog udgangspunkt i \eqref{kvant:eq:schax}, der derfor også kaldet Schrödingers aksiom.
+\begin{table}[h!]
+\center
+\begin{tabular}{c|c|c}
+Observabel & Klassisk udtryk & Operator \\\hline
+Position & $x=x$ & $\op x = x$\\
+Hastighed & $v = \pdif{t}{x}$ & $\op v = \frac{-i\hbar}{m}\pdif{x}{}$\\
+Impuls & $p = mv$ & $\op p = -i\hbar\pdif{x}{}$\\
+Energi & $E=\frac{1}{2}mv^2+V$ & $\op H = -\frac{\hbar^2}{2m}\pdif[2]{x}{}+V$
+\end{tabular}
+\caption{Et par af de mest almindelige observable og deres operatorer.} \label{tab:operatorer_i_kvant}
+\end{table}
+
+Når man regner med tal eller funktioner, er vi vandt til, at rækkefølgen vi ganger eller lægger sammen ikke har nogen betydning for resultatet.
+\begin{align*}
+a+b&=b+a\\
+ab &= ba
+\end{align*}
+Denne egenskab kaldes kommutativitet, og det er ikke garanteret at operatorer. For at undersøge om to operatorer kommuterer udregner man den såkaldte kommutator:
+\begin{equation}
+[\op A,\op B] = \op A \op B-\op B \op A
+\end{equation}
+Hvis kommutatorern er nul vil de to operatorer kommutere (tjek efter at det gælder for tal). Det kan ofte være en udfordring at regne med operatorer, så det kan være et fordel at finde kommutatoren ganget på en hjælpefunktion. Lad os for at demonstrere se på $[\op x,\op p]$
+$$
+[\op x,\op p] f(x) = -i\hbar\left(\op x\pdif{x}{}-\pdif{x}{}\op x\right) f(x) = -i \hbar \left(x\pdif{x}{f}-\pdif{x}{}xf(x)\right)=-i\hbar \left(x\pdif{x}{f}-\pdif{x}{x}-x\pdif{x}{f}\right) = i\hbar f(x)
+$$
+Nu har hjælpe funktionen spillet sin rolle, og kan roligt fjernes. Det giver at kommutatoren er:
+\begin{equation}
+[\op x,\op p] = i\hbar
+\label{kvant:eq:kankom}
+\end{equation}
+Det skal senere vis sig, at dette resultat har stor betydning for kvantemekanikken, og det er muligt at bruge værdien af kommutatoren, som en af forudsætningerne til at udlede kvantemekanikken.
+Det kaldes den kanoniske kommutatorrelation, og vi skal nu se en af de vigtige konsekvenser af denne.
+\end{document}

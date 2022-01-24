@@ -1,0 +1,52 @@
+\subsection{Højereordensintegraler}
+Ligesom vi har højereordensdifferentialer, findes det samme for integraler.
+Vi finder den anden afledte for en funktion ved at differentiere funktionen en gang og så gør det igen. På samme måde kan man løse et dobbeltintegraler ved først at integrere en gang og så gøre det igen. Rækkefølgen man gør det i er ikke vigtig, så man får at
+\begin{equation}
+    \int_{y_1}^{y_2}\int_{x_1}^{x_2} f(x,y) \dd{x}\dd{y}=\int_{x_1}^{x_2}\int_{y_1}^{y_2} f(x,y) \dd{y}\dd{x} \, ,
+\end{equation}
+hvor $f(x,y)$ her en en funktion af de to variable $x$ og $y$.
+Dobbeltintegraler kan ses som rumfanget under en flade, hvilket er en naturlig generalisering af arealet under en graf for et enkeltintegrale, som vi har set tidligere.
+Den tilsvarende visualisering er ikke praktisk for trippelintegraler (hvor man integrere en funktion af tre variable, $f(x,y,z)$), siden et 4-dimensionalt "rumfang"$\,$ der ligger "under"$\,$ en 3-dimensional figur er et meget mystisk koncept. 
+I nogle tilfælde er der dog en intuitiv fortolkning af trippleintegraler, hvis funktionen $f(x,y,z)$ beskriver en tæthed. Dvs. at $f(x,y,z)$ angiver, hvor meget der er af en given ting i et givet rumfang, hvilket vi kender fra betrebet massefylde (masse pr. rumfang).
+Givet en massefylde, $\rho$, så vil trippelintegralet give den samlede masse
+\begin{equation*}
+    m=\iiint \rho \dd{V}.
+\end{equation*}
+Her bruges \emph{volumenelementet} $\dd V$, fordi vi ikke har specificeret koordinatsystemet. Med almindelige kartesiske koordinater, $(x,y,z)$, er
+\begin{equation}
+    \dd{V} = \dd{x}\dd{y}\dd{z} \, .
+\end{equation}
+Helt tilsvarende findes {\em arealelementet} $\dd A$, der i kartesiske koordinater er
+\begin{equation}
+    \dd{A} = \dd{x}\dd{y} \, .
+\end{equation}
+
+Ofte kan man slippe for at løse alle integralerne, hvis funktionen og integrationsområdet er symmetriske.
+For dobbeltintegraler er det tilfældet, når der er \emph{polær symmetri},
+dvs. at funktionen kun afhænger af afstanden $r$ til origo, $(0,0)$, og at integrationsområdet er symmetrisk omkring origo. Vi kan da vælge arealelementet som en tynd ring med tykkelse $\dd r$ og en afstand $r$ ind til origo (i stedet for en firkant med sidelængderne $\dd{x}$ og $\dd{y}$). Arealelementet er da givet som arealet af denne ring, hvilket er
+\begin{equation} \label{eq:ArealElementMat}
+    \dd{A} = 2\pi r\dd{r}.
+\end{equation}
+Det giver integraler på formen
+\begin{equation} \label{mat:eq:polardoubleint}
+    \iint f\dd{A}=\iint f(r) \dd{A}=2\pi\int rf(r)\dd{r} \, .
+\end{equation}
+Kigger vi nu på trippleintegraler, er der to forskellige muligheder for symmetri.
+Den første er, når funktionen igen kun afhænger af afstanden $r$ til origo, $(0,0,0)$, og integrationsområdet ligeledes er symmetrisk omkring origo, hvilket kaldes {\em sfærisk symmetri}.
+Her gøres præcis det samme, men hvor man bruger kugleskaller i stedet for ringe. Siden overfladearealet af en kugle er $4\pi r^2$ giver det
+\begin{equation}
+    \dd{V} = 4\pi r^2 \dd{r} \, ,
+\end{equation}
+med integraler på formen
+\begin{equation}
+    \iiint f\dd{V} = \iiint f(r)\dd{V} = 4\pi\int r^2f(r)\dd{r} \, .
+\end{equation}
+Den anden mulighed er {\em cylindrisk symmetri}, hvor både funktionen og integrationsområdet er symmetriske omkring $z$-aksen. Det betyder, at vi kan se på $x$- og $y$-delen af trippelintegralet, som et dobbeltintegrale hvor der er polær symmetri.
+Det giver at
+\begin{equation}
+    \dd{V} = 2\pi r \dd{z}\dd{r} \, ,
+\end{equation}
+hvor $r$ her betegner afstanden fra $z$-aksen. Da får man at
+\begin{equation}
+    \iiint f\dd{V} = \iiint f(r,z)\dd{V} = 2\pi\iint r f(r,z)\dd{r}\dd{z} \, .
+\end{equation}

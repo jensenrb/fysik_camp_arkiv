@@ -1,0 +1,95 @@
+\chapter{Elektromagnetiske bølger}
+
+\section{Elektriske- og magnetiske felter}
+I fysikken er felter et godt værktøj, og inden for elektrodynamik er de uundværlige. Vi vil især beskæftige os med vektor felter, der er en  funktion, der giver hvert punkt i rummet en tilhørende vektor. Et simpelt eksempel på et vektorfelt er tyngdeaccelerationen. 
+$$
+\v{g}(x,y,z) = -g\hat{z}
+$$
+Det elektriske felt kommer af Coulombs lov: $\v{F} = \frac{q_1q_2}{4\pi\varepsilon_0r^2}$, der beskriver kraften imellem to ladninger. Kraften på ladning 1 afhænger af begge ladninger. I fysik vil man gerne finde så gennerelle løsninger som muligt. Istedet for at finde kraften imellem de to ladninger finder man det elektriske felt $\v{E}$ fra hver ladning. Felterne er defineret så krafen på en ladning i feltet er $\v{F}=\v{E}q$. 
+
+Den magnetiske kraft på en ladning er lidt anderledes end den elektriske kraft, den afhænger ikke kun af ladningen, men også hvor hurtigt og i hvilken retning ladningen bevæger sig. Man kan også beskrive kraften ved et felt: $\v{F} = q(\v{v}\times\v{B})$.
+
+
+
+
+\section{Maxwells ligninger}
+Dannelsen af $E$- og $B$-felterne beskrives af et sæt af fire ligninger, kaldet Maxwells ligninger. 
+\begin{align*}
+\v{\nabla}\cdot \v{E} &= \frac{\rho}{\varepsilon_0}\\
+\v{\nabla}\cdot \v{B} &= 0\\
+\v{\nabla}\times \v{E} &= -\frac{\partial \v{B}}{\partial t}\\
+\v{\nabla}\times \v{B} &= \mu_0\left(\varepsilon_0\frac{\partial \v{E}}{\partial t} + \v{j}\right)
+\end{align*}
+
+Den første kaldes Gauss lov, og siger at $\v{E}$ felter udstråler fra elektriske ladninger. Her er $\rho$ tætheden af de elektriske ladninger.
+Den anden har ikke et officielt navn, men kaldes ofte Gauss lov for magnetisme, p.g.a. ligheden imellem de to. Den siger at der ikke findes magnetiske ladninger (monopoler).
+Den tredje kaldes Faradays lov, og siger at en ændring i et $\v{B}$-felt skaber et $\v{E}$-felt.
+Den sidste, kaldet Amperes lov, siger at en ændring i et $\v{E}$ felt giver et $\v{B}$-felt. Den siger også at man kan danne et $\v{B}$-felt med en elektrisk strøm. $\v{j}$ strømtætheden, altså  strømstyrke per volumen.
+
+Alt i elektrodynamik kan udledes fra disse fire love, og en femte der beskriver hvordan ladede partikler påvirkes af elektromagnetiske felter kaldet Lorentz kraften: $\v{F} = q(\v{E}+\v{v}\times\v{B})$.
+\section{Bølgeligningen}
+De fleste har nok hørt at lys også kaldes for elektromagnetiske bølger, men hvordan kan det være? 
+
+Grundlæggende set er en bølge en forstyrelse der udbreder sig, ofte i et medie. Det kan være krusningerne på overfladen af en dam, eller svingningerne i luften, vi opfanger som lyd. Mange fysiske fænomener beskrives som løsninger til anden ordens differentialligninger, bølger er ingen undtagelse. Ligningen bag bølgefænomener kaldes logisk nok for bølge ligningen. I en dimmension er den:
+$$
+\frac{\partial^2 f}{\partial x^2} = \frac{1}{v^2}\frac{\partial^2 f}{\partial t^2}
+$$
+Det viser sig at bølgeligningen kan løses af alle funktioner på formen: $f(x\pm vt)$ hvor $f$ er en vilkårlig funktion. Af særlig interesse er dog sinusbølger. De skrives ofte med cosinus:
+$$
+f = A\cos\left(2\pi\left(\frac{x}{\lambda} - ft\right)+\phi\right) = A\cos\left( kx-\omega t+\phi\right)
+$$
+Her er $\lambda$ bølgelængden, afstanden imellem to bølgetoppe $f$ er frekvensen, hvor mange toppe paserer et punkt over tid. $\phi$ er en forskydning af bølgen. $k$ og $\omega$ kaldes bølgetallet og vinkelfrekvensen, de spiller samme rolle som bølgelængden og frekvensen, men inkluderer de $2\pi$. Sammen hængen imellem dem er: $$k=\frac{2\pi}{\lambda}~~ og ~~f = 2\pi\omega$$ For at opfylde bølgeligningen må det også gælde at:
+$$
+v = f\lambda = \frac{\omega}{k}
+$$
+\section{Elektromagnetiske bølger}
+I vakuum er der hverken ladninger eller elektriske strømme, så maxwells ligninger forsimples en anelse.
+\begin{align*}
+\v{\nabla}\cdot \v{E} &= 0\\
+\v{\nabla}\cdot \v{B} &= 0\\
+\v{\nabla}\times \v{E} &= -\frac{\partial \v{B}}{\partial t}\\
+\v{\nabla}\times \v{B} &= \mu_0\varepsilon_0 \frac{\partial \v{E}}{\partial t}
+\end{align*}
+Vi starter med at tage rotationen af $E$ to gange. Efter Faradays lov er  det:
+$$
+\v{\nabla}\times (\v{\nabla}\times\v{E}) = -\v{\nabla}\times\frac{\partial \v{B}}{\partial t}
+$$
+Siden $\v{\nabla}\times$ og $\frac{\partial}{\partial t}$ differentierer med hensyn til forskellige vairable er deres rækkefølge underordnet. Det tillader os at indsætte Amperes lov på højre side:
+$$
+\v{\nabla}\times (\v{\nabla}\times\v{E})  = -\frac{\partial}{\partial t}(\v{\nabla}\times \v{B}) = -\mu_0\varepsilon_0\frac{\partial^2 \v{E}}{\partial t^2}
+$$
+Vi er nu færdig med højre side, men højre side kan gøre simplere. Dobbelt rotation viser sig at være: 
+$$\v{\nabla}\times (\v{\nabla}\times\v{F}) =\v{\nabla}(\v{\nabla}\cdot \v{F})- \v{\nabla}^2\v{F} = \v{\nabla}(\v{\nabla}\cdot \v{F})-\frac{\partial^2 \v{F}}{\partial x^2}-\frac{\partial^2 \v{F}}{\partial y^2}-\frac{\partial^2 \v{F}}{\partial z^2}
+$$
+Da $\v{\nabla}\cdot\v{E}=0$ findes differentialligningen:
+$$
+\frac{\partial^2\v{E}}{\partial x^2}+\frac{\partial^2\v{E}}{\partial y^2}+\frac{\partial^2\v{E}}{\partial z^2} = \mu_0\varepsilon_0\frac{\partial^2 \v{E}}{\partial t^2}
+$$
+Dette er egentligt en bølgeligning, men vi kan reducere det til en en dimmesionel bølgeligning ved at antage at $E$ altid ligger langs $x$ aksen.
+$$
+\frac{\partial^2 \v{E}}{\partial x^2} = \mu_0\varepsilon_0\frac{\partial^2\v{E}}{\partial t^2}
+$$
+Der er intet særligt ved $x$-aksen, og $E$-feltet kunne lige så godt have enhver anden retning i $xy$-planen. $E$-feltet er dog altid vinkelret på udbredelsesretningen, så alt lys er transversale bølger. Retningen af $E$-feltet angiver lystets polarisering. $E$-feltet fra polariseret lys kan skrives:
+$$
+\v E = \begin{pmatrix}
+E_x\cos(kx-\omega t)\\
+E_y\cos(kx-\omega t)\\
+0
+\end{pmatrix}=
+\begin{pmatrix}
+E_x\\E_y\\0
+\end{pmatrix}
+\cos(kx-\omega t)
+$$
+Her ligger al informationen om lystets polarisering i vektoren, så hvis man arbejder med polariseret lys bruges ofte Jones vektorer. Det er en to dimmensionel vektor med $x$ og $y$ komposanterne.
+\begin{table}[h]
+\center
+\begin{tabular}{c|c r r}
+Polarisering &$\v E$-felt & Jones vektor & polariseringsvinkel\\\hline
+Vandret & $E_x\cos(kx-\omega t)\hat{\v x}$ & $\dbinom{1}{0}$&$0^\circ$\\
+Lodret & $E_y\cos(kx-\omega t)\hat{\v y}$ & $\dbinom{0}{1}$&$90^\circ$\\
+Diagonalt & $\dfrac{E}{\sqrt{2}}\cos(kx-\omega t)(\hat{\v x}+\hat{\v y})$ & $\frac{1}{\sqrt{2}}\dbinom{1}{1}$&$45^\circ$\\
+antidiagonalt & $\dfrac{E}{\sqrt{2}}\cos(kx-\omega t)(\hat{\v x}-\hat{\v y})$ & $\dfrac{1}{\sqrt{2}}\dbinom{1}{-1}$&$-45^\circ$\\
+\end{tabular}
+\caption{Forskellige polariseringer og deres Jones vektorer}
+\end{table}

@@ -1,0 +1,445 @@
+\documentclass[crop=false, class=memoir]{standalone}
+
+\input{../setup/preamble.tex}
+
+
+
+\begin{document}
+
+%midlertidigt
+
+
+\chapter{Numerisk Fysik} \label{chap:numfys}
+
+
+
+
+\section{Introduktion}
+
+Når man som fysiker bliver stillet et problem, er løsningen som oftest fundet ved at dele problemet op i mindre dele, og derefter finde løsningen til hvert af disse problemer. Hvor numerisk fysik adskiller sig fra analytisk fysik, er i hvordan opdelingen vælges. I numerisk fysik handler det om, at finde en måde at dele problemet op på, så hver enkelt del af problemet kan beskrives ved en simpel udregning. Derefter kan man blot træne en abe med en lommeregner, til at udføre udregningen et antal gange, og derefter til sidst aflæse resultatet på lommeregneren. Hvis man ikke umiddelbart har en abe ved hånden, kan man også få en computer til at udføre udregningen\footnote{Det er faktisk meget sundt, at tænke på en computer, som en abe, der er trænet til at gøre én bestemt ting meget hurtigt, men kun hvis man fortæller den præcist, hvad man vil have den til at gøre.}.
+
+Ofte kan det lade sig gøre at løse integraler analytisk, som i \cref{mat:tab:integral}, men ikke altid, og andre gange er det bare nemmere at gøre numerisk. Det kan gøres på mange måder. Lad os starte med at se på en matematisk approksimation, der kan være nyttig i denne sammenhæng.%, men lad os starte med at se på trapezmetoden.
+
+\section{Taylor-approksimation}
+
+En af grundstenene i både analytisk og numerisk fysik er rækkeudviklingen, som vi stiftede bekendtskab med i \cref{mat:sec:raekker}. En ofte brugt rækkeudvikling er Taylor-polynomiet \cite{Lindstroem2016}:
+%
+\begin{align} \label{numfys:eq:taylor}
+    T_N(a) = \sum_{n = 0}^N  \frac{f^{(n)}(a)}{n!} (x-a)^n 
+\end{align}
+%
+Taylor-approksimationen giver os muligheden for at erstatte regneteknisk svære udtryk med en sum af simple led, der er nemmere at håndtere. Samtidig kan vi til vilkårlig præcision bestemme værdier af komplicerede udtryk. Et klassisk eksempel er de trigonometriske funktioner (sin, cos, tan, ...), der i mange tilfælde er defineret ud fra deres rækkeudvikling i lommeregnere og CAS-værktøjer. Således at de for en vilkårlig vinkel $\theta$, kan udregne f.eks. $\sin(\theta)$. 
+
+Et andet eksempel er Eulers tal, $e$. En af definitionerne af $e$ er formlen: $\dv*{e^x}{x} = e^x$. Altså at $e^x$ differentieret giver sig selv. Udelukkende ud fra denne definition og Taylorapproksimationen kan man bestemme en numerisk værdi for $e$. Den opmærksomme læser vil kunne genkende en del fællestræk med \cref{mat:ex:eulers_tal,mat:ex:taylor}. Lad os bruge $e^x$ som vores funktion $f(x)$ og approksimere omkring $a=0$:
+%
+\begin{align}
+    T_N(x) = \sum_{n = 0}^N  \left.\frac{1}{n!}\dv[n]{e^x}{x}\right\vert_{x = 0} (x-0)^n = \sum_{n = 0}^N  \left.\frac{1}{n!} e^x\right\vert_{x = 0} x^n 
+    = \sum^{N}_{n = 0} \frac{x^n}{n!} 
+\end{align}
+%
+Fra dette kan $e$ til en vilkårlig præcision bestemmes. $e^1 = e $, så vi sætter $x=1$ og bruger den formel vi har fået:
+%
+\begin{align}
+\begin{aligned}
+    T_0(1) &= \frac{1}{0!} = 1 \\
+    T_1(1) &= \frac{1}{0!} + \frac{1}{1!} = 2 \\
+    T_2(1) &= \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} = \num{2,5} \\
+    T_3(1) &= \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} = \num{2,66}... \\
+    \vdots \\
+    T_{10}(1) &= \frac{1}{0!} + \frac{1}{1!} + \dots + \frac{1}{10!} = \num{2,71828180}
+\end{aligned}
+\end{align}
+%
+Taylorudviklingen af $e$ med 10 led giver da en præcision på 7 decimaler, hvor den først afviger fra den korrekte værdi på det ottende decimal: $e \approx \num{2,718281828}$.
+
+At Taylorudviklingen er en approksimation, ses når vi bevæger os væk fra punktet ($a$) vi har udvikle den om. Jo længere vi bevæger os fra $a$, desto større bliver fejlen sandsynligvis. Heldigvis kan vi opstille et udtryk for hor stor fejlen er, eller med andre ord, hvad restleddet er:
+%
+\begin{align}
+    R_N(x) = f(x) - T_N(x) = \frac{1}{n!} \int^x_a f^{(n+1)}(t)(x-t)^n \dd{t} \label{numfys:eq:restled}
+\end{align}
+%
+At dette er sandt kan ses ud fra en række \emph{partielle integrationer}. Den partielle integration er defineret ved:
+%
+\begin{align}
+    \int^b_a u v' \dd{t} &= \big[ uv \big]^b_a - \int^b_a u' v \dd{t} \label{Numfys:Eq:Partiel}
+\end{align}
+%
+Her bruges mærkenotationen $u' = \dv*{u}{t}$, da den er praktisk i de følgende udregninger. Hvis infitisimalregningens grundsætning (\cref{numfys:eq:hovedsaetning}) skrives om, kan vi få den på en form, således at vi kan bruge udtrykket for partiel integration. Herfra kan grundsætningen omformes, så den ligner restledsformlen for en første ordens Taylorrække, og dermed viser rigtigheden af \cref{numfys:eq:restled}:
+%
+\begin{align}
+    \int^b_a f'(t)\dd{t} &= f(b)-f(a) \label{numfys:eq:hovedsaetning} \\
+    \implies f(b) &= f(a) + \int^b_a f'(t)\dd{t}
+\end{align}
+%
+For at få udtrykket på en form, så vi kan komme videre, sætter vi: $u = f'(t)$ og $v = t-b$
+%
+\begin{align}
+    \int_a^b f'(t) \pdv{(t-b)}{t} \dd{t}  &= \int_a^b f'(t) \dd{t} = \big[f'(t)(t-b)\big]_a^b - \int_a^b f''(t)(t-b)\dd{t} \\
+    \implies f(b) &= f(a) - f'(a)(a-b) - \int_a^b f''(t) (t-b) \dd{t} \\
+    \implies f(b) &= f(a) + f'(a)(b-a) + \int_a^b f''(t) (b-t) \dd{t} 
+\end{align}
+%
+Hvis vi da erstatter $b$ med $x$, kan vi se at funktionen evalueret i $x$, blot er den første ordens Taylorudvikling omkring $a$, samt et restled:
+%
+\begin{align}
+f(x) = f(a) + f'(a)(x-a) + \int_a^x f''(t)(x-t)\dd{t} = T_1(x) + R_1(x)
+\end{align}
+%
+For højere ordner, gentages den partielle integration. Hvis man ikke kan evaluere restleddet analytisk kan dette estimeres numerisk. 
+
+
+\section{Trapezmetoden}
+
+Når man integrerer en funktion $f(x)$, svarer det til egentlig til at summe en masse uendeligt små arealer under grafen, se eventuelt \cref{mat:subsec:int}. Ved at summe alle de små arealer for hvert skridt af infinitisimal længde $\dd{x}$ i $\int_a^b f(x) \dd{x}$ får vi det samlede areal under grafen mellem $a$ og $b$. 
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[line width=1.25]
+    \draw[ultra thick] (0,0) rectangle (2,2.5);
+    %\draw (0,2.5) ;
+    \draw (2.5,0) node[below]{$x_{i}$};
+    
+    \fill[red!50] (0,1.75) -- (2,3.25) -- (2,2.5) -- (0,2.5) -- cycle;
+    
+    \draw[green, thick, decoration={brace}] (0,0) node[below left, black]{$x_{i-1}$}  -- (0,1.75) -- (2,3.25)  -- (2,0) -- cycle;
+    
+    \draw[decoration={brace}, xshift=-2pt, decorate] (0,0) -- node[left]{$f(x_{i-1})$} (0,1.75);
+    
+    \draw[decoration={brace, mirror}, xshift=2pt, decorate] (2,0) -- node[right]{$f(x_{i})$} (2, 3.25);
+    
+    \draw[decoration={brace, mirror}, yshift=-2pt, decorate] (0,0) -- node[below]{$\Delta x$} (2,0);
+    \end{tikzpicture}
+    \caption{Her er to måder at forestille sig de små arealer, der lægges sammen i trapezmetoden. Som trapezformer med en skrå side øverst -- eller som rektangler med en højde, der er den gennemsnitlige højde i trapezen. Arealet er det samme.}
+    \label{numfys:fig:trapez}
+\end{figure}
+
+Vi kunne jo også estimere arealet ved at summe arealer, der ikke er uendeligt små. Det er smart, hvis vi vil gøre det numerisk, så vi kan få computeren til at lægge et endeligt areal til ad gangen. For disse skriver vi bredden som $\Delta x$ og højden som $f(x)$ for at indikere, at de ikke er infinitisimale.
+Hvis vi nu vil integrere fra $a$ til $b$, kan vi starte i $a$. Så her er $x_0=a$. Derefter tager vi et skridt frem til $x_1=a+\Delta x$, så til $x_2=a+2\Delta x$ og så videre indtil vi tilsidst ender i $x=b$. Vil vi gøre det over $N$ skridt, så må hvert skridt have bredden
+%
+\begin{align}
+    \Delta x = \frac{b-a}{N}.
+\end{align}
+%
+Når vi er ved det i'te skridt, dvs. ved $x_i$, så er højden op til funktionen $f(x_i)$. Det forrige skridt er så $x_{i-1}$ og herfra er højden $f(x_{i-1})$. Hvis vi vil finde arealet af kassen mellem de to skridt, kunne vi gøre det som en simpel firkant, men hvilken højde skulle firkanten så have? $f(x_i)$ eller $f(x_{i-1})$? Der er det mere præcist at tage gennemsnittet af de to, så arealet af boksen bliver
+%
+\begin{align}
+    A_\text{trapez} = \frac{f(x_{i-1})+f(x_i) }{2} \Delta x. \label{numfys:eq:trapez}
+\end{align}
+%
+At bruge gennemsnittet af højderne svarer faktisk til at beregne arealet som en trapezform, ligesom den grønne figur i \cref{numfys:fig:trapez}. Her er det et almindeligt rektangel, bortset fra den øverste linje, som er skrå, og forbinder punktet $(x_i,f(x_i))$ med $(x_{i-1},f(x_{i-1}))$.
+Det giver samme areal, fordi vi kunne tegne en linje i den højde hvor gennemsnittet ligger, og så danner den skrå linje en trekant på hver side -- den ene er et areal, vi får meget, og den anden er et areal, vi får for lidt. De er dog lige store og udligner derfor hinanden.
+
+Når vi sammensætter mange trapezer for at estimere arealet under grafen vil vi nogle gange få lidt for meget, og andre gange lidt for lidt, som vist i \cref{numfys:fig:trapezmetoden}. Men med en passende skridtlængde passer det ofte nogenlunde.
+%
+\tikzset{axes/.style={->,>=stealth}}
+\tikzset{vector/.style={->,>=stealth}}
+%
+\begin{figure}[]
+    \centering
+    \begin{tikzpicture}[scale=3.5, domain=0:1.25, smooth, declare function={fcnf(\x) =-\x^2+1.5*\x; fcng(\x)=-0.25*\x*sin(deg((\x-0.15)*5))+0.5;}]
+
+    \def\a{0.22}
+    \def\b{0.978}
+    \def\h{0.25}
+    
+    \path (-0.2,0) node(xline){} (1.5,0);
+    \path (0,-0.2) node(yline){} (0,1.5);
+    
+    \foreach \n in {1,2,3,4,5}{
+    \filldraw[green, draw=black,style=dashed]  ({\h*\n},{fcng(\h*\n)}) -- ({\n*\h}, 0) -- ({\h*\n-\h}, 0) -- (\h*\n-\h,{fcng(\h*\n-\h)});}
+    \draw[line width=1.15] plot (\x,{fcng(\x)}) node[right] {$g(x)$};
+    
+    \draw[axes, line width=1.15] (-0.2,0) -- (1.5,0) node[right] {$x$};
+    \draw[axes, line width=1.15] (0,-0.2) -- (0,1) node[above] {$y$};
+    \end{tikzpicture}
+    \caption{Illustration af trapezmetoden, der viser hvordan man nogle gang overvurderer og andre gange undervurderer det faktiske areal. Det kan bemærkes, at firkanten længst til højre markant undervurderer arealet, fordi funktionen har et lokalt maksimum i midten. Halverede man bredden af firkanterne, ville man få to firkanter til at håndtere maksimaet, hvilket ville gøre approksimationen bedre.}
+    \label{numfys:fig:trapezmetoden}
+\end{figure}
+%
+Lad os derfor summe arealerne af alle trapezerne. Vi opdelte intervallet $a$ til $b$ med $N$ værdier af $x_i$, og trapezerne ligger mellem disse, så der er $N-1$ trapezer. Den første trapez ligger mellem $x_0$ og $x_1$ og den sidste vil være mellem $x_{N-1}$ og $x_N$. I summen vil vi for hvert $x_i$ gerne kunne ``se tilbage'' til $x_{i-1}$ for at finde arealet fra \cref{numfys:eq:trapez}. Derfor må vi starte summen fra $x_1$ og ende den i $x_N$. Hvis vi startede fra $x_0$ ville få et problem, da $x_{-1}$ ikke findes.
+Summen må altså indeholde $N-1$ arealer, som findes ved at lade $i$ løbe fra 1 til $N$. Som beskrevet på \cpageref{mat:eq:finitesum} kan vi skrive det med et sumtegn således:
+%
+\begin{align}
+    \int_a^b f(x) \dd{x} \approx \sum_{i=1}^{N} \frac{f(x_{i-1})+f(x_i) }{2} \Delta x.
+\end{align}
+%
+Heri er 2 konstanter, der ikke ændrer sig inde i summen -- derfor kan vi trække dem uden for sumtegnet,
+%
+\begin{align}
+    \int_a^b f(x) \dd{x} \approx  \frac{\Delta x}{2} \sum_{i=1}^{N} \left( f(x_{i-1})+f(x_i) \right),
+\end{align}
+%
+Lad os nu skrive summen lidt ud, for at få overblik over hvad den gør:
+%
+\begin{align}
+    \frac{\Delta x}{2} &\sum_{i=1}^{N} \Big( f(x_{i-1})+f(x_i) \Big) \\
+    &= \frac{\Delta x}{2} \bigg( \big(  f(x_0)+f(x_1) \big) + \big(  f(x_1)+f(x_2) \big) + \big(  f(x_2)+f(x_3) \big) \\
+    &+ \dots{} + \big(  f(x_{N-2})+f(x_{N-1}) \big) + \big(  f(x_{N-1})+f(x_N) \big) \bigg)
+    %&\frac{\Delta x}{2} \sum_{i=1}^{N} \left( f(x_{i-1})+f(x_i) \right)  \\
+    %&= \frac{\Delta x}{2} \big( \left(  f(x_0)+f(x_1) \right) + \left(  f(x_1)+f(x_2) \right) + \left(  f(x_2)+f(x_3) \right) \\
+    %&+ ... + \left(  f(x_{N-2})+f(x_{N-1}) \right) + \left(  f(x_{N-1})+f(x_N) \right) \big)
+\end{align}
+%
+Som du kan se, lægger den en masse led sammen, der er ens. Faktisk bliver alle $f(x_i)$ tilføjet to gange undtagen det første og sidste led. Det kan vi skrive som
+%
+\begin{align}
+    \frac{\Delta x}{2} &\Big(  f(x_0)+2f(x_1) +2f(x_2)  + ... + 2f(x_{N-1}) +f(x_N) \Big)\\
+    &= \frac{\Delta x}{2}  \left(  f(x_0)+f(x_N) + \sum_{i=1}^{N-1} 2f(x_i)\right)\\
+    &= \frac{\Delta x}{2}  \left(  f(x_0)+f(x_N) + 2\sum_{i=1}^{N-1} f(x_i)\right)
+\end{align}
+%
+Nu har vi altså en formel til at estimere integralet, hvor vi kun behøver at ændre $f(x_i)$ for hvert skridt. \Cref{numfys:eq:trapezmetoden} viser hermed, hvordan vi kan bruge trapezmetoden til numerisk integration:
+%
+\begin{align}
+    \int_a^b f(x) \dd{x} \approx \frac{\Delta x}{2} \left( f(x_0) + f(x_N) + 2 \sum_{i=1}^{N-1} f(x_i) \right). \label{numfys:eq:trapezmetoden}
+\end{align}
+%
+Trapezmetoden illustrerer også en vigtig pointe i numerisk fysik: man omskriver udtryk til en form, der er nem for en computer at arbejde med -- ikke et menneske. For et menneske er summen i \cref{numfys:eq:trapezmetoden} ret besværlig -- særligt hvis $N$ er et stort tal. Tænker vi igen på en computer, som en trænet abe med en lommeregner, så er det at lægge mange tal sammen hurtigt, lige præcis hvad den er god til. Af den grund er \cref{numfys:eq:trapezmetoden} en god måde for en computer at regne integraler.
+
+% Initial Value Problems
+% skrå kast
+% 
+% differential ligninger
+% - start betingelser
+% - (BVP - Boundary Value Problems)
+% - Numerisk iterativ løsning
+% Udledning
+% - taylor
+% - geometrisk
+% - differensligning
+% Eksempler på løsninger (exponentiel, trigonomisk, )
+% - Praktiske antagelser
+% - Problemer med metoden
+% - Perspektivering
+
+\section{Eulers metode}
+
+Euler-metoden kan bedst beskrives ved at være en algoritme\footnote{En algoritme er en opskrift, en computer kan følge, der i sidste ende giver et resultet, på samme måde som mennesker kan følge en kageopskrift, der til sidst giver en kage.}, der ``automatisk løser'' ordinære differentialligninger, der generelt er på formen:
+%
+\begin{align}
+    y'(x) = \dv{y}{x} = g\big(x,y(x)\big) 
+\end{align}
+%
+hvor vi kender $y(x_0) = y_0$. Derudover er $g\big(x,y(x)\big)$ en funktion af $x$ og den funktion, der er løsningen til differentialligningen $y(x)$. I \cref{mat:tab:diffligninger} så vi nogle eksempler på sådanne differentialligninger. Det faktum, at vi kender startværdien i det interval, som vi forsøger at løse differentialligningen over, gør at vi ofte kalder problemet et begyndelsesværdiproblem (engelsk: initial value problem)\footnote{Et problem, hvor man kender værdien af differentialligningen i begge ender af intervallet kaldes for et rendbetingelsesproblem (engelsk: ``Boundary Value Problem'').}. Selvom det kan virke som om vi kan finde mange situationer, hvor vi faktisk kan løse sådanne problemer analytisk, er dette ikke helt korrekt. Det er i realiteten meget sjældent, at vi kan løse disse problemer, når vi støder ind i dem. Det er i sådanne situationer, hvor vi bliver nødt til at ty til en numerisk løsning. Den simpleste metode er Euler metoden, men der findes et væld af andre\footnote{Undersøg eventuelt Runge-Kuttametoden, som er en familie af metoder, hvor Eulermetoden blot er den simpleste af disse.}. Et punkt hvor alle disse metoder har en fællesnævner er, at de alle sammen ikke finder den ``rigtige'' løsning, men en løsning, der forhåbentligt ligger tæt på den rigtige løsning. Dette kan sammenlignes med, hvordan Taylorrækken for en funktion ikke en præcis afbildning af funktionen, men at det er en god tilnærmelse. Det er også vigtigt at nævne, at en numerisk løsning til en differentialligning, fundet med sådanne metoder, ikke er et funktionsudtryk, men en række af punkter, som funktionen approksimativt går igennem. Noget andet, som mange af disse metoder også har til fælles, er at de er iterative. Det betyder, at de ud fra et kendt punkt, forsøger at finde det næste punkt for funktionen, og så gentager denne procedure for det nye fundne punkt. At dette nemt kan medføre fejl, er derfor ikke en overraskelse, da en fejl på et punkt bliver ført videre til det næste punkt.
+Det vil sige, at hvis vi kender $y(x)$, forsøger vi at finde punktet $y(x+h)$, hvor vi normalt forsøget at holde $h$ så lille som muligt. Eulers formel for hvordan dette gøre er
+%
+\begin{align}
+    y(x+h) &\approx y(x) + hy'(x) = y(x) + hf(x), \label{numfys:eq:euler1}
+\end{align}
+%
+hvor funktionen $f(x) = y'(x)$ er brugt. Eulers formel kan også skrives på formen
+%
+\begin{align}
+    y_{i+1} &= y_i + hf_i, \label{numfys:eq:euler2}
+\end{align}
+%
+hvor $y_i = y(x_i)$ og $f_i = y'(x_i)$. I \cref{numfys:eq:euler1,numfys:eq:euler2} kan vi se, at Eulers formel antager, at hvis $h$ er tilpas lille, så er funtionen $y(x)$ tæt på en ret linje. Hældningen på den rette linje, $f_i$, kan beregnes ved hjælp af differentialligningen, vi forsøger at løse, hvorefter vi kan beregne $y_{i+1}$. Eulers metode fungerer derfor ved at starte i det kendte punkt $(x,y) = (x_0,y_0)$, hvilket er startbetingelsen. Derudover vælger man en værdi af $h$, efter hvor præcis en løsning, man vil have. Herefter bruges differentiallignigningen til at beregne differentialkvotienten i punktet $x_0$, det vil sige $f_0$,
+%
+\begin{align}
+    f_0 = y'(x_0) = g\big(x_0,y_0\big).
+\end{align}
+%
+Nu kan $y_0$, $h$ og $f_0$ indsættes i \cref{numfys:eq:euler2}, og på den måde beregne $y_1$. Man har derved opnået et nyt kendt punkt $(x,y) = (x_1,y_1)$. Processen kan så gentages med udgangspunkt i det nye punkt, hvilket gøres indtil man er nået sit slutpunkt. Ligesom med trapezmetoden, er det bøvlet for et menneske at gøre, men da det kan skrives op som en række instruktioner ligesom i en kogebog, kan man få en computer til at gøre det for sig, hvilket den er god til\footnote{De algoritmer man bruger til numerisk løsning af differentialligninger i forskning, er en del mere avancerede end Eulers metode. De fungerer ved, at man bruger to forskellige formler til at estimere $y_{i+1}$. Ud fra de to estimater kan man estimere usikkerheden i $y_{i+1}$, hvorefter værdien af $h$ justeres imellem hvert punkt, således at man bruger så få punkter som muligt, for derved at løse differentialligningen hurtigst muligt med en specificeret præcision.}.
+
+\subsection{Udledning af Eulers metode}
+% Udledning
+% - taylor
+% - geometrisk
+% - differensligning
+% Udledning af Eulers metode ud fra Taylorudvikling for $n=1$:
+% En måde at udlede Eulers metoder er ud fra en Taylorudvikling til første orden omkring $x_i$, og derefter evaluere Taylorudviklingen omkring punktet $x_i + h$:
+%
+\Cref{numfys:eq:euler1} er en ret linje, hvorfor Eulermetoden antager, at vi kan approksimere løsningen til differentialligningen i et lille interval. Fra \cref{mat:sec:raekker}, mere specifikt \cref{mat:ex:taylor}, ved vi, at de fleste funktioner ligner en ret linje, hvis blot man zoomer langt nok ind på et punkt. Derudover ved vi, at den rette linje funktionen ligner omkring punktet $x_i$, kan bestemmes med funktionens Taylorrække til første orden:
+%
+\begin{align} \label{numfys:eq:taylor1}
+    y(x) \approx \sum_{n=0}^1 \frac{(x-x_i)^n}{n!}\eval{\dv[n]{y}{x}}_{x=x_i}
+    = \frac{(x-x_i)^0}{0!}\eval{\dv[0]{y}{x}}_{x=x_i} + \frac{(x-x_i)^1}{1!}\eval{\dv[1]{y}{x}}_{x=x_i}.
+\end{align}
+%
+Skrives \cref{numfys:eq:taylor1} med notationen fra \cref{numfys:eq:euler1} fås
+%
+\begin{align} \label{numfys:eq:taylor2}
+    y(x_i + h) \approx \frac{h^0}{0!}\eval{\dv[0]{y}{x}}_{x=x_i} + \frac{h^1}{1!}\eval{\dv[1]{y}{x}}_{x=x_i}
+    &= y(x_i) + h y'(x_i).
+\end{align}
+%
+Nu kan \cref{numfys:eq:taylor2} genkendes som værende samme ligning som \cref{numfys:eq:euler1,numfys:eq:euler2}.
+
+En anden måske mere intuitiv måde, at udlede Eulermetoden er igennem en differensligning. Her tager vi definition af differentialkvotienten, \cref{mat:eq:diffkvotient}, og approksimere den med differenskvotienten. Det vil sige, at siden computere kan ikke regne grænseværdien i \cref{mat:eq:diffkvotient}, så bruges \cref{mat:eq:differenskvotient} i stedet. Hvis blot de to punkter er meget tæt på hinanden, altså hvis $h$ er meget lille\footnote{I \cref{mat:sec:diff} hedder afstanden imellem punkterne $\Delta t$ og ikke $h$. Der er tale om præcis det samme -- symbolerne er bare forskellige.} i stedet for gående mod 0. Fra differentialligningen har vi at
+%
+\begin{align}
+    y'(x) &= \dv{y}{x} = g\big(x,y(x)\big). \label{numfys:eq:euler_difflign}
+    %
+    \intertext{Definitionen af differentialkvotienten siger at \cref{numfys:eq:euler_difflign} også kan skrives som}
+    %
+    y'(x) = \dv{y}{x} &= \lim_{h \rightarrow 0}\qty(\frac{y(x+h) - y(x)}{h}). \label{numfys:eq:euler_diff}
+\end{align}
+%
+Idéen med Eulermetoden er så, at hvis blot $h$ er lille nok, så er
+%
+\begin{align} \label{numfys:eq:euler_approx}
+    \lim_{h \rightarrow 0}\qty(\frac{y(x+h) - y(x)}{h}) \approx \frac{y(x+h) - y(x)}{h}.
+\end{align}
+%
+Kombineres \cref{numfys:eq:euler_difflign,numfys:eq:euler_diff,numfys:eq:euler_approx} får vi at
+%
+\begin{align} \label{numfys:eq:euler_approx2}
+    g\big(x,y(x)\big) = \dv{y}{x} \approx \frac{y(x+h) - y(x)}{h}.
+\end{align}
+%
+Isoleres $y(x+h)$ i \cref{numfys:eq:euler_approx2} fås resultatet
+%
+\begin{align}
+    y(x+h) &\approx y(x) + hg(x,y(x)),
+\end{align}
+%
+der kan genkendes fra \cref{numfys:eq:euler1,numfys:eq:taylor2}.
+ 
+\section{Programmeringsintro}
+
+\subsection{Hvad er programmering?}
+
+Når man programmerer, giver man computeren en række instruktioner, der fortæller den, hvordan den skal gå fra input til output, eller udføre en opgave. Ligesom en kogebog fortæller hvilke ingredienser, vi har brug for, hvordan vi behandler dem, og hvordan retten skal ende. 
+
+Programmering kan foregå i mange forskellige sprog, som har forskellige fordele og ulemper, afhængigt af hvad man vil bruge dem til. I nogle sprog skal man være meget præcis, så ens kode bliver længere, men til gengæld har man også større kontrol med, hvordan den kører. I andre sprog gætter computeren selv en større del af, hvad man mener. Forskellige sprog er også designet til forskellige måder, at skrive kode på. Selve metoden, computeren bruger til at tolke koden, kan også variere, og den syntaks\footnote{Syntaks betyder kort sagt de kommandoer, man skriver til computeren. Syntaks i eksempelvis Maple, Nspire og lignende dækker over hvad man skal skrive for at få programmet til at løse en ligning, differentiere en funktion, og så videre.}, man bruger til at skrive koden, er selvfølgelig også forskellig. 
+
+Et eksempel på et programmeringssprog er Python. Dette er et relativt intuitivt sprog at gå til, og vi vil derfor benytte det her. Desuden er det gratis og meget udbredt, bl.a. i forskningsverdenen. Udover selve sproget, bruger vi også et program, til at skrive vores kode i. Et som er rigtig godt til dette, og desuden har en masse ekstra funktioner er Jupyter Notebook. For at undgå at installere det, kan det køres direkte fra denne hjemmeside: \textcolor{blue}{cocalc.com/doc/jupyter-notebook}.
+
+\subsection{Introduktion til Python}
+
+Lad os starte med at definere en variabel. Vi kan for eksempel definere en variabel \pythoninline{x}, og sætte dens værdi til 5.
+%
+\begin{python}
+    x = 5
+\end{python}
+%
+Nu kan vi bede Python om at ``printe'' værdien af \pythoninline{x}, og så skulle den gerne svare ``5'':
+%
+\begin{python}
+    print(x)
+\end{python}
+%
+Hvis vi nu vil omdefinere \pythoninline{x}, så dens værdi er 1 højere, kan vi skrive:
+%
+\begin{python}
+    x = x + 1
+\end{python}
+Nu er x = 6. 
+%
+Man kunne også sætte \pythoninline{x} til et tekststykke såsom ``hej''. Dette kalder vi en ``streng'' (engelsk: ``string''). 
+%
+Hvis vi vil tjekke om \pythoninline{x>5}, kan vi for eksempel bruge et \pythoninline{if}-statement. Hvis udsagnet er sandt, vil den indrykkede kode blive kørt -- det vil sige at Python printer ``x er større end fem", hvis det er sandt at \pythoninline{x > 5}.
+%
+\begin{python}
+if x > 5:
+    print("x er større end fem")
+\end{python}
+%
+Måske vil vi også gerne printe noget i de tilfælde, hvor \pythoninline{x < 5} eller x = 5. Notationen \pythoninline{x = 5} definerer jo \pythoninline{x} som 5, og det ønsker vi ikke her. Så for at tjekke om x=5 skriver man i stedet \pythoninline{x==5}. Vi tjekker de 3 tilfælde med \pythoninline{if}, \pythoninline{elif} (som står for ``\pythoninline{else if}'') og \pythoninline{else}.
+%
+\begin{python}
+if x > 5:
+    print("x er større end fem")
+elif x == 5:
+    print("x er lig med fem")
+else:
+    print("x er mindre end fem")
+\end{python}
+%
+Ovenstående kode fungerer ved at computeren først tjekker om \pythoninline{x > 5} er sandt. Hvis det er tilfældet printer den ``x er større end fem'', og så er koden færdig. Hvis ikke udsagnet \pythoninline{x > 5} er sandt, så tjekker computeren nu om udsagnet \pythoninline{x == 5} er sandt. Er det tilfældet, printes nu``x er lig med fem'', hvorefter koden er færdig. Hvis hverken udsagnet \pythoninline{x > 5} eller \pythoninline{x == 5} er sandt, så printer Python sætningen ``x er mindre end fem''.
+
+Vi har nu kigget på en variabel \pythoninline{x}, der har en enkelt værdi, men nogle gange vil vi hellere behandle mange værdier samtidig. I så fald kan man definere en liste. Lad os kalde den ``liste'' og give den nogle værdier.
+\begin{python}
+liste = [3, 14, 754, -6, 0.24, 4, 1]
+\end{python}
+Vi kan tjekke nogle egenskaber ved listen og printe dem:
+\begin{python}
+print(len(liste))
+print(liste[5])
+\end{python}
+Funktionen \pythoninline{len()} finder længden af listen, som er 7, da den indeholder 7 elementer, og \pythoninline{liste[5]} printer det \emph{6.} element, som er 4. Hvorfor printer den ikke det 5. element? Fordi Python tæller elementerne fra 0 -- såkaldt \emph{nulindeksering}. Det første element er \pythoninline{liste[0]}, og det sidste er \pythoninline{liste[6]}. Disse tal, der henviser til forskellige steder i listen, kalder vi for ``indekser''. Man kan også få Python til at tælle elementerne bagfra, hvilket gøres ved at sætte et negativt fortegn på indekset. Det betyder at \pythoninline{liste[-1]} giver det sidste element i listen, \pythoninline{liste[-2]}, og så videre. Da $0 = -0$ giver det ikke mening, at bruge -0 som indeks, hvorfor de negative indeks starter ved -1.
+
+Hvis vi vil printe elementerne ét af gangen, kan vi bruge et \pythoninline{for}-loop.
+%
+\begin{python}
+for x in liste:
+    print(x)
+\end{python}
+%
+Python løber her igennem værdierne i listen: den starter med \pythoninline{x=liste[0]}, så \pythoninline{x=liste[1]} osv. For hvert element bliver indholdet inde i loopet kørt én gang. En anden måde man kunne gøre det på, er at loope over indekserne i listen -- altså tallene fra 0 til 6.
+%
+\begin{python}
+for i in range(0,7):
+    print(liste[i])
+\end{python}
+%
+Den nye variabel \pythoninline{i} vil nu skifte værdi i intervallet mellem 0 og 6. Bemærk at \pythoninline{range(0,7)} går op til 7, men værdierne for \pythoninline{i} når kun op til $7-1$. Sådan er det med \pythoninline{range()}.
+
+En anden ting, som vi kunne bruge et \pythoninline{for}-loop til, er at ændre en variabel for hver omgang i loopet. Hvis vi vil beregne summen af alle elementerne i listen, kunne vi lægge elementerne sammen ét efter ét.
+%
+\begin{python}
+sum = 0
+for i in range(0,7):
+    sum = sum + liste[i]
+print(sum)
+\end{python}
+%
+Der findes selvfølgelig også indbyggede funktioner til at tage en sum\footnote{Der findes den indbyggede funktion \pythoninline{sum()}, der beregner summen af dens argumenter.}, men sådan her kan man gøre det fra bunden.
+
+Hvis vi vil sætte \pythoninline{x} i anden, gør man det med \pythoninline{x**2}. Potens er faktisk generelt skrevet med \pythoninline{**} i Python. Hvis man vil tage kvadratroden, kunne man gøre det med \pythoninline{x**(1/2)}. Men hvad nu hvis vi har mere lyst til at skrive det som \pythoninline{sqrt(x)}? Så definerer vi bare en funktion til det!
+%
+\begin{python}
+def sqrt(x):
+    squareroot = x**(1/2)
+    return squareroot
+\end{python}
+%
+Her betyder \pythoninline{def}, at vi nu vil definere en funktion. Derefter kommer funktionens navn, som vi sætter til \pythoninline{sqrt}, og i parentesen er de input funktionen skal bruge. Her fortæller vi Python, at funktionen får brug for et \pythoninline{x}. Inde i funktionen laver vi så de beregninger vi har brug for -- her definerer vi en ny variabel, \pythoninline{squareroot}, som er kvadratroden af x (og vi udnytter at $\sqrt{x}=x^{1/2}$). Til sidst kommer \pythoninline{return}, som fortæller hvad funktionens resultat eller output er. Det er \pythoninline{squareroot}.
+
+Hvis vi så vil printe og kalde funktionen på et tal -- lad os sige 16 -- så skriver vi:
+%
+\begin{python}
+print(sqrt(16))
+\end{python}
+%
+Her indsætter Python først 16 på \pythoninline{x}s plads i funktionen og regner resultatet ud. Når det er gjort, gives resultatet til funktionen \pythoninline{print()}, som så printer resultatet. Er alt gået godt bliver det selvfølgelig 4.
+
+Vi kan også lave mere avancerede funktioner. Hvis vi eksempelvis vil lave en funktion, der kan printe en sætning, om hvorvidt \pythoninline{x} er større end, mindre end eller lig med 5. Så bruger vi \pythoninline{if}-statementet fra tidligere og definerer:
+%
+\begin{python}
+def er_det_større_end_5(x):
+    if x > 5:
+        svar = "x er større end fem"
+    elif x == 5:
+        svar = "x er lig med fem"
+    else:
+        svar = "x er mindre end fem"
+    return svar
+\end{python}
+%
+Funkionen her hedder altså \pythoninline{er\_det\_større\_end\_5} og dens output er variablen ``svar'', hvis værdi er en streng. Hvis vi så vil tjekke om 3 og 7 er større end 5, kan vi køre:
+%
+\begin{python}
+print(er_det_større_end_5(3))
+print(er_det_større_end_5(7))
+\end{python}
+%
+Dette fungerer selvfølgelig, når vi vil teste værdier i forhold til lige præcis 5. Vi kan også gøre det mere generelt, ved at tjekke om \pythoninline{x} er større eller mindre end en anden variabel, som vi kalder \pythoninline{y}. Nu har funktionen brug for 2 inputs -- \pythoninline{x} og \pythoninline{y}.
+%
+\begin{python}
+def er_x_større_end_y(x,y):
+    if x > y:
+        svar = "x er større end y"
+    elif x == y:
+        svar = "x er lig med y"
+    else:
+        svar = "x er mindre end y"
+    return svar
+    
+print(er_x_større_end_y(34,15))
+\end{python}
+%
+Her skulle Python gerne printe ``x er større end y'', fordi $34>15$.
+
+\nocite{fedorovLectureNotesPractical2020}
+\end{document}

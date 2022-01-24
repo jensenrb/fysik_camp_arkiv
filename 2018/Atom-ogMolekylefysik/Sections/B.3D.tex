@@ -1,0 +1,40 @@
+\documentclass[../../Atom-ogMolekylefysik.tex]{subfiles}
+\begin{document}
+\section{Kvantemekaniske værktøjer}
+I kapitlet om kvantemkanik holdt vi os primært til en partikel systemer i en dimension. Når man beskriver atomer og molekyler er der tale om mange\footnote{Mange som i en, to, mange.} partikler i tre dimensioner. Frygt ikke det er ikke en svær generalisering.
+\subsection{Kvantemekanik i 3 dimensioner}
+I Kvantemekanik kapitlet så vi mest på kvantemekanik i en dimension.
+Differentialet $\pdif[2]{x}{}$ i Schrödingerligningen opfører sig på mange måder som længden af en vektor, så det bliver $\pdif[2]{x}{}+\pdif[2]{y}{}+\pdif[2]{z}{}$. Dette afhængigt af valget af koordinater, så symbolet $\nabla ^2$ bruges når koordinaterne ikke er specificeret. Lige som man integrerer over alle de reelle tal nor man finder forventningsværdier i 1 dimension vil man integrere over alle tre dimensioner. Lige som for partielle differentialer kan man tage integralerne en af gangen og holde alt andet konstant.
+\begin{table}[]
+    \centering
+    \begin{tabular}{l l l}
+Koordinater &   Hamiltonoperatoren                              &   Forventningsværdi\\
+Endimensionelt & $\frac{-\hbar^2}{2m}\pdif[2]{x}{}+V$ & $\integral{\psi^*\op O\psi}{x}{-\infty}{\infty}$\\
+Gennerelt   &   $\frac{-\hbar^2}{2m}\nabla^2+V$ &   $\expect O = \matrixel{\psi}{\op O}{\psi}$\\
+Kartesisk   &   $\frac{-\hbar^2}{2m}\left(\pdif[2]{x}{}+\pdif[2]{y}{}+\pdif[2]{z}{}\right)+V$
+&   $\integral{\integral{\integral{\psi^*\op O\psi}{x}{\-\infty}{\infty}}{y}{\-\infty}{\infty}}{z}{\-\infty}{\infty}$\\
+Cylindrisk & $\frac{-\hbar^2}{2m}\left(\frac{1}{r}\pdif{x}{}\left(r\pdif{r}{}\right)+\frac{1}{r^2}\pdif[2]{\phi}{}+\pdif[2]{z}{}\right)+V$&$
+\integral{\integral{\integral{\psi^*\op O\psi r}{r}{}{\infty}}{\phi}{0}{2\pi}}{z}{\-\infty}{\infty}$\\
+Sfærisk &
+$\frac{-\hbar^2}{2m}\left(\frac{1}{r^2}\pdif{r}{}\left(r^2\pdif{r}{}\right)+\frac{1}{r^2\sin\theta}\pdif{\theta}{}\left(\sin \theta\pdif{\theta}{}\right)\frac{1}{r^2\sin^2\theta}\pdif[2]{\phi}{}\right)+V$&
+$\integral{\integral{\integral{\psi^*\op O\psi r^2\sin\theta}{r}{0}{\infty}}{\theta}{0}{\pi}}{\phi}{0}{2\pi}$
+    \end{tabular}
+    \caption{Konsekvenserne af forskellige valg af koordinatsæt.}
+    \label{tab:kvant:koordinat}
+\end{table}
+
+\subsection{Flere partikler}
+Når man arbejder med mere end et partikel på en gang vil bølgefunktionen være en funktion af flere koordinater, et sæt per partikel. Tilsvarende bliver Hamiltonoperatoren en sum af hamiltonoperatorerne for de enkelte partikler.
+Derefter er det muligt at skrive flerepartikel bølgefunktionen som et produkt af enkeltpartikel, hvor energien blot er summen af enkeltpartikel bølgefunktionernes energi. bølgefunktioner.
+
+\subsection{Paulis udelukkelses princip}
+Ud fra det vi ved nu ville det oplagte bud på grundtilstanden når vi har flere partikler være at de alle er i den lavest muligt tilstand. Det er dog ikke tilfældet.
+Det der forhindrer alle partiklerne i at alle være i deres individuelle grundtilstande er Paulis udelukkelses princip.
+Princippet siger at det ikke er muligt for to elektroner at have samme kvantetilstand.\footnote{Helt generelt siger Pauli at bølgefunktionen skal være antisymmetrisk under ombytning af fermioner og symmetrisk under ombytning af bosoner. At elektroner, der er fermioner ikke kan have samme kvantetilstand er en konsekvens heraf.}
+Elektroner har en egenskab der hedder spin. Det er en fundamental egenskab ved elektroner. Spin har en retning, og kan enten pege op eller ned. I stil med de diskrete energier vi tidligere har fundet er mellemting ikke mulige.
+Spin giver elektronerne en ekstra kvantemekaniske frihedsgrad, så der er plads til to elektroner for hver en elektron løsning vi senere vil finde. 
+For at finde et atoms grundtilstand placeres så mange elektroner som muligt i så lave som muligt orbitaler. Dette kaldes Aufbau princippet.
+
+
+
+\end{document}

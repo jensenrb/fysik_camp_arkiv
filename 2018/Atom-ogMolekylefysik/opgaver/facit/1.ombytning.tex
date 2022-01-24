@@ -1,0 +1,75 @@
+\section*{Spin}
+\begin{opgave}{Pauli princippet uden spin}{1}
+Der er en fejl i denne opgave, første del skulle have været $\op O\Psi(x_1,x_2)$
+\opg 
+$$
+\op O\Psi(x_1,x_2) = \op O(\psi(x_1)\psi(x_2))\psi(x_2)\psi(x_1) = \Psi(x_1,x_2)
+$$
+\opg Siden $\op O\Psi(x_1,x_2)=\Psi(x_1,x_2)
+$
+er bølgefunktionen symmetrisk, og dermed ikke antisymetrisk. Den er forbudt ifølge Pauli. Bølgefunktionen representerer to partikler i den samme tilstand, hvilket ikke kan lade sig gøre hvis spin ikke var en ting.
+\end{opgave}
+%
+\begin{opgave}{Rumbølgefinktioner}{2}
+\opg
+$$
+\op O \Psi_{12}=\op O(\psi_1(x_1)\psi_2(x_2))=\psi_1(x_2)\psi_2(x_1)=\Psi_{21}
+$$
+\opg
+$$
+\op O \Psi_{21}=\op O(\psi_2(x_1)\psi_1(x_2))=\psi_2(x_2)\psi_1(x_1)=\Psi_{12}
+$$
+\opg
+$$
+\op O \Psi^S=\op O\Psi_{12}+\op O\Psi_{21}=\Psi_{21}+\Psi_{12}=\Psi^S
+$$
+\opg
+$$
+\op O \Psi^A=\op O\Psi_{12}-\op O\Psi_{21}=\Psi_{21}-\Psi_{12}=-\Psi^A
+$$
+\opg $\Psi_{12}$ og $\Psi_{21}$ er ikke symmetriske under ombytning, $\Psi^S$ er symetrisk og $\Psi^A$ er  antisymmetrisk. Det er da også symmetrisk og antisymmetrisk som $S$ og $A$ står for.
+\end{opgave}
+%
+\begin{opgave}{Pauli med spin}{3}
+\opg
+$$
+\op O\alpha(1)\alpha(2) = \alpha(2)\alpha(1)
+$$
+\opg
+$$
+\op O \beta(1)\beta(2) = \beta(2)\beta(1)
+$$
+\opg
+$$
+\op O \alpha(1)\beta(2) = \alpha(2)\beta(1)
+$$
+\opg
+$$
+\op O \beta(1)\alpha(2) = \beta(2)\alpha(1)
+$$
+\opg Vi har allerede fundet to symmetriske spinbølgefunktioner, den sidste bølgefunktioner kan konstrueres på samme måde som $\Psi^S$.
+\begin{align*}
+\chi_{\alpha\alpha}&=\alpha(1)\alpha(2)\\
+\chi_{\beta\beta}&=\beta(1)\beta(2)\\
+\chi_{\alpha\beta}^S&=\alpha(1)\beta(2)+\beta(1)\alpha(2)
+\end{align*} 
+\opg Tilsvarende kan en antisymetrisk spin bølgefunktion konstrueres på samme måde som $\Psi^A$.
+$$
+\chi_{\alpha\beta}^A=\alpha(1)\beta-\beta(1)\alpha(2)
+$$
+\opg Når elektronerne er i samme rum tilstand kan de kun have en symmetrisk bølgefunktion, hvis den totale bølgefunktion skal være antisymmetrisk må spin bølgefunktionen være antisymmetrisk.
+Da der kun er en mulighed:
+\opg
+$$
+\Psi=\Psi_{11}\chi_{\alpha\beta}^A
+$$
+Dette kaldes en singlet tilstand.
+\opg For elektroner i forskellige tilstande er der to muligheder for den rummelige bølgefunktion: $\Psi^S$ og $\Psi^A$. For at opfylde Pauli må $\Psi^S$ kombineres med $\chi_{\alpha\beta}^A$ og $\Psi^A$ kombineres med en af de 3 andre.
+Det giver 4 ialt.
+\begin{align*}
+\Psi^S\chi_{\alpha\beta}^A\\
+\Psi^A\chi_{\alpha\alpha}\\
+\Psi^A\chi_{\beta\beta}\\
+\Psi^A\chi_{\alpha\beta}^S
+\end{align*}
+\end{opgave}

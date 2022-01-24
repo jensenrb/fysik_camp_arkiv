@@ -1,0 +1,119 @@
+\subsection*{Integralregning}
+\begin{opgave}[1]{Integraler og arealer under funktioner}
+I matematikafsnittet i kompendiet nævnes det, at når man regner et bestemt integral
+\begin{equation*}
+\int^a_b{f(x)}\dd{x},
+\end{equation*}
+så er svaret det samme som arealet under grafen for $f(x)$ i intervallet $[a,b]$ på $x$-aksen. Brug dette faktum til at diskutere den fysiske forståelse af følgende udsagn.
+\opg Hvis man integrerer en hastighed $v(t)$ ift. tiden $t$, så får man en position $x(t)$.
+
+Hastigheden er $\dv*{x}{t}$, så når man integrerer får man et udtryk for positionen. Grænserne sørger for at det netop er den afstand der er tilbagelagt imellem $a$ og $b$
+\opg Hvis man integrerer en acceleration $a(t)$ ift. tiden $t$, så får man en hastighed $v(t)$. 
+%
+Tilsvarende er accelerationen $\dv*{v}{t}$, så når man integrerer den får man en hastighed, hvor grenserne giver den specifikke ændring i hastighed imellem $a$ og $b$.
+\end{opgave}
+
+\begin{opgave}[1]{Ubestemte integraler}
+	Udregn det ubestemte integral af følgende funktioner:
+	\opg $f(x) = x^3$:
+    	\begin{align*}
+    	    \int x^3\dd{x}=\frac{1}{4}x^4+k.
+    	\end{align*}
+	\opg $f(x) = x^2 + 4x$:
+    	\begin{align*}
+    	    \int x^2+4x\dd{x}=\frac{1}{3}x^3+2x^2+k.
+    	\end{align*}
+	\opg $f(x) = x^2 + \dfrac{1}{x^2}$:
+	    \begin{align*}
+	        \int x^2+\frac{1}{x^2}\dd{x}=\frac{1}{3}x^3-\frac{1}{x}+k.
+	    \end{align*}
+	\opg $f(x) = \cos (x)$:
+	    \begin{align*}
+	        \int \cos(x)\dd{x}=\sin(x)+k.
+	    \end{align*}
+	\opg $f(x) = \frac{1}{x}$:
+	    \begin{align*}
+	        \int\frac{1}{x}\dd{x}=\ln|x|+k.
+	    \end{align*}
+    %
+    Husk at man kan se på hver led i en sum separat, og løsningerne til disse integraler kan slåes op.
+\end{opgave}
+
+\begin{opgave}[2]{Størrelsen af en port}
+    En tømmrer er blevet hyret til at lave tre porte.
+    Toppen af alle portene kan beskrives med følgende funktioner
+    \begin{align*}
+        f(x)&=1-x^2,\\
+        g(x)&=2-\frac{e^x+e^{-x}}{2},\\
+        h(x) &= 1-\abs{x}.
+    \end{align*}
+    Alle portene er i intervallet $[-1/2,1/2]$.
+    \opg Opstil bestemte integraler til at udregne arealet af de tre porte.
+    
+    For at finde arealet tages det bestemte integral fra $-1/2$ til $1/2$. Det bliver
+    \begin{align*}
+        A_f&=\int_{-1/2}^{1/2}f(x)\dd{x}\\
+        A_g&=\int_{-1/2}^{1/2}g(x)\dd{x}\\
+        A_h&=\int_{-1/2}^{1/2}h(x)\dd{x}
+    \end{align*}
+    \opg Hvilken port er størst?
+    
+    For at finde den største port skal vi kende alle deres arealer. De findes ved at løse integralerne
+    \begin{gather*}
+        A_f=\int_{\-1/2}^{1/2}1-x^2\dd{x}=\left[x-\frac{x^3}{3}\right]_{-1/2}^{1/2}=1-\frac{1}{12}=0,91667\\
+        A_g=\int_{\-1/2}^{1/2}2-\frac{e^x+e^{-x}}{2}\dd{x}=\left[2x+\frac{e^x-e^{-1}}{2}\right]_{-1/2}^{1/2}=2-e^{1/2}+e^{-1/2}=0.9578...
+    \end{gather*}
+    Til $h(x)$ er der den ekstra spidsfindighed at Det i virkeligheden er funktionen $h(x)=x$ for positive $x$ og $h(x)=-x$ for negative $x$.
+    Så man bliver nød til at splitte integralet op i to intervaller
+    $$
+    A_h=\int_{\-1/2}^{1/2}1-\abs{x}\dd{x}=\int_{-1/2}^{0}1-\abs{x}\dd{x}+\int_{0}^{1/2}1-\abs{x}\dd{x}
+    $$
+    Vi kan dog udnytte at funktionen kan spejles i $y$-aksen, så arealerne på begge sidder er ens, det betyder at vi kan skrive:
+    $$
+    A_h=2\int_0^{1/2}1-x\dd{x}=2\left[x-\frac{x^2}{2}\right]_0^{1/2}=2(\frac{1}{2}-\frac{1}{8})=0,75
+    $$
+    Vi kan nu konkludere at $A_g$ er størst.
+    \opg Hvilken er mindst?
+    
+    og at $A_h$ er mindst.
+\end{opgave}
+%%
+%%
+\begin{opgave}[3]{Lige og ulige funktioner}
+En funktion så som $f(x) = x^2$ der opfylder kravet, $f(x) = f(-x)$, kaldes en lige funktion. En funktion som $f(x) = x$ der opfylder det lignende krav, $f(x)=-f(-x)$, kaldes for en ulige funktion.
+Det vil sige, at en lige funktion er uændret, hvis man spejler den i $y$-aksen, mens en ulige funktion skifter fortegn ved den samme spejling.
+Bemærk at de fleste funktioner er hverken lige eller ulige, og unikt er funktionen $f(x) = 0$ både lige og ulige.
+Afgør om følgende funktioner er lige eller ulige.
+\opg $\sin(x)$
+Ulige, sinden $\sin(-x)=-\sin(x)$.
+\opg $e^{x^2}$.
+Lige siden $e^{(-x)^2}=e^{x^2}$.
+\opg $\cos(x)$.
+Lige, siden $\cos(-x)=\cos(x)$.
+\opg Sinus er den eneste ulige funktion:
+%
+\begin{align*}
+    \int_{-a}^{a}\sin(x)\dd{x} = \Big[-\cos(x)\Big]_{-a}^{a} = -\Big[\cos(a) - \cos(-a)\Big] = -\Big[\cos(a) - \cos(a)\Big] = 0,
+\end{align*}
+%
+da cosinus er en lige funktion.
+\opg Lad $f(x)$ betegne en reel ulige funktion omkring origo. Af midtpunktsreglen er
+%
+\begin{align*}
+    \int_{-a}^{a}f(x)\dd{x} &= \int_{-a}^{0}f(x)\dd{x} + \int_{0}^{a}f(x)\dd{x} = -\int_{-a}^{0}f(-x)\dd{x} + \int_{0}^{a}f(x)\dd{x} \\
+    &= \int_{a}^{0}f(y)\dd{y} + \int_{0}^{a}f(x)\dd{x} = -\int_{0}^{a}f(y)\dd{y} + \int_{0}^{a}f(x)\dd{x} \\
+    &= -\int_{0}^{a}f(x)\dd{x} + \int_{0}^{a}f(x)\dd{x} = 0
+\end{align*}
+\end{opgave}
+%%
+
+% \begin{opgave}{Ubestemte højere ordens integraler}
+%     Udregn følgende ubestemte højere ordens integraler.  Sæt alle integrationskonstanter til nul.
+    
+%     Den enkelte integraler tages en af gange, hvor alle andre variable betragtes som konstanter.
+%     Hvilken rækkefølge man tager integralerne i er underordnet.
+%     \opg $$\iint ye^{-x}\dd{x}\dd{y}=\int -ye^{-x}\dd{y}=-\frac{1}{2}y^2e^{-x}$$
+%     \opg $$\iint y\cos(xy)\dd{x}\dd{y} =\int \frac{y\sin(xy)}{y}\dd{y}=\int \sin(xy)+k_x\dd{x}=\frac{-\cos(xy)}{y}$$
+%     \opg $$\iiint (x^2+y^2)z\dd{x}z\dd{y}\dd{z}=\iint (x^2y+\frac{y^3}{3})z\dd{x}\dd{z}=\frac{1}{3}\int (x^3y+y^3x)z\dd{z} =\frac{1}{6}(x^3y+xy^3)z^2$$
+%     \opg \begin{gather*}\iiint \sin(x)\sin(y)\sin(z)\dd{x}\dd{y}\dd{z}=-\iint\sin(x)\sin(y)\cos(z)\dd{x}\dd{y}\\=\int\sin(x)\cos(y)\cos(z)\dd{x}=-\cos(x)\cos(y)\cos(z)\end{gather*}
+% \end{opgave}

@@ -1,0 +1,92 @@
+\section{Perspektiver i Analytisk Mekanik}
+Euler-Lagrangeligningen giver én andenordens differentialligning for hvert generaliseret koordinat, men disse kan være svære at løse. Nogle gange er det simplere at få to koblede differentialligninger pr. generaliseret koordinat, hvilket kræver en ny formulering af mekanikken.
+
+\subsection{Hamiltonformalismen}
+Tankegangen minder meget om den fra Lagrangeformalismen, hvorfor der kan tages udgangspunkt i den til at illustre idéen. Her defineres en Hamiltonfunktion, $H$, af $n$ generaliserede koordinater ud fra Lagrangefunktionen
+%
+\begin{align} \label{mek:eq:HamiltonDefinition}
+	H(q_1,q_2,...,q_n,p_1,p_2,...,p_n,t) \equiv \sum_i^np_i\dot{q}_i - L \: ,
+\end{align}
+%
+hvor $p_i$ er den generaliserede impuls svarende til det $i$'te generaliserede koordinat $q_i$. Det er vigtigt at pointere at en Hamiltonfunktion først kan kaldes en Hamiltonfunktion, når den er udtrykt udelukkende ved de generaliserede stedkoordinater og impulser. Det kommer til at give mening under udledningen af Hamiltons ligninger, der netop er udtrykt ved disse parametre. Den generaliserede impuls er defineret ud fra Lagrangefunktionen som
+\begin{align} \label{mek:eq:generaliseretImpuls}
+	p_i \equiv \pdv{L}{\dot{q}_i} \: .
+\end{align}
+I mange tilfælde er Hamiltonfunktionen givet ud fra et systems energier
+\begin{align} \label{mek:eq:H=E}
+	H = K + V = E \: ,
+\end{align}
+og den er faktisk ofte systemets samlede energi, hvilket dog ikke uddybes her. \\%, se \cref{opg:HamiltonEnergi}. \\
+Differentieres \cref{mek:eq:HamiltonDefinition} partielt med hensyn til det $i$'te generaliserede koordinat fås
+%
+\begin{align}
+	\pdv{H}{q_i} = p_i\pdv{\dot{q}_i}{q_i} + \pdv{p_i}{q_i}\dot{q_i} - \pdv{L}{q_i} - \pdv{L}{\dot{q}_i}\pdv{\dot{q}_i}{q_i} \: .
+\end{align}
+%
+Alle disse differentialer kommer af at der er tale om en produktfunktion og en sammensat funktion, og man er nød til at tage højde for, at der kan være bidrag fra alle led. Ved brug af \cref{mek:eq:generaliseretImpuls} ses det, at første og sidste led er ens, men med modsat fortegn. Derudover afhænger $p_i$ ikke eksplicit af $q_i$, hvorfor dens partielt afledte er nul. Dette skyldes at de generaliserede koordinater med tilhørende generaliserede impulser er en komplet basis for systemet, hvilket blandt andet betyder, at ingen af dem kan udtrykkes ved de andre, hvorfor deres partielt afledte med hensyn til hinanden skal være nul. \\
+Ved brug af Euler-Lagrangeligningen, \cref{mek:eq:Euler-Lagrange}, og definitionen på generaliseret impuls, \cref{mek:eq:generaliseretImpuls}, opnås den første af Hamiltons ligninger:
+%
+\begin{align}
+	\pdv{H}{q_i} = -\pdv{L}{q_i} = -\dv{}{t}\left(\pdv{L}{\dot{q_i}}\right) = -\dv{p_i}{t} = -\dot{p_i} \: .
+\end{align}
+%
+Prøves det nu at opskrive den partielt afledede af Hamiltonfunktionen med hensyn til den generaliserede impuls fås
+%
+\begin{align}
+	\pdv{H}{p_i} = p_i\pdv{\dot{q}_i}{p_i} + \pdv{p_i}{p_i}\dot{q_i} - \pdv{L}{p_i} - \pdv{L}{\dot{q}_i}\pdv{\dot{q}_i}{p_i} \: .
+\end{align}
+%
+Pr. definition er Lagrangefunktionen en funktion at de generaliserede koordinater og disses afledte, hvorfor $\partial L/\partial p_i = 0$. Med henvisning til \cref{mek:eq:generaliseretImpuls} ses det også, at første og sidste led er ens, og da den partielt afledte af en funktion med hensyn til sig selv er 1, fås det at
+%
+\begin{align}
+	\pdv{H}{p_i} = \pdv{p_i}{p_i}\dot{q_i} =  \dot{q}_i \: .
+\end{align}
+%
+Dette er Hamiltons 2. ligning, og skrives de to op sammen er det
+%
+\begin{equation}
+\begin{aligned}
+	\pdv{H}{q_i} &=  -\dot{p}_i \: , \\
+	\pdv{H}{p_i} &=  \dot{q}_i \: .
+\end{aligned}
+\end{equation}
+%
+Her vil der ikke gås i detaljen med, hvorfor Hamiltonformalismen kan være smart sammenlignet med Lagrangeformalismen, og det virker da også umiddelbart som ekstra arbejde, at skulle omskrive Lagrangefunktionen til en gyldig Hamiltonfunktion og så indsætte i Hamiltons ligninger, når man bare kunne have indsat i Euler-Lagrangeligningen. Her må man som læser bare stole på, at der eksisterer tilfælde, hvor Hamiltonformalismen er nemmere at benytte. Et mindre flyvsk argument for at introducere Hamiltonformalismen er dog at kvantemekanikken bygger på netop dette, hvilket ses i form af Hamiltonoperatoren, og alt dette introduceres i \cref{cha:Kvant} om netop kvantemekanik.
+
+% Herfra overlades det sidste til EHK at finde et hjem for =)
+
+\subsection{Fra klassisk mekanik til kvantemekanik}
+Kvantemekanikken bygger dog på Hamiltonformalismen, hvorfor idéen med dette afsnit er at introducere Hamiltonfunktionen, der omskrives til Hamiltonoperatoren, $\hat{H}$, som kan betragtes som grundstenen for kvantemekanikken, fordi den tidsuafhængige eller stationære Schrödingerligning kan skrives som egenværdiproblemet
+
+\begin{align}
+	\hat{H}\psi = E\psi
+\end{align}
+
+Her går $\psi$'erne ikke ud med hinanden, da dette er formuleret ved hjælp af den gren af matematikken, der hedder lineær algebra, hvilket gør matematikken meget lettere, når først man har styr på denne disciplin. Det er dog meget abstrakt at lære, hvorfor det ikke vil beskrives detaljeret her. Hamiltonoperatoren kan opskrives ud fra den klassiske Hamiltonfunktion ved at benytte at kinetisk energi kan udtrykkes på følgende måde for et generaliseret koordinat
+
+\begin{align} \label{mek:eq:K(p)}
+	K =  \frac{p^2}{2m}
+\end{align}
+
+hvilket kan motiveres ved at den generaliserede impuls ofte kan skrives på formen $p = m\dot{q}$, som giver definitionen på kinetisk energi, ved indsættelse i \cref{mek:eq:K(p)}. Derved giver \cref{mek:eq:H=E} at
+
+\begin{align}
+	H = K + V = \frac{p^2}{2m} + V
+\end{align}
+
+som på operatorform er
+
+\begin{align}
+	\hat{H} = \frac{\hat{p}^2}{2m} + \hat{V}
+\end{align}
+
+Benyttes impulsoperatoren i \cref{tab:operatorer_i_kvant} nu, samt definitionen på tallet $i$, nemlig at $i^2 = -1$, fås Hamiltonoperatoren fra samme tabel
+
+\begin{align}
+	\hat{p}^2 &= \left(-i\hbar\pdv{}{x}\right)^2 = \hbar^2\pdv[2]{}{x} \\
+	\hat{H} &= \frac{\hat{p}^2}{2m} + \hat{V} = -\frac{\hbar^2}{2m}\pdv[2]{}{x} + \hat{V}
+\end{align}
+
+Der er hermed dannet en bro mellem klassisk mekanik og kvantemekanik, og målet med dette er at vise at en sådan bro eksisterer fremfor en rigid gennemgang af Hamiltonformalismen og dens klassiske mangfoldigheder. \\
+
+Konkluderende kan det siges at metoden til at analysere et kvantemekanisk system er at opskrive systemets kinetiske og potentielle energi, for derefter at opstille systemets Hamiltonfunktion. Denne omskrives til en Hamiltonoperator, som giver mening for systemet, og derefter løses den stationære Schrödingerligning. Dette kan lyde relativt simpelt, men der kan komme en del komplikationer i forbindelse med eksempelvis skridtet med at omskrive Hamiltonfunktionen til en passende Hamiltonoperator.

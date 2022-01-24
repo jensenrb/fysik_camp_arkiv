@@ -1,0 +1,66 @@
+
+% ***************** UNF Science camp  kompendie ***************** %
+% Dette dokument indeholder enviroments, comannds, makroer og
+% layot specifikt til UNF science camp kompendier
+
+% Pakker der anvendes. Kendte 'issues:
+%	- xcolor skal loades før pdfpages, da den ellers loades uden dvipsnames
+\usepackage[dvipsnames]{xcolor}		% Farver
+\usepackage{xparse}							% Mere flexibel definition af makroer
+\usepackage{marginnote}					% Noter i margen
+\usepackage{forloop}						% Mulighed for forløkker
+
+
+
+% ***************** Opgave enviroment ***************** %
+% Sætter en opgave op og angiver sværhedsgraden. Opgavenummereringen nulstilles
+% efter hvert ny kapitel.
+% Anvenedelse: 
+% 		\begin{opgave}[farve]{Titel}{Sværhedgrad}
+% 			Introduktion
+% 			\opg
+% 			Delopgave 1
+% 			\opg
+% 			Delopgave 2
+% 			...
+% 		\end{opgave}
+%
+% Definer selve enviromentet. i´
+\newcounter{opgave}[chapter]
+\newcounter{delOpgave}[opgave]
+\newenvironment{opgave}[2][NavyBlue]
+	{\newcommand{\opg}{{{\refstepcounter{delOpgave}\smallskip\newline\textbf\thedelOpgave})\,}}
+	\noindent\ignorespaces\refstepcounter{opgave}\newline\textbf{Opgave \thechapter,\theopgave:
+	%\,\lvl[#1]{#3} #2
+	#2}
+	\newline}
+	{\bigskip}
+% Definer 
+\newcommand{\lvl}[2][NavyBlue]{
+	\setcounter{nBullets}{#2}
+	\addtocounter{nBullets}{1}
+	\checkoddpage
+	\ifoddpages
+		\normalmarginpar
+		\marginnote{\textcolor{#1}{\lvltoken{\value{nBullets}}}}
+	\else
+		\reversemarginpar
+		\marginnote{\textcolor{#1}{\lvltoken{\value{nBullets}}}}
+	\fi
+}
+% \NewDocumentCommand{\lvl}{ O{NavyBlue} O{$ \bullet $} m}{
+% 	\setcounter{nBullets}{#3}
+% 	\addtocounter{nBullets}{1}
+% 	\checkoddpage
+% 	\ifoddpage
+% 	\normalmarginpar
+% 	{\textcolor{#1}{\lvltoken[#2]{\value{nBullets}}}}
+% 	\else
+% 	\reversemarginpar
+% 	{\textcolor{#1}{\lvltoken[#2]{\value{nBullets}}}}
+% 	\fi
+% }
+\newcounter{lvl}
+\newcounter{nBullets}
+\newcommand{\lvltoken}[2][$ \bullet $]{
+	\forloop{lvl}{1}{\value{lvl} < #2}{#1}}

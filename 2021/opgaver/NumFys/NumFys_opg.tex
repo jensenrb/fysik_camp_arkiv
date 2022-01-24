@@ -1,0 +1,209 @@
+\documentclass[crop=false, class=memoir]{standalone}
+\input{../setup/preamble.tex}
+\usepackage{import}
+\begin{document}
+\chapter{Numerisk Fysik} \label{chap:numfys_opg}
+
+\subsection{Del 1: Kan løses i hånden} \label{sec:numfys_opg:haanden}
+
+\begin{opgave}[1]{Trapezmetoden}
+Vi vil integrere en funktion $f(x)$ ved hjælp af trapezmetoden. Vi integrerer fra 3 til 10 i skridt af størrelse 1. Værdierne af $x$ og $f(x)$ fremgår af \cref{numfys:table:trapez}.
+
+\setlength{\tabcolsep}{1.2 em}
+\def\arraystretch{1.3}
+\begin{table*}[]
+    \centering
+    \begin{tabular}{ccccccccc}
+        \toprule
+        \textbf{$x$}      & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10   \\
+        % \midrule
+        \textbf{$f(x)$} & 1 & 2 & 4 & 2 & 6 & 5 & -6 & 2   \\
+        \bottomrule
+      \end{tabular}
+      \caption{ Nogle værdier fra en funktion $f(x)$.}
+      \label{numfys:table:trapez}
+\end{table*}{} 
+
+\opg Brug formlen for trapezmetoden nedenfor til at beregne integralet af $f(x)$ fra 3 til 10. 
+
+\begin{align}
+    \int_a^b f(x) dx \approx \frac{\Delta x}{2} \left( f(x_0) + f(x_n) + 2 \sum_{i=1}^{N-1} f(x_i) \right) %eq:numfys:trapezmetoden i det andet dokument
+\end{align}
+
+
+\end{opgave}
+
+\begin{opgave}[2]{Trapezmetoden 2}
+Lad os bruge trapezmetoden til at approksimere integralet
+\begin{align} \label{numfys:eq:trapez2}
+    \int_0^5 \frac{1}{4} x^3 - x^2+3 \dd{x}.
+\end{align}
+
+\begin{figure}
+    \centering
+    \tikzset{axes/.style={->,>=stealth}}
+    \tikzset{vector/.style={->,>=stealth}}
+    
+    
+    \begin{tikzpicture}[scale=0.5, domain=0:5, smooth, yscale=1, xscale=2.5, declare function={fcnf(\x)=0.25*\x^3-\x^2+3;}]
+    
+    \path (-0.2,0) node(xline){} (5,0);
+    \path (0,-0.2) node(yline){} (0,10);
+    
+    %\draw [step=1.0,light grey, very thin] (0,0) grid (5,10);
+    
+    \foreach \x in {0,1,2,3,4,5}
+       \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {0,1,2,3,4,5,6,7,8,9,10}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+        
+    \draw plot (\x,{fcnf(\x)}) node[right] {$f(x)$};
+    
+    \draw[axes] (-0.2,0) -- (5,0) node[right] {$x$};
+    \draw[axes] (0,-0.2) -- (0,10) node[above] {$y$};
+    \end{tikzpicture}
+    \caption{Graf for funktionen, der integreres i \cref{numfys:eq:trapez2}.}
+    \label{numfys:fig:trapez2}
+\end{figure}
+
+
+
+\opg Løs det først analytisk, som beskrevet i matematikafsnittet, så vi har et svar at sammenligne med.
+
+\opg Tegn på figuren ovenfor hvordan hvert areal i trapezmetoden ville se ud for skridt af længde $\Delta x = 1$. Vil du forvente det numeriske integral bliver lidt for stort eller lidt for småt?
+
+\opg Før vi bruger trapezmetoden må vi vide hvilke punkter vi bruger den på. Opskriv værdierne af $x$ og $f(x)$ i integralet for skridt af længde $\Delta x = 1$.
+
+\opg Brug nu trapezmetoden til at estimere integralet. Blev resultatet som forventet?
+
+
+\end{opgave}
+
+\begin{opgave}[1]{Euler Metoden}
+Lad os prøve at bruge Eulers metode til at bestemme værdien af en funktion der er løsningen til en given differential , givet at vi kender funktionsværdien i et andet punkt.
+\\
+Differentialligningen, vi vil forsøge at estimere, er:
+\begin{align*}
+    y' &= y \\
+    y(0) &= 1 
+\end{align*}
+
+\opg Forsøg at finde $y(1)$ ved at bruge en skridtlængde på $h = 1$, dvs. kun en enkelt iteration i Euler metoden.
+\opg Forsøg at finde $y(1)$ ved at bruge en skridtlængde på $h = 0.2$, dvs. at I skal regne fem iterationer i Euler metoden.
+\opg Find den analytiske løsning af differentialligningen\footnote{Slå det op i en formelsamling eller spørg en regnelære hvis I ikke umiddelbart kender løsningen af differentialligningen} og sammenlign resultaterne fra de to første underopgaver med den ``korrekte'' værdi.
+
+\end{opgave}
+
+
+
+\subsection{Del 2: Løses i Python} \label{sec:numfys_opg:python}
+
+Opgaverne til Python vil blive udleveret elektronisk. Vi anbefaler at kode online via \textcolor{blue}{cocalc.com/doc/jupyter-notebook}.
+\\
+
+\iffalse
+    \begin{opgave}[1]{Python}
+    
+    Lad os først lige komme i gang med at programmere i Python.
+    
+    \opg Opret et dokument i Jupytor Notebook via hjemmesiden ovenfor. På hjemmesiden vil du blive spurgt om hvilken "kernel" du ønsker. Vælg Python 3.
+    
+    \opg Opret en variabel kaldet 
+    \emph{årstal} %Ville bruge \pythoninline{} men den virker ikke her??
+    og sæt værdien til hvilket år vi er i.
+    
+    \opg Bed python om at printe variablen.
+    
+    \opg Opret en variabel kaldet \emph{camp} og sæt værdien til hvilken camp du er på. Husk at sætte anførselstegn omkring navnet, så python ved den skal tolke det som en tekststreng. Ellers tror den det er en ukendt variabel.
+    
+    \opg Bed nu python om at printe campens navn.
+    
+    \opg Bed python om lægge 17 til årstallet (gøre variablen \emph{årstal} 17 større).
+    
+    \opg Print nu \emph{årstal} igen for at se om det virkede.
+    
+    \opg Bed python om at printe årstallet i anden.
+    
+    \opg Ekstra: Lav en funktion der tager et årstal som input og outputter årstallet plus 17 i anden.
+    
+    \end{opgave}
+    
+    
+    
+    
+    
+    
+    
+    \begin{opgave}[1]{Taylor}
+    Plot følgende funktioner, sammen med deres taylorrække, udviklet omkring a = 0, for forskellige ordner (n = 0,1,2,3)
+    
+    \opg $f(x) = \frac{1}{4}x^3 - x^2 + 3 $
+    \opg $f(x) = \sin(x)$
+    \opg $f(x) = e^x$ 
+    
+    \opg Overvej hvordan man kan vurdere hvor stor fejl man begår med Taylor approksimationen, kan formlen for restleddet løses numerisk. Prøv at implementere en funktion der bestemmer hvor stor fejl man begår.
+    
+    
+    \end{opgave}
+    
+    
+    
+    
+    
+     
+    
+    \begin{opgave}[2]{3 legeme problemet}
+    Bestem planetære bevægelser ud fra Newtons gravitationslov, samt Newtons anden lov:
+    
+    \begin{align}
+        \va{F} &= \frac{G \cdot m_1\cdot m_2}{|\va{r}|^2} \vu{r} \\
+        \va{F} &= m\cdot \va{a}
+    \end{align}
+    
+    Hvor $\va{r}$ er vektoren fra objekt 1 til objekt 2, og $\vu{r}$ er enhedsvektoren  $\vu{r} = \frac{\va{r}}{|\va{r}|}$
+    
+    \opg Sæt G = 1 og bestem bevægelsen af 3 objekter, med start hastighed, start position og masse: 
+    \begin{align}
+        \begin{matrix}
+        &m_0 = 1  &v_0 = [0,0]  &x_0 = [0,0] \\
+        &m_1 = 0.01 &v_1 = [0,1]  &x_1 = [1,0] \\
+        &m_2 = 0.01 &v_2 = [0,-1]  &x_2 = [-1,0] 
+    \end{matrix}
+    \end{align}
+    
+    \end{opgave}
+
+\fi
+
+
+% Partikel i EB-felt (cycloiden) JEP 
+
+% Bølge i væske
+
+% Kosmologi opgaver (forskellige modeller af universet)
+
+% Gletcher profiler (Geo) JEP 
+
+% Ising model (magnetisme)
+
+% Frit fald
+
+% Frit fald med luftmodstand (laminar/turbulent)
+
+% Skråt kast
+
+% Skråt kast med luftmodstand
+
+% Pendulet
+
+% Spredning af elektriske partikler
+
+% Faktisk regne på astro data?
+
+% Project Euler (som en fodnote)
+
+
+
+
+
+\end{document}

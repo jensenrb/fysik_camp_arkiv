@@ -1,0 +1,36 @@
+% Infobokse og lignende
+% http://mirrors.dotsrc.org/ctan/graphics/awesomebox/awesomebox.pdf
+% \usepackage{awesomebox}
+
+
+% Egen infobokse (virker kun med begrænsede symboler)
+
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{calc}
+\usepackage{kantlipsum}
+
+\usepackage[tikz]{bclogo}
+
+\tikzset{
+    % lampsymbol/.style={scale=2,overlay}
+    % lampsymbol/.pic={\centering\tikz[scale=5]\node[scale=10,rotate=30]{\bclampe}}.style={scale=2,overlay}
+    infosymbol/.style={scale=2,overlay}
+}
+
+\newmdenv[
+    hidealllines=true,
+    nobreak,
+    middlelinewidth=.8pt,
+    backgroundcolor=blue!10,
+    frametitlefont=\bfseries,
+    leftmargin=.3cm, rightmargin=.3cm, innerleftmargin=2cm,
+    roundcorner=5pt,
+    % skipabove=\topsep,skipbelow=\topsep,
+    singleextra={\path let \p1=(P), \p2=(O) in ($(\x2,0)+0.92*(1.1,\y1)$) node[infosymbol] {\bcinfo};},
+    % singleextra={\path let \p1=(P), \p2=(O) in ($(\x2,0)+0.5*(2,\y1)$) node[infosymbol] {\bcinfo};},
+]{info}
+
+% Skal bruges som
+% \begin{info}[frametitle={Titel}]
+%     Tekst
+% \end{info}

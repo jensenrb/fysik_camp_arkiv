@@ -1,0 +1,139 @@
+\documentclass[crop=false, class=memoir]{standalone}
+\input{../setup/preamble.tex}
+\usepackage{import}
+\begin{document}
+\chapter{Numerisk Fysik} \label{chap:numfys_facit}
+
+\begin{opgave}[1]{Trapezmetoden}
+
+\opg Brug formlen nedenfor til at beregne integralet af $f(x)$ fra 3 til 10.
+
+\begin{align}
+    \int_3^{10} f(x) dx &\approx \frac{\Delta x}{2} \left( f(x_0) + f(x_n) + 2 \sum_{i=1}^{N-1} f(x_i) \right) \\
+    &= \frac{\Delta x}{2} \bigg( f(x_0) + f(x_N) + 2\big(f(x_1)+f(x_2)+...+f(x_{N-1})\big) \bigg) \\
+    &= \frac{1}{2} \bigg( f(3) + f(10) + 2\big(f(4)+f(5)+f(6)+f(7)+f(8)+f(9))\big) \bigg) \\
+    &= \frac{1}{2} \bigg( 1 + 2 + 2\big(2+4+2+6+5-6)\big) \bigg)\\
+    &= \frac{1}{2} \cdot 29\\
+    &= \num{14.5}
+\end{align}
+
+
+\end{opgave}
+
+\begin{opgave}[1]{Trapezmetoden 2}
+
+
+\opg Løs det først analytisk, så vi har et svar at sammenligne med.
+
+\begin{align}
+    \int_0^5 \frac{1}{4} x^3 - x^2+3 \dd{x} &= \left[\frac{1}{4\cdot4} x^4 - \frac{1}{3}x^3 + 3x \right]_0^5 \\
+    &= \left(\frac{1}{16} 5^4 - \frac{1}{3}5^3 + 3\cdot5 \right) - \left(\frac{1}{16} 0^4 - \frac{1}{3}0^3 + 3\cdot0 \right)\\
+    &\approx \num{12,4}
+\end{align}
+
+\opg Tegn på figuren ovenfor hvordan hvert areal i trapezmetoden ville se ud for skridt af længde $\Delta x = 1$.
+
+
+\tikzset{axes/.style={->,>=stealth}}
+\tikzset{vector/.style={->,>=stealth}}
+
+
+\begin{tikzpicture}[scale=0.5, domain=0:5, yscale=1, xscale=2.5, smooth, declare function={fcnf(\x)=0.25*\x^3-\x^2+3;}]
+
+\path (-0.2,0) node(xline){} (5,0);
+\path (0,-0.2) node(yline){} (0,10);
+
+%\draw [step=1.0,light grey, very thin] (0,0) grid (5,10);
+
+\def\h{1}
+
+\foreach \n in {1,2,3,4,5}
+    \filldraw[blue!30, draw=black,style=dashed]  ({\h*\n},{fcnf(\h*\n)}) -- ({\n*\h}, 0) -- ({\h*\n-\h}, 0) -- (\h*\n-\h,{fcnf(\h*\n-\h)});
+    % \draw({\h*\n},{fcnf(\h*\n)}) -- ({\n*\h}, 0) -- ({\h*\n-\h}, 0) -- (\h*\n-\h,{fcnf(\h*\n-\h)});
+
+\foreach \x in {0,1,2,3,4,5}
+   \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {0,1,2,3,4,5,6,7,8,9,10}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    
+\draw plot (\x,{fcnf(\x)}) node[right] {$f(x)$};
+
+\draw[axes] (-0.2,0) -- (5,0) node[right] {$x$};
+\draw[axes] (0,-0.2) -- (0,10) node[above] {$y$};
+
+
+
+
+\end{tikzpicture}
+
+
+\opg Før vi bruger trapezmetoden må vi vide hvilke punkter vi bruger den på. Opskriv værdierne af $x$ og $f(x)$ i integralet for skridt af længde $\Delta x = 1$.
+
+\begin{table*}[h!]
+      \centering
+      \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+
+          \hline
+
+          %\hdashline
+          \textbf{$x$}      & 0 & 1 & 2 & 3 & 4 & 5  \\
+          \hline
+          \textbf{$f(x)$} & 3 & \num{2,25} & 1 & \num{0,75} & 3 & \num{9,25}  \\
+
+          \hline
+      \end{tabular}
+\end{table*}{} 
+
+\opg Brug nu trapezmetoden til at estimere integralet.
+
+
+\begin{align}
+    \int_0^5 \frac{1}{4} x^3 - x^2+3 \dd{x} &\approx \frac{\Delta x}{2} \left( f(x_0) + f(x_n) + 2 \sum_{i=1}^{N-1} f(x_i) \right) \\
+    &= \frac{1}{2} \bigg( f(0) + f(5) + 2\big(f(1)+f(2)+f(3)+f(4))\big) \bigg) \\
+    &= \frac{1}{2} \bigg( 3 + 9.25 + 2\big(\num{2.25} + 1 + \num{0.75} + 3)\big) \bigg) \\
+    &= \num{13,125}
+\end{align}
+
+\end{opgave}
+
+
+
+
+
+\begin{opgave}[1]{Euler Metoden}
+
+\opg Euler metoden med en iteration
+\begin{align*}
+    y(0) &= 1\\
+    y(0 + 1) &= y(0) + 1 \cdot y'(0) = 1 + 1 \cdot 1 = 2
+\end{align*}
+\opg Euler metoden med 5 iteratioenr
+\begin{align*}
+    y(0) &= 1 \\
+    y(0+0.2) &= y(0) + 0.2 \cdot y'(0) = 1 + 0.2 \cdot 1 = 1.2 \\
+    y(0.2 + 0.2) &= y(0.2) + 0.2 \cdot y'(0.2) = 1.2 + 0.2 \cdot 1.2 = 1.44 \\
+    y(0.4 + 0.2) &= y(0.4) + 0.2 \cdot y'(0.4) = 1.44 + 0.2 \cdot 1.44 = 1.728 \\
+    y(0.6 + 0.2) &= y(0.6) + 0.2 \cdot y'(0.6) = 1.728 + 0.2 \cdot 1.728 = 2.0736 \\
+    y(0.8 + 0.2) &= y(0.8) + 0.2 \cdot y'(0.8) = 2.0736 + 0.2 \cdot 2.0736 = 2.48832 \\
+\end{align*}
+
+\opg 
+Løsningen til differentialligningen er $y(x) = e^x$. Dvs at $y(1) = e^1 \approx 2.71828182846$.
+Vi ser da at jo mindre $h$ er jo tættere kommer vi på den korrekte løsning, men at vi dermed også skal bruge mere regnekraft. Hvis man forsøger med h = 0.001, og dermed skal igennem 1000 iterationer kommer man frem til resultatet: 2.7169, hvilket er tættere på det rigtige resultat, men stadig ikke så tæt som man kunne forvente efter 1000 iterationer. Heldigvis er det nemt at gøre skridtlængden lille med en computer, men det ville aldrig noget man kunne gøre i hånden. 
+
+
+
+
+\end{opgave}
+
+
+
+
+
+
+
+
+
+ 
+
+\end{document}

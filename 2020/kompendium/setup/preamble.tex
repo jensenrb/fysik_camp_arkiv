@@ -1,0 +1,88 @@
+\usepackage[utf8]{inputenc}%Nødvendig for danske bogstaver
+\usepackage[danish]{babel}%Sørger for at ting LaTeX gør automatisk er på dansk
+\usepackage{csquotes}
+\usepackage{geometry}%Til opsætning af siden
+\geometry{lmargin = 2.5cm,rmargin = 2.5cm}%sætter begge magner
+\usepackage{lipsum}%Fyldtekst, til brug under test af layoutet
+\usepackage{float}
+\usepackage{graphicx}%Tillader grafik
+\usepackage{epstopdf}%Tillader eps filer
+\usepackage{marginnote}% Noter i margen
+\interfootnotelinepenalty=10000 %undgår at fodnoter bliver spilittet op.
+\usepackage[sorting=none]{biblatex}
+\addbibresource{litteratur.bib}
+\usepackage[hidelinks]{hyperref}%Tillader links
+\usepackage{subcaption} % Tillader underfigurer
+\usepackage[font={small,sl}]{caption}	% Caption med skrå tekst ikke kursiv
+
+\usepackage{xcolor} %Bruges til farver
+\usepackage{forloop} %Bruges til nemmere for loops
+
+\newcounter{opgave}[chapter] %Definerer opgavenumrene og hvornår de nulstilles
+\renewcommand{\theopgave}{\thechapter.\arabic{opgave}} %Definerer udseende af opgavenummereringen
+\newcounter{delopgave}[opgave] %Definerer delopgavenumrene
+\newcounter{lvl} %Definerer en "variabel" til senere brug
+
+\definecolor{markerColor}{rgb}{0.0745098039, 0.262745098, 0.584313725} %Definerer farven af markøren
+\newcommand{\markerSymbol}{\ensuremath{\bullet}} %Definerer tegnet for markøren
+\newlength{\markerLength} %Definerer en ny længde
+\settowidth{\markerLength}{\markerSymbol} %Sætter den nye længde til bredden af markøren
+
+\newenvironment{opgave}[2][0]{%Definerer det nye enviroment, hvor sværhedsgraden er den første parameter med en default på 0
+\newcommand{\opg}{\refstepcounter{delopgave}\par\vspace{0.1cm}\noindent\textbf{\thedelopgave)\space}}%Definerer kommando til delopgave
+\refstepcounter{opgave}%Forøger opgavenummer med 1 og gør den mulig at referere til
+\setcounter{lvl}{#1}%Sætter "variablen" lvl lig med angivelsen af sværhedsgraden
+\noindent\hspace*{-0.75em}\hspace*{-\value{lvl}\markerLength}\forloop{lvl}{0}{\value{lvl}<#1}{{\color{markerColor}\markerSymbol}}\hspace*{0.75em}%Sætter et antal af markører svarende til sværhedsgraden
+\textbf{Opgave \theopgave : #2}\newline\nopagebreak\ignorespaces}{\bigskip} %Angiver udseende af titlen på opgaverne samt mellemrummet mellem opgaver
+
+
+
+\usepackage{mathtools}%Værktøjer til at skrive ligninger
+\renewcommand{\phi}{\varphi}%Vi bruger varphi
+\renewcommand{\epsilon}{\varepsilon}%Vi bruger varepsilon
+\usepackage{physics}%En samling matematikmakroer til brug i fysiske ligninger
+\usepackage{braket}%Simplere kommandoer til bra-ket-notation
+\usepackage{siunitx}%Pakke der håndterer SI enheder godt
+\DeclareSIUnit\clight{\text{\ensuremath{c}}} % Lysets fart i vakuum som c og ikke c_0
+\usepackage{chemmacros}
+\usechemmodule{isotopes}
+\usepackage{tikz}
+\usepackage[danish]{cleveref}
+\usepackage{nicefrac}
+% \renewcommand{\ref}[1]{\cref{#1}}
+\creflabelformat{equation}{#2(#1)#3}
+\crefrangelabelformat{equation}{#3(#1)#4 to #5(#2)#6}
+\crefname{equation}{ligning}{ligningerne}
+\Crefname{equation}{Ligning}{Ligningerne}
+\crefname{section}{afsnit}{afsnitene}
+\Crefname{section}{Afsnit}{Afsnitene}
+\crefname{figure}{figur}{figurene}
+\Crefname{figure}{Figur}{Figurene}
+\crefname{table}{tabel}{tabellerne}
+\Crefname{table}{Tabel}{Tabellerne}
+\crefname{opgave}{opgave}{opgaverne}
+\Crefname{opgave}{Opgave}{Opgaverne}
+\crefname{delopgave}{delopgave}{delopgaverne}
+\Crefname{delopgave}{Delopgave}{Delopgaverne}
+
+\newcommand{\eqbox}[1]{\begin{empheq}[box=\fbox]{align}
+	\begin{split}
+	#1
+	\end{split}
+\end{empheq}}
+
+\newcommand{\kb}{\ensuremath{k_\textsc{b}}}
+
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\lightyear}{ly}
+\DeclareSIUnit{\astronomicalunit}{AU}
+\DeclareSIUnit{\year}{yr}
+\DeclareSIUnit{\solarmass}{M_\odot}
+\DeclareSIUnit{\solarradius}{R_\odot}
+\DeclareSIUnit{\solarluminosity}{L_\odot}
+\DeclareSIUnit{\solartemperature}{T_\odot}
+\DeclareSIUnit{\earthmass}{M_\oplus}
+\DeclareSIUnit{\earthradius}{R_\oplus}
+\DeclareSIUnit{\jupitermass}{M_J}
+
+\input{Laserfysik/infoboks_pakker.tex}

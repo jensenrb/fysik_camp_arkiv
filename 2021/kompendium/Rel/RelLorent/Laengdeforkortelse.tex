@@ -1,0 +1,36 @@
+\subsubsection{Længdeforkortelse} \label{rel:sec:Laengdeforkortelse}
+Ligesom tiden forløber forskelligt for forskellige observatører, vil afstande også observeres forskelligt. Husk på at tid og sted på lige fod i relativitetsteori.
+Lad os vende tilbage til lysuret, men med den detalje, at vi nu drejer uret \SI{90}{\degree}, således at lyset bevæger sig parallelt med urets bevægelsesretning, se \cref{rel:fig:roteret_lysur}. I hvile er perioden for lysuret stadig
+%
+\begin{align}
+    T_0 = \frac{2L_0}{c}.
+\end{align}
+%
+Urets periode, set fra observatøren, skal deles op i to dele; den ene, hvor lyset rejser i samme retning som lysuret, og en anden, hvor de rejser i hver sin retning\footnote{Retningen af uret afhænger af observatøren.}.
+Perioden er så
+%
+\begin{align}
+    T = \frac{L}{c+v}+\frac{L}{c-v} = \frac{L(c-v+c+v)}{c^2-v^2} = \frac{2cL}{c^2-v^2} = \frac{2L}{c(1-v^2/c^2)} = \frac{2\gamma^2 L}{c}.
+\end{align}
+%
+Sammenhængen imellem et lysur i hvile og et i bevægelse er $T=\gamma T_0$, så sætter vi de perioder, vi lige har fundet ind, og isolerer længderne får vi:
+%
+\begin{align} \label{rel:eq:Laengdeforkortelse}
+\begin{aligned}
+    T & =\gamma T_0\\
+    \implies \frac{2L\gamma^2}{c} &= \gamma\frac{2L_0}{c}\\
+    \implies L = \frac{L_0}{\gamma} &= \sqrt{1-\frac{v^2}{c^2}}L_0.
+\end{aligned}
+\end{align}
+%
+Ligesom tiden går langsommere for et objekt i bevægelse, så vil objektet virke sammentrukket langs bevægelsesretningen, set fra en observatør i hvile. Set fra objektet i bevægelse, vil verden omkring det være sammentrykket i bevægelsesretningen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = .5\columnwidth]{Rel/RelLorent/lysur.eps}
+    \caption{Det roterede lysur i sit hvilesystem. For observatører bevæger uret sig i $x$-retningen. Kilde: figur 2.1 \cite{uggerhojSpecielRelativitetsteori2016}.}
+    \label{rel:fig:roteret_lysur}
+\end{figure}
+
+Vender vi tilbage til myonerne, vil afstanden, de skal tilbagelægge for at nå Jordens overflade, være langt mindre, idet verden trækkes sammen i bevægelsesretningen, for et objekt i bevægelse.
+Man kan også observere længdeforkortning andre steder. Et eksempel er indenfor elektronkrystallografi, hvor man sender elektroner ind imod en krystal. Jo højere hastighed, man sender elektronerne ind med, desto mere komprimeret virker krystallen.
